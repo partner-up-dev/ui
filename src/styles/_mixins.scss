@@ -1,0 +1,174 @@
+/*
+ * Utility Mixins
+ * Common mixins for using design tokens in components
+ */
+
+@use './ref' as ref;
+@use './sys' as sys;
+
+/* Typography Mixins */
+@mixin typography($key) {
+  $font: map-get(ref.$ref-typography, $key);
+  @if $font == null {
+    @error "Unknown typography token `#{$key}`. Available: #{map-keys(ref.$ref-typography)}";
+  }
+  font-size: map-get($font, size);
+  @if map-has-key($font, weight) {
+    font-weight: map-get($font, weight);
+  }
+  line-height: map-get($font, line-height);
+}
+
+/* Color Mixins */
+@mixin color($family, $step) {
+  $family-map: map-get(ref.$ref-colors, $family);
+  @if $family-map == null {
+    @error "Unknown color family `#{$family}`. Available: #{map-keys(ref.$ref-colors)}";
+  }
+  $val: map-get($family-map, $step);
+  @if $val == null {
+    @error "Unknown color step `#{$step}` for family `#{$family}`. Available: #{map-keys($family-map)}";
+  }
+  color: $val;
+}
+
+@mixin background-color($family, $step) {
+  $family-map: map-get(ref.$ref-colors, $family);
+  @if $family-map == null {
+    @error "Unknown color family `#{$family}`. Available: #{map-keys(ref.$ref-colors)}";
+  }
+  $val: map-get($family-map, $step);
+  @if $val == null {
+    @error "Unknown color step `#{$step}` for family `#{$family}`. Available: #{map-keys($family-map)}";
+  }
+  background-color: $val;
+}
+
+/* Elevation (Shadow) Mixin */
+@mixin elevation($level) {
+  $shadow: map-get(ref.$ref-shadows, $level);
+  @if $shadow == null {
+    @error "Unknown elevation level `#{$level}`. Available: #{map-keys(ref.$ref-shadows)}";
+  }
+  box-shadow: $shadow;
+}
+
+/* Spacing Mixins */
+@mixin spacing($property, $size) {
+  $value: map-get(ref.$ref-spacing, $size);
+  @if $value == null {
+    @error "Unknown spacing size `#{$size}`. Available: #{map-keys(ref.$ref-spacing)}";
+  }
+  #{$property}: $value;
+}
+
+@mixin padding($size) {
+  @include spacing(padding, $size);
+}
+
+@mixin margin($size) {
+  @include spacing(margin, $size);
+}
+
+@mixin gap($size) {
+  @include spacing(gap, $size);
+}
+
+/* Border Radius Mixin */
+@mixin radius($size) {
+  $value: map-get(ref.$ref-radius, $size);
+  @if $value == null {
+    @error "Unknown radius size `#{$size}`. Available: #{map-keys(ref.$ref-radius)}";
+  }
+  border-radius: $value;
+}
+
+/* Icon Mixin */
+@mixin icon($size, $layout: false) {
+  $width: map-get(ref.$ref-icon-size, $size);
+  $height: $width;
+  $font-size: map-get(ref.$ref-icon-font-size, $size);
+  
+  @if $width == null {
+    @error "Unknown icon size `#{$size}`. Available: #{map-keys(ref.$ref-icon-size)}";
+  }
+  
+  width: $width;
+  height: $height;
+  font-size: $font-size;
+  
+  @if $layout == true {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Size Mixin (for components) */
+@mixin size($size) {
+  $value: map-get(ref.$ref-size, $size);
+  @if $value == null {
+    @error "Unknown size `#{$size}`. Available: #{map-keys(ref.$ref-size)}";
+  }
+  width: $value;
+  height: $value;
+}
+
+/* CSS Variable Helpers */
+@mixin use-sys-color($property, $token) {
+  #{$property}: var(--sys-color-#{$token});
+}
+
+@mixin use-sys-spacing($property, $token) {
+  #{$property}: var(--sys-spacing-#{$token});
+}
+
+@mixin use-sys-radius($property, $token) {
+  #{$property}: var(--sys-radius-#{$token});
+}
+
+@mixin use-sys-shadow($token) {
+  box-shadow: var(--sys-shadow-#{$token});
+}
+
+/* Responsive breakpoint mixins (optional, for responsive design) */
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1536px,
+);
+
+@mixin breakpoint($size) {
+  $value: map-get($breakpoints, $size);
+  @if $value == null {
+    @error "Unknown breakpoint `#{$size}`. Available: #{map-keys($breakpoints)}";
+  }
+  @media (min-width: $value) {
+    @content;
+  }
+}
+
+/* Truncate text mixin */
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Flex center mixin */
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Absolute cover mixin */
+@mixin absolute-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
