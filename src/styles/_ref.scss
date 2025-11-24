@@ -174,26 +174,32 @@ $ref-typography: (
   ),
   title-large: (
     size: 22px,
+    weight: 400,
     line-height: 32px,
   ),
   title-medium: (
     size: 18px,
+    weight: 400,
     line-height: 24px,
   ),
   body-large: (
     size: 16px,
+    weight: 400,
     line-height: 24px,
   ),
   label-large: (
     size: 14px,
+    weight: 400,
     line-height: 20px,
   ),
   label-medium: (
     size: 12px,
+    weight: 400,
     line-height: 16px,
   ),
   label-small: (
     size: 10px,
+    weight: 400,
     line-height: 16px,
   ),
 );
