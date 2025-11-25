@@ -1,0 +1,111 @@
+/*
+ * Component Design Tokens
+ * Third layer: Component-specific tokens that use CSS variables from system layer
+ * Components should ONLY use CSS variables, never direct SCSS map values
+ */
+
+/* Component Tokens Map - Button */
+$comp-tokens: (
+  button: (
+    color: (
+      // Primary button
+      primary-bg: var(--sys-color-primary),
+      primary-text: var(--sys-color-on-primary),
+      primary-border: var(--sys-color-primary),
+      
+      // Secondary button
+      secondary-bg: var(--sys-color-secondary),
+      secondary-text: var(--sys-color-on-secondary),
+      secondary-border: var(--sys-color-secondary),
+      
+      // Error button
+      error-bg: var(--sys-color-error),
+      error-text: var(--sys-color-on-error),
+      error-border: var(--sys-color-error),
+      
+      // Outlined button
+      outlined-bg: transparent,
+      outlined-text: var(--sys-color-primary),
+      outlined-border: var(--sys-color-outline),
+      
+      // Text button
+      text-bg: transparent,
+      text-text: var(--sys-color-primary),
+      text-border: transparent,
+      
+      // Disabled button
+      disabled-bg: var(--sys-color-surface-container),
+      disabled-text: var(--sys-color-on-surface),
+    ),
+    spacing: (
+      padding-horizontal: var(--sys-spacing-med),
+      padding-vertical: var(--sys-spacing-sm),
+      gap: var(--sys-spacing-xs),
+    ),
+    size: (
+      small: var(--sys-size-small),
+      medium: var(--sys-size-medium),
+      large: var(--sys-size-large),
+    ),
+    radius: (
+      default: var(--sys-radius-med),
+      round: var(--sys-radius-full),
+    ),
+    font: (
+      size: var(--sys-font-label-large-size),
+      weight: var(--sys-font-label-large-weight),
+      line-height: var(--sys-font-label-large-line-height),
+    ),
+  ),
+  card: (
+    color: (
+      bg: var(--sys-color-surface),
+      border: var(--sys-color-outline-variant),
+      text: var(--sys-color-on-surface),
+    ),
+    spacing: (
+      padding: var(--sys-spacing-med),
+      gap: var(--sys-spacing-sm),
+    ),
+    shadow: (
+      default: var(--sys-shadow-1),
+      hover: var(--sys-shadow-2),
+      elevated: var(--sys-shadow-3),
+    ),
+    radius: (
+      default: var(--sys-radius-med),
+      large: var(--sys-radius-lg),
+    ),
+  ),
+  input: (
+    color: (
+      bg: var(--sys-color-surface-container-highest),
+      border: var(--sys-color-outline),
+      text: var(--sys-color-on-surface),
+      label: var(--sys-color-on-surface-variant),
+      placeholder: var(--sys-color-on-surface-variant),
+      focus-border: var(--sys-color-primary),
+      error-border: var(--sys-color-error),
+      disabled-bg: var(--sys-color-surface-container),
+      disabled-text: var(--sys-color-on-surface),
+    ),
+    spacing: (
+      padding-horizontal: var(--sys-spacing-med),
+      padding-vertical: var(--sys-spacing-sm),
+      label-spacing: var(--sys-spacing-xs),
+    ),
+    size: (
+      small: var(--sys-size-small),
+      medium: var(--sys-size-medium),
+      large: var(--sys-size-large),
+    ),
+    radius: (
+      default: var(--sys-radius-sm),
+    ),
+    font: (
+      size: var(--sys-font-body-large-size),
+      line-height: var(--sys-font-body-large-line-height),
+      label-size: var(--sys-font-label-medium-size),
+    ),
+  ),
+);
