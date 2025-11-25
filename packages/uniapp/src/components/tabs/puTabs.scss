@@ -1,0 +1,20 @@
+.pu-tabs {
+  white-space: nowrap;
+}
+
+.pu-tabs__item {
+  cursor: pointer;
+  display: inline-block;
+
+  &.active {
+    opacity: 1;
+  }
+
+  &.deactive {
+    opacity: fn.sys-var(opacity, invalid);
+  }
+}
+
+.space-m-l-med {
+  margin-left: fn.sys-var(spacing, med);
+}

@@ -1,0 +1,57 @@
+.pu-notice-bar {
+  display: flex;
+  align-items: center;
+  padding: fn.sys-var(spacing, sm) fn.sys-var(spacing, med);
+  border-radius: fn.sys-var(radius, xs);
+  overflow: hidden;
+  min-height: 40px;
+
+  &--wrapable {
+    .pu-notice-bar__text {
+      white-space: normal;
+    }
+  }
+
+  &__prefix {
+    margin-right: fn.sys-var(spacing, sm);
+    flex-shrink: 0;
+  }
+
+  &__content {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__text {
+    white-space: nowrap;
+
+    &--scrollable {
+      animation: pu-notice-bar-scroll 10s linear infinite;
+    }
+
+    &--vertical {
+      white-space: nowrap;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &__close {
+    margin-left: fn.sys-var(spacing, sm);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  &__icon {
+    font-size: 18px;
+    line-height: 1;
+  }
+}
+
+@keyframes pu-notice-bar-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

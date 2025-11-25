@@ -1,0 +1,199 @@
+// BEM root
+.pu-checkbox {
+  display: inline-block;
+  margin-right: fn.sys-var(spacing, sm);
+  line-height: 1.2;
+  vertical-align: middle;
+
+  &.is-inline {
+    display: inline-block;
+  }
+
+  &.is-button {
+    margin-right: fn.sys-var(spacing, sm);
+  }
+
+  &.is-large {
+    .pu-checkbox__shape {
+      width: fn.sys-var(size, large);
+      height: fn.sys-var(size, large);
+      font-size: fn.sys-var(size, large);
+    }
+    .pu-checkbox__label {
+      font-size: var(--sys-font-title-medium-size);
+    }
+  }
+}
+
+.pu-checkbox__shape {
+  position: relative;
+  display: inline-block;
+  width: fn.sys-var(size, small);
+  height: fn.sys-var(size, small);
+  border: 2px solid fn.sys-var(color, outline);
+  border-radius: fn.sys-var(radius, full);
+  color: fn.sys-var(color, primary);
+  background: fn.sys-var(color, surface);
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  &.is-square {
+    border-radius: fn.sys-var(radius, xs);
+  }
+}
+
+.pu-checkbox__check {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  opacity: 0;
+}
+
+.pu-checkbox__label {
+  position: relative;
+  display: inline-block;
+  margin-left: fn.sys-var(spacing, xs);
+  vertical-align: middle;
+  font-size: 14px;
+  color: fn.sys-var(color, on-surface);
+}
+
+.pu-checkbox__txt {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 20px;
+}
+
+.pu-checkbox.is-checked {
+  .pu-checkbox__shape {
+    background: currentColor;
+    border-color: currentColor;
+  }
+  .pu-checkbox__check {
+    opacity: 1;
+  }
+}
+
+// button shape styles
+.pu-checkbox.is-button {
+  .pu-checkbox__shape {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    border: none;
+  }
+
+  .pu-checkbox__label {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    height: 30px;
+    font-size: 14px;
+    margin-left: 0;
+    padding: fn.sys-var(spacing, xs) fn.sys-var(spacing, sm);
+    border: 1px solid fn.sys-var(color, outline-variant);
+    background-color: fn.sys-var(color, surface);
+    border-radius: fn.sys-var(radius, sm);
+    box-sizing: border-box;
+  }
+
+  &.is-checked {
+    .pu-checkbox__label {
+      color: fn.sys-var(color, primary);
+      background-color: fn.sys-var(color, surface);
+      border-color: fn.sys-var(color, primary);
+    }
+  }
+}
+
+.pu-checkbox.is-disabled {
+  .pu-checkbox__shape {
+    border-color: fn.sys-var(color, outline-variant);
+    background: fn.sys-var(color, surface-container-low);
+  }
+  .pu-checkbox__label {
+    color: fn.sys-var(color, on-surface-variant);
+  }
+  &.is-checked {
+    .pu-checkbox__shape {
+      color: fn.sys-var(color, outline-variant);
+    }
+    .pu-checkbox__label {
+      color: fn.sys-var(color, on-surface-variant);
+    }
+  }
+  &.is-button {
+    .pu-checkbox__label {
+      background: fn.sys-var(color, surface-container-low);
+      border-color: fn.sys-var(color, outline-variant);
+      color: fn.sys-var(color, on-surface-variant);
+    }
+    &.is-checked .pu-checkbox__label {
+      border-color: fn.sys-var(color, outline-variant);
+    }
+  }
+}
+
+// Bar 类型样式
+.pu-checkbox.is-bar {
+  display: block;
+  margin-right: 0;
+
+  @include pu-font("label-large");
+
+  .pu-checkbox__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: fn.sys-var(spacing, sm) fn.sys-var(spacing, med);
+    box-sizing: border-box;
+    position: relative;
+    background-color: fn.sys-var(color, surface-container-low);
+  }
+
+  .pu-checkbox__bar-shape {
+    width: fn.sys-var(size, xSmall);
+    height: fn.sys-var(size, xSmall);
+    box-sizing: border-box;
+    border: 1px solid fn.sys-var(color, outline);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pu-checkbox__bar-check {
+    color: fn.sys-var(color, primary-on);
+    opacity: 0;
+  }
+
+  .pu-checkbox__bar-label {
+    color: fn.sys-var(color, on-surface);
+  }
+
+  &.is-checked {
+    .pu-checkbox__bar {
+      outline: 1px solid fn.sys-var(color, primary);
+      outline-offset: -1px;
+    }
+    .pu-checkbox__bar-shape {
+      border-color: fn.sys-var(color, primary);
+      background-color: fn.sys-var(color, primary);
+    }
+    .pu-checkbox__bar-check {
+      color: #fff;
+      opacity: 1;
+    }
+  }
+
+  &.is-disabled {
+    .pu-checkbox__bar {
+      opacity: 0.6;
+    }
+  }
+}
