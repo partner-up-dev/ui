@@ -1,6 +1,7 @@
 /*
  * Main Style Entry Point
  * Centralized CSS variable emission for all tokens (ref, sys, comp)
+ * Note: fn namespace is auto-injected via Vite's additionalData
  */
 
 @use 'sass:map';
