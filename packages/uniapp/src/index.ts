@@ -8,19 +8,22 @@ import './styles/index.scss'
 
 // Re-export style utilities for TypeScript usage
 export * from './utils/tokens'
+export * from './utils/props'
 
-// Example component exports (add as components are created)
-// export { default as PuButton } from './components/button/PuButton.vue'
-// export { default as PuCard } from './components/card/PuCard.vue'
+// Component exports
+export { default as PuButton } from './components/button/puButton.vue'
+export * from './components/button/puButton'
 
 // Version
 export const version = '0.1.0'
 
 // Install function for Vue
 import type { App } from 'vue'
+import PuButton from './components/button/puButton.vue'
 
-export function install(_app: App): void {
-  // Register all components here when available
+export function install(app: App): void {
+  // Register all components
+  app.component('PuButton', PuButton)
   console.log('PartnerUp Design System installed')
 }
 

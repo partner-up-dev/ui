@@ -1,8 +1,0 @@
-/*
- * Main Style Entry Point
- * Import all style layers in order: ref -> sys -> component
- */
-
-@forward './ref';
-@forward './sys';
-@forward './component';

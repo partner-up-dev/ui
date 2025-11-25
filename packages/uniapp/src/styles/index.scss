@@ -1,0 +1,49 @@
+/*
+ * Main Style Entry Point
+ * Centralized CSS variable emission for all tokens (ref, sys, comp)
+ */
+
+@use 'sass:map';
+@use './ref' as ref;
+@use './sys' as sys;
+@use './component' as comp;
+
+// Forward all modules for external use
+@forward './functions';
+@forward './ref';
+@forward './sys';
+@forward './component';
+@forward './mixins';
+
+/* Emit all reference tokens as CSS variables */
+:root {
+  /* Emit ref tokens */
+  @include fn.emit-css-variables(ref.$ref-tokens, 'ref');
+  
+  /* Emit system tokens (light mode default) */
+  @include fn.emit-css-variables(sys.$sys-tokens-light, 'sys');
+  @include fn.emit-css-variables(sys.$sys-tokens, 'sys');
+  
+  /* Emit component tokens */
+  @include fn.emit-css-variables(comp.$comp-tokens, 'comp');
+}
+
+/* Dark mode using media query */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Override with dark mode color tokens */
+    @include fn.emit-css-variables(sys.$sys-tokens-dark, 'sys');
+  }
+}
+
+/* Manual dark mode class support */
+:root[data-theme='dark'] {
+  /* Override with dark mode color tokens */
+  @include fn.emit-css-variables(sys.$sys-tokens-dark, 'sys');
+}
+
+/* Manual light mode class support */
+:root[data-theme='light'] {
+  /* Reset to light mode color tokens */
+  @include fn.emit-css-variables(sys.$sys-tokens-light, 'sys');
+}

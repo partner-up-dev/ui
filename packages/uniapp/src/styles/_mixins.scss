@@ -1,0 +1,121 @@
+/*
+ * Utility Mixins
+ * Common mixins for using design tokens in components
+ * Components should use CSS variables via these mixins
+ */
+
+@use 'sass:map';
+@use './functions' as fn;
+@use './ref' as ref;
+
+/* Typography Mixin - uses CSS variables */
+@mixin pu-font($key) {
+  font-size: var(--sys-font-#{$key}-size);
+  font-weight: var(--sys-font-#{$key}-weight);
+  line-height: var(--sys-font-#{$key}-line-height);
+}
+
+/* Color Mixin - uses CSS variables */
+@mixin pu-color($token) {
+  color: var(--sys-color-#{$token});
+}
+
+@mixin pu-bg-color($token) {
+  background-color: var(--sys-color-#{$token});
+}
+
+/* Elevation (Shadow) Mixin - uses CSS variables */
+@mixin pu-elevation($level) {
+  box-shadow: var(--sys-shadow-#{$level});
+}
+
+/* Spacing Mixins - uses CSS variables */
+@mixin pu-padding($size) {
+  padding: var(--sys-spacing-#{$size});
+}
+
+@mixin pu-margin($size) {
+  margin: var(--sys-spacing-#{$size});
+}
+
+@mixin pu-gap($size) {
+  gap: var(--sys-spacing-#{$size});
+}
+
+/* Border Radius Mixin - uses CSS variables */
+@mixin pu-radius($size) {
+  border-radius: var(--sys-radius-#{$size});
+}
+
+/* Icon Mixin - uses CSS variables */
+@mixin pu-icon($size, $layout: false) {
+  width: var(--sys-icon-size-#{$size});
+  height: var(--sys-icon-size-#{$size});
+  font-size: var(--sys-icon-font-size-#{$size});
+  
+  @if $layout == true {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Size Mixin - uses CSS variables */
+@mixin pu-size($size) {
+  width: var(--sys-size-#{$size});
+  height: var(--sys-size-#{$size});
+}
+
+/* Responsive breakpoint mixins */
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1536px,
+);
+
+@mixin breakpoint($size) {
+  $value: map.get($breakpoints, $size);
+  @if $value == null {
+    @error "Unknown breakpoint `#{$size}`. Available: #{map.keys($breakpoints)}";
+  }
+  @media (min-width: $value) {
+    @content;
+  }
+}
+
+/* Truncate text mixin */
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Flex center mixin */
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Absolute cover mixin */
+@mixin absolute-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Convenience variables for common CSS variable references */
+$pu-color-primary: var(--sys-color-primary);
+$pu-color-secondary: var(--sys-color-secondary);
+$pu-color-tertiary: var(--sys-color-tertiary);
+$pu-color-error: var(--sys-color-error);
+$pu-color-warning: var(--sys-color-warning);
+$pu-color-surface: var(--sys-color-surface);
+$pu-color-on-surface: var(--sys-color-on-surface);
+$pu-color-on-surface-variant: var(--sys-color-on-surface-variant);
+$pu-color-outline: var(--sys-color-outline);
+$pu-color-outline-variant: var(--sys-color-outline-variant);

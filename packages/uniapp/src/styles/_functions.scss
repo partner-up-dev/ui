@@ -1,0 +1,65 @@
+/*
+ * SCSS Functions and Mixins for Design Tokens
+ * Utility functions for accessing and emitting tokens
+ */
+
+@use 'sass:meta';
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:string';
+
+// Deep getter for arbitrarily nested token maps
+@function map-deep-get($map, $keys...) {
+  $value: $map;
+  @each $key in $keys {
+    @if meta.type-of($value) == "map" and map.has-key($value, $key) {
+      $value: map.get($value, $key);
+    } @else {
+      @return null;
+    }
+  }
+  @return $value;
+}
+
+// Generate a CSS variable name from namespace and path
+@function token-name($namespace, $path) {
+  $name: '--#{$namespace}';
+  @each $segment in $path {
+    $name: #{$name}-#{$segment};
+  }
+  @return $name;
+}
+
+// Emit CSS variables from a nested token map (W3C DTCG compatible)
+@mixin emit-css-variables($token-map, $namespace: "sys", $path: ()) {
+  @each $key, $value in $token-map {
+    $next-path: list.append($path, $key);
+    @if meta.type-of($value) == "map" {
+      @include emit-css-variables($value, $namespace, $next-path);
+    } @else if meta.type-of($value) == "list" and list.length($value) == 0 {
+      // Skip empty lists (which is how SCSS represents empty maps)
+    } @else {
+      #{token-name($namespace, $next-path)}: #{$value};
+    }
+  }
+}
+
+// Simple one-level CSS variable emission
+@mixin emit-css-vars($map, $prefix: 'sys') {
+  @each $key, $value in $map {
+    --#{$prefix}-#{$key}: #{$value};
+  }
+}
+
+// Emit nested CSS variables (for maps with sub-maps, one level deep)
+@mixin emit-nested-css-vars($map, $prefix: 'sys') {
+  @each $category, $items in $map {
+    @if meta.type-of($items) == 'map' {
+      @each $key, $value in $items {
+        --#{$prefix}-#{$category}-#{$key}: #{$value};
+      }
+    } @else {
+      --#{$prefix}-#{$category}: #{$items};
+    }
+  }
+}

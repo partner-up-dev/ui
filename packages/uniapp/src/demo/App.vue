@@ -100,7 +100,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import PuButton from '../components/button/PuButton.vue'
+import PuButton from '../components/button/puButton.vue'
 import { setTheme, getTheme } from '../utils/tokens'
 
 const theme = ref<'light' | 'dark' | 'auto'>('auto')

@@ -12,10 +12,13 @@
       "import": "./lib/index.js"
     },
     "./styles": "./lib/styles/index.css",
-    "./styles/*": "./lib/styles/*"
+    "./styles/*": "./lib/styles/*",
+    "./sass": "./src/styles/index.scss",
+    "./sass/*": "./src/styles/*"
   },
   "files": [
     "lib",
+    "src/styles",
     "README.md"
   ],
   "scripts": {

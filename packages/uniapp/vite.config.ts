@@ -19,6 +19,17 @@ export default defineConfig({
       '@': resolve(__dirname, 'src')
     }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Auto-inject common @use statements
+        additionalData: `
+          @use "@/styles/functions" as fn;
+          @use "@/styles/mixins" as *;
+        `,
+      },
+    },
+  },
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),

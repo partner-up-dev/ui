@@ -1,0 +1,110 @@
+// Styles of Component:Base:PuButton
+// Uses only CSS variables - never direct SCSS map values
+
+.pu-button {
+  // Base button styles
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
+  
+  // Apply system tokens via CSS variables
+  border-radius: var(--sys-radius-med);
+  gap: var(--sys-spacing-xs);
+  
+  // Default typography
+  @include pu-font('label-large');
+  
+  // Primary variant (default)
+  &--primary {
+    background-color: var(--sys-color-primary);
+    color: var(--sys-color-on-primary);
+    border: 1px solid var(--sys-color-primary);
+    
+    &:hover:not(.pu-button--disabled) {
+      opacity: 0.9;
+      @include pu-elevation(2);
+    }
+    
+    &:active:not(.pu-button--disabled) {
+      opacity: 0.8;
+    }
+  }
+  
+  // Secondary variant
+  &--secondary {
+    background-color: var(--sys-color-secondary);
+    color: var(--sys-color-on-secondary);
+    border: 1px solid var(--sys-color-secondary);
+    
+    &:hover:not(.pu-button--disabled) {
+      opacity: 0.9;
+      @include pu-elevation(2);
+    }
+    
+    &:active:not(.pu-button--disabled) {
+      opacity: 0.8;
+    }
+  }
+  
+  // Outlined variant
+  &--outlined {
+    background-color: transparent;
+    color: var(--sys-color-primary);
+    border: 1px solid var(--sys-color-outline);
+    
+    &:hover:not(.pu-button--disabled) {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    
+    &:active:not(.pu-button--disabled) {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+  }
+  
+  // Text variant
+  &--text {
+    background-color: transparent;
+    color: var(--sys-color-primary);
+    border: 1px solid transparent;
+    
+    &:hover:not(.pu-button--disabled) {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    
+    &:active:not(.pu-button--disabled) {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+  }
+  
+  // Size variants
+  &--small {
+    height: var(--sys-size-small);
+    padding: 0 var(--sys-spacing-med);
+  }
+  
+  &--medium {
+    height: var(--sys-size-medium);
+    padding: 0 var(--sys-spacing-med);
+  }
+  
+  &--large {
+    height: var(--sys-size-large);
+    padding: 0 calc(var(--sys-spacing-med) * 1.5);
+  }
+  
+  // Disabled state
+  &--disabled {
+    cursor: not-allowed;
+    opacity: var(--sys-opacity-disabled);
+    background-color: var(--sys-color-surface-container);
+    color: var(--sys-color-on-surface);
+    border-color: transparent;
+  }
+}
