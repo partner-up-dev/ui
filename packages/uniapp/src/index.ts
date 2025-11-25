@@ -24,7 +24,6 @@ import PuButton from './components/button/puButton.vue'
 export function install(app: App): void {
   // Register all components
   app.component('PuButton', PuButton)
-  console.log('PartnerUp Design System installed')
 }
 
 // Default export

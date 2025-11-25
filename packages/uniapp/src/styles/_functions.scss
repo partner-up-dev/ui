@@ -8,7 +8,12 @@
 @use 'sass:list';
 @use 'sass:string';
 
-// Deep getter for arbitrarily nested token maps
+/// Deep getter for arbitrarily nested token maps
+/// @param {Map} $map - The map to search
+/// @param {String...} $keys - Keys to traverse
+/// @return {*} - The value at the nested path, or null if not found
+/// @example
+///   $color: map-deep-get($ref-tokens, color, primary, 80);
 @function map-deep-get($map, $keys...) {
   $value: $map;
   @each $key in $keys {
@@ -21,7 +26,10 @@
   @return $value;
 }
 
-// Generate a CSS variable name from namespace and path
+/// Generate a CSS variable name from namespace and path
+/// @param {String} $namespace - The namespace prefix (e.g., 'sys', 'ref', 'comp')
+/// @param {List} $path - List of path segments
+/// @return {String} - CSS variable name (e.g., '--sys-color-primary')
 @function token-name($namespace, $path) {
   $name: '--#{$namespace}';
   @each $segment in $path {
@@ -30,7 +38,12 @@
   @return $name;
 }
 
-// Emit CSS variables from a nested token map (W3C DTCG compatible)
+/// Emit CSS variables from a nested token map (W3C DTCG compatible)
+/// Recursively traverses the map and emits CSS variables for leaf values
+/// @param {Map} $token-map - The token map to emit
+/// @param {String} $namespace - The namespace prefix (default: 'sys')
+/// @param {List} $path - Current path (internal use)
+/// @output CSS custom properties
 @mixin emit-css-variables($token-map, $namespace: "sys", $path: ()) {
   @each $key, $value in $token-map {
     $next-path: list.append($path, $key);
@@ -44,14 +57,20 @@
   }
 }
 
-// Simple one-level CSS variable emission
+/// Simple one-level CSS variable emission
+/// @param {Map} $map - The flat map to emit
+/// @param {String} $prefix - The variable prefix (default: 'sys')
+/// @output CSS custom properties
 @mixin emit-css-vars($map, $prefix: 'sys') {
   @each $key, $value in $map {
     --#{$prefix}-#{$key}: #{$value};
   }
 }
 
-// Emit nested CSS variables (for maps with sub-maps, one level deep)
+/// Emit nested CSS variables (for maps with sub-maps, one level deep)
+/// @param {Map} $map - The map to emit
+/// @param {String} $prefix - The variable prefix (default: 'sys')
+/// @output CSS custom properties
 @mixin emit-nested-css-vars($map, $prefix: 'sys') {
   @each $category, $items in $map {
     @if meta.type-of($items) == 'map' {
