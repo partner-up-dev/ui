@@ -18,11 +18,11 @@
 /* Emit all reference tokens as CSS variables */
 :root {
   /* Emit ref tokens */
-  @include fn.emit-css-variables(ref.$ref-tokens, 'ref');
+  @include fn.emit-css-variables((color: ref.$color, spacing: ref.$spacing, radius: ref.$radius, size: ref.$size, icon: ref.$icon, shadow: ref.$shadow, typography: ref.$typography, opacity: ref.$opacity), 'ref');
   
   /* Emit system tokens (light mode default) */
-  @include fn.emit-css-variables(sys.$sys-tokens-light, 'sys');
-  @include fn.emit-css-variables(sys.$sys-tokens, 'sys');
+  @include fn.emit-css-variables(sys.$light, 'sys');
+  @include fn.emit-css-variables(sys.$base, 'sys');
   
   /* Emit component tokens */
   @include fn.emit-css-variables(comp.$comp-tokens, 'comp');
@@ -32,18 +32,18 @@
 @media (prefers-color-scheme: dark) {
   :root {
     /* Override with dark mode color tokens */
-    @include fn.emit-css-variables(sys.$sys-tokens-dark, 'sys');
+    @include fn.emit-css-variables(sys.$dark, 'sys');
   }
 }
 
 /* Manual dark mode class support */
 :root[data-theme='dark'] {
   /* Override with dark mode color tokens */
-  @include fn.emit-css-variables(sys.$sys-tokens-dark, 'sys');
+  @include fn.emit-css-variables(sys.$dark, 'sys');
 }
 
 /* Manual light mode class support */
 :root[data-theme='light'] {
   /* Reset to light mode color tokens */
-  @include fn.emit-css-variables(sys.$sys-tokens-light, 'sys');
+  @include fn.emit-css-variables(sys.$light, 'sys');
 }

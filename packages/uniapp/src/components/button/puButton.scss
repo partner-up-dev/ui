@@ -1,5 +1,5 @@
 // Styles of Component:Base:PuButton
-// Uses only CSS variables - never direct SCSS map values
+// Uses only CSS variables via sys-var() function
 
 .pu-button {
   // Base button styles
@@ -15,17 +15,17 @@
   white-space: nowrap;
   
   // Apply system tokens via CSS variables
-  border-radius: var(--sys-radius-med);
-  gap: var(--sys-spacing-xs);
+  border-radius: fn.sys-var(radius, med);
+  gap: fn.sys-var(spacing, xs);
   
   // Default typography
   @include pu-font('label-large');
   
   // Primary variant (default)
   &--primary {
-    background-color: var(--sys-color-primary);
-    color: var(--sys-color-on-primary);
-    border: 1px solid var(--sys-color-primary);
+    background-color: fn.sys-var(color, primary);
+    color: fn.sys-var(color, on-primary);
+    border: 1px solid fn.sys-var(color, primary);
     
     &:hover:not(.pu-button--disabled) {
       opacity: 0.9;
@@ -39,9 +39,9 @@
   
   // Secondary variant
   &--secondary {
-    background-color: var(--sys-color-secondary);
-    color: var(--sys-color-on-secondary);
-    border: 1px solid var(--sys-color-secondary);
+    background-color: fn.sys-var(color, secondary);
+    color: fn.sys-var(color, on-secondary);
+    border: 1px solid fn.sys-var(color, secondary);
     
     &:hover:not(.pu-button--disabled) {
       opacity: 0.9;
@@ -56,8 +56,8 @@
   // Outlined variant
   &--outlined {
     background-color: transparent;
-    color: var(--sys-color-primary);
-    border: 1px solid var(--sys-color-outline);
+    color: fn.sys-var(color, primary);
+    border: 1px solid fn.sys-var(color, outline);
     
     &:hover:not(.pu-button--disabled) {
       background-color: rgba(0, 0, 0, 0.04);
@@ -71,7 +71,7 @@
   // Text variant
   &--text {
     background-color: transparent;
-    color: var(--sys-color-primary);
+    color: fn.sys-var(color, primary);
     border: 1px solid transparent;
     
     &:hover:not(.pu-button--disabled) {
@@ -85,26 +85,26 @@
   
   // Size variants
   &--small {
-    height: var(--sys-size-small);
-    padding: 0 var(--sys-spacing-med);
+    height: fn.sys-var(size, small);
+    padding: 0 fn.sys-var(spacing, med);
   }
   
   &--medium {
-    height: var(--sys-size-medium);
-    padding: 0 var(--sys-spacing-med);
+    height: fn.sys-var(size, medium);
+    padding: 0 fn.sys-var(spacing, med);
   }
   
   &--large {
-    height: var(--sys-size-large);
-    padding: 0 calc(var(--sys-spacing-med) * 1.5);
+    height: fn.sys-var(size, large);
+    padding: 0 calc(#{fn.sys-var(spacing, med)} * 1.5);
   }
   
   // Disabled state
   &--disabled {
     cursor: not-allowed;
-    opacity: var(--sys-opacity-disabled);
-    background-color: var(--sys-color-surface-container);
-    color: var(--sys-color-on-surface);
+    opacity: fn.sys-var(opacity, disabled);
+    background-color: fn.sys-var(color, surface-container);
+    color: fn.sys-var(color, on-surface);
     border-color: transparent;
   }
 }

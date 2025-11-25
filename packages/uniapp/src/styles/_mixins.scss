@@ -8,20 +8,11 @@
 @use './functions' as fn;
 @use './ref' as ref;
 
-/* Typography Mixin - uses CSS variables */
+/* Typography Mixin - uses CSS variables (composite token) */
 @mixin pu-font($key) {
   font-size: var(--sys-font-#{$key}-size);
   font-weight: var(--sys-font-#{$key}-weight);
   line-height: var(--sys-font-#{$key}-line-height);
-}
-
-/* Color Mixin - uses CSS variables */
-@mixin pu-color($token) {
-  color: var(--sys-color-#{$token});
-}
-
-@mixin pu-bg-color($token) {
-  background-color: var(--sys-color-#{$token});
 }
 
 /* Elevation (Shadow) Mixin - uses CSS variables */
@@ -29,25 +20,7 @@
   box-shadow: var(--sys-shadow-#{$level});
 }
 
-/* Spacing Mixins - uses CSS variables */
-@mixin pu-padding($size) {
-  padding: var(--sys-spacing-#{$size});
-}
-
-@mixin pu-margin($size) {
-  margin: var(--sys-spacing-#{$size});
-}
-
-@mixin pu-gap($size) {
-  gap: var(--sys-spacing-#{$size});
-}
-
-/* Border Radius Mixin - uses CSS variables */
-@mixin pu-radius($size) {
-  border-radius: var(--sys-radius-#{$size});
-}
-
-/* Icon Mixin - uses CSS variables */
+/* Icon Mixin - uses CSS variables (composite token) */
 @mixin pu-icon($size, $layout: false) {
   width: var(--sys-icon-size-#{$size});
   height: var(--sys-icon-size-#{$size});
@@ -58,12 +31,6 @@
     align-items: center;
     justify-content: center;
   }
-}
-
-/* Size Mixin - uses CSS variables */
-@mixin pu-size($size) {
-  width: var(--sys-size-#{$size});
-  height: var(--sys-size-#{$size});
 }
 
 /* Responsive breakpoint mixins */
@@ -107,15 +74,3 @@ $breakpoints: (
   width: 100%;
   height: 100%;
 }
-
-/* Convenience variables for common CSS variable references */
-$pu-color-primary: var(--sys-color-primary);
-$pu-color-secondary: var(--sys-color-secondary);
-$pu-color-tertiary: var(--sys-color-tertiary);
-$pu-color-error: var(--sys-color-error);
-$pu-color-warning: var(--sys-color-warning);
-$pu-color-surface: var(--sys-color-surface);
-$pu-color-on-surface: var(--sys-color-on-surface);
-$pu-color-on-surface-variant: var(--sys-color-on-surface-variant);
-$pu-color-outline: var(--sys-color-outline);
-$pu-color-outline-variant: var(--sys-color-outline-variant);

@@ -82,3 +82,33 @@
     }
   }
 }
+
+/// Helper to reference system-level CSS custom properties in components
+/// @param {String...} $path - Path segments for the token
+/// @return {String} - CSS var() reference
+/// @example
+///   color: sys-var(color, primary);
+///   // Returns: var(--sys-color-primary)
+@function sys-var($path...) {
+  @return var(#{token-name("sys", $path)});
+}
+
+/// Helper to reference reference-level values directly
+/// @param {String...} $path - Path segments for the token
+/// @return {String} - CSS var() reference
+/// @example
+///   color: ref-var(color, primary, 80);
+///   // Returns: var(--ref-color-primary-80)
+@function ref-var($path...) {
+  @return var(#{token-name("ref", $path)});
+}
+
+/// Convert component token paths into CSS variable references
+/// @param {String...} $path - Path segments for the token
+/// @return {String} - CSS var() reference
+/// @example
+///   color: comp-var(button, color, primary-bg);
+///   // Returns: var(--comp-button-color-primary-bg)
+@function comp-var($path...) {
+  @return var(#{token-name("comp", $path)});
+}
