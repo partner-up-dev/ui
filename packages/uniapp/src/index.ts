@@ -69,6 +69,14 @@ export * from './components/PUTag/puTag'
 export { default as PuTextarea } from './components/PUTextarea/puTextarea.vue'
 export * from './components/PUTextarea/puTextarea'
 
+// Picker
+export { default as PuPicker } from './components/PUPicker/puPicker.vue'
+export * from './components/PUPicker/puPicker'
+
+// ScrollView
+export { default as PuScrollView } from './components/PUScrollView/puScrollView.vue'
+export * from './components/PUScrollView/puScrollView'
+
 // Version
 export const version = '0.1.0'
 
@@ -89,6 +97,8 @@ import PuTab from './components/PUTab/puTab.vue'
 import PuTabs from './components/PUTabs/puTabs.vue'
 import PuTag from './components/PUTag/puTag.vue'
 import PuTextarea from './components/PUTextarea/puTextarea.vue'
+import PuPicker from './components/PUPicker/puPicker.vue'
+import PuScrollView from './components/PUScrollView/puScrollView.vue'
 
 export function install(app: App): void {
   // Register all components
@@ -107,6 +117,8 @@ export function install(app: App): void {
   app.component('PuTabs', PuTabs)
   app.component('PuTag', PuTag)
   app.component('PuTextarea', PuTextarea)
+  app.component('PuPicker', PuPicker)
+  app.component('PuScrollView', PuScrollView)
 }
 
 // Default export
