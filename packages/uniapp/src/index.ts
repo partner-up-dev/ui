@@ -45,6 +45,10 @@ export * from './components/PUFormItem/puFormItem'
 export { default as PuImg } from './components/PUImg/puImg.vue'
 export * from './components/PUImg/puImg'
 
+// ImgCropper
+export { default as PuImgCropper } from './components/PUImgCropper/puImgCropper.vue'
+export * from './components/PUImgCropper/puImgCropper'
+
 // Input
 export { default as PuInput } from './components/PUInput/puInput.vue'
 export * from './components/PUInput/puInput'
@@ -91,6 +95,7 @@ import PuDrawer from './components/PUDrawer/puDrawer.vue'
 import PuForm from './components/PUForm/puForm.vue'
 import PuFormItem from './components/PUFormItem/puFormItem.vue'
 import PuImg from './components/PUImg/puImg.vue'
+import PuImgCropper from './components/PUImgCropper/puImgCropper.vue'
 import PuInput from './components/PUInput/puInput.vue'
 import PuNoticeBar from './components/PUNoticeBar/puNoticeBar.vue'
 import PuTab from './components/PUTab/puTab.vue'
@@ -111,6 +116,7 @@ export function install(app: App): void {
   app.component('PuForm', PuForm)
   app.component('PuFormItem', PuFormItem)
   app.component('PuImg', PuImg)
+  app.component('PuImgCropper', PuImgCropper)
   app.component('PuInput', PuInput)
   app.component('PuNoticeBar', PuNoticeBar)
   app.component('PuTab', PuTab)
