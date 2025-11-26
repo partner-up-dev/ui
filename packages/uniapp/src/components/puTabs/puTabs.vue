@@ -31,7 +31,7 @@ export default {
 <script setup lang="ts">
 import { computed } from "vue";
 import { puTabsProps, puTabsEmits } from "./puTabs";
-import PuTab from "../PUTab/puTab.vue";
+import PuTab from "../puTab/puTab.vue";
 
 const props = defineProps(puTabsProps);
 const emit = defineEmits(puTabsEmits);

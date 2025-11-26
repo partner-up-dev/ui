@@ -8,7 +8,7 @@ export default {
 
 <script setup lang="ts">
 import { puFormItemProps, puFormItemEmits } from "./puFormItem";
-import type { FormErrorState } from "@/components/PUForm/puForm";
+import type { FormErrorState } from "@/components/puForm/puForm";
 import { inject, computed } from "vue";
 
 const props = defineProps(puFormItemProps);
