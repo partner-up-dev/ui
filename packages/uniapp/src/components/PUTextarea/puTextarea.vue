@@ -60,7 +60,7 @@ const props = defineProps(puTextareaProps);
 const emit = defineEmits(puTextareaEmits);
 
 const isFocused = ref(false);
-const textValue = ref(props.modelValue);
+const textValue = ref<string>(props.modelValue);
 
 watch(() => props.modelValue, (newVal) => {
   textValue.value = newVal;

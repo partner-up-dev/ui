@@ -86,7 +86,7 @@ import {
 import {
   PUCHECKBOX_GROUP_KEY,
   type PuCheckboxGroupProvide,
-} from "../checkboxGroup/puCheckboxGroup";
+} from "../PUCheckboxGroup/puCheckboxGroup";
 
 const props = defineProps(puCheckboxProps);
 const emit = defineEmits(puCheckboxEmits);

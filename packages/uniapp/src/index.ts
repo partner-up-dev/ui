@@ -16,58 +16,58 @@ export { default as PuButton } from './components/button/puButton.vue'
 export * from './components/button/puButton'
 
 // Accordion
-export { default as PuAccordion } from './components/accordion/puAccordion.vue'
-export * from './components/accordion/puAccordion'
-export { default as PuAccordionItem } from './components/accordion/puAccordionItem.vue'
-export * from './components/accordion/puAccordionItem'
+export { default as PuAccordion } from './components/PUAccordion/puAccordion.vue'
+export * from './components/PUAccordion/puAccordion'
+export { default as PuAccordionItem } from './components/PUAccordion/puAccordionItem.vue'
+export * from './components/PUAccordion/puAccordionItem'
 
 // Checkbox
-export { default as PuCheckbox } from './components/checkbox/puCheckbox.vue'
-export * from './components/checkbox/puCheckbox'
+export { default as PuCheckbox } from './components/PUCheckbox/puCheckbox.vue'
+export * from './components/PUCheckbox/puCheckbox'
 
 // CheckboxGroup
-export { default as PuCheckboxGroup } from './components/checkboxGroup/puCheckboxGroup.vue'
-export * from './components/checkboxGroup/puCheckboxGroup'
+export { default as PuCheckboxGroup } from './components/PUCheckboxGroup/puCheckboxGroup.vue'
+export * from './components/PUCheckboxGroup/puCheckboxGroup'
 
 // Drawer
-export { default as PuDrawer } from './components/drawer/puDrawer.vue'
-export * from './components/drawer/puDrawer'
+export { default as PuDrawer } from './components/PUDrawer/puDrawer.vue'
+export * from './components/PUDrawer/puDrawer'
 
 // Form
-export { default as PuForm } from './components/form/puForm.vue'
-export * from './components/form/puForm'
+export { default as PuForm } from './components/PUForm/puForm.vue'
+export * from './components/PUForm/puForm'
 
 // FormItem
-export { default as PuFormItem } from './components/formItem/puFormItem.vue'
-export * from './components/formItem/puFormItem'
+export { default as PuFormItem } from './components/PUFormItem/puFormItem.vue'
+export * from './components/PUFormItem/puFormItem'
 
 // Img
-export { default as PuImg } from './components/img/puImg.vue'
-export * from './components/img/puImg'
+export { default as PuImg } from './components/PUImg/puImg.vue'
+export * from './components/PUImg/puImg'
 
 // Input
-export { default as PuInput } from './components/input/puInput.vue'
-export * from './components/input/puInput'
+export { default as PuInput } from './components/PUInput/puInput.vue'
+export * from './components/PUInput/puInput'
 
 // NoticeBar
-export { default as PuNoticeBar } from './components/noticeBar/puNoticeBar.vue'
-export * from './components/noticeBar/puNoticeBar'
+export { default as PuNoticeBar } from './components/PUNoticeBar/puNoticeBar.vue'
+export * from './components/PUNoticeBar/puNoticeBar'
 
 // Tab
-export { default as PuTab } from './components/tab/puTab.vue'
-export * from './components/tab/puTab'
+export { default as PuTab } from './components/PUTab/puTab.vue'
+export * from './components/PUTab/puTab'
 
 // Tabs
-export { default as PuTabs } from './components/tabs/puTabs.vue'
-export * from './components/tabs/puTabs'
+export { default as PuTabs } from './components/PUTabs/puTabs.vue'
+export * from './components/PUTabs/puTabs'
 
 // Tag
-export { default as PuTag } from './components/tag/puTag.vue'
-export * from './components/tag/puTag'
+export { default as PuTag } from './components/PUTag/puTag.vue'
+export * from './components/PUTag/puTag'
 
 // Textarea
-export { default as PuTextarea } from './components/textarea/puTextarea.vue'
-export * from './components/textarea/puTextarea'
+export { default as PuTextarea } from './components/PUTextarea/puTextarea.vue'
+export * from './components/PUTextarea/puTextarea'
 
 // Version
 export const version = '0.1.0'
@@ -75,20 +75,20 @@ export const version = '0.1.0'
 // Install function for Vue
 import type { App } from 'vue'
 import PuButton from './components/button/puButton.vue'
-import PuAccordion from './components/accordion/puAccordion.vue'
-import PuAccordionItem from './components/accordion/puAccordionItem.vue'
-import PuCheckbox from './components/checkbox/puCheckbox.vue'
-import PuCheckboxGroup from './components/checkboxGroup/puCheckboxGroup.vue'
-import PuDrawer from './components/drawer/puDrawer.vue'
-import PuForm from './components/form/puForm.vue'
-import PuFormItem from './components/formItem/puFormItem.vue'
-import PuImg from './components/img/puImg.vue'
-import PuInput from './components/input/puInput.vue'
-import PuNoticeBar from './components/noticeBar/puNoticeBar.vue'
-import PuTab from './components/tab/puTab.vue'
-import PuTabs from './components/tabs/puTabs.vue'
-import PuTag from './components/tag/puTag.vue'
-import PuTextarea from './components/textarea/puTextarea.vue'
+import PuAccordion from './components/PUAccordion/puAccordion.vue'
+import PuAccordionItem from './components/PUAccordion/puAccordionItem.vue'
+import PuCheckbox from './components/PUCheckbox/puCheckbox.vue'
+import PuCheckboxGroup from './components/PUCheckboxGroup/puCheckboxGroup.vue'
+import PuDrawer from './components/PUDrawer/puDrawer.vue'
+import PuForm from './components/PUForm/puForm.vue'
+import PuFormItem from './components/PUFormItem/puFormItem.vue'
+import PuImg from './components/PUImg/puImg.vue'
+import PuInput from './components/PUInput/puInput.vue'
+import PuNoticeBar from './components/PUNoticeBar/puNoticeBar.vue'
+import PuTab from './components/PUTab/puTab.vue'
+import PuTabs from './components/PUTabs/puTabs.vue'
+import PuTag from './components/PUTag/puTag.vue'
+import PuTextarea from './components/PUTextarea/puTextarea.vue'
 
 export function install(app: App): void {
   // Register all components

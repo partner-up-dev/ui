@@ -50,7 +50,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, getCurrentInstance, inject, onMounted, ref, watch } from "vue";
+import { computed, inject, onMounted, ref, watch } from "vue";
 import {
   puAccordionItemProps,
   puAccordionItemEmits,
@@ -66,7 +66,6 @@ const props = defineProps(puAccordionItemProps);
 const emit = defineEmits(puAccordionItemEmits);
 
 const accordion = inject(PUACCORDION_KEY, null);
-const instance = getCurrentInstance();
 
 const height = ref<string | number>("");
 const inited = ref<boolean>(false);
