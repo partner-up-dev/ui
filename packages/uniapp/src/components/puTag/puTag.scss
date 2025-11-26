@@ -1,0 +1,52 @@
+.pu-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: fn.sys-var(spacing, xs) fn.sys-var(spacing, med);
+  background-color: fn.sys-var(color, surface-container);
+  color: fn.sys-var(color, on-surface);
+
+  .text {
+    font-size: var(--sys-font-label-large-size);
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  &.rounded {
+    border-radius: fn.sys-var(radius, full);
+  }
+
+  &.outlined {
+    border: 1px solid fn.sys-var(color, outline-variant);
+  }
+
+  &.surface-outlined {
+    background-color: fn.sys-var(color, surface-container);
+    border: 1px solid fn.sys-var(color, outline-variant);
+  }
+
+  &.surface {
+    background-color: fn.sys-var(color, surface-container);
+    border: none;
+  }
+
+  &.x-small {
+    padding: fn.sys-var(spacing, xs) fn.sys-var(spacing, sm);
+    .text {
+      font-size: var(--sys-font-label-small-size);
+    }
+  }
+  &.small {
+    padding: fn.sys-var(spacing, xs) fn.sys-var(spacing, sm);
+    .text {
+      font-size: var(--sys-font-label-medium-size);
+    }
+  }
+  &.medium {
+    padding: fn.sys-var(spacing, xs) fn.sys-var(spacing, med);
+    .text {
+      font-size: var(--sys-font-label-large-size);
+    }
+  }
+}

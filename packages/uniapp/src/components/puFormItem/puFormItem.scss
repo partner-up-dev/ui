@@ -1,0 +1,11 @@
+.pu-form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.pu-form-item__error {
+  color: fn.sys-var(color, error);
+  @include pu-font("label-medium");
+  margin-top: fn.sys-var(spacing, xs);
+  line-height: 1.4;
+}

@@ -1,0 +1,56 @@
+.pu-drawer-scrim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9;
+}
+
+.pu-drawer {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  background: fn.sys-var(color, surface);
+  border-top-left-radius: fn.sys-var(radius, med);
+  border-top-right-radius: fn.sys-var(radius, med);
+  transition: bottom 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+
+  .default {
+    display: flex;
+    flex-direction: column;
+    gap: fn.sys-var(spacing, med);
+    flex-grow: 1;
+
+    padding: fn.sys-var(spacing, med) fn.sys-var(spacing, med) 0 fn.sys-var(spacing, med);
+    box-sizing: border-box;
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .drawer-title {
+      @include pu-font("title-large");
+      color: fn.sys-var(color, on-surface);
+    }
+
+    .drawer-close {
+      @include pu-icon("medium");
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: fn.sys-var(color, on-surface-variant);
+    }
+  }
+
+  .drawer-content {
+    overflow-y: scroll;
+  }
+}
