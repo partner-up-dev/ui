@@ -1,11 +1,19 @@
 {
-  "name": "@partner-up/design-uniapp",
+  "name": "@partner-up/uniapp-design",
   "version": "0.1.0",
   "description": "PartnerUp Design System for UniApp",
   "type": "module",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/partner-up-dev/design.git",
+    "directory": "packages/uniapp"
+  },
   "exports": {
     ".": {
       "types": "./lib/index.d.ts",

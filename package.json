@@ -1,0 +1,16 @@
+{
+	"name": "@partner-up/design",
+	"version": "0.0.0",
+	"private": true,
+	"description": "PartnerUp Design System Monorepo",
+	"scripts": {
+		"build": "pnpm -r --filter='./packages/*' run build",
+		"changeset": "changeset",
+		"version": "changeset version",
+		"release": "pnpm run build && changeset publish"
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.29.7"
+	},
+	"packageManager": "pnpm@10.23.0"
+}
