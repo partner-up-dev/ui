@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+### Patch Changes
+
+- d6b89a0: Initial setup for publishing to GitHub Package Registry with changesets
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -8,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2025-11-24
 
 ### Added
+
 - Initial setup of PartnerUp Design System for UniApp
 - Three-layer token architecture:
   - Reference tokens (`_ref.scss`) with SCSS maps
@@ -28,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - TypeScript support
 
 ### Token Structure
+
 - **Colors**: Primary, Secondary, Tertiary, Error, Warning, Surface, Neutral
 - **Spacing**: xs (4px), sm (8px), med (16px), lg (32px)
 - **Radius**: none, xs, sm, med (8px), lg (16px), full (50%)
@@ -36,6 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Sizes**: xSmall (20px), small (24px), medium (32px), large (44px), xLarge (60px)
 
 ### Compatibility
+
 - Token values match `partner-up-dev/client-uniapp` repository
 - Structure inspired by `Moonofweisheng/wot-design-uni`
 
