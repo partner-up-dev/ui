@@ -4,7 +4,7 @@ This is a monorepo of partner-up's design (design system in code, common compone
 
 ## Packages
 
-- `@partner-up/uniapp-design` - Design system for UniApp
+- `@partner-up/design-uniapp` - Design system for UniApp
 
 ## Publishing
 
@@ -52,5 +52,5 @@ To install a published package from GitHub Package Registry, configure your `.np
 Then install the package:
 
 ```bash
-npm install @partner-up/uniapp-design
+npm install @partner-up/design-uniapp
 ```
