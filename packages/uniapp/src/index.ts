@@ -3,9 +3,6 @@
  * Exports all components, styles, and utilities
  */
 
-// Export styles (users can import and use CSS variables)
-import './styles/index.scss'
-
 // Re-export style utilities for TypeScript usage
 export * from './utils/tokens'
 export * from './utils/props'

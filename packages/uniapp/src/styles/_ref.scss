@@ -207,6 +207,12 @@ $typography: (
   ),
 );
 
+$font: (
+  family: (
+    mono: monospace,
+  ),
+);
+
 /* Opacity Tokens */
 $opacity: (
   disabled: 0.6,

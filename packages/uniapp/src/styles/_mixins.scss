@@ -9,10 +9,13 @@
 @use './ref' as ref;
 
 /* Typography Mixin - uses CSS variables (composite token) */
-@mixin pu-font($key) {
+@mixin pu-font($key, $mono: false) {
   font-size: var(--sys-font-#{$key}-size);
   font-weight: var(--sys-font-#{$key}-weight);
   line-height: var(--sys-font-#{$key}-line-height);
+  @if $mono == true {
+    font-family: var(--ref-font-family-mono);
+  }
 }
 
 /* Elevation (Shadow) Mixin - uses CSS variables */

@@ -23,10 +23,10 @@
       "sass": "./lib/styles/index.scss",
       "default": "./lib/styles/index.scss"
     },
-    "./styles/mixins": {
-      "sass": "./lib/styles/_mixins.scss"
-    },
-    "./styles/*": "./lib/styles/*"
+    "./styles/*": {
+      "sass": "./lib/styles/*",
+      "default": "./lib/styles/*"
+    }
   },
   "files": [
     "lib",
