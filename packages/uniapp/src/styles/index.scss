@@ -8,12 +8,10 @@
 @use './ref' as ref;
 @use './sys' as sys;
 @use './component' as comp;
+@use './functions' as fn;
 
 // Forward all modules for external use
 @forward './functions';
-@forward './ref';
-@forward './sys';
-@forward './component';
 @forward './mixins';
 
 /* Emit all reference tokens as CSS variables */

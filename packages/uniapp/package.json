@@ -20,7 +20,8 @@
       "import": "./lib/index.js"
     },
     "./styles": {
-      "sass": "./lib/styles/index.scss"
+      "sass": "./lib/styles/index.scss",
+      "default": "./lib/styles/index.scss"
     },
     "./styles/mixins": {
       "sass": "./lib/styles/_mixins.scss"

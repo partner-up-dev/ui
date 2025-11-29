@@ -23,10 +23,12 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // Auto-inject common @use statements
-        additionalData: `
-          @use "@/styles/functions" as fn;
-          @use "@/styles/mixins" as *;
-        `,
+        additionalData: (source: string, file: string) => {
+          if (file.includes("src/components/")) {
+            return `@use "@/styles/functions" as fn;@use "@/styles/mixins" as *;${source}`
+          }
+          return source;
+        },
       },
     },
   },
