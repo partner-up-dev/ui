@@ -1,6 +1,6 @@
 {
   "name": "@partner-up-dev/design-uniapp",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "PartnerUp Design System for UniApp",
   "type": "module",
   "main": "./lib/index.js",
