@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.3
+
+### Patch Changes
+
+- 918b665: Fix issue using the package:
+
+  - Add default exports of `./styles`
+
+  Trivia optimization:
+
+  - Inject additionalData only to sass under `components/`
+  - Remove forward of `ref`, `sys` in `index.scss` since user should use CSS variables.
+
 ## 0.1.2
 
 ### Patch Changes
