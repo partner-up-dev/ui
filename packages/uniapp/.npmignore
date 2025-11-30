@@ -1,0 +1,5 @@
+# Development files (not needed for package consumers)
+index.html
+vite.config.ts
+tsconfig.json
+CONTRIBUTING.md
