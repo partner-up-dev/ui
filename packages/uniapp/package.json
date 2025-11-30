@@ -19,6 +19,9 @@
       "types": "./src/index.ts",
       "import": "./src/index.ts"
     },
+    "./types/components": {
+      "types": "./types/components.d.ts"
+    },
     "./styles": {
       "sass": "./src/styles/index.scss",
       "default": "./src/styles/index.scss"
@@ -35,6 +38,7 @@
     "src/components",
     "src/styles",
     "src/utils",
+    "types",
     "README.md"
   ],
   "scripts": {
