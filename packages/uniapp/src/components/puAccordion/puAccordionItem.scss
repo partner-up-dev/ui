@@ -1,3 +1,6 @@
+@use "@/styles/functions" as fn;
+@use "@/styles/mixins" as *;
+
 .pu-accordion-item {
   position: relative;
   border-top: 1px solid fn.sys-var(color, outline-variant);

@@ -13,17 +13,4 @@ export default defineConfig({
       '@': resolve(__dirname, 'src')
     }
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        // Auto-inject common @use statements
-        additionalData: (source: string, file: string) => {
-          if (file.includes("src/components/")) {
-            return `@use "@/styles/functions" as fn;@use "@/styles/mixins" as *;${source}`
-          }
-          return source;
-        },
-      },
-    },
-  },
 })
