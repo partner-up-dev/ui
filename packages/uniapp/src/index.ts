@@ -9,8 +9,8 @@ export * from './utils/props'
 export * from './utils/vue'
 
 // Component exports
-export { default as PuButton } from './components/button/puButton.vue'
-export * from './components/button/puButton'
+export { default as PuButton } from './components/puButton/puButton.vue'
+export * from './components/puButton/puButton'
 
 // Accordion
 export { default as PuAccordion } from './components/puAccordion/puAccordion.vue'
@@ -83,7 +83,7 @@ export const version = '0.1.0'
 
 // Install function for Vue
 import type { App } from 'vue'
-import PuButton from './components/button/puButton.vue'
+import PuButton from './components/puButton/puButton.vue'
 import PuAccordion from './components/puAccordion/puAccordion.vue'
 import PuAccordionItem from './components/puAccordion/puAccordionItem.vue'
 import PuCheckbox from './components/puCheckbox/puCheckbox.vue'

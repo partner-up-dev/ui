@@ -19,7 +19,7 @@
       "types": "./src/index.ts",
       "import": "./src/index.ts"
     },
-    "./types/components": {
+    "./types": {
       "types": "./types/components.d.ts"
     },
     "./styles": {

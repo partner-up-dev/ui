@@ -40,22 +40,28 @@
       <section class="demo-section">
         <h2>Typography</h2>
         <div class="typography-demo">
-          <div class="typo-item" style="font-size: var(--sys-font-display-large-size); line-height: var(--sys-font-display-large-line-height);">
+          <div class="typo-item"
+            style="font-size: var(--sys-font-display-large-size); line-height: var(--sys-font-display-large-line-height);">
             Display Large
           </div>
-          <div class="typo-item" style="font-size: var(--sys-font-headline-large-size); line-height: var(--sys-font-headline-large-line-height);">
+          <div class="typo-item"
+            style="font-size: var(--sys-font-headline-large-size); line-height: var(--sys-font-headline-large-line-height);">
             Headline Large
           </div>
-          <div class="typo-item" style="font-size: var(--sys-font-title-large-size); line-height: var(--sys-font-title-large-line-height);">
+          <div class="typo-item"
+            style="font-size: var(--sys-font-title-large-size); line-height: var(--sys-font-title-large-line-height);">
             Title Large
           </div>
-          <div class="typo-item" style="font-size: var(--sys-font-title-medium-size); line-height: var(--sys-font-title-medium-line-height);">
+          <div class="typo-item"
+            style="font-size: var(--sys-font-title-medium-size); line-height: var(--sys-font-title-medium-line-height);">
             Title Medium
           </div>
-          <div class="typo-item" style="font-size: var(--sys-font-body-large-size); line-height: var(--sys-font-body-large-line-height);">
+          <div class="typo-item"
+            style="font-size: var(--sys-font-body-large-size); line-height: var(--sys-font-body-large-line-height);">
             Body Large
           </div>
-          <div class="typo-item" style="font-size: var(--sys-font-label-large-size); line-height: var(--sys-font-label-large-line-height);">
+          <div class="typo-item"
+            style="font-size: var(--sys-font-label-large-size); line-height: var(--sys-font-label-large-line-height);">
             Label Large
           </div>
         </div>
@@ -100,7 +106,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import PuButton from '../components/button/puButton.vue'
+import PuButton from '../components/puButton/puButton.vue'
 import { setTheme, getTheme } from '../utils/tokens'
 
 const theme = ref<'light' | 'dark' | 'auto'>('auto')

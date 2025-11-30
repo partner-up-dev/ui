@@ -5,7 +5,7 @@
 declare module 'vue' {
   // Helper for Volar
   export interface GlobalComponents {
-    PuButton: typeof import('../src/components/button/puButton.vue')['default']
+    PuButton: typeof import('../src/components/puButton/puButton.vue')['default']
     PuAccordion: typeof import('../src/components/puAccordion/puAccordion.vue')['default']
     PuAccordionItem: typeof import('../src/components/puAccordion/puAccordionItem.vue')['default']
     PuCheckbox: typeof import('../src/components/puCheckbox/puCheckbox.vue')['default']
@@ -26,4 +26,4 @@ declare module 'vue' {
   }
 }
 
-export {}
+export { }
