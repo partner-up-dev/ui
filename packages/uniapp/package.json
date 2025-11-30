@@ -5,7 +5,7 @@
   "type": "module",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
-  "types": "./src/index.ts",
+  "types": "types/components.d.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -34,12 +34,9 @@
     "./utils/*": "./src/utils/*"
   },
   "files": [
-    "src/index.ts",
     "src/components",
     "src/styles",
-    "src/utils",
-    "types",
-    "README.md"
+    "types"
   ],
   "scripts": {
     "dev": "vite",
@@ -56,8 +53,8 @@
   "author": "PartnerUp Team",
   "license": "MIT",
   "peerDependencies": {
-    "vue": "^3.4.0",
-    "sass": "^1.70.0"
+    "sass": "^1.70.0",
+    "vue": "^3.4.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
@@ -68,5 +65,8 @@
     "vue": "^3.4.0",
     "vue-tsc": "^2.0.0"
   },
-  "packageManager": "pnpm@10.23.0"
+  "packageManager": "pnpm@10.23.0",
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
 }

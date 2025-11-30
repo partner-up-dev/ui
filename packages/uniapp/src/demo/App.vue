@@ -133,14 +133,14 @@ onMounted(() => {
 <style lang="scss" scoped>
 .demo-app {
   min-height: 100vh;
-  background-color: fn.sys-var(color, surface);
-  color: fn.sys-var(color, on-surface);
+  background-color: sys-var(color, surface);
+  color: sys-var(color, on-surface);
 }
 
 .demo-header {
-  background-color: fn.sys-var(color, primary);
-  color: fn.sys-var(color, on-primary);
-  padding: fn.sys-var(spacing, med) fn.sys-var(spacing, lg);
+  background-color: sys-var(color, primary);
+  color: sys-var(color, on-primary);
+  padding: sys-var(spacing, med) sys-var(spacing, lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -148,64 +148,64 @@ onMounted(() => {
 
 .demo-header h1 {
   margin: 0;
-  font-size: fn.sys-var(font, headline-large, size);
-  line-height: fn.sys-var(font, headline-large, line-height);
+  font-size: sys-var(font, headline-large, size);
+  line-height: sys-var(font, headline-large, line-height);
 }
 
 .theme-toggle {
   display: flex;
   align-items: center;
-  gap: fn.sys-var(spacing, sm);
+  gap: sys-var(spacing, sm);
 }
 
 .theme-toggle label {
   display: flex;
   align-items: center;
-  gap: fn.sys-var(spacing, xs);
+  gap: sys-var(spacing, xs);
   cursor: pointer;
 }
 
 .demo-content {
-  padding: fn.sys-var(spacing, lg);
+  padding: sys-var(spacing, lg);
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .demo-section {
-  margin-bottom: fn.sys-var(spacing, lg);
-  padding: fn.sys-var(spacing, med);
-  background-color: fn.sys-var(color, surface-container);
-  border-radius: fn.sys-var(radius, med);
+  margin-bottom: sys-var(spacing, lg);
+  padding: sys-var(spacing, med);
+  background-color: sys-var(color, surface-container);
+  border-radius: sys-var(radius, med);
 }
 
 .demo-section h2 {
-  margin: 0 0 fn.sys-var(spacing, med) 0;
-  font-size: fn.sys-var(font, title-large, size);
-  line-height: fn.sys-var(font, title-large, line-height);
-  color: fn.sys-var(color, primary);
+  margin: 0 0 sys-var(spacing, med) 0;
+  font-size: sys-var(font, title-large, size);
+  line-height: sys-var(font, title-large, line-height);
+  color: sys-var(color, primary);
 }
 
 .color-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: fn.sys-var(spacing, med);
+  gap: sys-var(spacing, med);
 }
 
 .color-card {
   display: flex;
   align-items: center;
-  gap: fn.sys-var(spacing, sm);
-  padding: fn.sys-var(spacing, sm);
-  background-color: fn.sys-var(color, surface);
-  border-radius: fn.sys-var(radius, sm);
-  border: 1px solid fn.sys-var(color, outline-variant);
+  gap: sys-var(spacing, sm);
+  padding: sys-var(spacing, sm);
+  background-color: sys-var(color, surface);
+  border-radius: sys-var(radius, sm);
+  border: 1px solid sys-var(color, outline-variant);
 }
 
 .color-swatch {
   width: 48px;
   height: 48px;
-  border-radius: fn.sys-var(radius, sm);
-  border: 1px solid fn.sys-var(color, outline-variant);
+  border-radius: sys-var(radius, sm);
+  border: 1px solid sys-var(color, outline-variant);
 }
 
 .color-info {
@@ -214,35 +214,35 @@ onMounted(() => {
 
 .color-name {
   font-weight: 600;
-  font-size: fn.sys-var(font, label-large, size);
+  font-size: sys-var(font, label-large, size);
 }
 
 .color-var {
-  font-size: fn.sys-var(font, label-small, size);
-  color: fn.sys-var(color, on-surface-variant);
+  font-size: sys-var(font, label-small, size);
+  color: sys-var(color, on-surface-variant);
   font-family: monospace;
 }
 
 .button-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: fn.sys-var(spacing, sm);
+  gap: sys-var(spacing, sm);
 }
 
 .typography-demo {
   display: flex;
   flex-direction: column;
-  gap: fn.sys-var(spacing, sm);
+  gap: sys-var(spacing, sm);
 }
 
 .typo-item {
-  padding: fn.sys-var(spacing, xs) 0;
-  border-bottom: 1px solid fn.sys-var(color, outline-variant);
+  padding: sys-var(spacing, xs) 0;
+  border-bottom: 1px solid sys-var(color, outline-variant);
 }
 
 .spacing-demo {
   display: flex;
-  gap: fn.sys-var(spacing, lg);
+  gap: sys-var(spacing, lg);
   align-items: flex-end;
 }
 
@@ -250,23 +250,23 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: fn.sys-var(spacing, xs);
+  gap: sys-var(spacing, xs);
 }
 
 .spacing-box {
-  background-color: fn.sys-var(color, primary);
+  background-color: sys-var(color, primary);
 }
 
 .shadow-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: fn.sys-var(spacing, lg);
+  gap: sys-var(spacing, lg);
 }
 
 .shadow-card {
-  padding: fn.sys-var(spacing, med);
-  background-color: fn.sys-var(color, surface);
-  border-radius: fn.sys-var(radius, med);
+  padding: sys-var(spacing, med);
+  background-color: sys-var(color, surface);
+  border-radius: sys-var(radius, med);
   text-align: center;
   font-weight: 600;
 }
