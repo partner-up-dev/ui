@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.0
+
+### Minor Changes
+
+- c6c1d4b: no build, add ts support
+
+  - Will release in source (.vue, .scss), not bundled js.
+  - Add TypeScript support for Vue components
+
+### Patch Changes
+
+- 2951868: fix pu-icon mixin lost font-size; align token naming
+- e865587: fix puButton and add kebabCase util
+- ee3f0c5: fix css variables emit not work in mp-weixin platform
+
 ## 0.1.4
 
 ### Patch Changes
