@@ -209,7 +209,7 @@ $typography: (
 
 $font: (
   family: (
-    mono: monospace,
+    mono: "ui-monospace, monospace",
   ),
 );
 
@@ -217,4 +217,16 @@ $font: (
 $opacity: (
   disabled: 0.6,
   invalid: 0.6,
+);
+
+$all: (
+  color: $color, 
+  spacing: $spacing, 
+  radius: $radius, 
+  size: $size, 
+  icon: $icon, 
+  shadow: $shadow, 
+  typo: $typography, 
+  font: $font, 
+  opacity: $opacity
 );

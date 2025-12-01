@@ -123,6 +123,7 @@ $base: (
   size: ref.$size,
   icon: ref.$icon,
   shadow: ref.$shadow,
-  font: ref.$typography,
+  typo: ref.$typography,
+  font: ref.$font,
   opacity: ref.$opacity,
 );

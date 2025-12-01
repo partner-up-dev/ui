@@ -17,7 +17,7 @@
 /* Emit all reference tokens as CSS variables */
 :root, page {
   /* Emit ref tokens */
-  @include fn.emit-css-variables((color: ref.$color, spacing: ref.$spacing, radius: ref.$radius, size: ref.$size, icon: ref.$icon, shadow: ref.$shadow, typography: ref.$typography, font: ref.$font, opacity: ref.$opacity), 'ref');
+  @include fn.emit-css-variables(ref.$all, 'ref');
   
   /* Emit system tokens (light mode default) */
   @include fn.emit-css-variables(sys.$light, 'sys');
