@@ -15,7 +15,7 @@
 @forward './mixins';
 
 /* Emit all reference tokens as CSS variables */
-:root {
+:root, page {
   /* Emit ref tokens */
   @include fn.emit-css-variables((color: ref.$color, spacing: ref.$spacing, radius: ref.$radius, size: ref.$size, icon: ref.$icon, shadow: ref.$shadow, typography: ref.$typography, font: ref.$font, opacity: ref.$opacity), 'ref');
   
@@ -29,20 +29,20 @@
 
 /* Dark mode using media query */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root, page {
     /* Override with dark mode color tokens */
     @include fn.emit-css-variables(sys.$dark, 'sys');
   }
 }
 
 /* Manual dark mode class support */
-:root[data-theme='dark'] {
+:root[data-theme='dark'], page[data-theme='dark'] {
   /* Override with dark mode color tokens */
   @include fn.emit-css-variables(sys.$dark, 'sys');
 }
 
 /* Manual light mode class support */
-:root[data-theme='light'] {
+:root[data-theme='light'], page[data-theme='light'] {
   /* Reset to light mode color tokens */
   @include fn.emit-css-variables(sys.$light, 'sys');
 }
