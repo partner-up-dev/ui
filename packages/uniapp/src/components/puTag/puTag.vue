@@ -15,12 +15,9 @@ export default {
 <script setup lang="ts">
 import { computed } from "vue";
 import { puTagProps } from "./puTag";
+import { kebabCase } from '@/utils/string'
 
 const props = defineProps(puTagProps);
-
-function kebabCase(str: string): string {
-  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-}
 
 const rootClasses = computed(() => {
   const classes = ["pu-tag"] as string[];

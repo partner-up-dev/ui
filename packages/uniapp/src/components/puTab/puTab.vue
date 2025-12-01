@@ -18,12 +18,10 @@ export default {
 <script setup lang="ts">
 import { computed } from "vue";
 import { puTabProps } from "./puTab";
+import { kebabCase } from '@/utils/string'
+
 
 const props = defineProps(puTabProps);
-
-function kebabCase(str: string): string {
-  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-}
 
 const sizeClass = computed(() => {
   return kebabCase(props.size);

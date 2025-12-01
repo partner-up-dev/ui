@@ -1,35 +1,54 @@
-// Types of Component:Base:PuButton
-
-import { makeBooleanProp } from '@/utils/props'
 import type { PropType } from 'vue'
+import { makeStringProp, makeBooleanProp } from '../../utils/props'
 
-export type ButtonVariant = 'primary' | 'secondary' | 'outlined' | 'text'
-export type ButtonSize = 'small' | 'medium' | 'large'
+// ==================== 组件相关类型定义 ====================
 
-export const PuButtonProps = {
-  /**
-   * @name 按钮变体
-   * @description Button variant style
-   */
-  variant: {
-    type: String as PropType<ButtonVariant>,
-    default: 'primary'
-  },
-  /**
-   * @name 按钮尺寸
-   * @description Button size
-   */
-  size: {
-    type: String as PropType<ButtonSize>,
-    default: 'medium'
-  },
-  /**
-   * @name 是否禁用
-   * @description Whether the button is disabled
-   */
+export type ButtonTheme =
+  | 'Primary'
+  | 'PrimaryContainer'
+  | 'Tertiary'
+  | 'Surface'
+  | 'SurfaceOutlined'
+  | 'Plain'
+
+export type ButtonType = 'WithText' | 'OnlyIcon' | 'Bar'
+
+export type ButtonSize = 'xSmall' | 'Small' | 'Medium' | 'Large'
+
+// ==================== 组件 Props 定义 ====================
+
+export const puButtonProps = {
+  // Button content
+  text: makeStringProp('Button'),
+  prefixIcon: makeStringProp(''),
+  suffixIcon: makeStringProp(''),
+
+  // Display controls
+  showDot: makeBooleanProp(false),
+
+  // State controls
+  toggled: makeBooleanProp(false),
+  active: makeBooleanProp(false),
+
+  // Button variants
+  theme: makeStringProp<ButtonTheme>('PrimaryContainer'),
+  type: makeStringProp<ButtonType>('WithText'),
+  size: makeStringProp<ButtonSize>('Small'),
+  rounded: makeBooleanProp(false),
+
+  // Interaction
   disabled: makeBooleanProp(false),
+  loading: makeBooleanProp(false),
+
+  // Custom styling
+  customStyle: {
+    type: Object as PropType<Record<string, unknown>>,
+    default: () => ({})
+  }
 }
 
-export const PuButtonEmits = {
-  click: (event: MouseEvent) => true,
+// ==================== 组件 Emits 定义 ====================
+
+export const puButtonEmits = {
+  click: (_event: unknown) => true
 }

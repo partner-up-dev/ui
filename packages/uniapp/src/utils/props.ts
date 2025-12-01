@@ -35,7 +35,7 @@ export function makeBooleanProp<T extends boolean>(defaultValue: T = false as T)
 /**
  * Make a string prop with default value
  */
-export function makeStringProp<T extends string>(defaultValue: T = '' as T) {
+export function makeStringProp<T>(defaultValue: T) {
   return {
     type: String as unknown as PropType<T>,
     default: defaultValue

@@ -9,6 +9,8 @@ export default {
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from "vue";
 import { puImgProps, puImgEmits } from "./puImg";
+import { kebabCase } from '@/utils/string'
+
 
 const props = defineProps(puImgProps);
 const emit = defineEmits(puImgEmits);
@@ -42,10 +44,6 @@ function onError(e: any) {
   emit("error", e);
 }
 
-function kebabCase(str: string): string {
-  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-}
-
 const rootStyle = computed(() => {
   const style: Record<string, string> = {};
   if (props.size) {
@@ -70,32 +68,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <view
-    class="pu-img"
-    :class="[props.customClass, props.size ? `pu-img--${props.size}` : '']"
-    :style="rootStyle"
-  >
-    <image
-      class="pu-img__image"
-      :class="[
-        props.customImage,
-        `pu-img__image--r-${kebabCase(props.radius)}`,
-        {
-          'is-hidden':
-            (props.showError && isError) || (props.showLoading && isLoading),
-        },
-      ]"
-      :src="props.src"
-      :mode="props.mode"
-      :lazy-load="props.lazyLoad"
-      @load="onLoad"
-      @error="onError"
-    />
+  <view class="pu-img" :class="[props.customClass, props.size ? `pu-img--${props.size}` : '']" :style="rootStyle">
+    <image class="pu-img__image" :class="[
+      props.customImage,
+      `pu-img__image--r-${kebabCase(props.radius)}`,
+      {
+        'is-hidden':
+          (props.showError && isError) || (props.showLoading && isLoading),
+      },
+    ]" :src="props.src" :mode="props.mode" :lazy-load="props.lazyLoad" @load="onLoad" @error="onError" />
 
-    <view
-      v-if="props.showLoading && isLoading && hasSrc"
-      class="pu-img__placeholder is-loading"
-    >
+    <view v-if="props.showLoading && isLoading && hasSrc" class="pu-img__placeholder is-loading">
       <slot name="loading">
         <view class="pu-img__spinner" />
       </slot>

@@ -1,56 +1,94 @@
-# 组件 PuButton 文档
+# PUButton 按钮
 
 ## Rationale
 
-> 基础按钮组件，用于在应用中提供统一的按钮交互体验。支持多种变体、尺寸和禁用状态。
+提供统一的按钮组件，支持多种样式主题、尺寸和状态。
 
 ## Goals
 
-> 提供一个标准化的按钮组件，支持：
->
-> - 多种视觉变体 (primary, secondary, outlined, text)
-> - 多种尺寸 (small, medium, large)
-> - 禁用状态
-> - 点击事件
+- 支持多种主题变体（Primary、Surface、Tertiary 等）
+- 支持多种尺寸和类型（带文本、纯图标、Bar 形式）
+- 支持加载态、禁用态、激活态、切换态
+- 支持前缀/后缀图标和点标识符
 
 ## Specification
 
-> 组件完全使用CSS变量实现样式，支持主题切换和暗黑模式。
+### 内容
+
+- 按钮文本
+- 前缀图标（可选）
+- 后缀图标（可选）
+- 加载指示器（loading 状态时显示，替换前缀图标）
+- 点标识符（可选）
+
+### UI/UX
+
+- 加载状态时显示旋转的加载图标（替换前缀图标）
+- 加载或禁用状态时不响应点击事件
+- 支持圆角样式
+- 支持多种主题配色
+
+### 行为
+
+- 点击时触发 `click` 事件
+- 加载或禁用状态下阻止点击事件
 
 ## Implementation
 
-> 组件基于Vue 3 Composition API实现，使用TypeScript定义类型。样式采用BEM规范。
-
 ### Props
 
-| 属性名 | 类型 | 默认值 | 必填 | 说明 |
-|--------|------|--------|------|------|
-| variant | `'primary' \| 'secondary' \| 'outlined' \| 'text'` | `'primary'` | 否 | 按钮变体样式 |
-| size | `'small' \| 'medium' \| 'large'` | `'medium'` | 否 | 按钮尺寸 |
-| disabled | `boolean` | `false` | 否 | 是否禁用 |
+- `text` (`string`, `"Button"`)：按钮文本
+- `prefixIcon` (`string`, `""`)：前缀图标类名（UnoCSS 图标）
+- `suffixIcon` (`string`, `""`)：后缀图标类名（UnoCSS 图标）
+- `showDot` (`boolean`, `false`)：是否显示点标识符
+- `toggled` (`boolean`, `false`)：是否处于切换态
+- `active` (`boolean`, `false`)：是否处于激活态
+- `theme` (`ButtonTheme`, `"PrimaryContainer"`)：按钮主题
+- `type` (`ButtonType`, `"WithText"`)：按钮类型
+- `size` (`ButtonSize`, `"Small"`)：按钮尺寸
+- `rounded` (`boolean`, `false`)：是否圆角
+- `disabled` (`boolean`, `false`)：是否禁用
+- `loading` (`boolean`, `false`)：是否处于加载状态
+- `customStyle` (`Record<string, any>`, `{}`)：自定义样式对象
+
+#### theme
+
+主题变体：
+
+- `Primary`：主色调
+- `PrimaryContainer`：主色调容器
+- `Tertiary`：第三色调
+- `Surface`：表面色
+- `SurfaceOutlined`：带边框的表面色
+- `Plain`：朴素样式
+
+#### type
+
+按钮类型：
+
+- `WithText`：带文本的按钮
+- `OnlyIcon`：仅图标按钮
+- `Bar`：横条形式
+
+#### size
+
+尺寸选项：
+
+- `xSmall`：超小尺寸
+- `Small`：小尺寸
+- `Medium`：中等尺寸
+- `Large`：大尺寸
 
 ### Events
 
-| 事件名 | 参数 | 说明 |
-|--------|------|------|
-| click | `(event: MouseEvent)` | 点击事件 |
+- `click(event: any)`：点击事件，仅在非禁用和非加载状态下触发
 
-### Slots
+### Loading 状态
 
-| 插槽名 | 说明 | 参数 |
-|--------|------|------|
-| default | 默认插槽，按钮内容 | - |
+当 `loading` 为 `true` 时：
 
-### Methods
-
-无公开方法。
-
-### Watches
-
-无监听器。
-
-## 其它
-
-- 完全使用CSS变量，支持主题切换
-- 支持暗黑模式
-- 兼容性：支持所有Uniapp目标平台
+- 显示旋转的加载图标（`i-mdi-loading`）
+- 隐藏 `prefixIcon` 和 `suffixIcon`
+- 阻止点击事件
+- 添加 `loading` CSS 类（cursor: not-allowed）
+- 加载图标使用 CSS 动画无限旋转
