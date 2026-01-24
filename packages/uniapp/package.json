@@ -41,7 +41,10 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "copy": "copyfiles -u 1 \"src/**/*.{vue,ts,json,scss}\" dist",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && pnpm run copy"
   },
   "keywords": [
     "partnerup",
@@ -65,5 +68,5 @@
     "vue": "^3.4.0",
     "vue-tsc": "^2.0.0"
   },
-  "packageManager": "pnpm@10.23.0"
+  "packageManager": "pnpm@10.28.1"
 }
