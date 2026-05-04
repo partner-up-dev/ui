@@ -1,0 +1,76 @@
+@use "../../styles/mixins" as *;
+
+.pu-toggle-switch {
+  --pu-toggle-switch-track-width: 3rem;
+  --pu-toggle-switch-track-height: 1.75rem;
+  --pu-toggle-switch-track-padding: 0.2rem;
+  --pu-toggle-switch-thumb-size: 1.35rem;
+  --pu-toggle-switch-thumb-offset: 1.2rem;
+
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  gap: var(--sys-spacing-small);
+  font: inherit;
+}
+
+.pu-toggle-switch:focus-visible {
+  border-radius: var(--sys-radius-medium);
+  outline: 2px solid var(--sys-color-primary);
+  outline-offset: 2px;
+}
+
+.pu-toggle-switch.is-disabled {
+  opacity: var(--sys-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.pu-toggle-switch__label {
+  min-width: 0;
+  @include pu-font(label-large);
+}
+
+.pu-toggle-switch__track {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--pu-toggle-switch-track-width);
+  height: var(--pu-toggle-switch-track-height);
+  border-radius: var(--sys-radius-large);
+  background: var(--sys-color-surface-container-highest);
+  transition: background-color 180ms ease;
+}
+
+.pu-toggle-switch__thumb {
+  position: absolute;
+  top: var(--pu-toggle-switch-track-padding);
+  left: var(--pu-toggle-switch-track-padding);
+  width: var(--pu-toggle-switch-thumb-size);
+  height: var(--pu-toggle-switch-thumb-size);
+  border-radius: var(--sys-radius-full);
+  background: var(--sys-color-on-surface-variant);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.pu-toggle-switch.is-checked .pu-toggle-switch__track {
+  background: var(--sys-color-primary-container);
+}
+
+.pu-toggle-switch.is-checked .pu-toggle-switch__thumb {
+  transform: translateX(var(--pu-toggle-switch-thumb-offset));
+  background: var(--sys-color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-toggle-switch__track,
+  .pu-toggle-switch__thumb {
+    transition: none !important;
+  }
+}
+

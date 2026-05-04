@@ -1,0 +1,10 @@
+.pu-page-scaffold-flow {
+  display: flex;
+  flex-direction: column;
+}
+
+.pu-page-scaffold-flow__main {
+  flex: 1;
+  min-height: 0;
+}
+

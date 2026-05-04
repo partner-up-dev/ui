@@ -22,6 +22,19 @@ declare module 'vue' {
     PuTabs: typeof import('../src/components/puTabs/puTabs.vue')['default']
     PuTag: typeof import('../src/components/puTag/puTag.vue')['default']
     PuTextarea: typeof import('../src/components/puTextarea/puTextarea.vue')['default']
+    PuPageScaffold: typeof import('../src/components/puPageScaffold/puPageScaffold.vue')['default']
+    PuPageScaffoldFlow: typeof import('../src/components/puPageScaffoldFlow/puPageScaffoldFlow.vue')['default']
+    PuPageScaffoldCentered: typeof import('../src/components/puPageScaffoldCentered/puPageScaffoldCentered.vue')['default']
+    PuFullScreenPageScaffold: typeof import('../src/components/puFullScreenPageScaffold/puFullScreenPageScaffold.vue')['default']
+    PuFooterRevealPageScaffold: typeof import('../src/components/puFooterRevealPageScaffold/puFooterRevealPageScaffold.vue')['default']
+    PuDesktopPageScaffold: typeof import('../src/components/puDesktopPageScaffold/puDesktopPageScaffold.vue')['default']
+    PuWheelPicker: typeof import('../src/components/puWheelPicker/puWheelPicker.vue')['default']
+    PuToggleSwitch: typeof import('../src/components/puToggleSwitch/puToggleSwitch.vue')['default']
+    PuSurfaceCard: typeof import('../src/components/puSurfaceCard/puSurfaceCard.vue')['default']
+    PuExpandableCard: typeof import('../src/components/puExpandableCard/puExpandableCard.vue')['default']
+    PuCell: typeof import('../src/components/puCell/puCell.vue')['default']
+    PuInfoRow: typeof import('../src/components/puInfoRow/puInfoRow.vue')['default']
+    PuModal: typeof import('../src/components/puModal/puModal.vue')['default']
   }
 }
 

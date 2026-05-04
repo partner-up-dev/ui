@@ -1,0 +1,198 @@
+@use "../../styles/mixins" as *;
+
+.pu-wheel-picker {
+  --pu-wheel-picker-fade-background: var(--sys-color-surface);
+  --pu-wheel-picker-highlight-background: var(--sys-color-surface-container-high);
+  --pu-wheel-picker-highlight-border: var(--sys-color-outline-variant);
+  --pu-wheel-picker-highlight-opacity: 0.74;
+  --pu-wheel-picker-selected-color: var(--sys-color-on-surface);
+  --pu-wheel-picker-muted-color: var(--sys-color-on-surface-variant);
+
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--sys-radius-large);
+  background: var(--pu-wheel-picker-fade-background);
+  color: var(--sys-color-on-surface);
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.pu-wheel-picker:focus,
+.pu-wheel-picker:focus-visible {
+  outline: none;
+}
+
+.pu-wheel-picker--tone-primary {
+  --pu-wheel-picker-highlight-background: var(--sys-color-primary-container);
+  --pu-wheel-picker-highlight-border: var(--sys-color-primary);
+  --pu-wheel-picker-selected-color: var(--sys-color-primary);
+}
+
+.pu-wheel-picker--tone-outline {
+  border: 1px solid var(--sys-color-outline-variant);
+}
+
+.pu-wheel-picker--tone-secondary {
+  --pu-wheel-picker-highlight-background: var(--sys-color-secondary-container);
+  --pu-wheel-picker-highlight-border: var(--sys-color-secondary);
+  --pu-wheel-picker-selected-color: var(--sys-color-secondary);
+}
+
+.pu-wheel-picker--tone-tertiary {
+  --pu-wheel-picker-highlight-background: var(--sys-color-tertiary-container);
+  --pu-wheel-picker-highlight-border: var(--sys-color-tertiary);
+  --pu-wheel-picker-selected-color: var(--sys-color-tertiary);
+}
+
+.pu-wheel-picker.is-disabled {
+  opacity: var(--sys-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.pu-wheel-picker__viewport {
+  position: relative;
+  height: var(--pu-wheel-picker-viewport-height);
+  overflow: hidden;
+  cursor: grab;
+  perspective: 56rem;
+}
+
+.pu-wheel-picker.is-disabled .pu-wheel-picker__viewport {
+  cursor: not-allowed;
+}
+
+.pu-wheel-picker.is-dragging .pu-wheel-picker__viewport {
+  cursor: grabbing;
+}
+
+.pu-wheel-picker__highlight {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: var(--sys-spacing-small);
+  left: var(--sys-spacing-small);
+  height: var(--pu-wheel-picker-item-height);
+  transform: translateY(-50%);
+  border: 1px solid var(--pu-wheel-picker-highlight-border);
+  border-radius: var(--sys-radius-medium);
+  background: var(--pu-wheel-picker-highlight-background);
+  opacity: var(--pu-wheel-picker-highlight-opacity);
+  pointer-events: none;
+}
+
+.pu-wheel-picker__fade {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  left: 0;
+  height: calc((100% - var(--pu-wheel-picker-item-height)) / 2);
+  pointer-events: none;
+}
+
+.pu-wheel-picker__fade--top {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--pu-wheel-picker-fade-background),
+    transparent
+  );
+}
+
+.pu-wheel-picker__fade--bottom {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    var(--pu-wheel-picker-fade-background),
+    transparent
+  );
+}
+
+.pu-wheel-picker__list {
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.pu-wheel-picker.is-snapping .pu-wheel-picker__list {
+  transition: transform 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.pu-wheel-picker__option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0 var(--sys-spacing-medium);
+  border: 0;
+  background: transparent;
+  color: var(--pu-wheel-picker-muted-color);
+  appearance: none;
+  cursor: pointer;
+  letter-spacing: 0;
+  transform-origin: center;
+  transition:
+    color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease,
+    filter 180ms ease;
+  @include pu-font(body-large);
+}
+
+.pu-wheel-picker__option:focus {
+  outline: none;
+}
+
+.pu-wheel-picker__option:hover:not(:disabled) {
+  filter: brightness(0.98);
+}
+
+.pu-wheel-picker__option:disabled {
+  cursor: not-allowed;
+}
+
+.pu-wheel-picker__option--active {
+  color: var(--pu-wheel-picker-selected-color);
+  @include pu-font(title-small);
+}
+
+.pu-wheel-picker__option--disabled {
+  opacity: var(--sys-opacity-disabled);
+}
+
+.pu-wheel-picker__option-label {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pu-wheel-picker__empty {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--sys-spacing-medium);
+  color: var(--sys-color-on-surface-variant);
+  text-align: center;
+  @include pu-font(body-medium);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-wheel-picker__list,
+  .pu-wheel-picker__option {
+    transition: none !important;
+  }
+}
+

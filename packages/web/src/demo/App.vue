@@ -5,6 +5,9 @@ const inputValue = ref('')
 const checked = ref(false)
 const pickerValue = ref('')
 const drawerVisible = ref(false)
+const modalOpen = ref(false)
+const switchValue = ref(false)
+const wheelValue = ref('hangzhou')
 
 const pickerColumns = [
   { label: '杭州', value: 'hangzhou' },
@@ -14,7 +17,7 @@ const pickerColumns = [
 </script>
 
 <template>
-  <main class="demo">
+  <PuPageScaffold class="demo">
     <section class="demo__section">
       <h1>PartnerUp Design Web</h1>
       <p>Vue web implementation using the mvp-HA token/style layer.</p>
@@ -31,6 +34,7 @@ const pickerColumns = [
       <PuTextarea v-model="inputValue" placeholder="补充说明" show-count :maxlength="80" />
       <PuCheckbox v-model="checked" label="同意规则" />
       <PuPicker v-model="pickerValue" label="城市" :columns="pickerColumns" clearable />
+      <PuToggleSwitch v-model="switchValue" label="接收提醒" />
     </section>
 
     <section class="demo__section">
@@ -38,10 +42,28 @@ const pickerColumns = [
       <PuAccordion v-model="checked" title="Accordion" content="这段内容用于验证折叠组件在 Web 中的基础行为。" />
     </section>
 
+    <PuSurfaceCard class="demo__section">
+      <PuCell title="Cell" value="Value" border suffix-icon="i-mdi-chevron-right" />
+      <PuInfoRow label="InfoRow" value="Vertical value" layout="stack" />
+      <PuWheelPicker v-model="wheelValue" :options="pickerColumns" aria-label="城市选择" />
+    </PuSurfaceCard>
+
+    <PuExpandableCard title="Expandable" subtitle="Migrated shared UI component">
+      <p>ExpandableCard content rendered with the web package.</p>
+    </PuExpandableCard>
+
+    <section class="demo__section">
+      <PuButton text="Open Modal" @click="modalOpen = true" />
+    </section>
+
     <PuDrawer v-model:visible="drawerVisible" title="Drawer">
       <p>Drawer content rendered with web DOM.</p>
     </PuDrawer>
-  </main>
+
+    <PuModal :open="modalOpen" title="Modal" @close="modalOpen = false">
+      <p>Modal content rendered through Teleport.</p>
+    </PuModal>
+  </PuPageScaffold>
 </template>
 
 <style scoped lang="scss">

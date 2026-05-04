@@ -1,0 +1,76 @@
+@use "../../styles/mixins" as *;
+
+.pu-expandable-card {
+  border: 1px solid var(--sys-color-outline-variant);
+  border-radius: var(--sys-radius-large);
+  background: var(--sys-color-surface);
+}
+
+.pu-expandable-card__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: var(--sys-size-large);
+  padding: var(--sys-spacing-small) var(--sys-spacing-medium);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  gap: var(--sys-spacing-small);
+  text-align: left;
+}
+
+.pu-expandable-card__header {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-expandable-card__title {
+  margin: 0;
+  @include pu-font(title-small);
+}
+
+.pu-expandable-card__subtitle {
+  margin: 0;
+  color: var(--sys-color-on-surface-variant);
+  @include pu-font(body-small);
+}
+
+.pu-expandable-card__icon {
+  flex: 0 0 auto;
+  transition: transform 180ms ease;
+  @include pu-font(label-medium);
+}
+
+.pu-expandable-card__icon.is-open {
+  transform: rotate(180deg);
+}
+
+.pu-expandable-card__content {
+  padding: 0 var(--sys-spacing-medium) var(--sys-spacing-medium);
+}
+
+.pu-expandable-card-content-enter-active,
+.pu-expandable-card-content-leave-active {
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.pu-expandable-card-content-enter-from,
+.pu-expandable-card-content-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-expandable-card__icon,
+  .pu-expandable-card-content-enter-active,
+  .pu-expandable-card-content-leave-active {
+    transition: none !important;
+  }
+}
+

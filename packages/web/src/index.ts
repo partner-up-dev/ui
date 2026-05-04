@@ -27,6 +27,19 @@ import PuTab from './components/puTab/puTab.vue'
 import PuTabs from './components/puTabs/puTabs.vue'
 import PuTag from './components/puTag/puTag.vue'
 import PuTextarea from './components/puTextarea/puTextarea.vue'
+import PuPageScaffold from './components/puPageScaffold/puPageScaffold.vue'
+import PuPageScaffoldFlow from './components/puPageScaffoldFlow/puPageScaffoldFlow.vue'
+import PuPageScaffoldCentered from './components/puPageScaffoldCentered/puPageScaffoldCentered.vue'
+import PuFullScreenPageScaffold from './components/puFullScreenPageScaffold/puFullScreenPageScaffold.vue'
+import PuFooterRevealPageScaffold from './components/puFooterRevealPageScaffold/puFooterRevealPageScaffold.vue'
+import PuDesktopPageScaffold from './components/puDesktopPageScaffold/puDesktopPageScaffold.vue'
+import PuWheelPicker from './components/puWheelPicker/puWheelPicker.vue'
+import PuToggleSwitch from './components/puToggleSwitch/puToggleSwitch.vue'
+import PuSurfaceCard from './components/puSurfaceCard/puSurfaceCard.vue'
+import PuExpandableCard from './components/puExpandableCard/puExpandableCard.vue'
+import PuCell from './components/puCell/puCell.vue'
+import PuInfoRow from './components/puInfoRow/puInfoRow.vue'
+import PuModal from './components/puModal/puModal.vue'
 
 export const version = '0.1.0'
 
@@ -48,7 +61,20 @@ const components = [
   ['PuTab', PuTab],
   ['PuTabs', PuTabs],
   ['PuTag', PuTag],
-  ['PuTextarea', PuTextarea]
+  ['PuTextarea', PuTextarea],
+  ['PuPageScaffold', PuPageScaffold],
+  ['PuPageScaffoldFlow', PuPageScaffoldFlow],
+  ['PuPageScaffoldCentered', PuPageScaffoldCentered],
+  ['PuFullScreenPageScaffold', PuFullScreenPageScaffold],
+  ['PuFooterRevealPageScaffold', PuFooterRevealPageScaffold],
+  ['PuDesktopPageScaffold', PuDesktopPageScaffold],
+  ['PuWheelPicker', PuWheelPicker],
+  ['PuToggleSwitch', PuToggleSwitch],
+  ['PuSurfaceCard', PuSurfaceCard],
+  ['PuExpandableCard', PuExpandableCard],
+  ['PuCell', PuCell],
+  ['PuInfoRow', PuInfoRow],
+  ['PuModal', PuModal]
 ] as const
 
 export function install(app: App): void {
@@ -75,7 +101,20 @@ export {
   PuTab,
   PuTabs,
   PuTag,
-  PuTextarea
+  PuTextarea,
+  PuPageScaffold,
+  PuPageScaffoldFlow,
+  PuPageScaffoldCentered,
+  PuFullScreenPageScaffold,
+  PuFooterRevealPageScaffold,
+  PuDesktopPageScaffold,
+  PuWheelPicker,
+  PuToggleSwitch,
+  PuSurfaceCard,
+  PuExpandableCard,
+  PuCell,
+  PuInfoRow,
+  PuModal
 }
 
 export default {

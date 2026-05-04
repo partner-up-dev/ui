@@ -1,0 +1,84 @@
+@use "../../styles/mixins" as *;
+
+.pu-cell {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--sys-size-large);
+  box-sizing: border-box;
+  padding: var(--sys-spacing-small) 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--sys-color-on-surface);
+  gap: var(--sys-spacing-small);
+  text-decoration: none;
+}
+
+.pu-cell--border {
+  border-bottom: 1px solid var(--sys-color-outline-variant);
+}
+
+.pu-cell:is(button) {
+  cursor: pointer;
+  text-align: left;
+  appearance: none;
+}
+
+.pu-cell:is(a) {
+  cursor: pointer;
+}
+
+.pu-cell:is(button, a):hover {
+  background: var(--sys-color-surface-container-low);
+}
+
+.pu-cell:is(button, a):focus-visible {
+  outline: 2px solid var(--sys-color-primary);
+  outline-offset: 2px;
+}
+
+.pu-cell__title,
+.pu-cell__value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pu-cell__title {
+  flex: 0 1 auto;
+  color: var(--sys-color-on-surface);
+  @include pu-font(body-large);
+}
+
+.pu-cell__right {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-cell__value {
+  flex: 0 1 auto;
+  color: var(--sys-color-on-surface-variant);
+  text-align: right;
+  @include pu-font(body-medium);
+}
+
+.pu-cell__suffix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--sys-color-on-surface-variant);
+}
+
+.pu-cell__suffix :deep([class^="i-"]),
+.pu-cell__suffix :deep([class*=" i-"]) {
+  @include pu-icon(medium);
+}
+
