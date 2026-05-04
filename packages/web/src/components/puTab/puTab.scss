@@ -1,0 +1,60 @@
+@use "../../styles/functions" as fn;
+@use "../../styles/mixins" as *;
+
+.pu-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: fn.sys-var(color, on-surface);
+}
+
+.pu-tab__text {
+  text-align: center;
+  color: fn.sys-var(color, on-surface);
+}
+
+.pu-tab__dot {
+  position: absolute;
+  background-color: fn.sys-var(color, red);
+  border-radius: 50%;
+}
+
+// Large
+.large {
+  .pu-tab__text {
+    @include pu-font("headline-large");
+  }
+  .pu-tab__dot {
+    width: 12px;
+    height: 12px;
+    right: -3px;
+    top: 3px;
+  }
+}
+
+// Medium
+.medium {
+  .pu-tab__text {
+    @include pu-font("title-large");
+  }
+  .pu-tab__dot {
+    width: 10px;
+    height: 10px;
+    right: -2px;
+    top: 1px;
+  }
+}
+
+// Small
+.small {
+  .pu-tab__text {
+    @include pu-font("title-medium");
+  }
+  .pu-tab__dot {
+    width: 8px;
+    height: 8px;
+    right: -2px;
+    top: 0px;
+  }
+}

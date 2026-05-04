@@ -1,0 +1,99 @@
+@use "../../styles/functions" as fn;
+
+.pu-img {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    &--r-none {
+      border-radius: fn.sys-var(radius, none);
+    }
+
+    &--r-x-small {
+      border-radius: fn.sys-var(radius, xsmall);
+    }
+
+    &--r-small {
+      border-radius: fn.sys-var(radius, small);
+    }
+
+    &--r-medium {
+      border-radius: fn.sys-var(radius, medium);
+    }
+
+    &--r-large {
+      border-radius: fn.sys-var(radius, large);
+    }
+
+    &--r-full {
+      border-radius: fn.sys-var(radius, full);
+    }
+  }
+
+  &__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.04);
+
+    &.is-loading {
+      .pu-img__spinner {
+        animation: puimg-rotate 1s linear infinite;
+      }
+    }
+
+    &.is-error {
+      background-color: rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  &__spinner,
+  &__error-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: #e5e5e5;
+  }
+
+  // Size modifiers
+  &--xSmall {
+    width: fn.sys-var(size, xsmall);
+    height: fn.sys-var(size, xsmall);
+  }
+  &--small {
+    width: fn.sys-var(size, small);
+    height: fn.sys-var(size, small);
+  }
+  &--medium {
+    width: fn.sys-var(size, medium);
+    height: fn.sys-var(size, medium);
+  }
+  &--large {
+    width: fn.sys-var(size, large);
+    height: fn.sys-var(size, large);
+  }
+  &--xLarge {
+    width: fn.sys-var(size, xlarge);
+    height: fn.sys-var(size, xlarge);
+  }
+}
+
+.is-hidden {
+  visibility: hidden;
+}
+
+@keyframes puimg-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

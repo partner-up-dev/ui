@@ -1,0 +1,227 @@
+@use "../../styles/functions" as fn;
+@use "../../styles/mixins" as *;
+
+// ==================== 根容器 ====================
+.pu-picker {
+  &.is-disabled {
+    opacity: fn.sys-var(opacity, disabled);
+    cursor: not-allowed;
+  }
+}
+
+// ==================== Cell 触发器样式 ====================
+.pu-picker__cell {
+  appearance: none;
+  border: 0;
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: fn.sys-var(spacing, medium);
+  background-color: fn.sys-var(color, surface);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: inherit;
+  text-align: left;
+
+  &:active {
+    background-color: fn.sys-var(color, surface-container);
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: fn.sys-var(opacity, disabled);
+
+    &:active {
+      background-color: fn.sys-var(color, surface-container-low);
+    }
+  }
+
+  &.is-readonly {
+    cursor: default;
+
+    &:active {
+      background-color: fn.sys-var(color, surface-container-low);
+    }
+  }
+
+  &.is-error {
+    .pu-picker__label {
+      color: fn.sys-var(color, error);
+    }
+  }
+
+  &--placeholder {
+    .pu-picker__value {
+      color: fn.sys-var(color, outline);
+    }
+  }
+}
+
+.pu-picker__custom-trigger {
+  cursor: pointer;
+}
+
+.pu-picker__cell-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: fn.sys-var(spacing, small);
+}
+
+// ==================== Label 样式 ====================
+.pu-picker__label {
+  flex-shrink: 0;
+  color: fn.sys-var(color, on-surface);
+  @include pu-font("label-large");
+}
+
+.pu-picker__required {
+  color: fn.sys-var(color, error);
+  margin-right: 2px;
+}
+
+// ==================== Value 样式 ====================
+.pu-picker__value {
+  flex: 1;
+  color: fn.sys-var(color, on-surface);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  @include pu-font("label-large");
+
+  &.is-align-right {
+    text-align: right;
+  }
+}
+
+// ==================== 图标样式 ====================
+.pu-picker__arrow,
+.pu-picker__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  .icon {
+    @include pu-icon("medium");
+    color: fn.sys-var(color, on-surface-variant);
+  }
+}
+
+.pu-picker__clear {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+
+  .icon {
+    color: fn.sys-var(color, outline);
+  }
+}
+
+.pu-picker__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.36);
+}
+
+.pu-picker__panel {
+  width: min(100%, 32rem);
+  max-height: min(72vh, 32rem);
+  overflow: hidden;
+  border-radius: fn.sys-var(radius, large) fn.sys-var(radius, large) 0 0;
+  background: fn.sys-var(color, surface);
+  color: fn.sys-var(color, on-surface);
+  box-shadow: fn.sys-var(shadow, 8);
+}
+
+.pu-picker__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: fn.sys-var(spacing, small) fn.sys-var(spacing, medium);
+  border-bottom: 1px solid fn.sys-var(color, outline-variant);
+}
+
+.pu-picker__action {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: fn.sys-var(color, on-surface-variant);
+  cursor: pointer;
+  @include pu-font("label-large");
+
+  &.is-primary {
+    color: fn.sys-var(color, primary);
+  }
+}
+
+.pu-picker__columns {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  max-height: 20rem;
+  overflow: hidden;
+}
+
+.pu-picker__column {
+  min-width: 0;
+  max-height: 20rem;
+  overflow-y: auto;
+  border-right: 1px solid fn.sys-var(color, outline-variant);
+
+  &:last-child {
+    border-right: 0;
+  }
+}
+
+.pu-picker__option {
+  appearance: none;
+  border: 0;
+  width: 100%;
+  min-height: fn.sys-var(size, large);
+  padding: fn.sys-var(spacing, small);
+  background: transparent;
+  color: fn.sys-var(color, on-surface);
+  cursor: pointer;
+  @include pu-font("label-large");
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: fn.sys-var(opacity, disabled);
+  }
+
+  &.is-selected {
+    background: fn.sys-var(color, primary-container);
+    color: fn.sys-var(color, on-primary-container);
+  }
+}
+
+// ==================== 尺寸变体 ====================
+.pu-picker.is-small {
+  .pu-picker__cell {
+    padding: fn.sys-var(spacing, small);
+  }
+
+  .pu-picker__label,
+  .pu-picker__value {
+    @include pu-font("label-medium");
+  }
+}
+
+.pu-picker.is-large {
+  .pu-picker__cell {
+    padding: fn.sys-var(spacing, large);
+  }
+
+  .pu-picker__label,
+  .pu-picker__value {
+    @include pu-font("body-large");
+  }
+}

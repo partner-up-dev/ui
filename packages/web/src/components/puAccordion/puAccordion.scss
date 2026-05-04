@@ -1,0 +1,44 @@
+@use "../../styles/functions" as fn;
+@use "../../styles/mixins" as *;
+
+.pu-accordion {
+  &.is-viewmore {
+    padding: fn.sys-var(spacing, medium);
+  }
+
+  &__content {
+    @include pu-font("label-large");
+    color: fn.sys-var(color, on-surface);
+
+    &.is-retract {
+      @include pu-font("label-large");
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  &__more {
+    display: inline-block;
+    margin-top: fn.sys-var(spacing, small);
+    color: fn.sys-var(color, primary);
+    user-select: none;
+    cursor: pointer;
+    @include pu-font("label-large");
+  }
+
+  &__more-txt {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: fn.sys-var(spacing, xsmall);
+  }
+
+  &__arrow {
+    @include pu-icon("medium");
+    transition: transform 0.1s;
+
+    &.is-retract {
+      transform: rotate(-180deg);
+    }
+  }
+}

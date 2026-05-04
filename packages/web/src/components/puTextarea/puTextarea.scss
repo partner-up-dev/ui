@@ -1,0 +1,72 @@
+@use "../../styles/functions" as fn;
+@use "../../styles/mixins" as *;
+
+.pu-textarea {
+  display: flex;
+  flex-direction: column;
+  gap: fn.sys-var(spacing, xsmall);
+  background-color: var(--pu-textarea-bg-color, fn.sys-var(color, surface-container));
+  box-sizing: border-box;
+  transition: border 0.2s;
+  border: 1px solid transparent;
+
+  &.is-disabled {
+    opacity: 0.6;
+  }
+
+  &.is-focused {
+    border: 1px solid fn.sys-var(color, primary);
+  }
+
+  &.theme-surface-container {
+    background-color: fn.sys-var(color, surface-container);
+    border: 1px solid transparent;
+
+    &.is-focused {
+      border: 1px solid fn.sys-var(color, primary);
+    }
+  }
+
+  &.theme-surface {
+    background-color: fn.sys-var(color, surface);
+    border: 1px solid transparent;
+
+    &.is-focused {
+      border-bottom: 1px solid fn.sys-var(color, outline);
+    }
+  }
+
+  .label {
+    color: fn.sys-var(color, on-surface-variant);
+    font-size: var(--sys-typo-label-large-size);
+  }
+
+  .field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inner {
+    color: fn.sys-var(color, on-surface);
+    @include pu-font("label-large");
+    padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, small);
+    background-color: transparent;
+    box-sizing: border-box;
+    height: var(--pu-textarea-min-height);
+    width: 100%;
+    transition: height 0.2s;
+
+    &.focused {
+      height: var(--pu-textarea-min-height-focus);
+    }
+  }
+
+  .count {
+    position: absolute;
+    bottom: fn.sys-var(spacing, xsmall);
+    right: fn.sys-var(spacing, small);
+    color: fn.sys-var(color, on-surface-variant);
+    @include pu-font("label-medium");
+  }
+}

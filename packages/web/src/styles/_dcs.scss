@@ -1,0 +1,16 @@
+/*
+ * Decision tokens (dcs)
+ * Governed outputs that should be named, shared, and centrally owned.
+ */
+
+$all: (
+  layout: (
+    page-max-width: 480px,
+  ),
+  typography: (
+    page-hero-size: clamp(2rem, 4vw, 3rem),
+  ),
+  event: (
+    form-mode-location-card-height: clamp(7.2rem, 19.2vh, 10.4rem),
+  ),
+);

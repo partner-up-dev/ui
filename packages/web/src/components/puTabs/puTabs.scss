@@ -1,0 +1,31 @@
+@use "../../styles/functions" as fn;
+
+.pu-tabs {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.pu-tabs__item {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+
+  &.active {
+    opacity: 1;
+  }
+
+  &.deactive {
+    opacity: fn.sys-var(opacity, invalid);
+  }
+}
+
+.space-m-l-med {
+  margin-left: fn.sys-var(spacing, medium);
+}

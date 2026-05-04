@@ -4,7 +4,7 @@
 	"private": true,
 	"description": "PartnerUp Design System Monorepo",
 	"scripts": {
-		"build": "pnpm -r --filter='./packages/*' run --if-present build",
+		"build": "pnpm -r run --if-present build",
 		"changeset": "changeset",
 		"version": "changeset version",
 		"release": "pnpm run build && changeset publish"
