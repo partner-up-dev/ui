@@ -8,6 +8,7 @@ import type { App } from 'vue'
 import './styles/index.scss'
 
 export * from './utils'
+export * from './types'
 
 import PuButton from './components/puButton/puButton.vue'
 import PuAccordion from './components/puAccordion/puAccordion.vue'
