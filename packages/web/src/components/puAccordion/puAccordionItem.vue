@@ -4,12 +4,14 @@
     :style="customStyle"
   >
     <button
+      :id="triggerId"
       type="button"
       :class="`pu-accordion-item__header ${expanded ? 'is-expanded' : ''} ${
         isFirst ? 'pu-accordion-item__header-first' : ''
       } ${$slots.title ? 'is-custom' : ''}`"
       :disabled="disabled"
       :aria-expanded="expanded"
+      :aria-controls="contentId"
       @click="handleClick"
     >
       <slot
@@ -33,10 +35,12 @@
     >
       <div
         ref="bodyRef"
+        :id="contentId"
         class="pu-accordion-item__body"
         :class="customBodyClass"
         :style="customBodyStyle"
-        :id="accordionId"
+        role="region"
+        :aria-labelledby="triggerId"
       >
         <slot />
       </div>
@@ -52,6 +56,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, inject, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { usePuId } from "../../composables";
 import {
   puAccordionItemProps,
   puAccordionItemEmits,
@@ -59,14 +64,13 @@ import {
 } from "./puAccordionItem";
 import { PUACCORDION_KEY } from "./puAccordion";
 
-const accordionId = ref<string>(
-  `accordion-item-${Math.random().toString(36).slice(2, 11)}`
-);
-
 const props = defineProps(puAccordionItemProps);
 const emit = defineEmits(puAccordionItemEmits);
 
 const accordion = inject(PUACCORDION_KEY, null);
+const baseId = usePuId("pu-accordion-item");
+const triggerId = computed(() => `${baseId.value}-trigger`);
+const contentId = computed(() => `${baseId.value}-content`);
 
 const height = ref<string | number>("");
 const inited = ref<boolean>(false);

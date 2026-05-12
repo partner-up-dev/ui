@@ -80,4 +80,16 @@ infrastructure/export-generation.md
 
 infrastructure/export-generation-industry-check.md
 +-- Vue ecosystem research notes for export and global type generation
+
+infrastructure/accessibility-composables.md
++-- proposed a11y composable APIs, priority slices, and migration targets
+
+infrastructure/documentation-examples.md
++-- proposed Histoire-based docs/example infrastructure and QA integration path
+
+infrastructure/verification-matrix.md
++-- verification layers, gates, tools, and rollout order
+
+infrastructure/verification-histoire-role.md
++-- Histoire role as catalog, story fixture, docs, and visual input
 ```

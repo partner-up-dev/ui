@@ -18,7 +18,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["./types/components.d.ts"]
+    "types": ["./types/components.d.ts", "./src/stories/histoire.d.ts"]
   },
   "include": ["src/**/*.ts", "src/**/*.vue", "types/**/*.d.ts"],
   "references": []

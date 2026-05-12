@@ -9,6 +9,7 @@ import './styles/index.scss'
 
 export * from './utils'
 export * from './types'
+export * from './composables'
 export * from './component-registry'
 export type * from '../types/components'
 import components from './component-registry'

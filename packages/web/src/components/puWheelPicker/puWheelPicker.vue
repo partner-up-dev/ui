@@ -76,8 +76,6 @@
 <script lang="ts">
 import { BasicComponentOptions } from "../../utils/vue";
 
-let wheelPickerIdSeed = 0;
-
 export default {
   name: "PuWheelPicker",
   options: BasicComponentOptions,
@@ -86,6 +84,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch, type CSSProperties } from "vue";
+import { usePuId } from "../../composables";
 import {
   puWheelPickerEmits,
   puWheelPickerProps,
@@ -125,7 +124,7 @@ defineSlots<{
 }>();
 
 const rootRef = ref<HTMLElement | null>(null);
-const pickerId = `pu-wheel-picker-${++wheelPickerIdSeed}`;
+const pickerId = usePuId("pu-wheel-picker");
 const scrollPositionPx = ref(0);
 const isDragging = ref(false);
 const isSnapping = ref(false);
@@ -207,7 +206,7 @@ onBeforeUnmount(() => {
 });
 
 function getOptionId(index: number): string {
-  return `${pickerId}-option-${index}`;
+  return `${pickerId.value}-option-${index}`;
 }
 
 function getOptionStyle(index: number): CSSProperties {
@@ -562,4 +561,3 @@ function clearWheelTimer(): void {
 </script>
 
 <style lang="scss" scoped src="./puWheelPicker.scss"></style>
-
