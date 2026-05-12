@@ -93,6 +93,12 @@ consumer decide navigation.
 
 ### 2. PuDescriptionList / PuDescriptionItem
 
+Status:
+
+```
+Implemented on 2026-05-12.
+```
+
 Problem:
 
 ```
@@ -122,13 +128,15 @@ dividers?: boolean
 columns?: 1 | 2
 labelWidth?: string
 collapseOnMobile?: boolean
+emptyText?: string
 
 Item:
 label?: string
 value?: string | number | null
 hint?: string
 span?: 1 | 2
-valueAlign?: "start" | "end"
+valueAlign?: "start" | "center" | "end"
+emptyText?: string
 ```
 
 ### 3. PuChip / PuChipGroup
@@ -242,4 +250,3 @@ compact?: boolean
 align?: "start" | "center"
 tone?: "section" | "outline"
 ```
-

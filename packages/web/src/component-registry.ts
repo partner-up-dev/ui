@@ -8,6 +8,8 @@ import PuButton from './components/puButton/puButton.vue'
 import PuCell from './components/puCell/puCell.vue'
 import PuCheckbox from './components/puCheckbox/puCheckbox.vue'
 import PuCheckboxGroup from './components/puCheckboxGroup/puCheckboxGroup.vue'
+import PuDescriptionItem from './components/puDescriptionItem/puDescriptionItem.vue'
+import PuDescriptionList from './components/puDescriptionList/puDescriptionList.vue'
 import PuDesktopPageScaffold from './components/puDesktopPageScaffold/puDesktopPageScaffold.vue'
 import PuDrawer from './components/puDrawer/puDrawer.vue'
 import PuExpandableCard from './components/puExpandableCard/puExpandableCard.vue'
@@ -41,6 +43,8 @@ export {
   PuCell,
   PuCheckbox,
   PuCheckboxGroup,
+  PuDescriptionItem,
+  PuDescriptionList,
   PuDesktopPageScaffold,
   PuDrawer,
   PuExpandableCard,
@@ -77,6 +81,8 @@ const components: readonly ComponentEntry[] = [
   ['PuCell', PuCell],
   ['PuCheckbox', PuCheckbox],
   ['PuCheckboxGroup', PuCheckboxGroup],
+  ['PuDescriptionItem', PuDescriptionItem],
+  ['PuDescriptionList', PuDescriptionList],
   ['PuDesktopPageScaffold', PuDesktopPageScaffold],
   ['PuDrawer', PuDrawer],
   ['PuExpandableCard', PuExpandableCard],

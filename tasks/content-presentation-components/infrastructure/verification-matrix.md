@@ -19,6 +19,7 @@ packages/web/src/stories/histoire.setup.ts
 packages/web/src/stories/story.css
 packages/web/src/stories/actions/PuButton.story.vue
 packages/web/src/stories/display/PuCell.story.vue
+packages/web/src/stories/display/PuDescriptionList.story.vue
 packages/web/src/stories/forms/PuToggleSwitch.story.vue
 packages/web/src/stories/forms/PuWheelPicker.story.vue
 packages/web/src/stories/overlay/PuModal.story.vue
@@ -211,6 +212,7 @@ Implemented first slice:
 ```
 PuButton        4 variants
 PuCell          4 variants
+PuDescriptionList covers PuDescriptionItem through one parent story
 PuToggleSwitch 3 variants
 PuWheelPicker  4 variants
 PuModal         3 variants
@@ -220,6 +222,7 @@ Story coverage audit:
 
 ```
 Current gate requires the first-slice components above.
+Newly landed composite stories can use @pu-story-covers to count covered child components.
 Strict mode can be enabled later to require every generated Pu* component.
 ```
 
@@ -233,9 +236,10 @@ Result:
 
 ```
 Passed.
-Story coverage reports 5/31 public components covered.
-Histoire built 5 stories and 18 variants.
+Story coverage reports 7/33 public components covered.
+Histoire built 6 stories and 22 variants.
 Browser smoke opened http://localhost:6100 and rendered PuButton/Themes.
+Browser smoke opened PuDescriptionList Stack/Grid variants and found dl/dt/dd DOM.
 ```
 
 Known warnings:
@@ -266,6 +270,7 @@ Story locations:
 ```
 packages/web/src/stories/actions/PuButton.story.vue
 packages/web/src/stories/display/PuCell.story.vue
+packages/web/src/stories/display/PuDescriptionList.story.vue
 packages/web/src/stories/overlay/PuModal.story.vue
 ```
 

@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 const REQUIRED_STORIES = new Set([
   "PuButton",
   "PuCell",
+  "PuDescriptionItem",
+  "PuDescriptionList",
   "PuModal",
   "PuToggleSwitch",
   "PuWheelPicker",
@@ -60,10 +62,21 @@ const getPublicComponents = async () => {
 
 const getStoryComponents = async () => {
   const files = await walk(storiesRoot);
-  const names = files
-    .map((file) => path.basename(file))
-    .filter((name) => name.endsWith(".story.vue"))
-    .map((name) => name.slice(0, -".story.vue".length));
+  const names = [];
+
+  for (const file of files) {
+    const basename = path.basename(file);
+    if (!basename.endsWith(".story.vue")) {
+      continue;
+    }
+
+    names.push(basename.slice(0, -".story.vue".length));
+
+    const source = await readExisting(file);
+    for (const match of source.matchAll(/@pu-story-covers\s+([A-Za-z0-9_\s]+)/g)) {
+      names.push(...match[1].trim().split(/\s+/));
+    }
+  }
 
   return new Set(names);
 };

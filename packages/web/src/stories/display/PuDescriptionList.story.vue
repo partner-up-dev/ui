@@ -1,0 +1,107 @@
+<!-- @pu-story-covers PuDescriptionList PuDescriptionItem -->
+
+<script setup lang="ts">
+import PuDescriptionItem from "../../components/puDescriptionItem/puDescriptionItem.vue";
+import PuDescriptionList from "../../components/puDescriptionList/puDescriptionList.vue";
+
+const eventFacts = [
+  ["Time", "May 12, 19:00"],
+  ["Location", "West Lake Cultural Plaza"],
+  ["Capacity", "12 / 20"],
+  ["Host", "PartnerUp Hangzhou"],
+] as const;
+</script>
+
+<template>
+  <Story title="PuDescriptionList" group="display">
+    <Variant title="Stack">
+      <div class="pu-story pu-story--narrow">
+        <PuDescriptionList
+          title="Event facts"
+          description="Compact facts for review and confirmation screens."
+        >
+          <PuDescriptionItem
+            v-for="[label, value] in eventFacts"
+            :key="label"
+            :label="label"
+            :value="value"
+          />
+        </PuDescriptionList>
+      </div>
+    </Variant>
+
+    <Variant title="Inline Surface">
+      <div class="pu-story pu-story--narrow">
+        <PuDescriptionList
+          title="Order summary"
+          layout="inline"
+          tone="surface"
+          label-align="end"
+          bordered
+        >
+          <PuDescriptionItem label="Plan" value="Team annual" />
+          <PuDescriptionItem label="Seats" value="24" />
+          <PuDescriptionItem label="Renewal" value="2026-06-01" />
+          <PuDescriptionItem label="Status" value="Ready">
+            <template #suffix>
+              <span class="pu-story__badge">Active</span>
+            </template>
+          </PuDescriptionItem>
+        </PuDescriptionList>
+      </div>
+    </Variant>
+
+    <Variant title="Grid">
+      <div class="pu-story">
+        <PuDescriptionList
+          title="Profile details"
+          layout="grid"
+          tone="outline"
+          :columns="2"
+          label-width="6rem"
+        >
+          <PuDescriptionItem label="Name" value="Lina Chen" />
+          <PuDescriptionItem label="Role" value="Organizer" />
+          <PuDescriptionItem label="City" value="Hangzhou" />
+          <PuDescriptionItem label="Member since" value="2024" />
+          <PuDescriptionItem label="Notes" :span="2">
+            <template #default>
+              Values can contain longer prose, inline badges, or formatted
+              content without losing the description-list relationship.
+            </template>
+            <template #hint>
+              Hints stay visually attached to the value.
+            </template>
+          </PuDescriptionItem>
+        </PuDescriptionList>
+      </div>
+    </Variant>
+
+    <Variant title="Slots And Empty">
+      <div class="pu-story pu-story--narrow">
+        <PuDescriptionList layout="inline" density="compact" empty-text="Pending">
+          <template #header>
+            <div class="pu-story__row">
+              <strong>Custom header</strong>
+              <span class="pu-story__badge">Draft</span>
+            </div>
+          </template>
+
+          <PuDescriptionItem value="Assigned">
+            <template #label>
+              Owner
+            </template>
+          </PuDescriptionItem>
+          <PuDescriptionItem label="Reviewer" />
+          <PuDescriptionItem label="Window">
+            <time datetime="2026-05-12T19:00:00+08:00">Tonight, 19:00</time>
+          </PuDescriptionItem>
+
+          <template #footer>
+            Last refreshed from the canonical story fixture.
+          </template>
+        </PuDescriptionList>
+      </div>
+    </Variant>
+  </Story>
+</template>

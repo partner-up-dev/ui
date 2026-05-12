@@ -1,6 +1,69 @@
 # Implementation Order
 
+## Current Remaining Content Components
+
+Status:
+
+```
+Updated after PuDescriptionList implementation on 2026-05-12.
+```
+
+Next minimum set:
+
+```
+1. PuPageHeader
+2. PuChip
+3. PuChipGroup
+4. PuInlineNotice
+5. PuEmptyState
+```
+
+Priority reasoning:
+
+```
+PuPageHeader
+  Highest remaining content-layout primitive. PageScaffold owns geometry;
+  PageHeader owns page meaning, title hierarchy, subtitle, meta, and top actions.
+
+PuChip / PuChipGroup
+  Highest remaining metadata primitive. Current PuTag is a simple visual tag;
+  Chip should provide slot-first short labels, status/tone variants, and
+  grouped spacing/alignment.
+
+PuInlineNotice
+  Highest remaining inline feedback primitive. Current PuNoticeBar is a strip;
+  InlineNotice should live inside content sections and carry status semantics.
+
+PuEmptyState
+  Completes repeated content states for empty lists, missing data, no search
+  results, and first-run panels.
+```
+
+Deferred content-adjacent candidates:
+
+```
+PuChoiceCard
+  Useful for selectable content surfaces. Implement after base presentation
+  primitives because it mixes card layout, selection state, and form semantics.
+
+PuFitChipGroup
+  Depends on PuChip/PuChipGroup and adds measurement behavior with ResizeObserver.
+
+PuAvatar
+  Identity presentation primitive. Lower migration count and narrower surface.
+
+PuLoadingState
+  Valuable async feedback primitive. Better handled in the feedback slice with
+  loading/error/empty states together.
+```
+
 ## Phase 1
+
+Status:
+
+```
+Implemented on 2026-05-12.
+```
 
 Implement:
 
@@ -33,6 +96,12 @@ grid layout
 custom label slot
 custom value slot
 footer slot
+```
+
+Implemented story:
+
+```
+packages/web/src/stories/display/PuDescriptionList.story.vue
 ```
 
 ## Phase 2
@@ -102,4 +171,3 @@ Reason:
 They are valuable follow-ups. Each belongs to a more specific slice:
 measurement-aware metadata, identity, async feedback, and selectable surfaces.
 ```
-

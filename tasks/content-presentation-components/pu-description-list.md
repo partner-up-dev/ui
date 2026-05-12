@@ -1,5 +1,46 @@
 # PuDescriptionList / PuDescriptionItem Plan
 
+Status:
+
+```
+Implemented in packages/web on 2026-05-12.
+Awaiting visual review and API refinement.
+```
+
+## Implementation Record
+
+Source files:
+
+```
+packages/web/src/components/puDescriptionList/context.ts
+packages/web/src/components/puDescriptionList/puDescriptionList.ts
+packages/web/src/components/puDescriptionList/puDescriptionList.vue
+packages/web/src/components/puDescriptionList/puDescriptionList.scss
+packages/web/src/components/puDescriptionItem/puDescriptionItem.ts
+packages/web/src/components/puDescriptionItem/puDescriptionItem.vue
+packages/web/src/components/puDescriptionItem/puDescriptionItem.scss
+```
+
+Generated files:
+
+```
+packages/web/src/component-registry.ts
+packages/web/types/components.d.ts
+```
+
+Story:
+
+```
+packages/web/src/stories/display/PuDescriptionList.story.vue
+```
+
+Story coverage note:
+
+```
+PuDescriptionList.story.vue declares:
+@pu-story-covers PuDescriptionList PuDescriptionItem
+```
+
 ## Role
 
 PuDescriptionList is the semantic group for name-value facts.
@@ -81,7 +122,12 @@ section.pu-description-list
 ```ts
 type PuDescriptionListLayout = "stack" | "inline" | "grid";
 type PuDescriptionListDensity = "compact" | "comfortable";
-type PuDescriptionListTone = "plain" | "surface" | "outline";
+type PuDescriptionListTone =
+  | "plain"
+  | "surface"
+  | "section"
+  | "inset-high"
+  | "outline";
 type PuDescriptionListLabelAlign = "start" | "end";
 
 props = {
@@ -97,6 +143,7 @@ props = {
   labelAlign?: PuDescriptionListLabelAlign; // default "start"
   columns?: 1 | 2;                     // default 1
   collapseOnMobile?: boolean;          // default true
+  emptyText?: string;                  // default "-"
 }
 ```
 
@@ -124,7 +171,8 @@ props = {
   value?: string | number | null;
   hint?: string;
   span?: 1 | 2;
-  valueAlign?: "start" | "end";
+  valueAlign?: "start" | "center" | "end";
+  emptyText?: string;
 }
 ```
 
@@ -141,6 +189,25 @@ Emits:
 
 ```ts
 (none)
+```
+
+## Actual Provide / Inject Contract
+
+```
+PuDescriptionList
++-- provides layout
++-- provides density
++-- provides tone
++-- provides dividers
++-- provides labelWidth
++-- provides labelAlign
++-- provides columns
++-- provides collapseOnMobile
++-- provides emptyText
+
+PuDescriptionItem
++-- injects list context when present
++-- falls back to stack / comfortable / 7rem / "-" when used alone
 ```
 
 ## Layout Modes
@@ -270,4 +337,3 @@ PuCell
 4. Keep suffix slot for small trailing actions or badges.
 5. Preserve accessible name-value relationship with dt/dd in the default path.
 ```
-

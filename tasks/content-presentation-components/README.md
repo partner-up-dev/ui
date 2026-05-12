@@ -15,6 +15,7 @@ packages/web
 +-- layout scaffolds exist
 +-- cards exist: PuSurfaceCard, PuExpandableCard
 +-- simple fact rows exist: PuCell, PuInfoRow
++-- grouped facts exist: PuDescriptionList, PuDescriptionItem
 +-- generic feedback exists: PuNoticeBar
 +-- tags exist: PuTag
 ```

@@ -51,6 +51,13 @@ packages/web/src/stories/overlay/PuModal.story.vue
 packages/web/scripts/check-story-coverage.mjs
 ```
 
+Implemented Phase B slice:
+
+```
+packages/web/src/stories/display/PuDescriptionList.story.vue
+check-story-coverage supports @pu-story-covers for child components covered by parent stories
+```
+
 ## Goal
 
 Create a documentation and example system that is:

@@ -2,6 +2,14 @@
 
 ## Local Evidence
 
+Workspace path check on 2026-05-12:
+
+```
+F:\CODING\Project\Anana\Application\mvp-HA was not present in this environment.
+Current next-component ordering uses the task packet's recorded mvp-HA usage
+counts plus packages/web's current component inventory.
+```
+
 Inventory commands used during investigation:
 
 ```powershell
@@ -97,4 +105,3 @@ Relevant concepts:
 message severity
 clear concise inline communication
 ```
-

@@ -1,0 +1,95 @@
+@use "../../styles/mixins" as *;
+
+.pu-description-item {
+  display: grid;
+  min-width: 0;
+  padding: var(--pu-description-item-padding-block, var(--sys-spacing-small)) 0;
+  column-gap: var(--sys-spacing-small);
+  row-gap: var(--sys-spacing-xsmall);
+}
+
+.pu-description-item--density-compact {
+  --pu-description-item-padding-block: var(--sys-spacing-xsmall);
+}
+
+.pu-description-item--density-comfortable {
+  --pu-description-item-padding-block: var(--sys-spacing-small);
+}
+
+.pu-description-item--layout-stack {
+  grid-template-columns: 1fr;
+}
+
+.pu-description-item--layout-inline,
+.pu-description-item--layout-grid {
+  grid-template-columns:
+    minmax(0, var(--pu-description-item-label-width, 7rem))
+    minmax(0, 1fr);
+  align-items: start;
+}
+
+.pu-description-item__label {
+  min-width: 0;
+  margin: 0;
+  color: var(--sys-color-on-surface-variant);
+  @include pu-font(label-large);
+}
+
+.pu-description-item--label-align-end .pu-description-item__label {
+  text-align: right;
+}
+
+.pu-description-item__content {
+  min-width: 0;
+  margin: 0;
+}
+
+.pu-description-item__value-row {
+  display: flex;
+  align-items: flex-start;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-description-item__value {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--sys-color-on-surface);
+  overflow-wrap: anywhere;
+  @include pu-font(body-medium);
+}
+
+.pu-description-item__suffix {
+  flex: 0 0 auto;
+  color: var(--sys-color-on-surface-variant);
+}
+
+.pu-description-item__hint {
+  margin-top: var(--sys-spacing-xxsmall);
+  color: var(--sys-color-on-surface-variant);
+  @include pu-font(body-small);
+}
+
+.pu-description-item--value-align-center .pu-description-item__value {
+  text-align: center;
+}
+
+.pu-description-item--value-align-end .pu-description-item__value {
+  text-align: right;
+}
+
+.pu-description-item--empty .pu-description-item__value {
+  color: var(--sys-color-on-surface-variant);
+}
+
+@media (max-width: 879px) {
+  .pu-description-item--collapse-on-mobile.pu-description-item--layout-inline,
+  .pu-description-item--collapse-on-mobile.pu-description-item--layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pu-description-item--collapse-on-mobile .pu-description-item__label,
+  .pu-description-item--collapse-on-mobile .pu-description-item__value {
+    text-align: left;
+  }
+}
