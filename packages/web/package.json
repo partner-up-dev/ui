@@ -56,9 +56,11 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "type-check": "vue-tsc --noEmit",
+    "generate": "node scripts/generate-component-registry.mjs",
+    "generate:check": "node scripts/generate-component-registry.mjs --check",
+    "type-check": "pnpm run generate:check && vue-tsc --noEmit",
     "clean": "rimraf dist",
-    "build": "pnpm run clean && vite build && vue-tsc -p tsconfig.build.json --declaration --emitDeclarationOnly"
+    "build": "pnpm run generate && pnpm run clean && vite build && vue-tsc -p tsconfig.build.json --declaration --emitDeclarationOnly"
   },
   "keywords": [
     "partnerup",

@@ -74,4 +74,10 @@ infrastructure/variant-vocabulary.md
 
 infrastructure/component-contract.md
 +-- public component contract decisions and implementation status
+
+infrastructure/export-generation.md
++-- generated component registry, package entry, and global component type plan
+
+infrastructure/export-generation-industry-check.md
++-- Vue ecosystem research notes for export and global type generation
 ```
