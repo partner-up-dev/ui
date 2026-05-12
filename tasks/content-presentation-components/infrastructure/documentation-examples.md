@@ -55,6 +55,7 @@ Implemented Phase B slice:
 
 ```
 packages/web/src/stories/display/PuDescriptionList.story.vue
+packages/web/src/stories/display/PuChip.story.vue
 check-story-coverage supports @pu-story-covers for child components covered by parent stories
 ```
 

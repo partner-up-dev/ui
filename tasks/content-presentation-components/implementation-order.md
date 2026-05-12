@@ -106,6 +106,13 @@ packages/web/src/stories/display/PuDescriptionList.story.vue
 
 ## Phase 2
 
+Status:
+
+```
+PuChip and PuChipGroup implemented on 2026-05-12.
+PuPageHeader remains pending.
+```
+
 Implement:
 
 ```
@@ -128,6 +135,12 @@ type-check
 build
 demo rendering
 keyboard focus for header back action
+```
+
+Implemented story:
+
+```
+packages/web/src/stories/display/PuChip.story.vue
 ```
 
 ## Phase 3

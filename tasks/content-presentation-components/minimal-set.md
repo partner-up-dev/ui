@@ -141,6 +141,12 @@ emptyText?: string
 
 ### 3. PuChip / PuChipGroup
 
+Status:
+
+```
+Implemented on 2026-05-12.
+```
+
 Problem:
 
 ```
@@ -160,13 +166,17 @@ Initial API:
 ```
 PuChip:
 as?: string = "span"
-tone?: "secondary" | "primary" | "surface" | "outline" | "danger" | "warning"
+tone?: "surface" | "outline" | "primary" | "secondary" | "tertiary" | "info" | "success" | "warning" | "error"
 size?: "sm" | "md" | "lg"
+selected?: boolean
+disabled?: boolean
+removable?: boolean
 
 PuChipGroup:
 as?: string = "div"
-gap?: "xs" | "sm" | "md"
+gap?: "none" | "xs" | "sm" | "md" | "lg"
 align?: "start" | "center" | "end"
+wrap?: boolean
 ```
 
 Deferred enhancement:

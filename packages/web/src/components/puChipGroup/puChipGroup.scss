@@ -1,0 +1,41 @@
+.pu-chip-group {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.pu-chip-group.is-wrap {
+  flex-wrap: wrap;
+}
+
+.pu-chip-group--align-start {
+  justify-content: flex-start;
+}
+
+.pu-chip-group--align-center {
+  justify-content: center;
+}
+
+.pu-chip-group--align-end {
+  justify-content: flex-end;
+}
+
+.pu-chip-group--gap-none {
+  gap: 0;
+}
+
+.pu-chip-group--gap-xs {
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-chip-group--gap-sm {
+  gap: var(--sys-spacing-small);
+}
+
+.pu-chip-group--gap-md {
+  gap: var(--sys-spacing-medium);
+}
+
+.pu-chip-group--gap-lg {
+  gap: var(--sys-spacing-large);
+}

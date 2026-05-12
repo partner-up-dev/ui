@@ -61,6 +61,9 @@ minimal-set.md
 pu-description-list.md
 +-- detailed IA, DOM, props, slots, and implementation plan
 
+pu-chip.md
++-- PuChip and PuChipGroup IA, DOM, props, slots, emits, and implementation record
+
 implementation-order.md
 +-- suggested order and verification gates
 

@@ -8,6 +8,8 @@ declare module 'vue' {
     PuCell: typeof import('../src/components/puCell/puCell.vue')['default']
     PuCheckbox: typeof import('../src/components/puCheckbox/puCheckbox.vue')['default']
     PuCheckboxGroup: typeof import('../src/components/puCheckboxGroup/puCheckboxGroup.vue')['default']
+    PuChip: typeof import('../src/components/puChip/puChip.vue')['default']
+    PuChipGroup: typeof import('../src/components/puChipGroup/puChipGroup.vue')['default']
     PuDescriptionItem: typeof import('../src/components/puDescriptionItem/puDescriptionItem.vue')['default']
     PuDescriptionList: typeof import('../src/components/puDescriptionList/puDescriptionList.vue')['default']
     PuDesktopPageScaffold: typeof import('../src/components/puDesktopPageScaffold/puDesktopPageScaffold.vue')['default']

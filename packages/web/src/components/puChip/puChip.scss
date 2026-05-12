@@ -1,0 +1,140 @@
+@use "../../styles/mixins" as *;
+
+.pu-chip {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  border: 1px solid transparent;
+  border-radius: var(--sys-radius-pill);
+  font: inherit;
+  text-decoration: none;
+  vertical-align: middle;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
+}
+
+button.pu-chip {
+  cursor: pointer;
+}
+
+.pu-chip__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pu-chip__prefix,
+.pu-chip__suffix,
+.pu-chip__remove {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.pu-chip__remove {
+  width: 1.25em;
+  height: 1.25em;
+  margin: 0 calc(var(--sys-spacing-xsmall) * -1) 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--sys-radius-pill);
+  background: transparent;
+  color: currentColor;
+  cursor: pointer;
+  font: inherit;
+}
+
+.pu-chip__remove:disabled {
+  cursor: not-allowed;
+}
+
+.pu-chip--size-sm {
+  min-height: 24px;
+  padding: 0 var(--sys-spacing-small);
+  gap: var(--sys-spacing-xsmall);
+  @include pu-font(label-medium);
+}
+
+.pu-chip--size-md {
+  min-height: 28px;
+  padding: 0 10px;
+  gap: var(--sys-spacing-xsmall);
+  @include pu-font(label-large);
+}
+
+.pu-chip--size-lg {
+  min-height: 36px;
+  padding: 0 var(--sys-spacing-medium);
+  gap: var(--sys-spacing-small);
+  @include pu-font(label-large);
+}
+
+.pu-chip--tone-surface {
+  background: var(--sys-color-surface-container);
+  color: var(--sys-color-on-surface);
+}
+
+.pu-chip--tone-outline {
+  border-color: var(--sys-color-outline-variant);
+  background: transparent;
+  color: var(--sys-color-on-surface);
+}
+
+.pu-chip--tone-primary {
+  background: var(--sys-color-primary-container);
+  color: var(--sys-color-on-primary-container);
+}
+
+.pu-chip--tone-secondary,
+.pu-chip--tone-info {
+  background: var(--sys-color-secondary-container);
+  color: var(--sys-color-on-secondary-container);
+}
+
+.pu-chip--tone-tertiary,
+.pu-chip--tone-success {
+  background: var(--sys-color-tertiary-container);
+  color: var(--sys-color-on-tertiary-container);
+}
+
+.pu-chip--tone-warning {
+  background: var(--sys-color-warning);
+  color: var(--sys-color-on-warning);
+}
+
+.pu-chip--tone-error {
+  background: var(--sys-color-error-container);
+  color: var(--sys-color-on-error-container);
+}
+
+.pu-chip.is-selected {
+  border-color: currentColor;
+}
+
+.pu-chip.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.pu-chip.is-removable {
+  padding-right: var(--sys-spacing-small);
+}
+
+.pu-chip__remove:hover:not(:disabled) {
+  background: rgb(0 0 0 / 8%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-chip {
+    transition: none;
+  }
+}
