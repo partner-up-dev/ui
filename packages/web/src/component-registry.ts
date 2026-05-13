@@ -4,6 +4,8 @@ import type { Component } from 'vue'
 
 import PuAccordion from './components/puAccordion/puAccordion.vue'
 import PuAccordionItem from './components/puAccordion/puAccordionItem.vue'
+import PuBentoGrid from './components/puBentoGrid/puBentoGrid.vue'
+import PuBentoItem from './components/puBentoItem/puBentoItem.vue'
 import PuButton from './components/puButton/puButton.vue'
 import PuCell from './components/puCell/puCell.vue'
 import PuCellGroup from './components/puCellGroup/puCellGroup.vue'
@@ -48,6 +50,8 @@ import PuWheelPicker from './components/puWheelPicker/puWheelPicker.vue'
 export {
   PuAccordion,
   PuAccordionItem,
+  PuBentoGrid,
+  PuBentoItem,
   PuButton,
   PuCell,
   PuCellGroup,
@@ -95,6 +99,8 @@ type ComponentEntry = readonly [name: string, component: Component]
 const components: readonly ComponentEntry[] = [
   ['PuAccordion', PuAccordion],
   ['PuAccordionItem', PuAccordionItem],
+  ['PuBentoGrid', PuBentoGrid],
+  ['PuBentoItem', PuBentoItem],
   ['PuButton', PuButton],
   ['PuCell', PuCell],
   ['PuCellGroup', PuCellGroup],

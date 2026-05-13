@@ -4,6 +4,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     PuAccordion: typeof import('../src/components/puAccordion/puAccordion.vue')['default']
     PuAccordionItem: typeof import('../src/components/puAccordion/puAccordionItem.vue')['default']
+    PuBentoGrid: typeof import('../src/components/puBentoGrid/puBentoGrid.vue')['default']
+    PuBentoItem: typeof import('../src/components/puBentoItem/puBentoItem.vue')['default']
     PuButton: typeof import('../src/components/puButton/puButton.vue')['default']
     PuCell: typeof import('../src/components/puCell/puCell.vue')['default']
     PuCellGroup: typeof import('../src/components/puCellGroup/puCellGroup.vue')['default']

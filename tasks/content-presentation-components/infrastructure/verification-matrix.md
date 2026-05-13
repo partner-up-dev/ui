@@ -270,6 +270,22 @@ Browser smoke opened PuSkeleton Basic Shapes/Text Rows/Animations/Loading Wrappe
 Accessibility variants, verified shape modifiers, row rendering, animation
 classes, loading=false slot handoff, role=status, aria-busy, and no console
 errors.
+Browser smoke opened PuBentoGrid Admin Overview, verified one grid, five items,
+key span/collapse/density classes, visible Anchor event and Applications text,
+and no console errors.
+```
+
+Latest local run on 2026-05-13:
+
+```
+pnpm --filter @partner-up-dev/design-web type-check
+pnpm --filter @partner-up-dev/design-web build
+pnpm --filter @partner-up-dev/design-web story:coverage
+pnpm --filter @partner-up-dev/design-web story:build
+
+Story coverage:
+32/44 public components covered.
+PuBentoGrid and PuBentoItem covered by PuBentoGrid.story.vue.
 ```
 
 Known warnings:

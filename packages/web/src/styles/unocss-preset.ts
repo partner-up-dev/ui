@@ -42,6 +42,14 @@ const spacing = {
   xlarge: "32px",
 };
 
+const breakpoints = {
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  "2xl": "1536px",
+};
+
 const shadows = {
   0: "none",
   1: "0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)",
@@ -179,6 +187,7 @@ export default definePreset(() => ({
     spacing,
     sizes,
     iconSizes,
+    breakpoints,
     "box-shadow": shadows,
     "border-radius": borderRadius,
     fonts,

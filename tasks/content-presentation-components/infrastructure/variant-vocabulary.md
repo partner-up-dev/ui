@@ -38,6 +38,7 @@ PuDensity
 PuAlign
 PuLayout
 PuGap
+PuBreakpoint
 PuOrientation
 ```
 
@@ -70,6 +71,9 @@ PuLayout:
 
 PuGap:
   none | xs | sm | md | lg
+
+PuBreakpoint:
+  sm | md | lg | xl | 2xl
 
 PuOrientation:
   horizontal | vertical
@@ -138,3 +142,31 @@ PuInlineNotice should use:
 PuStatusTone
 ```
 
+## Breakpoint Vocabulary
+
+Added on 2026-05-13 as a prerequisite for PuBentoGrid:
+
+```
+packages/web/src/types/variants.ts
++-- puBreakpoints
++-- PuBreakpoint
++-- puBreakpointValues
+
+packages/web/src/styles/_mixins.scss
++-- $breakpoints
++-- breakpoint($size)
++-- breakpoint-down($size)
+
+packages/web/src/styles/unocss-preset.ts
++-- theme.breakpoints
+```
+
+Public values:
+
+```
+sm: 640px
+md: 768px
+lg: 1024px
+xl: 1280px
+2xl: 1536px
+```

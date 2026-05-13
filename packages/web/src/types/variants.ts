@@ -46,6 +46,18 @@ export const puGaps = ["none", "xs", "sm", "md", "lg"] as const;
 
 export type PuGap = (typeof puGaps)[number];
 
+export const puBreakpoints = ["sm", "md", "lg", "xl", "2xl"] as const;
+
+export type PuBreakpoint = (typeof puBreakpoints)[number];
+
+export const puBreakpointValues: Record<PuBreakpoint, number> = {
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  "2xl": 1536,
+};
+
 export const puOrientations = ["horizontal", "vertical"] as const;
 
 export type PuOrientation = (typeof puOrientations)[number];
@@ -60,5 +72,5 @@ export type PuVariantValue =
   | PuAlign
   | PuLayout
   | PuGap
+  | PuBreakpoint
   | PuOrientation;
-

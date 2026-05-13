@@ -1,0 +1,94 @@
+@use "../../styles/mixins" as *;
+
+.pu-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--pu-bento-grid-columns, 2), minmax(0, 1fr));
+  grid-auto-rows: var(--pu-bento-grid-auto-rows, minmax(120px, auto));
+  min-width: 0;
+  color: var(--sys-color-on-surface);
+}
+
+.pu-bento-grid.is-dense {
+  grid-auto-flow: dense;
+}
+
+.pu-bento-grid--columns-2 :deep(.pu-bento-item--span-3),
+.pu-bento-grid--columns-2 :deep(.pu-bento-item--span-4),
+.pu-bento-grid--columns-3 :deep(.pu-bento-item--span-4) {
+  grid-column: 1 / -1;
+}
+
+.pu-bento-grid--gap-none {
+  gap: 0;
+}
+
+.pu-bento-grid--gap-xs {
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-bento-grid--gap-sm {
+  gap: var(--sys-spacing-small);
+}
+
+.pu-bento-grid--gap-md {
+  gap: var(--sys-spacing-medium);
+}
+
+.pu-bento-grid--gap-lg {
+  gap: var(--sys-spacing-large);
+}
+
+@include breakpoint-down(sm) {
+  .pu-bento-grid--collapse-at-sm {
+    --pu-bento-grid-columns: 1;
+  }
+
+  .pu-bento-grid--collapse-at-sm :deep(.pu-bento-item) {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+@include breakpoint-down(md) {
+  .pu-bento-grid--collapse-at-md {
+    --pu-bento-grid-columns: 1;
+  }
+
+  .pu-bento-grid--collapse-at-md :deep(.pu-bento-item) {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+@include breakpoint-down(lg) {
+  .pu-bento-grid--collapse-at-lg {
+    --pu-bento-grid-columns: 1;
+  }
+
+  .pu-bento-grid--collapse-at-lg :deep(.pu-bento-item) {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+@include breakpoint-down(xl) {
+  .pu-bento-grid--collapse-at-xl {
+    --pu-bento-grid-columns: 1;
+  }
+
+  .pu-bento-grid--collapse-at-xl :deep(.pu-bento-item) {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+@include breakpoint-down("2xl") {
+  .pu-bento-grid--collapse-at-2xl {
+    --pu-bento-grid-columns: 1;
+  }
+
+  .pu-bento-grid--collapse-at-2xl :deep(.pu-bento-item) {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}

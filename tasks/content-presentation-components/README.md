@@ -21,6 +21,7 @@ packages/web
 +-- inline messages exist: PuInlineNotice
 +-- empty content states exist: PuEmptyState
 +-- async content placeholders exist: PuSkeleton
++-- asymmetric overview layout exists: PuBentoGrid, PuBentoItem
 +-- generic feedback exists: PuNoticeBar
 +-- tags exist: PuTag
 ```
@@ -95,6 +96,9 @@ skeleton/api-dom-sketch.md
 
 skeleton/implementation-record.md
 +-- PuSkeleton implementation record, final DOM/API contract, and story coverage
+
+pu-bento.md
++-- PuBentoGrid and PuBentoItem IA, DOM, props, slots, emits, and responsive behavior
 
 implementation-order.md
 +-- suggested order and verification gates

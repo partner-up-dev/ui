@@ -67,6 +67,9 @@ layout:
 gap:
   none | xs | sm | md | lg
 
+breakpoint:
+  sm | md | lg | xl | 2xl
+
 orientation:
   horizontal | vertical
 ```
@@ -289,4 +292,3 @@ emits
 aria attributes
 responsive layout state
 ```
-

@@ -1,0 +1,137 @@
+@use "../../styles/mixins" as *;
+
+.pu-bento-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid transparent;
+  border-radius: var(--sys-radius-medium);
+  color: var(--sys-color-on-surface);
+  overflow: hidden;
+}
+
+.pu-bento-item--density-comfortable {
+  padding: var(--sys-spacing-medium);
+  gap: var(--sys-spacing-medium);
+}
+
+.pu-bento-item--density-compact {
+  padding: var(--sys-spacing-small);
+  gap: var(--sys-spacing-small);
+}
+
+.pu-bento-item--tone-plain {
+  background: transparent;
+}
+
+.pu-bento-item--tone-surface,
+.pu-bento-item--tone-section {
+  background: var(--sys-color-surface-container);
+}
+
+.pu-bento-item--tone-inset-high {
+  border-radius: var(--sys-radius-small);
+  background: var(--sys-color-surface-container-high);
+}
+
+.pu-bento-item--tone-outline {
+  border-color: var(--sys-color-outline-variant);
+  background: transparent;
+}
+
+.pu-bento-item--span-1 {
+  grid-column: span 1;
+}
+
+.pu-bento-item--span-2 {
+  grid-column: span 2;
+}
+
+.pu-bento-item--span-3 {
+  grid-column: span 3;
+}
+
+.pu-bento-item--span-4 {
+  grid-column: span 4;
+}
+
+.pu-bento-item--span-full {
+  grid-column: 1 / -1;
+}
+
+.pu-bento-item--row-span-1 {
+  grid-row: span 1;
+}
+
+.pu-bento-item--row-span-2 {
+  grid-row: span 2;
+}
+
+.pu-bento-item--row-span-3 {
+  grid-row: span 3;
+}
+
+.pu-bento-item__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-width: 0;
+  gap: var(--sys-spacing-small);
+}
+
+.pu-bento-item__heading {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-bento-item__title {
+  margin: 0;
+  color: var(--sys-color-on-surface);
+  overflow-wrap: anywhere;
+  @include pu-font(title-small);
+}
+
+.pu-bento-item__description {
+  margin: 0;
+  color: var(--sys-color-on-surface-variant);
+  overflow-wrap: anywhere;
+  @include pu-font(body-small);
+}
+
+.pu-bento-item__actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-bento-item__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow-wrap: anywhere;
+}
+
+.pu-bento-item__footer {
+  min-width: 0;
+  color: var(--sys-color-on-surface-variant);
+  overflow-wrap: anywhere;
+  @include pu-font(body-small);
+}
+
+@include breakpoint-down(sm) {
+  .pu-bento-item__header {
+    flex-direction: column;
+  }
+
+  .pu-bento-item__actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
