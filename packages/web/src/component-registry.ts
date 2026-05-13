@@ -17,6 +17,7 @@ import PuDesktopPageScaffold from './components/puDesktopPageScaffold/puDesktopP
 import PuDrawer from './components/puDrawer/puDrawer.vue'
 import PuEmptyState from './components/puEmptyState/puEmptyState.vue'
 import PuExpandableCard from './components/puExpandableCard/puExpandableCard.vue'
+import PuFileUpload from './components/puFileUpload/puFileUpload.vue'
 import PuFooterRevealPageScaffold from './components/puFooterRevealPageScaffold/puFooterRevealPageScaffold.vue'
 import PuForm from './components/puForm/puForm.vue'
 import PuFormItem from './components/puFormItem/puFormItem.vue'
@@ -24,6 +25,7 @@ import PuFullScreenPageScaffold from './components/puFullScreenPageScaffold/puFu
 import PuImg from './components/puImg/puImg.vue'
 import PuImgCropper from './components/puImgCropper/puImgCropper.vue'
 import PuInfoRow from './components/puInfoRow/puInfoRow.vue'
+import PuInlineFileUpload from './components/puInlineFileUpload/puInlineFileUpload.vue'
 import PuInlineNotice from './components/puInlineNotice/puInlineNotice.vue'
 import PuInput from './components/puInput/puInput.vue'
 import PuModal from './components/puModal/puModal.vue'
@@ -59,6 +61,7 @@ export {
   PuDrawer,
   PuEmptyState,
   PuExpandableCard,
+  PuFileUpload,
   PuFooterRevealPageScaffold,
   PuForm,
   PuFormItem,
@@ -66,6 +69,7 @@ export {
   PuImg,
   PuImgCropper,
   PuInfoRow,
+  PuInlineFileUpload,
   PuInlineNotice,
   PuInput,
   PuModal,
@@ -104,6 +108,7 @@ const components: readonly ComponentEntry[] = [
   ['PuDrawer', PuDrawer],
   ['PuEmptyState', PuEmptyState],
   ['PuExpandableCard', PuExpandableCard],
+  ['PuFileUpload', PuFileUpload],
   ['PuFooterRevealPageScaffold', PuFooterRevealPageScaffold],
   ['PuForm', PuForm],
   ['PuFormItem', PuFormItem],
@@ -111,6 +116,7 @@ const components: readonly ComponentEntry[] = [
   ['PuImg', PuImg],
   ['PuImgCropper', PuImgCropper],
   ['PuInfoRow', PuInfoRow],
+  ['PuInlineFileUpload', PuInlineFileUpload],
   ['PuInlineNotice', PuInlineNotice],
   ['PuInput', PuInput],
   ['PuModal', PuModal],
