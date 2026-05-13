@@ -22,6 +22,7 @@ import PuFullScreenPageScaffold from './components/puFullScreenPageScaffold/puFu
 import PuImg from './components/puImg/puImg.vue'
 import PuImgCropper from './components/puImgCropper/puImgCropper.vue'
 import PuInfoRow from './components/puInfoRow/puInfoRow.vue'
+import PuInlineNotice from './components/puInlineNotice/puInlineNotice.vue'
 import PuInput from './components/puInput/puInput.vue'
 import PuModal from './components/puModal/puModal.vue'
 import PuNoticeBar from './components/puNoticeBar/puNoticeBar.vue'
@@ -60,6 +61,7 @@ export {
   PuImg,
   PuImgCropper,
   PuInfoRow,
+  PuInlineNotice,
   PuInput,
   PuModal,
   PuNoticeBar,
@@ -101,6 +103,7 @@ const components: readonly ComponentEntry[] = [
   ['PuImg', PuImg],
   ['PuImgCropper', PuImgCropper],
   ['PuInfoRow', PuInfoRow],
+  ['PuInlineNotice', PuInlineNotice],
   ['PuInput', PuInput],
   ['PuModal', PuModal],
   ['PuNoticeBar', PuNoticeBar],

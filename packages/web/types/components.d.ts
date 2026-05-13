@@ -22,6 +22,7 @@ declare module 'vue' {
     PuImg: typeof import('../src/components/puImg/puImg.vue')['default']
     PuImgCropper: typeof import('../src/components/puImgCropper/puImgCropper.vue')['default']
     PuInfoRow: typeof import('../src/components/puInfoRow/puInfoRow.vue')['default']
+    PuInlineNotice: typeof import('../src/components/puInlineNotice/puInlineNotice.vue')['default']
     PuInput: typeof import('../src/components/puInput/puInput.vue')['default']
     PuModal: typeof import('../src/components/puModal/puModal.vue')['default']
     PuNoticeBar: typeof import('../src/components/puNoticeBar/puNoticeBar.vue')['default']

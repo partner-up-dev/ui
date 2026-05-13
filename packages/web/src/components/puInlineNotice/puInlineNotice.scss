@@ -1,0 +1,112 @@
+@use "../../styles/mixins" as *;
+
+.pu-inline-notice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: flex-start;
+  min-width: 0;
+  padding: var(--sys-spacing-small) var(--sys-spacing-medium);
+  border: 1px solid transparent;
+  border-radius: var(--sys-radius-medium);
+  gap: var(--sys-spacing-small);
+  color: var(--sys-color-on-surface);
+}
+
+.pu-inline-notice__icon,
+.pu-inline-notice__close {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.pu-inline-notice__icon {
+  width: 22px;
+  min-height: 22px;
+  @include pu-font(title-small);
+}
+
+.pu-inline-notice__content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-inline-notice__title {
+  color: inherit;
+  @include pu-font(label-large);
+}
+
+.pu-inline-notice__message {
+  color: inherit;
+  overflow-wrap: anywhere;
+  @include pu-font(body-medium);
+}
+
+.pu-inline-notice__actions {
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--sys-spacing-small);
+}
+
+.pu-inline-notice__close {
+  width: 28px;
+  height: 28px;
+  margin: -3px -6px -3px 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--sys-radius-pill);
+  background: transparent;
+  color: currentColor;
+  cursor: pointer;
+  font: inherit;
+}
+
+.pu-inline-notice__close:hover {
+  background: rgb(0 0 0 / 8%);
+}
+
+.pu-inline-notice--tone-info {
+  border-color: var(--sys-color-secondary-container);
+  background: var(--sys-color-secondary-container);
+  color: var(--sys-color-on-secondary-container);
+}
+
+.pu-inline-notice--tone-success {
+  border-color: var(--sys-color-tertiary-container);
+  background: var(--sys-color-tertiary-container);
+  color: var(--sys-color-on-tertiary-container);
+}
+
+.pu-inline-notice--tone-warning {
+  border-color: var(--sys-color-warning);
+  background: var(--sys-color-warning);
+  color: var(--sys-color-on-warning);
+}
+
+.pu-inline-notice--tone-error {
+  border-color: var(--sys-color-error-container);
+  background: var(--sys-color-error-container);
+  color: var(--sys-color-on-error-container);
+}
+
+@media (max-width: 639px) {
+  .pu-inline-notice {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .pu-inline-notice__actions {
+    grid-column: 2 / -1;
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-inline-notice__close {
+    transition: none;
+  }
+}

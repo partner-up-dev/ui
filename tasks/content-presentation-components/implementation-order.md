@@ -145,6 +145,13 @@ packages/web/src/stories/display/PuChip.story.vue
 
 ## Phase 3
 
+Status:
+
+```
+PuInlineNotice implemented on 2026-05-13.
+PuEmptyState remains pending.
+```
+
 Implement:
 
 ```
@@ -165,6 +172,12 @@ role=status for info/success
 role=alert for warning/error
 close event from dismissible notice
 empty state with actions slot
+```
+
+Implemented story:
+
+```
+packages/web/src/stories/display/PuInlineNotice.story.vue
 ```
 
 ## Deferred

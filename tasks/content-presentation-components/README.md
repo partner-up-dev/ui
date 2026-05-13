@@ -17,6 +17,7 @@ packages/web
 +-- cards exist: PuSurfaceCard, PuExpandableCard
 +-- simple fact rows exist: PuCell, PuInfoRow
 +-- grouped facts exist: PuDescriptionList, PuDescriptionItem
++-- inline messages exist: PuInlineNotice
 +-- generic feedback exists: PuNoticeBar
 +-- tags exist: PuTag
 ```
@@ -67,6 +68,9 @@ pu-chip.md
 
 pu-page-header.md
 +-- PuPageHeader IA, DOM, props, slots, emits, and implementation record
+
+pu-inline-notice.md
++-- PuInlineNotice IA, DOM, props, slots, emits, and implementation record
 
 implementation-order.md
 +-- suggested order and verification gates

@@ -198,6 +198,12 @@ ResizeObserver and measurement state.
 
 ### 4. PuInlineNotice
 
+Status:
+
+```
+Implemented on 2026-05-13.
+```
+
 Problem:
 
 ```
@@ -224,11 +230,20 @@ Initial API:
 tone?: "info" | "success" | "warning" | "error"
 title?: string
 message?: string
+icon?: string
+showIcon?: boolean
 dismissible?: boolean
 closeLabel?: string
 
 emits:
 close()
+
+slots:
+icon
+title
+default
+actions
+close-icon
 ```
 
 Accessibility:
