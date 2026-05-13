@@ -1,8 +1,19 @@
+html,
+body,
+#app,
+.histoire-generic-render-story,
+.histoire-generic-render-story__body,
+.htw-prose {
+  background: var(--sys-color-surface);
+}
+
 .pu-story {
   box-sizing: border-box;
   width: 100%;
   max-width: 760px;
+  min-height: 100%;
   padding: 24px;
+  background: var(--sys-color-surface);
   color: var(--sys-color-on-surface);
 }
 
