@@ -6,6 +6,7 @@ declare module 'vue' {
     PuAccordionItem: typeof import('../src/components/puAccordion/puAccordionItem.vue')['default']
     PuButton: typeof import('../src/components/puButton/puButton.vue')['default']
     PuCell: typeof import('../src/components/puCell/puCell.vue')['default']
+    PuCellGroup: typeof import('../src/components/puCellGroup/puCellGroup.vue')['default']
     PuCheckbox: typeof import('../src/components/puCheckbox/puCheckbox.vue')['default']
     PuCheckboxGroup: typeof import('../src/components/puCheckboxGroup/puCheckboxGroup.vue')['default']
     PuChip: typeof import('../src/components/puChip/puChip.vue')['default']

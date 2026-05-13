@@ -5,9 +5,11 @@
   align-items: center;
   width: 100%;
   min-width: 0;
-  min-height: var(--sys-size-large);
+  min-height: var(--pu-cell-min-height, var(--sys-size-large));
   box-sizing: border-box;
-  padding: var(--sys-spacing-small) 0;
+  padding:
+    var(--pu-cell-padding-block, var(--sys-spacing-small))
+    var(--pu-cell-padding-inline, var(--sys-spacing-medium));
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -50,7 +52,7 @@
 .pu-cell__title {
   flex: 0 1 auto;
   color: var(--sys-color-on-surface);
-  @include pu-font(body-large);
+  @include pu-font(body-medium);
 }
 
 .pu-cell__right {
@@ -81,4 +83,3 @@
 .pu-cell__suffix :deep([class*=" i-"]) {
   @include pu-icon(medium);
 }
-

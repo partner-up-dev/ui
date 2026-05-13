@@ -15,7 +15,8 @@ packages/web
 +-- layout scaffolds exist
 +-- page content entry exists: PuPageHeader
 +-- cards exist: PuSurfaceCard, PuExpandableCard
-+-- simple fact rows exist: PuCell, PuInfoRow
++-- grouped action/list rows exist: PuCell, PuCellGroup
++-- simple fact rows exist: PuInfoRow
 +-- grouped facts exist: PuDescriptionList, PuDescriptionItem
 +-- inline messages exist: PuInlineNotice
 +-- empty content states exist: PuEmptyState
@@ -76,6 +77,12 @@ pu-inline-notice.md
 
 pu-empty-state.md
 +-- PuEmptyState IA, DOM, props, slots, and implementation record
+
+pu-cell-group.md
++-- PuCellGroup IA, DOM, props, slots, and PuCell visual tuning record
+
+cell-group-and-cell-ia.md
++-- PuCellGroup proposal and PuCell IA refinement discussion
 
 skeleton/library-survey.md
 +-- external UI Library Skeleton API, layout, animation, and accessibility survey

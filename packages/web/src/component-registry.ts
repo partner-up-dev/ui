@@ -6,6 +6,7 @@ import PuAccordion from './components/puAccordion/puAccordion.vue'
 import PuAccordionItem from './components/puAccordion/puAccordionItem.vue'
 import PuButton from './components/puButton/puButton.vue'
 import PuCell from './components/puCell/puCell.vue'
+import PuCellGroup from './components/puCellGroup/puCellGroup.vue'
 import PuCheckbox from './components/puCheckbox/puCheckbox.vue'
 import PuCheckboxGroup from './components/puCheckboxGroup/puCheckboxGroup.vue'
 import PuChip from './components/puChip/puChip.vue'
@@ -47,6 +48,7 @@ export {
   PuAccordionItem,
   PuButton,
   PuCell,
+  PuCellGroup,
   PuCheckbox,
   PuCheckboxGroup,
   PuChip,
@@ -91,6 +93,7 @@ const components: readonly ComponentEntry[] = [
   ['PuAccordionItem', PuAccordionItem],
   ['PuButton', PuButton],
   ['PuCell', PuCell],
+  ['PuCellGroup', PuCellGroup],
   ['PuCheckbox', PuCheckbox],
   ['PuCheckboxGroup', PuCheckboxGroup],
   ['PuChip', PuChip],

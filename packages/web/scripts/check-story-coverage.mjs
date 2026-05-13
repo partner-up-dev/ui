@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const REQUIRED_STORIES = new Set([
   "PuButton",
   "PuCell",
+  "PuCellGroup",
   "PuChip",
   "PuChipGroup",
   "PuDescriptionItem",

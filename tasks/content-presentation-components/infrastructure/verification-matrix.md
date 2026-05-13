@@ -19,6 +19,7 @@ packages/web/src/stories/histoire.setup.ts
 packages/web/src/stories/story.css
 packages/web/src/stories/actions/PuButton.story.vue
 packages/web/src/stories/display/PuCell.story.vue
+packages/web/src/stories/display/PuCellGroup.story.vue
 packages/web/src/stories/display/PuChip.story.vue
 packages/web/src/stories/display/PuDescriptionList.story.vue
 packages/web/src/stories/display/PuEmptyState.story.vue
@@ -217,6 +218,7 @@ Implemented first slice:
 ```
 PuButton        4 variants
 PuCell          4 variants
+PuCellGroup     5 variants
 PuChip          covers PuChipGroup through one parent story
 PuDescriptionList covers PuDescriptionItem through one parent story
 PuEmptyState    4 variants
@@ -246,9 +248,14 @@ Result:
 
 ```
 Passed.
-Story coverage reports 13/39 public components covered.
-Histoire built 11 stories and 47 variants.
+Story coverage reports 14/40 public components covered for committed story files.
+Histoire built 12 committed stories and 52 variants.
 Browser smoke opened http://localhost:6100 and rendered PuButton/Themes.
+Browser smoke opened PuCell Button Root and verified compact title typography,
+horizontal padding, button root, and no console errors.
+Browser smoke opened PuCellGroup Surface Dividers/Header Footer/Compact Inset
+variants and verified grouped cell DOM, header ARIA, divider rendering,
+density class, and no console errors.
 Browser smoke opened PuDescriptionList Stack/Grid variants and found dl/dt/dd DOM.
 Browser smoke opened PuChip Basic/Actions variants, verified group/chip DOM,
 remove behavior, aria-pressed selected button state, and no console errors.

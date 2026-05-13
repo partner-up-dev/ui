@@ -1,0 +1,86 @@
+@use "../../styles/mixins" as *;
+
+.pu-cell-group {
+  --pu-cell-group-padding-inline: var(--sys-spacing-medium);
+  --pu-cell-padding-block: var(--sys-spacing-small);
+  --pu-cell-padding-inline: var(--pu-cell-group-padding-inline);
+  --pu-cell-min-height: var(--sys-size-large);
+
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--sys-color-on-surface);
+}
+
+.pu-cell-group--density-compact {
+  --pu-cell-group-padding-inline: var(--sys-spacing-small);
+  --pu-cell-padding-block: var(--sys-spacing-xsmall);
+  --pu-cell-min-height: var(--sys-size-medium);
+}
+
+.pu-cell-group--tone-surface,
+.pu-cell-group--tone-section {
+  overflow: hidden;
+  border-radius: var(--sys-radius-medium);
+  background: var(--sys-color-surface-container);
+}
+
+.pu-cell-group--tone-inset-high {
+  overflow: hidden;
+  border-radius: var(--sys-radius-small);
+  background: var(--sys-color-surface-container-high);
+}
+
+.pu-cell-group--tone-outline {
+  overflow: hidden;
+  border: 1px solid var(--sys-color-outline-variant);
+  border-radius: var(--sys-radius-medium);
+  background: transparent;
+}
+
+.pu-cell-group.is-inset {
+  --pu-cell-group-padding-inline: var(--sys-spacing-large);
+}
+
+.pu-cell-group__header,
+.pu-cell-group__footer {
+  min-width: 0;
+  padding: var(--sys-spacing-small) var(--pu-cell-group-padding-inline);
+}
+
+.pu-cell-group__heading {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-cell-group__title {
+  margin: 0;
+  color: var(--sys-color-on-surface);
+  @include pu-font(title-small);
+}
+
+.pu-cell-group__description,
+.pu-cell-group__footer {
+  color: var(--sys-color-on-surface-variant);
+  @include pu-font(body-small);
+}
+
+.pu-cell-group__description {
+  margin: 0;
+}
+
+.pu-cell-group__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pu-cell-group.is-dividers .pu-cell-group__body :deep(.pu-cell + .pu-cell) {
+  border-top: 1px solid var(--sys-color-outline-variant);
+}
+
+.pu-cell-group :deep(.pu-cell--border) {
+  border-bottom: 0;
+}
