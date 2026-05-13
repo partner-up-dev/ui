@@ -55,6 +55,11 @@ PuAvatar
 PuLoadingState
   Valuable async feedback primitive. Better handled in the feedback slice with
   loading/error/empty states together.
+
+PuSkeleton
+  Valuable async content placeholder. Research completed on 2026-05-13.
+  Recommended first slice is a primitive bone with text rows, loading wrapper,
+  animation enum, and accessibility opt-in.
 ```
 
 ## Phase 1
@@ -188,6 +193,7 @@ Candidates:
 PuFitChipGroup
 PuAvatar
 PuLoadingState
+PuSkeleton
 PuChoiceCard
 ```
 
@@ -195,5 +201,6 @@ Reason:
 
 ```
 They are valuable follow-ups. Each belongs to a more specific slice:
-measurement-aware metadata, identity, async feedback, and selectable surfaces.
+measurement-aware metadata, identity, async feedback, async content placeholders,
+and selectable surfaces.
 ```

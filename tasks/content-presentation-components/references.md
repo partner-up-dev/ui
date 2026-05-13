@@ -105,3 +105,132 @@ Relevant concepts:
 message severity
 clear concise inline communication
 ```
+
+## Skeleton References
+
+Ant Design Skeleton:
+
+```
+https://ant.design/components/skeleton-cn/
+```
+
+Relevant concepts:
+
+```
+first-load skeleton
+list and card content
+loading wrapper
+avatar/title/paragraph API
+active animation
+semantic class/style escape hatches
+```
+
+MUI Skeleton:
+
+```
+https://mui.com/material-ui/react-skeleton/
+```
+
+Relevant concepts:
+
+```
+text/circular/rectangular/rounded variants
+pulse/wave/disabled animation
+dimension inference for text
+```
+
+Element Plus Skeleton:
+
+```
+https://element-plus.org/en-US/component/skeleton
+```
+
+Relevant concepts:
+
+```
+rows
+animated flag
+template slot
+skeleton item variants
+match skeleton structure to real DOM to reduce layout jump
+```
+
+Vuetify Skeleton Loader:
+
+```
+https://vuetifyjs-vuetify.mintlify.app/components/skeleton-loader
+```
+
+Relevant concepts:
+
+```
+predefined type structures
+repeat syntax with @
+loading wrapper
+boilerplate static mode
+loadingText accessibility label
+```
+
+Chakra UI Skeleton:
+
+```
+https://chakra-ui.com/docs/components/skeleton
+```
+
+Relevant concepts:
+
+```
+Skeleton
+SkeletonCircle
+SkeletonText
+pulse/shine/none variants
+loading wrapper
+start/end color CSS variables
+```
+
+Quasar Skeleton:
+
+```
+https://quasar.dev/vue-components/skeleton/
+```
+
+Relevant concepts:
+
+```
+basic text/rect/circle types
+component-sized convenience types
+animation
+sizing
+custom color and borders
+```
+
+Vant Skeleton:
+
+```
+https://develop365.gitlab.io/vant/en-US/skeleton/
+```
+
+Relevant concepts:
+
+```
+mobile-first title/avatar/row API
+row widths
+loading wrapper
+animate flag
+round title and row
+avatar size and shape
+```
+
+MDN reduced motion and aria-busy:
+
+```
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy
+```
+
+Relevant concepts:
+
+```
+respect reduced motion preference
+mark updating regions busy while content is loading
+```

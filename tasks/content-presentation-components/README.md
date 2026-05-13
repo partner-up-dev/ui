@@ -76,6 +76,15 @@ pu-inline-notice.md
 pu-empty-state.md
 +-- PuEmptyState IA, DOM, props, slots, and implementation record
 
+skeleton/library-survey.md
++-- external UI Library Skeleton API, layout, animation, and accessibility survey
+
+skeleton/design-recommendation.md
++-- proposed design2 PuSkeleton scope and implementation gates
+
+skeleton/api-dom-sketch.md
++-- PuSkeleton IA, DOM, props, slots, emits, and CSS contract draft
+
 implementation-order.md
 +-- suggested order and verification gates
 
