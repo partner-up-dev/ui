@@ -19,6 +19,7 @@ packages/web
 +-- grouped facts exist: PuDescriptionList, PuDescriptionItem
 +-- inline messages exist: PuInlineNotice
 +-- empty content states exist: PuEmptyState
++-- async content placeholders exist: PuSkeleton
 +-- generic feedback exists: PuNoticeBar
 +-- tags exist: PuTag
 ```
@@ -84,6 +85,9 @@ skeleton/design-recommendation.md
 
 skeleton/api-dom-sketch.md
 +-- PuSkeleton IA, DOM, props, slots, emits, and CSS contract draft
+
+skeleton/implementation-record.md
++-- PuSkeleton implementation record, final DOM/API contract, and story coverage
 
 implementation-order.md
 +-- suggested order and verification gates

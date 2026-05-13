@@ -3,8 +3,7 @@
 Status:
 
 ```
-Discussion draft on 2026-05-13.
-Needs user confirmation before implementation.
+Confirmed and implemented on 2026-05-13.
 ```
 ## Product Read
 
@@ -22,6 +21,12 @@ Implement:
 
 ```
 PuSkeleton
+```
+
+Implementation record:
+
+```
+skeleton/implementation-record.md
 ```
 
 Do this in one component first:

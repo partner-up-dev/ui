@@ -3,8 +3,8 @@
 Status:
 
 ```
-Draft on 2026-05-13.
-Implementation pending explicit start.
+Implemented on 2026-05-13.
+See implementation-record.md for the current packages/web contract.
 ```
 ## Information Architecture
 

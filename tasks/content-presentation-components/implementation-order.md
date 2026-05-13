@@ -58,8 +58,8 @@ PuLoadingState
 
 PuSkeleton
   Valuable async content placeholder. Research completed on 2026-05-13.
-  Recommended first slice is a primitive bone with text rows, loading wrapper,
-  animation enum, and accessibility opt-in.
+  First slice implemented on 2026-05-13 as a primitive bone with text rows,
+  loading wrapper, animation enum, and accessibility opt-in.
 ```
 
 ## Phase 1
@@ -185,6 +185,35 @@ packages/web/src/stories/display/PuInlineNotice.story.vue
 packages/web/src/stories/display/PuEmptyState.story.vue
 ```
 
+## Phase 4
+
+Status:
+
+```
+Implemented on 2026-05-13.
+```
+
+Implement:
+
+```
+PuSkeleton
+```
+
+Reason:
+
+```
+This covers async content placeholders with a primitive-first API. It provides
+text rows, basic shapes, animation choices, loading slot handoff, and an
+accessibility announcement opt-in while keeping layout composition in consumer
+markup.
+```
+
+Implemented story:
+
+```
+packages/web/src/stories/display/PuSkeleton.story.vue
+```
+
 ## Deferred
 
 Candidates:
@@ -193,7 +222,6 @@ Candidates:
 PuFitChipGroup
 PuAvatar
 PuLoadingState
-PuSkeleton
 PuChoiceCard
 ```
 
@@ -201,6 +229,5 @@ Reason:
 
 ```
 They are valuable follow-ups. Each belongs to a more specific slice:
-measurement-aware metadata, identity, async feedback, async content placeholders,
-and selectable surfaces.
+measurement-aware metadata, identity, async feedback, and selectable surfaces.
 ```

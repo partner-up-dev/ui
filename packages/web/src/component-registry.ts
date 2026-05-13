@@ -33,6 +33,7 @@ import PuPageScaffoldCentered from './components/puPageScaffoldCentered/puPageSc
 import PuPageScaffoldFlow from './components/puPageScaffoldFlow/puPageScaffoldFlow.vue'
 import PuPicker from './components/puPicker/puPicker.vue'
 import PuScrollView from './components/puScrollView/puScrollView.vue'
+import PuSkeleton from './components/puSkeleton/puSkeleton.vue'
 import PuSurfaceCard from './components/puSurfaceCard/puSurfaceCard.vue'
 import PuTab from './components/puTab/puTab.vue'
 import PuTabs from './components/puTabs/puTabs.vue'
@@ -73,6 +74,7 @@ export {
   PuPageScaffoldFlow,
   PuPicker,
   PuScrollView,
+  PuSkeleton,
   PuSurfaceCard,
   PuTab,
   PuTabs,
@@ -116,6 +118,7 @@ const components: readonly ComponentEntry[] = [
   ['PuPageScaffoldFlow', PuPageScaffoldFlow],
   ['PuPicker', PuPicker],
   ['PuScrollView', PuScrollView],
+  ['PuSkeleton', PuSkeleton],
   ['PuSurfaceCard', PuSurfaceCard],
   ['PuTab', PuTab],
   ['PuTabs', PuTabs],

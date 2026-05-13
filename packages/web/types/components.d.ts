@@ -33,6 +33,7 @@ declare module 'vue' {
     PuPageScaffoldFlow: typeof import('../src/components/puPageScaffoldFlow/puPageScaffoldFlow.vue')['default']
     PuPicker: typeof import('../src/components/puPicker/puPicker.vue')['default']
     PuScrollView: typeof import('../src/components/puScrollView/puScrollView.vue')['default']
+    PuSkeleton: typeof import('../src/components/puSkeleton/puSkeleton.vue')['default']
     PuSurfaceCard: typeof import('../src/components/puSurfaceCard/puSurfaceCard.vue')['default']
     PuTab: typeof import('../src/components/puTab/puTab.vue')['default']
     PuTabs: typeof import('../src/components/puTabs/puTabs.vue')['default']
