@@ -109,8 +109,7 @@ packages/web/src/stories/display/PuDescriptionList.story.vue
 Status:
 
 ```
-PuChip and PuChipGroup implemented on 2026-05-12.
-PuPageHeader remains pending.
+Implemented on 2026-05-12.
 ```
 
 Implement:
@@ -140,6 +139,7 @@ keyboard focus for header back action
 Implemented story:
 
 ```
+packages/web/src/stories/display/PuPageHeader.story.vue
 packages/web/src/stories/display/PuChip.story.vue
 ```
 

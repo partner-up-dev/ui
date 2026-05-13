@@ -13,6 +13,7 @@ Current package baseline:
 ```
 packages/web
 +-- layout scaffolds exist
++-- page content entry exists: PuPageHeader
 +-- cards exist: PuSurfaceCard, PuExpandableCard
 +-- simple fact rows exist: PuCell, PuInfoRow
 +-- grouped facts exist: PuDescriptionList, PuDescriptionItem
@@ -63,6 +64,9 @@ pu-description-list.md
 
 pu-chip.md
 +-- PuChip and PuChipGroup IA, DOM, props, slots, emits, and implementation record
+
+pu-page-header.md
++-- PuPageHeader IA, DOM, props, slots, emits, and implementation record
 
 implementation-order.md
 +-- suggested order and verification gates

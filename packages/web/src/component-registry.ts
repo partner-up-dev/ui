@@ -25,6 +25,7 @@ import PuInfoRow from './components/puInfoRow/puInfoRow.vue'
 import PuInput from './components/puInput/puInput.vue'
 import PuModal from './components/puModal/puModal.vue'
 import PuNoticeBar from './components/puNoticeBar/puNoticeBar.vue'
+import PuPageHeader from './components/puPageHeader/puPageHeader.vue'
 import PuPageScaffold from './components/puPageScaffold/puPageScaffold.vue'
 import PuPageScaffoldCentered from './components/puPageScaffoldCentered/puPageScaffoldCentered.vue'
 import PuPageScaffoldFlow from './components/puPageScaffoldFlow/puPageScaffoldFlow.vue'
@@ -62,6 +63,7 @@ export {
   PuInput,
   PuModal,
   PuNoticeBar,
+  PuPageHeader,
   PuPageScaffold,
   PuPageScaffoldCentered,
   PuPageScaffoldFlow,
@@ -102,6 +104,7 @@ const components: readonly ComponentEntry[] = [
   ['PuInput', PuInput],
   ['PuModal', PuModal],
   ['PuNoticeBar', PuNoticeBar],
+  ['PuPageHeader', PuPageHeader],
   ['PuPageScaffold', PuPageScaffold],
   ['PuPageScaffoldCentered', PuPageScaffoldCentered],
   ['PuPageScaffoldFlow', PuPageScaffoldFlow],

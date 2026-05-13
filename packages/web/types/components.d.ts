@@ -25,6 +25,7 @@ declare module 'vue' {
     PuInput: typeof import('../src/components/puInput/puInput.vue')['default']
     PuModal: typeof import('../src/components/puModal/puModal.vue')['default']
     PuNoticeBar: typeof import('../src/components/puNoticeBar/puNoticeBar.vue')['default']
+    PuPageHeader: typeof import('../src/components/puPageHeader/puPageHeader.vue')['default']
     PuPageScaffold: typeof import('../src/components/puPageScaffold/puPageScaffold.vue')['default']
     PuPageScaffoldCentered: typeof import('../src/components/puPageScaffoldCentered/puPageScaffoldCentered.vue')['default']
     PuPageScaffoldFlow: typeof import('../src/components/puPageScaffoldFlow/puPageScaffoldFlow.vue')['default']

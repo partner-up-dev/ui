@@ -49,6 +49,12 @@ facts-card patterns.
 
 ### 1. PuPageHeader
 
+Status:
+
+```
+Implemented on 2026-05-12.
+```
+
 Problem:
 
 ```
@@ -75,12 +81,16 @@ title: string
 subtitle?: string
 showBack?: boolean = false
 backLabel?: string
+titleAs?: "h1" | "h2" | "h3" | "h4"
+density?: "compact" | "comfortable"
+tone?: "plain" | "surface" | "section" | "inset-high" | "outline"
+bordered?: boolean
 
 emits:
 back()
 
 slots:
-top-actions
+actions
 meta
 ```
 

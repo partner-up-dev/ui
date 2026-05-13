@@ -10,6 +10,7 @@ const REQUIRED_STORIES = new Set([
   "PuDescriptionItem",
   "PuDescriptionList",
   "PuModal",
+  "PuPageHeader",
   "PuToggleSwitch",
   "PuWheelPicker",
 ]);

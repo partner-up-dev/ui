@@ -21,6 +21,7 @@ packages/web/src/stories/actions/PuButton.story.vue
 packages/web/src/stories/display/PuCell.story.vue
 packages/web/src/stories/display/PuChip.story.vue
 packages/web/src/stories/display/PuDescriptionList.story.vue
+packages/web/src/stories/display/PuPageHeader.story.vue
 packages/web/src/stories/forms/PuToggleSwitch.story.vue
 packages/web/src/stories/forms/PuWheelPicker.story.vue
 packages/web/src/stories/overlay/PuModal.story.vue
@@ -215,6 +216,7 @@ PuButton        4 variants
 PuCell          4 variants
 PuChip          covers PuChipGroup through one parent story
 PuDescriptionList covers PuDescriptionItem through one parent story
+PuPageHeader    4 variants
 PuToggleSwitch 3 variants
 PuWheelPicker  4 variants
 PuModal         3 variants
@@ -238,12 +240,14 @@ Result:
 
 ```
 Passed.
-Story coverage reports 9/35 public components covered.
-Histoire built 7 stories and 27 variants.
+Story coverage reports 10/36 public components covered.
+Histoire built 8 stories and 31 variants.
 Browser smoke opened http://localhost:6100 and rendered PuButton/Themes.
 Browser smoke opened PuDescriptionList Stack/Grid variants and found dl/dt/dd DOM.
 Browser smoke opened PuChip Basic/Actions variants, verified group/chip DOM,
 remove behavior, aria-pressed selected button state, and no console errors.
+Browser smoke opened PuPageHeader Basic/Back variants, verified header/title/
+subtitle DOM, aria-labelledby, back event, actions, and no console errors.
 ```
 
 Known warnings:
