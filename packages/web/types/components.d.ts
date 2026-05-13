@@ -14,6 +14,7 @@ declare module 'vue' {
     PuDescriptionList: typeof import('../src/components/puDescriptionList/puDescriptionList.vue')['default']
     PuDesktopPageScaffold: typeof import('../src/components/puDesktopPageScaffold/puDesktopPageScaffold.vue')['default']
     PuDrawer: typeof import('../src/components/puDrawer/puDrawer.vue')['default']
+    PuEmptyState: typeof import('../src/components/puEmptyState/puEmptyState.vue')['default']
     PuExpandableCard: typeof import('../src/components/puExpandableCard/puExpandableCard.vue')['default']
     PuFooterRevealPageScaffold: typeof import('../src/components/puFooterRevealPageScaffold/puFooterRevealPageScaffold.vue')['default']
     PuForm: typeof import('../src/components/puForm/puForm.vue')['default']

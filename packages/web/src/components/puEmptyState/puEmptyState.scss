@@ -1,0 +1,114 @@
+@use "../../styles/mixins" as *;
+
+.pu-empty-state {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: var(--sys-spacing-large);
+  border: 1px solid transparent;
+  border-radius: var(--sys-radius-medium);
+  gap: var(--sys-spacing-medium);
+  color: var(--sys-color-on-surface);
+}
+
+.pu-empty-state--align-center {
+  align-items: center;
+  text-align: center;
+}
+
+.pu-empty-state--align-start {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.pu-empty-state--tone-plain {
+  background: transparent;
+}
+
+.pu-empty-state--tone-surface,
+.pu-empty-state--tone-section {
+  background: var(--sys-color-surface-container);
+}
+
+.pu-empty-state--tone-inset-high {
+  background: var(--sys-color-surface-container-high);
+}
+
+.pu-empty-state--tone-outline {
+  border-color: var(--sys-color-outline-variant);
+  background: transparent;
+}
+
+.pu-empty-state__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--sys-radius-pill);
+  background: var(--sys-color-surface-container-high);
+  color: var(--sys-color-on-surface-variant);
+  @include pu-font(title-large);
+}
+
+.pu-empty-state__content {
+  display: flex;
+  flex-direction: column;
+  max-width: 52ch;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-empty-state__title {
+  margin: 0;
+  color: var(--sys-color-on-surface);
+  @include pu-font(title-medium);
+}
+
+.pu-empty-state__description,
+.pu-empty-state__body {
+  margin: 0;
+  color: var(--sys-color-on-surface-variant);
+  overflow-wrap: anywhere;
+  @include pu-font(body-medium);
+}
+
+.pu-empty-state__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sys-spacing-small);
+}
+
+.pu-empty-state--align-center .pu-empty-state__actions {
+  justify-content: center;
+}
+
+.pu-empty-state--align-start .pu-empty-state__actions {
+  justify-content: flex-start;
+}
+
+.pu-empty-state.is-compact {
+  padding: var(--sys-spacing-medium);
+  gap: var(--sys-spacing-small);
+}
+
+.pu-empty-state.is-compact .pu-empty-state__icon {
+  width: 40px;
+  height: 40px;
+  @include pu-font(title-small);
+}
+
+.pu-empty-state.is-compact .pu-empty-state__title {
+  @include pu-font(title-small);
+}
+
+@media (max-width: 639px) {
+  .pu-empty-state {
+    padding: var(--sys-spacing-medium);
+  }
+
+  .pu-empty-state__actions {
+    width: 100%;
+  }
+}

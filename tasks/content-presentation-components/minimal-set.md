@@ -255,6 +255,12 @@ role="alert" for warning and error
 
 ### 5. PuEmptyState
 
+Status:
+
+```
+Implemented on 2026-05-13.
+```
+
 Problem:
 
 ```
@@ -278,10 +284,17 @@ Initial API:
 
 ```
 as?: string = "section"
-title: string
+title?: string
 description?: string
 icon?: string
 compact?: boolean
 align?: "start" | "center"
-tone?: "section" | "outline"
+tone?: "plain" | "surface" | "section" | "inset-high" | "outline"
+
+slots:
+icon
+title
+description
+default
+actions
 ```

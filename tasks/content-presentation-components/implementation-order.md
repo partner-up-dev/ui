@@ -148,8 +148,7 @@ packages/web/src/stories/display/PuChip.story.vue
 Status:
 
 ```
-PuInlineNotice implemented on 2026-05-13.
-PuEmptyState remains pending.
+Implemented on 2026-05-13.
 ```
 
 Implement:
@@ -178,6 +177,7 @@ Implemented story:
 
 ```
 packages/web/src/stories/display/PuInlineNotice.story.vue
+packages/web/src/stories/display/PuEmptyState.story.vue
 ```
 
 ## Deferred

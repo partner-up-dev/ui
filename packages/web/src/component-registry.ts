@@ -14,6 +14,7 @@ import PuDescriptionItem from './components/puDescriptionItem/puDescriptionItem.
 import PuDescriptionList from './components/puDescriptionList/puDescriptionList.vue'
 import PuDesktopPageScaffold from './components/puDesktopPageScaffold/puDesktopPageScaffold.vue'
 import PuDrawer from './components/puDrawer/puDrawer.vue'
+import PuEmptyState from './components/puEmptyState/puEmptyState.vue'
 import PuExpandableCard from './components/puExpandableCard/puExpandableCard.vue'
 import PuFooterRevealPageScaffold from './components/puFooterRevealPageScaffold/puFooterRevealPageScaffold.vue'
 import PuForm from './components/puForm/puForm.vue'
@@ -53,6 +54,7 @@ export {
   PuDescriptionList,
   PuDesktopPageScaffold,
   PuDrawer,
+  PuEmptyState,
   PuExpandableCard,
   PuFooterRevealPageScaffold,
   PuForm,
@@ -95,6 +97,7 @@ const components: readonly ComponentEntry[] = [
   ['PuDescriptionList', PuDescriptionList],
   ['PuDesktopPageScaffold', PuDesktopPageScaffold],
   ['PuDrawer', PuDrawer],
+  ['PuEmptyState', PuEmptyState],
   ['PuExpandableCard', PuExpandableCard],
   ['PuFooterRevealPageScaffold', PuFooterRevealPageScaffold],
   ['PuForm', PuForm],

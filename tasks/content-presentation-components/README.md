@@ -18,6 +18,7 @@ packages/web
 +-- simple fact rows exist: PuCell, PuInfoRow
 +-- grouped facts exist: PuDescriptionList, PuDescriptionItem
 +-- inline messages exist: PuInlineNotice
++-- empty content states exist: PuEmptyState
 +-- generic feedback exists: PuNoticeBar
 +-- tags exist: PuTag
 ```
@@ -71,6 +72,9 @@ pu-page-header.md
 
 pu-inline-notice.md
 +-- PuInlineNotice IA, DOM, props, slots, emits, and implementation record
+
+pu-empty-state.md
++-- PuEmptyState IA, DOM, props, slots, and implementation record
 
 implementation-order.md
 +-- suggested order and verification gates

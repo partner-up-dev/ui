@@ -58,6 +58,7 @@ packages/web/src/stories/display/PuPageHeader.story.vue
 packages/web/src/stories/display/PuDescriptionList.story.vue
 packages/web/src/stories/display/PuChip.story.vue
 packages/web/src/stories/display/PuInlineNotice.story.vue
+packages/web/src/stories/display/PuEmptyState.story.vue
 check-story-coverage supports @pu-story-covers for child components covered by parent stories
 ```
 

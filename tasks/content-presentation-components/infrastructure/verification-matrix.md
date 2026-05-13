@@ -21,6 +21,7 @@ packages/web/src/stories/actions/PuButton.story.vue
 packages/web/src/stories/display/PuCell.story.vue
 packages/web/src/stories/display/PuChip.story.vue
 packages/web/src/stories/display/PuDescriptionList.story.vue
+packages/web/src/stories/display/PuEmptyState.story.vue
 packages/web/src/stories/display/PuInlineNotice.story.vue
 packages/web/src/stories/display/PuPageHeader.story.vue
 packages/web/src/stories/forms/PuToggleSwitch.story.vue
@@ -217,6 +218,7 @@ PuButton        4 variants
 PuCell          4 variants
 PuChip          covers PuChipGroup through one parent story
 PuDescriptionList covers PuDescriptionItem through one parent story
+PuEmptyState    4 variants
 PuInlineNotice  4 variants
 PuPageHeader    4 variants
 PuToggleSwitch 3 variants
@@ -242,8 +244,8 @@ Result:
 
 ```
 Passed.
-Story coverage reports 11/37 public components covered.
-Histoire built 9 stories and 35 variants.
+Story coverage reports 12/38 public components covered.
+Histoire built 10 stories and 39 variants.
 Browser smoke opened http://localhost:6100 and rendered PuButton/Themes.
 Browser smoke opened PuDescriptionList Stack/Grid variants and found dl/dt/dd DOM.
 Browser smoke opened PuChip Basic/Actions variants, verified group/chip DOM,
@@ -252,6 +254,9 @@ Browser smoke opened PuPageHeader Basic/Back variants, verified header/title/
 subtitle DOM, aria-labelledby, back event, actions, and no console errors.
 Browser smoke opened PuInlineNotice Basic/Tones/Dismissible variants, verified
 status/alert role mapping, dismiss behavior, and no console errors.
+Browser smoke opened PuEmptyState Basic/First Run variants, verified root/title/
+description/body/actions DOM, aria-labelledby, aria-describedby, and no console
+errors.
 ```
 
 Known warnings:
