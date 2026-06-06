@@ -8,7 +8,7 @@
 
 .pu-form-item__error {
   color: fn.sys-var(color, error);
-  @include pu-font("label-medium");
+  @include pu-font("caption");
   margin-top: fn.sys-var(spacing, xsmall);
   line-height: 1.4;
 }

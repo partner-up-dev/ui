@@ -48,13 +48,13 @@
 .pu-description-list__title {
   margin: 0;
   color: var(--sys-color-on-surface);
-  @include pu-font(title-small);
+  @include pu-font(section);
 }
 
 .pu-description-list__description {
   margin: 0;
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 .pu-description-list__body {
@@ -104,7 +104,7 @@
 .pu-description-list__footer {
   min-width: 0;
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 @media (max-width: 879px) {

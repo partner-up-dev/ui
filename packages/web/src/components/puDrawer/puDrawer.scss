@@ -40,7 +40,7 @@
     justify-content: space-between;
 
     .drawer-title {
-      @include pu-font("title-large");
+      @include pu-font("title");
       color: fn.sys-var(color, on-surface);
     }
 

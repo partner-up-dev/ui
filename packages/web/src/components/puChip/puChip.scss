@@ -61,21 +61,21 @@ button.pu-chip {
   min-height: 24px;
   padding: 0 var(--sys-spacing-small);
   gap: var(--sys-spacing-xsmall);
-  @include pu-font(label-medium);
+  @include pu-font(caption);
 }
 
 .pu-chip--size-md {
   min-height: 28px;
   padding: 0 10px;
   gap: var(--sys-spacing-xsmall);
-  @include pu-font(label-large);
+  @include pu-font(control);
 }
 
 .pu-chip--size-lg {
   min-height: 36px;
   padding: 0 var(--sys-spacing-medium);
   gap: var(--sys-spacing-small);
-  @include pu-font(label-large);
+  @include pu-font(control);
 }
 
 .pu-chip--tone-surface {

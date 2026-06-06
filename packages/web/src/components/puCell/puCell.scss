@@ -5,7 +5,7 @@
   align-items: center;
   width: 100%;
   min-width: 0;
-  min-height: var(--pu-cell-min-height, var(--sys-size-large));
+  min-height: var(--pu-cell-min-height, 2.75rem);
   box-sizing: border-box;
   padding:
     var(--pu-cell-padding-block, var(--sys-spacing-small))
@@ -52,7 +52,7 @@
 .pu-cell__title {
   flex: 0 1 auto;
   color: var(--sys-color-on-surface);
-  @include pu-font(body-medium);
+  @include pu-font(body);
 }
 
 .pu-cell__right {
@@ -68,7 +68,7 @@
   flex: 0 1 auto;
   color: var(--sys-color-on-surface-variant);
   text-align: right;
-  @include pu-font(body-medium);
+  @include pu-font(body);
 }
 
 .pu-cell__suffix {

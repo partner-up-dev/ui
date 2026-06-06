@@ -108,13 +108,13 @@
 
 .pu-card__title {
   margin: 0;
-  @include pu-font(title-small);
+  @include pu-font(section);
 }
 
 .pu-card__subtitle {
   margin: 0;
   color: color-mix(in srgb, currentColor 72%, transparent);
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 .pu-card__toggle {
@@ -122,9 +122,9 @@
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: var(--sys-size-small);
-  height: var(--sys-size-small);
-  margin: calc((var(--sys-size-small) - var(--sys-size-medium)) / -2);
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: calc((1.5rem - 2rem) / -2);
   border: 0;
   border-radius: 999px;
   background: transparent;

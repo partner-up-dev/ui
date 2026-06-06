@@ -144,7 +144,7 @@
     opacity 180ms ease,
     transform 180ms ease,
     filter 180ms ease;
-  @include pu-font(body-large);
+  @include pu-font(body);
 }
 
 .pu-wheel-picker__option:focus {
@@ -161,7 +161,7 @@
 
 .pu-wheel-picker__option--active {
   color: var(--pu-wheel-picker-selected-color);
-  @include pu-font(title-small);
+  @include pu-font(section);
 }
 
 .pu-wheel-picker__option--disabled {
@@ -186,7 +186,7 @@
   padding: 0 var(--sys-spacing-medium);
   color: var(--sys-color-on-surface-variant);
   text-align: center;
-  @include pu-font(body-medium);
+  @include pu-font(body);
 }
 
 @media (prefers-reduced-motion: reduce) {

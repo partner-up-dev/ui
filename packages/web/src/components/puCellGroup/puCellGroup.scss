@@ -4,7 +4,7 @@
   --pu-cell-group-padding-inline: var(--sys-spacing-medium);
   --pu-cell-padding-block: var(--sys-spacing-small);
   --pu-cell-padding-inline: var(--pu-cell-group-padding-inline);
-  --pu-cell-min-height: var(--sys-size-large);
+  --pu-cell-min-height: 2.75rem;
 
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@
 .pu-cell-group--density-compact {
   --pu-cell-group-padding-inline: var(--sys-spacing-small);
   --pu-cell-padding-block: var(--sys-spacing-xsmall);
-  --pu-cell-min-height: var(--sys-size-medium);
+  --pu-cell-min-height: 2rem;
 }
 
 .pu-cell-group--tone-surface,
@@ -58,13 +58,13 @@
 .pu-cell-group__title {
   margin: 0;
   color: var(--sys-color-on-surface);
-  @include pu-font(title-small);
+  @include pu-font(section);
 }
 
 .pu-cell-group__description,
 .pu-cell-group__footer {
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 .pu-cell-group__description {

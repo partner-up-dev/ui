@@ -23,7 +23,7 @@
 .pu-inline-notice__icon {
   width: 22px;
   min-height: 22px;
-  @include pu-font(title-small);
+  @include pu-font(section);
 }
 
 .pu-inline-notice__content {
@@ -35,13 +35,13 @@
 
 .pu-inline-notice__title {
   color: inherit;
-  @include pu-font(label-large);
+  @include pu-font(control);
 }
 
 .pu-inline-notice__message {
   color: inherit;
   overflow-wrap: anywhere;
-  @include pu-font(body-medium);
+  @include pu-font(body);
 }
 
 .pu-inline-notice__actions {

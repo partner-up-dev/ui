@@ -32,7 +32,7 @@
 
 .pu-toggle-switch__label {
   min-width: 0;
-  @include pu-font(label-large);
+  @include pu-font(control);
 }
 
 .pu-toggle-switch__track {

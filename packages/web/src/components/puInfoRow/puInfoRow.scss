@@ -19,14 +19,14 @@
 .pu-info-row__label {
   flex-shrink: 0;
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(label-large);
+  @include pu-font(control);
 }
 
 .pu-info-row__value {
   flex: 1;
   min-width: 0;
   color: var(--sys-color-on-surface);
-  @include pu-font(body-medium);
+  @include pu-font(body);
 }
 
 .pu-info-row--align-end .pu-info-row__value {

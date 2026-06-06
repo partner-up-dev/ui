@@ -16,7 +16,7 @@
 .pu-file-upload__title {
   margin: 0;
   color: var(--sys-color-on-surface);
-  @include pu-font(title-medium);
+  @include pu-font(section);
 }
 
 .pu-file-upload__description,
@@ -24,7 +24,7 @@
 .pu-file-upload__empty {
   margin: 0;
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 .pu-file-upload__dropzone {
@@ -74,24 +74,24 @@
   border-radius: var(--sys-radius-medium);
   background: var(--sys-color-surface);
   color: var(--sys-color-primary);
-  @include pu-font(title-large);
+  @include pu-font(title);
 }
 
 .pu-file-upload__dropzone-copy {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  gap: var(--sys-spacing-xxsmall);
+  gap: var(--sys-spacing-xsmall);
 }
 
 .pu-file-upload__dropzone-label {
   color: var(--sys-color-on-surface);
-  @include pu-font(title-small);
+  @include pu-font(section);
 }
 
 .pu-file-upload__dropzone-description {
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 .pu-file-upload__choose,
@@ -106,7 +106,7 @@
   color: var(--sys-color-on-surface);
   cursor: pointer;
   font: inherit;
-  @include pu-font(label-medium);
+  @include pu-font(caption);
 }
 
 .pu-file-upload__choose,
@@ -166,7 +166,7 @@
   padding-inline-start: var(--sys-spacing-xsmall);
   color: var(--sys-color-on-surface-variant);
   white-space: nowrap;
-  @include pu-font(label-medium);
+  @include pu-font(caption);
 }
 
 .pu-file-upload__url-input {
@@ -177,7 +177,7 @@
   background: transparent;
   color: var(--sys-color-on-surface);
   font: inherit;
-  @include pu-font(body-medium);
+  @include pu-font(body);
 }
 
 .pu-file-upload__url-input::placeholder {
@@ -191,7 +191,7 @@
 .pu-file-upload__error {
   margin: 0;
   color: var(--sys-color-error);
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 .pu-file-upload__list {
@@ -228,7 +228,7 @@
   border-radius: var(--sys-radius-small);
   background: var(--sys-color-surface-container);
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(title-small);
+  @include pu-font(section);
 }
 
 .pu-file-upload__item-main {
@@ -249,17 +249,17 @@
 
 .pu-file-upload__item-name {
   color: var(--sys-color-on-surface);
-  @include pu-font(body-medium);
+  @include pu-font(body);
 }
 
 .pu-file-upload__item-meta {
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 .pu-file-upload__item-status {
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(label-medium);
+  @include pu-font(caption);
 }
 
 .pu-file-upload__item-status--success {

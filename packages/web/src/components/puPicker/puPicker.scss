@@ -72,7 +72,7 @@
 .pu-picker__label {
   flex-shrink: 0;
   color: fn.sys-var(color, on-surface);
-  @include pu-font("label-large");
+  @include pu-font("control");
 }
 
 .pu-picker__required {
@@ -88,7 +88,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  @include pu-font("label-large");
+  @include pu-font("control");
 
   &.is-align-right {
     text-align: right;
@@ -155,7 +155,7 @@
   background: transparent;
   color: fn.sys-var(color, on-surface-variant);
   cursor: pointer;
-  @include pu-font("label-large");
+  @include pu-font("control");
 
   &.is-primary {
     color: fn.sys-var(color, primary);
@@ -185,12 +185,12 @@
   appearance: none;
   border: 0;
   width: 100%;
-  min-height: fn.sys-var(size, large);
+  min-height: 2.75rem;
   padding: fn.sys-var(spacing, small);
   background: transparent;
   color: fn.sys-var(color, on-surface);
   cursor: pointer;
-  @include pu-font("label-large");
+  @include pu-font("control");
 
   &:disabled {
     cursor: not-allowed;
@@ -211,7 +211,7 @@
 
   .pu-picker__label,
   .pu-picker__value {
-    @include pu-font("label-medium");
+    @include pu-font("caption");
   }
 }
 
@@ -222,6 +222,6 @@
 
   .pu-picker__label,
   .pu-picker__value {
-    @include pu-font("body-large");
+    @include pu-font("body");
   }
 }

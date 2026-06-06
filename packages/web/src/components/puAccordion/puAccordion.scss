@@ -7,11 +7,11 @@
   }
 
   &__content {
-    @include pu-font("label-large");
+    @include pu-font("control");
     color: fn.sys-var(color, on-surface);
 
     &.is-retract {
-      @include pu-font("label-large");
+      @include pu-font("control");
       display: -webkit-box;
       -webkit-box-orient: vertical;
       overflow: hidden;
@@ -24,7 +24,7 @@
     color: fn.sys-var(color, primary);
     user-select: none;
     cursor: pointer;
-    @include pu-font("label-large");
+    @include pu-font("control");
   }
 
   &__more-txt {

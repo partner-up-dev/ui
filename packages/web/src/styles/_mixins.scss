@@ -6,7 +6,6 @@
 
 @use 'sass:map';
 @use './functions' as fn;
-@use './ref' as ref;
 
 /* Typography Mixin - uses CSS variables (composite token) */
 @mixin pu-font($key, $mono: false) {
@@ -27,11 +26,19 @@
   box-shadow: var(--sys-shadow-#{$level});
 }
 
-/* Icon Mixin - uses CSS variables (composite token) */
+/* Iconfont mixin - keeps icon glyphs proportional to surrounding text */
 @mixin pu-icon($size, $layout: false) {
-  width: var(--sys-icon-size-#{$size});
-  height: var(--sys-icon-size-#{$size});
-  font-size: var(--sys-icon-font-size-#{$size});
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+
+  @if $size == "small" or $size == small {
+    font-size: 1em;
+  } @else if $size == "large" or $size == large {
+    font-size: 1.35em;
+  } @else {
+    font-size: 1.15em;
+  }
   
   @if $layout == true {
     display: flex;

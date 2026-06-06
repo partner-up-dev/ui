@@ -52,19 +52,19 @@
   padding: 0 0;
 
   &--x-small {
-    width: fn.sys-var(size, xsmall);
+    width: 1.25rem;
   }
 
   &--small {
-    width: fn.sys-var(size, medium);
+    width: 2rem;
   }
 
   &--medium {
-    width: fn.sys-var(size, medium);
+    width: 2rem;
   }
 
   &--large {
-    width: fn.sys-var(size, large);
+    width: 2.75rem;
   }
 }
 
@@ -83,80 +83,80 @@
   }
 
   &.small {
-    height: fn.sys-var(size, xsmall);
+    height: 1.25rem;
   }
 }
 
 // Size variations
 .x-small {
   gap: fn.sys-var(spacing, xsmall);
-  height: fn.sys-var(size, xsmall);
+  height: 1.25rem;
 
   .text {
-    @include pu-font('label-large');
+    @include pu-font('control');
   }
 
   .icon-wrapper {
-    height: fn.sys-var(icon, size, small);
-    width: fn.sys-var(icon, size, small);
+    height: 1em;
+    width: 1em;
   }
 
   .icon {
-    @include pu-font('label-large');
+    @include pu-font('control');
   }
 }
 
 .small {
   gap: fn.sys-var(spacing, xsmall);
-  height: fn.sys-var(size, medium);
+  height: 2rem;
 
   .text {
-    @include pu-font('label-large');
+    @include pu-font('control');
   }
 
   .icon-wrapper {
-    height: fn.sys-var(icon, size, small);
-    width: fn.sys-var(icon, size, small);
+    height: 1em;
+    width: 1em;
   }
 
   .icon {
-    @include pu-font('body-large');
+    @include pu-font('body');
   }
 }
 
 .medium {
   gap: fn.sys-var(spacing, small);
-  height: fn.sys-var(size, medium);
+  height: 2rem;
 
   .text {
-    @include pu-font('label-large');
+    @include pu-font('control');
   }
 
   .icon-wrapper {
-    height: fn.sys-var(icon, size, small);
-    width: fn.sys-var(icon, size, small);
+    height: 1em;
+    width: 1em;
   }
 
   .icon {
-    @include pu-font('body-large');
+    @include pu-font('body');
   }
 }
 
 .large {
   gap: fn.sys-var(spacing, small);
-  height: fn.sys-var(size, large);
+  height: 2.75rem;
 
   .text {
-    @include pu-font('label-large');
+    @include pu-font('control');
   }
 
   .icon-wrapper {
-    height: fn.sys-var(icon, size, small);
-    width: fn.sys-var(icon, size, small);
+    height: 1em;
+    width: 1em;
   }
 
   .icon {
-    @include pu-font('title-large');
+    @include pu-font('title');
   }
 }
 

@@ -92,14 +92,14 @@
   margin: 0;
   color: var(--sys-color-on-surface);
   overflow-wrap: anywhere;
-  @include pu-font(title-small);
+  @include pu-font(section);
 }
 
 .pu-bento-item__description {
   margin: 0;
   color: var(--sys-color-on-surface-variant);
   overflow-wrap: anywhere;
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 .pu-bento-item__actions {
@@ -122,7 +122,7 @@
   min-width: 0;
   color: var(--sys-color-on-surface-variant);
   overflow-wrap: anywhere;
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 @include breakpoint-down(sm) {

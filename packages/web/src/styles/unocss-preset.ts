@@ -1,45 +1,47 @@
 import { definePreset } from "unocss";
 
+const sysVar = (path: string) => `var(--sys-${path})`;
+
 const colors = {
-  primary: "#96D945",
-  "primary-on": "#050A00",
-  "primary-container": "#CDEDA4",
-  "primary-container-on": "#102000",
-  secondary: "#85976E",
-  "secondary-on": "#ffffff",
-  "secondary-container": "#DBE7C8",
-  "secondary-container-on": "#151E0B",
-  tertiary: "#4C9E99",
-  "tertiary-on": "#ffffff",
-  "tertiary-container": "#BBECE8",
-  "tertiary-container-on": "#00201E",
-  error: "#d32f2f",
-  "error-on": "#ffffff",
-  "error-container": "#FFDAD6",
-  "error-container-on": "#410002",
-  warning: "#F6C430",
-  "warning-on": "#241A00",
-  surface: "#F9FAEF",
-  "surface-on": "#000000",
-  "surface-on-variant": "#44483D",
-  "surface-container": "#EEEFE3",
-  "surface-container-high": "#E8E9DE",
-  "surface-container-highest": "#E2E3D8",
-  "surface-container-low": "#F3F4E9",
-  outline: "#75796C",
-  "outline-variant": "#C5C8BA",
-  blue: "#4C9E99",
-  red: "#d32f2f",
-  green: "#96D945",
-  yellow: "#F6C430",
+  primary: sysVar("color-primary"),
+  "primary-on": sysVar("color-on-primary"),
+  "primary-container": sysVar("color-primary-container"),
+  "primary-container-on": sysVar("color-on-primary-container"),
+  secondary: sysVar("color-secondary"),
+  "secondary-on": sysVar("color-on-secondary"),
+  "secondary-container": sysVar("color-secondary-container"),
+  "secondary-container-on": sysVar("color-on-secondary-container"),
+  tertiary: sysVar("color-tertiary"),
+  "tertiary-on": sysVar("color-on-tertiary"),
+  "tertiary-container": sysVar("color-tertiary-container"),
+  "tertiary-container-on": sysVar("color-on-tertiary-container"),
+  error: sysVar("color-error"),
+  "error-on": sysVar("color-on-error"),
+  "error-container": sysVar("color-error-container"),
+  "error-container-on": sysVar("color-on-error-container"),
+  warning: sysVar("color-warning"),
+  "warning-on": sysVar("color-on-warning"),
+  surface: sysVar("color-surface"),
+  "surface-on": sysVar("color-on-surface"),
+  "surface-on-variant": sysVar("color-on-surface-variant"),
+  "surface-container": sysVar("color-surface-container"),
+  "surface-container-high": sysVar("color-surface-container-high"),
+  "surface-container-highest": sysVar("color-surface-container-highest"),
+  "surface-container-low": sysVar("color-surface-container-low"),
+  outline: sysVar("color-outline"),
+  "outline-variant": sysVar("color-outline-variant"),
+  blue: sysVar("color-blue"),
+  red: sysVar("color-red"),
+  green: sysVar("color-green"),
+  yellow: sysVar("color-yellow"),
 };
 
 const spacing = {
-  xsmall: "4px",
-  small: "8px",
-  medium: "16px",
-  large: "32px",
-  xlarge: "32px",
+  xsmall: sysVar("spacing-xsmall"),
+  small: sysVar("spacing-small"),
+  medium: sysVar("spacing-medium"),
+  large: sysVar("spacing-large"),
+  xlarge: sysVar("spacing-xlarge"),
 };
 
 const breakpoints = {
@@ -51,112 +53,49 @@ const breakpoints = {
 };
 
 const shadows = {
-  0: "none",
-  1: "0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)",
-  2: "0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)",
-  3: "0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12)",
-  4: "0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
-  6: "0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12)",
-  8: "0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)",
-  12: "0px 7px 8px -4px rgba(0,0,0,0.2), 0px 12px 17px 2px rgba(0,0,0,0.14), 0px 5px 22px 4px rgba(0,0,0,0.12)",
-  16: "0px 8px 9px -5px rgba(0,0,0,0.2), 0px 16px 24px 2px rgba(0,0,0,0.14), 0px 6px 30px 5px rgba(0,0,0,0.12)",
-  24: "0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12)",
-};
-
-const sizes = {
-  xsmall: "20px",
-  small: "24px",
-  medium: "32px",
-  large: "48px",
-  xlarge: "60px",
-};
-
-const iconSizes = {
-  small: "20px",
-  medium: "24px",
-  large: "40px",
+  0: sysVar("shadow-0"),
+  1: sysVar("shadow-1"),
+  2: sysVar("shadow-2"),
+  3: sysVar("shadow-3"),
+  4: sysVar("shadow-4"),
+  6: sysVar("shadow-6"),
+  8: sysVar("shadow-8"),
+  12: sysVar("shadow-12"),
+  16: sysVar("shadow-16"),
+  24: sysVar("shadow-24"),
 };
 
 const borderRadius = {
-  none: "0px",
-  xsmall: "0px",
-  small: "0px",
-  medium: "8px",
-  large: "16px",
-  full: "50%",
-  pill: "999px",
+  none: sysVar("radius-none"),
+  xsmall: sysVar("radius-xsmall"),
+  small: sysVar("radius-small"),
+  medium: sysVar("radius-medium"),
+  large: sysVar("radius-large"),
+  full: sysVar("radius-full"),
+  pill: sysVar("radius-pill"),
 };
 
-const fonts = {
-  "display-large": {
-    "font-size": "42px",
-    "font-weight": 200,
-    "line-height": "48px",
+const typographyKeys = [
+  "hero",
+  "title",
+  "section",
+  "body",
+  "support",
+  "caption",
+  "control",
+] as const;
+
+const fonts = typographyKeys.reduce(
+  (acc, key) => {
+    acc[key] = {
+      "font-size": sysVar(`typo-${key}-size`),
+      "font-weight": sysVar(`typo-${key}-weight`),
+      "line-height": sysVar(`typo-${key}-line-height`),
+    };
+    return acc;
   },
-  "headline-large": {
-    "font-size": "32px",
-    "font-weight": 200,
-    "line-height": "48px",
-  },
-  "headline-medium": {
-    "font-size": "28px",
-    "font-weight": 200,
-    "line-height": "42px",
-  },
-  "headline-small": {
-    "font-size": "24px",
-    "font-weight": 200,
-    "line-height": "36px",
-  },
-  "title-large": {
-    "font-size": "22px",
-    "font-weight": 400,
-    "line-height": "32px",
-  },
-  "title-medium": {
-    "font-size": "18px",
-    "font-weight": 400,
-    "line-height": "24px",
-  },
-  "title-small": {
-    "font-size": "16px",
-    "font-weight": 400,
-    "line-height": "22px",
-  },
-  "body-large": {
-    "font-size": "16px",
-    "font-weight": 400,
-    "line-height": "24px",
-  },
-  "body-medium": {
-    "font-size": "14px",
-    "font-weight": 400,
-    "line-height": "20px",
-  },
-  "body-small": {
-    "font-size": "12px",
-    "font-weight": 400,
-    "line-height": "16px",
-  },
-  "label-large": {
-    "font-size": "14px",
-    "font-weight": 400,
-    "line-height": "20px",
-  },
-  "label-medium": {
-    "font-size": "12px",
-    "font-weight": 400,
-    "line-height": "16px",
-  },
-  "label-small": {
-    "font-size": "10px",
-    "font-weight": 400,
-    "line-height": "16px",
-  },
-  mono: {
-    "font-family": "ui-monospace",
-  },
-};
+  {} as Record<(typeof typographyKeys)[number], Record<string, string>>,
+);
 
 const paddingPropertyMap: Record<string, string[]> = {
   x: ["padding-left", "padding-right"],
@@ -185,15 +124,12 @@ export default definePreset(() => ({
   theme: {
     colors,
     spacing,
-    sizes,
-    iconSizes,
     breakpoints,
     "box-shadow": shadows,
     "border-radius": borderRadius,
     fonts,
   },
   rules: [
-    // Elevation utilities
     [
       /^elevation-(\d+)$/,
       ([, d]) => {
@@ -203,7 +139,6 @@ export default definePreset(() => ({
         }
       },
     ],
-    // Shape utilities
     [
       /^radius-(none|xsmall|small|medium|large|full|pill)$/,
       ([, size]) => ({
@@ -216,31 +151,26 @@ export default definePreset(() => ({
         const value = borderRadius[size as keyof typeof borderRadius];
         if (pos === "x") {
           return { "border-radius": `${value} 0 0 ${value}` };
-        } else if (pos === "y") {
+        }
+        if (pos === "y") {
           return { "border-radius": `0 ${value} ${value} 0` };
-        } else if (pos === "lt") {
+        }
+        if (pos === "lt") {
           return { "border-radius": `${value} 0 0 0` };
-        } else if (pos === "rt") {
+        }
+        if (pos === "rt") {
           return { "border-radius": `0 ${value} 0 0` };
-        } else if (pos === "rb") {
+        }
+        if (pos === "rb") {
           return { "border-radius": `0 0 ${value} 0` };
-        } else if (pos === "lb") {
+        }
+        if (pos === "lb") {
           return { "border-radius": `0 0 0 ${value}` };
         }
       },
     ],
-    // Font utilities
     [
-      /^font-(.+)$/,
-      ([, key]) => {
-        const font = fonts[key as keyof typeof fonts];
-        if (font) {
-          return font;
-        }
-      },
-    ],
-    [
-      /^font-(.+)$-mono/,
+      /^font-(.+)-mono$/,
       ([, key]) => {
         const font = fonts[key as keyof typeof fonts];
         if (font) {
@@ -251,7 +181,13 @@ export default definePreset(() => ({
         }
       },
     ],
-    // Spacing utilities
+    [
+      /^font-(.+)$/,
+      ([, key]) => {
+        const font = fonts[key as keyof typeof fonts];
+        if (font) return font;
+      },
+    ],
     [
       /^space-p-(xsmall|small|medium|large|xlarge)$/,
       ([, size]) => ({
@@ -300,25 +236,5 @@ export default definePreset(() => ({
         }
       },
     ],
-    // Icon utilities
-    [
-      /^icon-(small|medium|large)$/,
-      ([, size]) => {
-        const sizeValue = iconSizes[size as keyof typeof iconSizes];
-        if (sizeValue) {
-          return {
-            width: sizeValue,
-            height: sizeValue,
-            fontSize: Number(sizeValue.replace("px", "")) * 0.75 + "px",
-          };
-        }
-      },
-    ],
-  ],
-  shortcuts: [
-    // Icon shortcuts
-    ["icon-primary", "icon-medium icon-color-primary"],
-    ["icon-secondary", "icon-medium icon-color-secondary"],
-    ["icon-tertiary", "icon-medium icon-color-tertiary"],
   ],
 }));

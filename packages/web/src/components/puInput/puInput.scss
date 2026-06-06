@@ -68,7 +68,7 @@
   display: flex;
   box-sizing: border-box;
   color: fn.sys-var(color, on-surface);
-  @include pu-font("label-large");
+  @include pu-font("control");
   flex-shrink: 0;
   margin-right: fn.sys-var(spacing, medium);
 }
@@ -150,7 +150,7 @@
   height: var(--pu-input-height);
   width: 100%;
   box-sizing: border-box;
-  @include pu-font("label-large");
+  @include pu-font("control");
 
   &::placeholder {
     color: fn.sys-var(color, on-surface-variant);
@@ -170,7 +170,7 @@
   align-items: center;
   white-space: nowrap;
   color: fn.sys-var(color, on-surface-variant);
-  @include pu-font("label-medium");
+  @include pu-font("caption");
 }
 
 .pu-input__count-current {
@@ -183,7 +183,7 @@
 
 .pu-input__error-message {
   color: fn.sys-var(color, error);
-  @include pu-font("label-medium");
+  @include pu-font("caption");
   margin-top: fn.sys-var(spacing, xsmall);
   line-height: 1.4;
 }

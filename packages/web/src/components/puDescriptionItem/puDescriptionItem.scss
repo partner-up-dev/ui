@@ -32,7 +32,7 @@
   min-width: 0;
   margin: 0;
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(label-large);
+  @include pu-font(control);
 }
 
 .pu-description-item--label-align-end .pu-description-item__label {
@@ -56,7 +56,7 @@
   min-width: 0;
   color: var(--sys-color-on-surface);
   overflow-wrap: anywhere;
-  @include pu-font(body-medium);
+  @include pu-font(body);
 }
 
 .pu-description-item__suffix {
@@ -65,9 +65,9 @@
 }
 
 .pu-description-item__hint {
-  margin-top: var(--sys-spacing-xxsmall);
+  margin-top: var(--sys-spacing-xsmall);
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(body-small);
+  @include pu-font(support);
 }
 
 .pu-description-item--value-align-center .pu-description-item__value {

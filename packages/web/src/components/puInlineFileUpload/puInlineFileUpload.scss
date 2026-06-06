@@ -1,7 +1,7 @@
 @use "../../styles/mixins" as *;
 
 .pu-inline-file-upload {
-  --pu-inline-file-upload-height: var(--sys-size-large);
+  --pu-inline-file-upload-height: 2.75rem;
   --pu-inline-file-upload-padding-inline: var(--sys-spacing-small);
 
   display: block;
@@ -56,7 +56,7 @@
   width: 24px;
   height: 24px;
   color: var(--sys-color-on-surface-variant);
-  @include pu-font(title-small);
+  @include pu-font(section);
 }
 
 .pu-inline-file-upload__content {
@@ -65,7 +65,7 @@
   align-items: center;
   min-width: 0;
   gap: var(--sys-spacing-xsmall);
-  @include pu-font(body-medium);
+  @include pu-font(body);
 }
 
 .pu-inline-file-upload__name,
@@ -136,7 +136,7 @@
   color: var(--sys-color-on-surface);
   cursor: pointer;
   font: inherit;
-  @include pu-font(label-medium);
+  @include pu-font(caption);
 }
 
 .pu-inline-file-upload__action--icon {

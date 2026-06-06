@@ -15,7 +15,7 @@
       <span :class="props.prefixIcon" class="icon"></span>
     </span>
 
-    <span v-if="props.type !== 'OnlyIcon' && props.text" class="text font-label-large">
+    <span v-if="props.type !== 'OnlyIcon' && props.text" class="text font-control">
       {{ props.text }}
     </span>
 

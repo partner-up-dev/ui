@@ -38,7 +38,7 @@
 
   .label {
     color: fn.sys-var(color, on-surface-variant);
-    font-size: var(--sys-typo-label-large-size);
+    @include pu-font(control);
   }
 
   .field {
@@ -49,7 +49,7 @@
 
   .inner {
     color: fn.sys-var(color, on-surface);
-    @include pu-font("label-large");
+    @include pu-font("control");
     padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, small);
     background-color: transparent;
     box-sizing: border-box;
@@ -67,6 +67,6 @@
     bottom: fn.sys-var(spacing, xsmall);
     right: fn.sys-var(spacing, small);
     color: fn.sys-var(color, on-surface-variant);
-    @include pu-font("label-medium");
+    @include pu-font("caption");
   }
 }

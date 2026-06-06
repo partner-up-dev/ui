@@ -64,24 +64,24 @@
 
   // Size modifiers
   &--xSmall {
-    width: fn.sys-var(size, xsmall);
-    height: fn.sys-var(size, xsmall);
+    width: 1.25rem;
+    height: 1.25rem;
   }
   &--small {
-    width: fn.sys-var(size, small);
-    height: fn.sys-var(size, small);
+    width: 1.5rem;
+    height: 1.5rem;
   }
   &--medium {
-    width: fn.sys-var(size, medium);
-    height: fn.sys-var(size, medium);
+    width: 2rem;
+    height: 2rem;
   }
   &--large {
-    width: fn.sys-var(size, large);
-    height: fn.sys-var(size, large);
+    width: 2.75rem;
+    height: 2.75rem;
   }
   &--xLarge {
-    width: fn.sys-var(size, xlarge);
-    height: fn.sys-var(size, xlarge);
+    width: 3.75rem;
+    height: 3.75rem;
   }
 }
 
