@@ -7,7 +7,7 @@ import PuButton from "../../components/puButton/puButton.vue";
 import PuForm from "../../components/puForm/puForm.vue";
 import PuFormItem from "../../components/puFormItem/puFormItem.vue";
 import PuInput from "../../components/puInput/puInput.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 import PuTextarea from "../../components/puTextarea/puTextarea.vue";
 
 type FormExpose = {
@@ -66,7 +66,7 @@ async function validateSubErrors(): Promise<void> {
   <Story title="PuForm" group="forms">
     <Variant title="Validation">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="section">
+        <PuCard tone="surface">
           <PuForm ref="formRef" :schema="schema">
             <PuFormItem prop="title">
               <PuInput
@@ -98,13 +98,13 @@ async function validateSubErrors(): Promise<void> {
             <p class="pu-story__text">Validation errors appear below fields.</p>
             <PuButton text="Validate" theme="PrimaryContainer" @click="validateForm" />
           </div>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Sub Errors">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuForm ref="subErrorFormRef" :schema="subErrorSchema">
             <PuFormItem prop="location" include-sub>
               <PuInput
@@ -122,7 +122,7 @@ async function validateSubErrors(): Promise<void> {
               @click="validateSubErrors"
             />
           </div>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

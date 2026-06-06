@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import PuNoticeBar from "../../components/puNoticeBar/puNoticeBar.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 
 const clickCount = ref(0);
 const closeCount = ref(0);
@@ -28,7 +28,7 @@ const verticalMessages = [
 
     <Variant title="Scrollable">
       <div class="pu-story">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuNoticeBar
             text="This longer notice uses horizontal movement when the available width is tight, keeping the bar compact inside dense layouts."
             prefix="bullhorn-outline"
@@ -36,7 +36,7 @@ const verticalMessages = [
             color="var(--sys-color-on-secondary-container)"
             scrollable
           />
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 

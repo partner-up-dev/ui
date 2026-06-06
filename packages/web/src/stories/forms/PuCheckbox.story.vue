@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { logEvent } from "histoire/client";
 import PuCheckbox from "../../components/puCheckbox/puCheckbox.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 
 const accepted = ref(false);
 const square = ref(true);
@@ -28,7 +28,7 @@ function handleChange(payload: unknown): void {
 
     <Variant title="Shapes">
       <div class="pu-story">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <div class="pu-checkbox-story__row">
             <PuCheckbox v-model="accepted" shape="circle">Circle</PuCheckbox>
             <PuCheckbox v-model="square" shape="square">Square</PuCheckbox>
@@ -41,13 +41,13 @@ function handleChange(payload: unknown): void {
               Button
             </PuCheckbox>
           </div>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Bar">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="section" gap="none">
+        <PuCard tone="surface" gap="none">
           <PuCheckbox
             :model-value="true"
             type="Bar"
@@ -64,19 +64,19 @@ function handleChange(payload: unknown): void {
           >
             Send reminder before start
           </PuCheckbox>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="States">
       <div class="pu-story">
-        <PuSurfaceCard tone="inset-high">
+        <PuCard tone="surface" padding="sm">
           <div class="pu-checkbox-story__row">
             <PuCheckbox :model-value="true" disabled>Disabled checked</PuCheckbox>
             <PuCheckbox :model-value="false" disabled>Disabled off</PuCheckbox>
             <PuCheckbox :model-value="true" size="large">Large</PuCheckbox>
           </div>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

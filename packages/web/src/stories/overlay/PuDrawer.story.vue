@@ -4,7 +4,7 @@ import { logEvent } from "histoire/client";
 import PuButton from "../../components/puButton/puButton.vue";
 import PuCell from "../../components/puCell/puCell.vue";
 import PuDrawer from "../../components/puDrawer/puDrawer.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 
 const controlledVisible = ref(false);
 const compactVisible = ref(true);
@@ -19,7 +19,7 @@ function handleClose(name: string): void {
   <Story title="PuDrawer" group="overlay">
     <Variant title="Controlled">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <p class="pu-story__label">Bottom drawer</p>
           <p class="pu-story__text">
             The trigger controls visible state through v-model:visible.
@@ -28,7 +28,7 @@ function handleClose(name: string): void {
             text="Open drawer"
             @click="controlledVisible = true"
           />
-        </PuSurfaceCard>
+        </PuCard>
 
         <PuDrawer
           v-model:visible="controlledVisible"
@@ -58,13 +58,13 @@ function handleClose(name: string): void {
 
     <Variant title="Open State">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <p class="pu-story__label">Pinned for visual review</p>
           <p class="pu-story__text">
             This variant keeps the drawer open while preserving surface
             background behind the overlay.
           </p>
-        </PuSurfaceCard>
+        </PuCard>
 
         <PuDrawer
           v-model:visible="compactVisible"
@@ -85,7 +85,7 @@ function handleClose(name: string): void {
 
     <Variant title="Full Custom">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <p class="pu-story__label">Custom drawer body</p>
           <p class="pu-story__text">
             fullCustom hands the whole drawer interior to the consumer.
@@ -95,7 +95,7 @@ function handleClose(name: string): void {
             theme="SurfaceOutlined"
             @click="customVisible = true"
           />
-        </PuSurfaceCard>
+        </PuCard>
 
         <PuDrawer
           v-model:visible="customVisible"

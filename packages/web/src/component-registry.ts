@@ -7,6 +7,7 @@ import PuAccordionItem from './components/puAccordion/puAccordionItem.vue'
 import PuBentoGrid from './components/puBentoGrid/puBentoGrid.vue'
 import PuBentoItem from './components/puBentoItem/puBentoItem.vue'
 import PuButton from './components/puButton/puButton.vue'
+import PuCard from './components/puCard/puCard.vue'
 import PuCell from './components/puCell/puCell.vue'
 import PuCellGroup from './components/puCellGroup/puCellGroup.vue'
 import PuCheckbox from './components/puCheckbox/puCheckbox.vue'
@@ -18,7 +19,6 @@ import PuDescriptionList from './components/puDescriptionList/puDescriptionList.
 import PuDesktopPageScaffold from './components/puDesktopPageScaffold/puDesktopPageScaffold.vue'
 import PuDrawer from './components/puDrawer/puDrawer.vue'
 import PuEmptyState from './components/puEmptyState/puEmptyState.vue'
-import PuExpandableCard from './components/puExpandableCard/puExpandableCard.vue'
 import PuFileUpload from './components/puFileUpload/puFileUpload.vue'
 import PuFooterRevealPageScaffold from './components/puFooterRevealPageScaffold/puFooterRevealPageScaffold.vue'
 import PuForm from './components/puForm/puForm.vue'
@@ -39,7 +39,6 @@ import PuPageScaffoldFlow from './components/puPageScaffoldFlow/puPageScaffoldFl
 import PuPicker from './components/puPicker/puPicker.vue'
 import PuScrollView from './components/puScrollView/puScrollView.vue'
 import PuSkeleton from './components/puSkeleton/puSkeleton.vue'
-import PuSurfaceCard from './components/puSurfaceCard/puSurfaceCard.vue'
 import PuTab from './components/puTab/puTab.vue'
 import PuTabs from './components/puTabs/puTabs.vue'
 import PuTag from './components/puTag/puTag.vue'
@@ -53,6 +52,7 @@ export {
   PuBentoGrid,
   PuBentoItem,
   PuButton,
+  PuCard,
   PuCell,
   PuCellGroup,
   PuCheckbox,
@@ -64,7 +64,6 @@ export {
   PuDesktopPageScaffold,
   PuDrawer,
   PuEmptyState,
-  PuExpandableCard,
   PuFileUpload,
   PuFooterRevealPageScaffold,
   PuForm,
@@ -85,7 +84,6 @@ export {
   PuPicker,
   PuScrollView,
   PuSkeleton,
-  PuSurfaceCard,
   PuTab,
   PuTabs,
   PuTag,
@@ -102,6 +100,7 @@ const components: readonly ComponentEntry[] = [
   ['PuBentoGrid', PuBentoGrid],
   ['PuBentoItem', PuBentoItem],
   ['PuButton', PuButton],
+  ['PuCard', PuCard],
   ['PuCell', PuCell],
   ['PuCellGroup', PuCellGroup],
   ['PuCheckbox', PuCheckbox],
@@ -113,7 +112,6 @@ const components: readonly ComponentEntry[] = [
   ['PuDesktopPageScaffold', PuDesktopPageScaffold],
   ['PuDrawer', PuDrawer],
   ['PuEmptyState', PuEmptyState],
-  ['PuExpandableCard', PuExpandableCard],
   ['PuFileUpload', PuFileUpload],
   ['PuFooterRevealPageScaffold', PuFooterRevealPageScaffold],
   ['PuForm', PuForm],
@@ -134,7 +132,6 @@ const components: readonly ComponentEntry[] = [
   ['PuPicker', PuPicker],
   ['PuScrollView', PuScrollView],
   ['PuSkeleton', PuSkeleton],
-  ['PuSurfaceCard', PuSurfaceCard],
   ['PuTab', PuTab],
   ['PuTabs', PuTabs],
   ['PuTag', PuTag],

@@ -3,7 +3,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { logEvent } from "histoire/client";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 import PuTab from "../../components/puTab/puTab.vue";
 import PuTabs from "../../components/puTabs/puTabs.vue";
 
@@ -41,14 +41,14 @@ function handleChange(index: number): void {
             @change="handleChange"
           />
 
-          <PuSurfaceCard tone="outline">
+          <PuCard tone="outline">
             <p class="pu-story__label">
               Active: {{ overviewTabs[currentTab]?.text }}
             </p>
             <p class="pu-story__text">
               Tab state is owned by the consumer through modelValue.
             </p>
-          </PuSurfaceCard>
+          </PuCard>
         </div>
       </div>
     </Variant>
@@ -56,7 +56,7 @@ function handleChange(index: number): void {
     <Variant title="Sizes">
       <div class="pu-story">
         <div class="pu-tabs-story__sizes">
-          <PuSurfaceCard
+          <PuCard
             v-for="size in tabSizes"
             :key="size"
             tone="outline"
@@ -67,14 +67,14 @@ function handleChange(index: number): void {
               :tabs="compactTabs"
               :size="size"
             />
-          </PuSurfaceCard>
+          </PuCard>
         </div>
       </div>
     </Variant>
 
     <Variant title="Scrollable">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="section">
+        <PuCard tone="surface">
           <PuTabs
             :model-value="2"
             :tabs="[
@@ -87,13 +87,13 @@ function handleChange(index: number): void {
             ]"
             size="Small"
           />
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Standalone Tab">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <div class="pu-tabs-story__standalone">
             <PuTab text="Default" />
             <PuTab text="Medium" size="Medium" />
@@ -105,7 +105,7 @@ function handleChange(index: number): void {
               </span>
             </PuTab>
           </div>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

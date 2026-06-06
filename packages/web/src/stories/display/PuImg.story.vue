@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { logEvent } from "histoire/client";
 import PuImg from "../../components/puImg/puImg.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 
 const venueImage = svgToDataUri(`
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420">
@@ -49,7 +49,7 @@ function svgToDataUri(svg: string): string {
   <Story title="PuImg" group="display">
     <Variant title="Basic">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuImg
             :src="venueImage"
             width="100%"
@@ -62,7 +62,7 @@ function svgToDataUri(svg: string): string {
           <p class="pu-story__text">
             Explicit width and height keep the media frame stable.
           </p>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
@@ -89,7 +89,7 @@ function svgToDataUri(svg: string): string {
     <Variant title="Radius">
       <div class="pu-story">
         <div class="pu-story__grid">
-          <PuSurfaceCard
+          <PuCard
             v-for="radius in radii"
             :key="radius"
             tone="outline"
@@ -102,7 +102,7 @@ function svgToDataUri(svg: string): string {
               :lazy-load="false"
             />
             <p class="pu-story__label">{{ radius }}</p>
-          </PuSurfaceCard>
+          </PuCard>
         </div>
       </div>
     </Variant>
@@ -110,10 +110,10 @@ function svgToDataUri(svg: string): string {
     <Variant title="Fit Modes">
       <div class="pu-story">
         <div class="pu-story__grid">
-          <PuSurfaceCard
+          <PuCard
             v-for="mode in modes"
             :key="mode"
-            tone="section"
+            tone="surface"
           >
             <PuImg
               :src="venueImage"
@@ -124,14 +124,14 @@ function svgToDataUri(svg: string): string {
               :lazy-load="false"
             />
             <p class="pu-story__label">{{ mode }}</p>
-          </PuSurfaceCard>
+          </PuCard>
         </div>
       </div>
     </Variant>
 
     <Variant title="Error Slot">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuImg
             src="/missing-story-image.jpg"
             width="100%"
@@ -147,7 +147,7 @@ function svgToDataUri(svg: string): string {
               </div>
             </template>
           </PuImg>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

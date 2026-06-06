@@ -5,7 +5,7 @@ import { ref } from "vue";
 import PuAccordion from "../../components/puAccordion/puAccordion.vue";
 import PuAccordionItem from "../../components/puAccordion/puAccordionItem.vue";
 import PuInfoRow from "../../components/puInfoRow/puInfoRow.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 import PuTag from "../../components/puTag/puTag.vue";
 
 const openPanels = ref(["details"]);
@@ -17,7 +17,7 @@ const viewMoreOpen = ref(false);
   <Story title="PuAccordion" group="display">
     <Variant title="Multiple">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline" gap="none">
+        <PuCard tone="outline" gap="none">
           <PuAccordion v-model="openPanels">
             <PuAccordionItem name="details" title="Event details">
               <div class="pu-accordion-story__body">
@@ -37,13 +37,13 @@ const viewMoreOpen = ref(false);
               </div>
             </PuAccordionItem>
           </PuAccordion>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Single">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="section" gap="none">
+        <PuCard tone="surface" gap="none">
           <PuAccordion v-model="singlePanel" accordion>
             <PuAccordionItem name="agenda" title="Agenda">
               <div class="pu-accordion-story__body">
@@ -57,13 +57,13 @@ const viewMoreOpen = ref(false);
               </div>
             </PuAccordionItem>
           </PuAccordion>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Custom Title">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="inset-high" gap="none">
+        <PuCard tone="surface" padding="sm" gap="none">
           <PuAccordion v-model="openPanels">
             <PuAccordionItem name="review" title="Review">
               <template #title="{ expanded }">
@@ -82,20 +82,20 @@ const viewMoreOpen = ref(false);
               </div>
             </PuAccordionItem>
           </PuAccordion>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="View More">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuAccordion v-model="viewMoreOpen" viewmore :line-num="2">
             PartnerUp hosts can add longer operational notes for a gathering.
             The view more mode keeps the first lines visible, then allows the
             full text to expand when the reader needs the complete context for
             planning, staffing, and guest communication.
           </PuAccordion>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

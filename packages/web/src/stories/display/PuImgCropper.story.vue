@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { logEvent } from "histoire/client";
 import PuButton from "../../components/puButton/puButton.vue";
 import PuImgCropper from "../../components/puImgCropper/puImgCropper.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 import type { PuImgCropperConfirmResult } from "../../components/puImgCropper/puImgCropper";
 
 const squareCropper = ref<InstanceType<typeof PuImgCropper> | null>(null);
@@ -78,7 +78,7 @@ function resetSquare(): void {
   <Story title="PuImgCropper" group="display">
     <Variant title="Square">
       <div class="pu-story">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <div class="pu-img-cropper-story__layout">
             <PuImgCropper
               ref="squareCropper"
@@ -120,13 +120,13 @@ function resetSquare(): void {
               </div>
             </div>
           </div>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Round Avatar">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <div class="pu-img-cropper-story__center">
             <PuImgCropper
               ref="avatarCropper"
@@ -148,13 +148,13 @@ function resetSquare(): void {
               />
             </div>
           </div>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Disabled">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuImgCropper
             :src="landscapeImage"
             :width="260"
@@ -167,7 +167,7 @@ function resetSquare(): void {
             Disabled state keeps the current transform visible and stops
             gesture updates.
           </p>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

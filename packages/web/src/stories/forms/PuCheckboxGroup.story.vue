@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { logEvent } from "histoire/client";
 import PuCheckbox from "../../components/puCheckbox/puCheckbox.vue";
 import PuCheckboxGroup from "../../components/puCheckboxGroup/puCheckboxGroup.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 
 const interests = ref<Array<string | number | boolean>>(["walk"]);
 const days = ref<Array<string | number | boolean>>(["sat"]);
@@ -31,7 +31,7 @@ function handleChange(payload: unknown): void {
 
     <Variant title="Square Limited">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuCheckboxGroup
             v-model="days"
             shape="square"
@@ -44,7 +44,7 @@ function handleChange(payload: unknown): void {
             <PuCheckbox model-value="sun">Sunday</PuCheckbox>
           </PuCheckboxGroup>
           <p class="pu-story__text">Choose one or two available days.</p>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
@@ -65,12 +65,12 @@ function handleChange(payload: unknown): void {
 
     <Variant title="Disabled">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="inset-high">
+        <PuCard tone="surface" padding="sm">
           <PuCheckboxGroup :model-value="['email']" disabled>
             <PuCheckbox model-value="email">Email reminders</PuCheckbox>
             <PuCheckbox model-value="sms">SMS reminders</PuCheckbox>
           </PuCheckboxGroup>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

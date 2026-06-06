@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { logEvent } from "histoire/client";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 import PuTextarea from "../../components/puTextarea/puTextarea.vue";
 
 const description = ref(
@@ -46,30 +46,30 @@ function handleLineChange(payload: unknown): void {
     <Variant title="Themes">
       <div class="pu-story">
         <div class="pu-story__grid">
-          <PuSurfaceCard tone="outline">
+          <PuCard tone="outline">
             <p class="pu-story__label">surface-container</p>
             <PuTextarea
               model-value="Container tone gives the field a filled surface."
               theme="surface-container"
             />
-          </PuSurfaceCard>
-          <PuSurfaceCard tone="outline">
+          </PuCard>
+          <PuCard tone="outline">
             <p class="pu-story__label">surface</p>
             <PuTextarea
               model-value="Surface tone reads like an inline field."
               theme="surface"
             />
-          </PuSurfaceCard>
+          </PuCard>
         </div>
       </div>
     </Variant>
 
     <Variant title="Readonly Disabled">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="inset-high">
+        <PuCard tone="surface" padding="sm">
           <PuTextarea model-value="Readonly notes remain selectable." readonly />
           <PuTextarea model-value="Disabled notes are unavailable." disabled />
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

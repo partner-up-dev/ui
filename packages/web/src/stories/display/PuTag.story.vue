@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 import PuTag from "../../components/puTag/puTag.vue";
 
 const sizes = ["xSmall", "Small", "Medium"] as const;
@@ -9,19 +9,19 @@ const sizes = ["xSmall", "Small", "Medium"] as const;
   <Story title="PuTag" group="display">
     <Variant title="Themes">
       <div class="pu-story">
-        <PuSurfaceCard tone="section">
+        <PuCard tone="surface">
           <div class="pu-tag-story__row">
             <PuTag text="Surface" theme="Surface" />
             <PuTag text="Surface outlined" theme="SurfaceOutlined" />
             <PuTag text="Rounded" theme="SurfaceOutlined" rounded />
           </div>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Sizes">
       <div class="pu-story">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <div class="pu-tag-story__row">
             <PuTag
               v-for="size in sizes"
@@ -32,13 +32,13 @@ const sizes = ["xSmall", "Small", "Medium"] as const;
               rounded
             />
           </div>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Overflow">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="inset-high">
+        <PuCard tone="surface" padding="sm">
           <div class="pu-tag-story__constrained">
             <PuTag
               text="Long reservation review label"
@@ -46,7 +46,7 @@ const sizes = ["xSmall", "Small", "Medium"] as const;
               rounded
             />
           </div>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

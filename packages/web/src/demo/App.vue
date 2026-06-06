@@ -42,15 +42,15 @@ const pickerColumns = [
       <PuAccordion v-model="checked" title="Accordion" content="这段内容用于验证折叠组件在 Web 中的基础行为。" />
     </section>
 
-    <PuSurfaceCard class="demo__section">
+    <PuCard class="demo__section">
       <PuCell title="Cell" value="Value" border suffix-icon="i-mdi-chevron-right" />
       <PuInfoRow label="InfoRow" value="Vertical value" layout="stack" />
       <PuWheelPicker v-model="wheelValue" :options="pickerColumns" aria-label="城市选择" />
-    </PuSurfaceCard>
+    </PuCard>
 
-    <PuExpandableCard title="Expandable" subtitle="Migrated shared UI component">
-      <p>ExpandableCard content rendered with the web package.</p>
-    </PuExpandableCard>
+    <PuCard collapsible title="Expandable" subtitle="Migrated shared UI component">
+      <p>Collapsible card content rendered with the web package.</p>
+    </PuCard>
 
     <section class="demo__section">
       <PuButton text="Open Modal" @click="modalOpen = true" />

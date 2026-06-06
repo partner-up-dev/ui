@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { logEvent } from "histoire/client";
 import PuInput from "../../components/puInput/puInput.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 
 const name = ref("Lina Chen");
 const search = ref("");
@@ -35,7 +35,7 @@ function logInput(event: string, payload: unknown): void {
 
     <Variant title="Icons And Alignment">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuInput
             v-model="search"
             placeholder="Search members"
@@ -52,13 +52,13 @@ function logInput(event: string, payload: unknown): void {
             label-width="5rem"
             align-right
           />
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Password And Count">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="section">
+        <PuCard tone="surface">
           <PuInput
             v-model="password"
             label="Password"
@@ -71,13 +71,13 @@ function logInput(event: string, payload: unknown): void {
             label="Status"
             readonly
           />
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Validation States">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="inset-high">
+        <PuCard tone="surface" padding="sm">
           <PuInput
             model-value=""
             label="Event title"
@@ -91,13 +91,13 @@ function logInput(event: string, payload: unknown): void {
             label="Disabled"
             disabled
           />
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Slots">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuInput model-value="Hangzhou" placeholder="City">
             <template #label>
               <span class="pu-input-story__label">Custom city</span>
@@ -109,7 +109,7 @@ function logInput(event: string, payload: unknown): void {
               <span class="pu-story__badge">Default</span>
             </template>
           </PuInput>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

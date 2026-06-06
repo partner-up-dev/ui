@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import PuInfoRow from "../../components/puInfoRow/puInfoRow.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 import PuTag from "../../components/puTag/puTag.vue";
 
 const facts = [
@@ -14,20 +14,20 @@ const facts = [
   <Story title="PuInfoRow" group="display">
     <Variant title="Basic">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuInfoRow
             v-for="[label, value] in facts"
             :key="label"
             :label="label"
             :value="value"
           />
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Stack">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="section" gap="md">
+        <PuCard tone="surface" gap="md">
           <PuInfoRow
             layout="stack"
             label="Host notes"
@@ -36,13 +36,13 @@ const facts = [
           <PuInfoRow layout="stack" label="Visibility">
             <PuTag text="Members only" theme="SurfaceOutlined" size="Small" rounded />
           </PuInfoRow>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Alignment">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="inset-high">
+        <PuCard tone="surface" padding="sm">
           <PuInfoRow label="End aligned" value="Default inline value" />
           <PuInfoRow
             align="start"
@@ -54,20 +54,20 @@ const facts = [
             label="Fixed inline"
             value="Keeps the row relationship at narrow widths."
           />
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 
     <Variant title="Slots">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuInfoRow>
             <template #label>
               <span class="pu-info-row-story__label">Custom label</span>
             </template>
             <span class="pu-info-row-story__value">Slot supplied value</span>
           </PuInfoRow>
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
   </Story>

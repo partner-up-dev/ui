@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { logEvent } from "histoire/client";
 import PuButton from "../../components/puButton/puButton.vue";
 import PuPicker from "../../components/puPicker/puPicker.vue";
-import PuSurfaceCard from "../../components/puSurfaceCard/puSurfaceCard.vue";
+import PuCard from "../../components/puCard/puCard.vue";
 import type {
   PickerColumnItem,
   PickerColumns,
@@ -87,7 +87,7 @@ function formatDateParts(items: PickerColumnItem | PickerColumnItem[]): string {
 
     <Variant title="Clearable And States">
       <div class="pu-story pu-story--narrow">
-        <PuSurfaceCard tone="outline">
+        <PuCard tone="outline">
           <PuPicker
             v-model="clearableCity"
             :columns="cities"
@@ -108,7 +108,7 @@ function formatDateParts(items: PickerColumnItem | PickerColumnItem[]): string {
             label="Disabled"
             disabled
           />
-        </PuSurfaceCard>
+        </PuCard>
       </div>
     </Variant>
 

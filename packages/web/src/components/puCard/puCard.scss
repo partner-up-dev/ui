@@ -1,0 +1,205 @@
+@use "../../styles/mixins" as *;
+
+.pu-card {
+  --pu-card-padding: var(--sys-spacing-medium);
+  --pu-card-gap: var(--sys-spacing-small);
+
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: var(--sys-radius-large);
+  color: var(--sys-color-on-surface);
+}
+
+.pu-card--tone-surface {
+  background: var(--sys-color-surface-container);
+}
+
+.pu-card--tone-outline {
+  border-color: var(--sys-color-outline-variant);
+  background: var(--sys-color-surface);
+}
+
+.pu-card--tone-primary {
+  background: var(--sys-color-primary-container);
+  color: var(--sys-color-on-primary-container);
+}
+
+.pu-card--tone-secondary {
+  background: var(--sys-color-secondary-container);
+  color: var(--sys-color-on-secondary-container);
+}
+
+.pu-card--tone-tertiary {
+  background: var(--sys-color-tertiary-container);
+  color: var(--sys-color-on-tertiary-container);
+}
+
+.pu-card--padding-none {
+  --pu-card-padding: 0;
+}
+
+.pu-card--padding-sm {
+  --pu-card-padding: var(--sys-spacing-small);
+}
+
+.pu-card--padding-md {
+  --pu-card-padding: var(--sys-spacing-medium);
+}
+
+.pu-card--padding-lg {
+  --pu-card-padding: var(--sys-spacing-large);
+}
+
+.pu-card--gap-none {
+  --pu-card-gap: 0;
+}
+
+.pu-card--gap-xs {
+  --pu-card-gap: var(--sys-spacing-xsmall);
+}
+
+.pu-card--gap-sm {
+  --pu-card-gap: var(--sys-spacing-small);
+}
+
+.pu-card--gap-md {
+  --pu-card-gap: var(--sys-spacing-medium);
+}
+
+.pu-card--gap-lg {
+  --pu-card-gap: var(--sys-spacing-large);
+}
+
+.pu-card__hero {
+  display: block;
+  min-width: 0;
+}
+
+.pu-card__hero :deep(img),
+.pu-card__hero :deep(picture),
+.pu-card__hero :deep(video) {
+  display: block;
+  width: 100%;
+}
+
+.pu-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-width: 0;
+  padding: var(--pu-card-padding);
+  gap: var(--pu-card-gap);
+}
+
+.pu-card__header--toggle-only {
+  align-items: center;
+}
+
+.pu-card__header-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-card__title {
+  margin: 0;
+  @include pu-font(title-small);
+}
+
+.pu-card__subtitle {
+  margin: 0;
+  color: color-mix(in srgb, currentColor 72%, transparent);
+  @include pu-font(body-small);
+}
+
+.pu-card__toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--sys-size-small);
+  height: var(--sys-size-small);
+  margin: calc((var(--sys-size-small) - var(--sys-size-medium)) / -2);
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: currentColor;
+  cursor: pointer;
+}
+
+.pu-card__toggle:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.pu-card__toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.pu-card__toggle-icon {
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.pu-card__toggle-icon.is-expanded {
+  transform: rotate(180deg);
+}
+
+.pu-card__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pu-card__content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: var(--pu-card-padding);
+  gap: var(--pu-card-gap);
+}
+
+.pu-card__header + .pu-card__body > .pu-card__content {
+  padding-top: 0;
+}
+
+.pu-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  padding: var(--pu-card-padding);
+  gap: var(--pu-card-gap);
+}
+
+.pu-card__content + .pu-card__footer {
+  padding-top: 0;
+}
+
+.pu-card-body-enter-active,
+.pu-card-body-leave-active {
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.pu-card-body-enter-from,
+.pu-card-body-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-card__toggle-icon,
+  .pu-card-body-enter-active,
+  .pu-card-body-leave-active {
+    transition: none !important;
+  }
+}
