@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 20
           registry-url: "https://npm.pkg.github.com"
-          scope: "@partner-up"
+          scope: "@partner-up-dev"
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4

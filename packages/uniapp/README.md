@@ -1,4 +1,4 @@
-# @partner-up/design-uniapp
+# @partner-up-dev/design-uniapp
 
 PartnerUp Design System for UniApp, built with Vite, Vue 3, and SCSS.
 
@@ -13,7 +13,7 @@ PartnerUp Design System for UniApp, built with Vite, Vue 3, and SCSS.
 ## Installation
 
 ```bash
-pnpm install @partner-up/design-uniapp
+pnpm install @partner-up-dev/design-uniapp
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ pnpm install @partner-up/design-uniapp
 
 ```typescript
 // In your main.ts or App.vue
-import '@partner-up/design-uniapp/styles'
+import '@partner-up-dev/design-uniapp/styles'
 ```
 
 ### Use CSS Variables
@@ -66,7 +66,7 @@ import '@partner-up/design-uniapp/styles'
 
 ```scss
 // Import in your SCSS files
-@use '@partner-up/design-uniapp/sass' as *;
+@use '@partner-up-dev/design-uniapp/sass' as *;
 ```
 
 ### Use Components
@@ -79,7 +79,7 @@ import '@partner-up/design-uniapp/styles'
 </template>
 
 <script setup lang="ts">
-import { PuButton } from '@partner-up/design-uniapp'
+import { PuButton } from '@partner-up-dev/design-uniapp'
 
 const handleClick = () => {
   console.log('Button clicked!')
@@ -96,7 +96,7 @@ The design system automatically responds to the system's color scheme preference
 ### Manual Theme Control
 
 ```typescript
-import { setTheme } from '@partner-up/design-uniapp'
+import { setTheme } from '@partner-up-dev/design-uniapp'
 
 setTheme('dark')  // Force dark mode
 setTheme('light') // Force light mode

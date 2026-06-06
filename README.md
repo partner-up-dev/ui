@@ -4,7 +4,8 @@ This is a monorepo of partner-up's design (design system in code, common compone
 
 ## Packages
 
-- `@partner-up/design-uniapp` - Design system for UniApp
+- `@partner-up-dev/design-web` - Design system for Vue web applications
+- `@partner-up-dev/design-uniapp` - Design system for UniApp
 
 ## Publishing
 
@@ -45,12 +46,13 @@ pnpm run release
 To install a published package from GitHub Package Registry, configure your `.npmrc`:
 
 ```
-@partner-up:registry=https://npm.pkg.github.com
+@partner-up-dev:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 
 Then install the package:
 
 ```bash
-npm install @partner-up/design-uniapp
+npm install @partner-up-dev/design-web
+npm install @partner-up-dev/design-uniapp
 ```
