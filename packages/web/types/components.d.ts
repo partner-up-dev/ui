@@ -4,6 +4,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     PuAccordion: typeof import('../src/components/puAccordion/puAccordion.vue')['default']
     PuAccordionItem: typeof import('../src/components/puAccordion/puAccordionItem.vue')['default']
+    PuAnnouncementBar: typeof import('../src/components/puAnnouncementBar/puAnnouncementBar.vue')['default']
     PuBentoGrid: typeof import('../src/components/puBentoGrid/puBentoGrid.vue')['default']
     PuBentoItem: typeof import('../src/components/puBentoItem/puBentoItem.vue')['default']
     PuButton: typeof import('../src/components/puButton/puButton.vue')['default']
@@ -31,7 +32,6 @@ declare module 'vue' {
     PuInlineNotice: typeof import('../src/components/puInlineNotice/puInlineNotice.vue')['default']
     PuInput: typeof import('../src/components/puInput/puInput.vue')['default']
     PuModal: typeof import('../src/components/puModal/puModal.vue')['default']
-    PuNoticeBar: typeof import('../src/components/puNoticeBar/puNoticeBar.vue')['default']
     PuPageHeader: typeof import('../src/components/puPageHeader/puPageHeader.vue')['default']
     PuPageScaffold: typeof import('../src/components/puPageScaffold/puPageScaffold.vue')['default']
     PuPageScaffoldCentered: typeof import('../src/components/puPageScaffoldCentered/puPageScaffoldCentered.vue')['default']

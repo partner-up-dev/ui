@@ -35,7 +35,7 @@ packages/web/src/stories/display/PuInlineNotice.story.vue
 PuInlineNotice is the content-area message block for info, success, warning,
 and error feedback inside a page section, card, form, or detail surface.
 
-PuNoticeBar remains the announcement-strip component for scrolling or rotating
+PuAnnouncementBar remains the announcement-strip component for scrolling or rotating
 notices.
 
 ## Information Architecture

@@ -22,7 +22,7 @@ packages/web
 +-- empty content states exist: PuEmptyState
 +-- async content placeholders exist: PuSkeleton
 +-- asymmetric overview layout exists: PuBentoGrid, PuBentoItem
-+-- generic feedback exists: PuNoticeBar
++-- announcement strip exists: PuAnnouncementBar
 +-- tags exist: PuTag
 ```
 

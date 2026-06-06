@@ -123,7 +123,7 @@ puImgCropper
 puInfoRow
 puInput
 puModal
-puNoticeBar
+puAnnouncementBar
 puPageScaffold
 puPageScaffoldCentered
 puPageScaffoldFlow

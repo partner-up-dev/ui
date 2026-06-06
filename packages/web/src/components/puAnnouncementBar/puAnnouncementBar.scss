@@ -1,6 +1,6 @@
 @use "../../styles/functions" as fn;
 
-.pu-notice-bar {
+.pu-announcement-bar {
   display: flex;
   align-items: center;
   padding: fn.sys-var(spacing, small) fn.sys-var(spacing, medium);
@@ -9,7 +9,7 @@
   min-height: 40px;
 
   &--wrapable {
-    .pu-notice-bar__text {
+    .pu-announcement-bar__text {
       white-space: normal;
     }
   }
@@ -28,7 +28,7 @@
     white-space: nowrap;
 
     &--scrollable {
-      animation: pu-notice-bar-scroll 10s linear infinite;
+      animation: pu-announcement-bar-scroll 10s linear infinite;
     }
 
     &--vertical {
@@ -54,7 +54,7 @@
   }
 }
 
-@keyframes pu-notice-bar-scroll {
+@keyframes pu-announcement-bar-scroll {
   0% {
     transform: translateX(0);
   }

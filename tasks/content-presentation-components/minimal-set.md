@@ -8,7 +8,7 @@ Existing web components already cover these areas:
 layout shells      -> PuPageScaffold*
 surfaces           -> PuSurfaceCard, PuExpandableCard
 single facts       -> PuCell, PuInfoRow
-basic notice strip -> PuNoticeBar
+announcement strip -> PuAnnouncementBar
 simple tag         -> PuTag
 ```
 
@@ -207,9 +207,9 @@ Implemented on 2026-05-13.
 Problem:
 
 ```
-Content screens need inline status, warning, success, and error messages. A
-notice bar is better for announcement strips; inline notice is better inside a
-section or card.
+Content screens need inline status, warning, success, and error messages.
+PuAnnouncementBar is better for announcement strips; inline notice is better
+inside a section or card.
 ```
 
 Minimum shape:

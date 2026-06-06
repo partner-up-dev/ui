@@ -31,7 +31,7 @@ PuChip / PuChipGroup
   grouped spacing/alignment.
 
 PuInlineNotice
-  Highest remaining inline feedback primitive. Current PuNoticeBar is a strip;
+  Highest remaining inline feedback primitive. PuAnnouncementBar is an announcement strip;
   InlineNotice should live inside content sections and carry status semantics.
 
 PuEmptyState

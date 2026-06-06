@@ -4,6 +4,7 @@ import type { Component } from 'vue'
 
 import PuAccordion from './components/puAccordion/puAccordion.vue'
 import PuAccordionItem from './components/puAccordion/puAccordionItem.vue'
+import PuAnnouncementBar from './components/puAnnouncementBar/puAnnouncementBar.vue'
 import PuBentoGrid from './components/puBentoGrid/puBentoGrid.vue'
 import PuBentoItem from './components/puBentoItem/puBentoItem.vue'
 import PuButton from './components/puButton/puButton.vue'
@@ -31,7 +32,6 @@ import PuInlineFileUpload from './components/puInlineFileUpload/puInlineFileUplo
 import PuInlineNotice from './components/puInlineNotice/puInlineNotice.vue'
 import PuInput from './components/puInput/puInput.vue'
 import PuModal from './components/puModal/puModal.vue'
-import PuNoticeBar from './components/puNoticeBar/puNoticeBar.vue'
 import PuPageHeader from './components/puPageHeader/puPageHeader.vue'
 import PuPageScaffold from './components/puPageScaffold/puPageScaffold.vue'
 import PuPageScaffoldCentered from './components/puPageScaffoldCentered/puPageScaffoldCentered.vue'
@@ -49,6 +49,7 @@ import PuWheelPicker from './components/puWheelPicker/puWheelPicker.vue'
 export {
   PuAccordion,
   PuAccordionItem,
+  PuAnnouncementBar,
   PuBentoGrid,
   PuBentoItem,
   PuButton,
@@ -76,7 +77,6 @@ export {
   PuInlineNotice,
   PuInput,
   PuModal,
-  PuNoticeBar,
   PuPageHeader,
   PuPageScaffold,
   PuPageScaffoldCentered,
@@ -97,6 +97,7 @@ type ComponentEntry = readonly [name: string, component: Component]
 const components: readonly ComponentEntry[] = [
   ['PuAccordion', PuAccordion],
   ['PuAccordionItem', PuAccordionItem],
+  ['PuAnnouncementBar', PuAnnouncementBar],
   ['PuBentoGrid', PuBentoGrid],
   ['PuBentoItem', PuBentoItem],
   ['PuButton', PuButton],
@@ -124,7 +125,6 @@ const components: readonly ComponentEntry[] = [
   ['PuInlineNotice', PuInlineNotice],
   ['PuInput', PuInput],
   ['PuModal', PuModal],
-  ['PuNoticeBar', PuNoticeBar],
   ['PuPageHeader', PuPageHeader],
   ['PuPageScaffold', PuPageScaffold],
   ['PuPageScaffoldCentered', PuPageScaffoldCentered],

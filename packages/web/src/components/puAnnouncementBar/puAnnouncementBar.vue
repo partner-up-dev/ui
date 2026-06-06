@@ -1,17 +1,17 @@
 <script lang="ts">
 import { BasicComponentOptions } from "../../utils/vue";
 export default {
-  name: "PuNoticeBar",
+  name: "PuAnnouncementBar",
   options: BasicComponentOptions,
 };
 </script>
 
 <script setup lang="ts">
 import { computed, ref, onUnmounted } from "vue";
-import { puNoticeBarProps, puNoticeBarEmits } from "./puNoticeBar";
+import { puAnnouncementBarProps, puAnnouncementBarEmits } from "./puAnnouncementBar";
 
-const props = defineProps(puNoticeBarProps);
-const emit = defineEmits(puNoticeBarEmits);
+const props = defineProps(puAnnouncementBarProps);
+const emit = defineEmits(puAnnouncementBarEmits);
 
 const visible = ref(true);
 const currentIndex = ref(0);
@@ -57,34 +57,34 @@ onUnmounted(() => {
 <template>
   <div
     v-if="visible"
-    class="pu-notice-bar"
-    :class="{ 'pu-notice-bar--wrapable': props.wrapable }"
+    class="pu-announcement-bar"
+    :class="{ 'pu-announcement-bar--wrapable': props.wrapable }"
     :style="{
       backgroundColor: props.backgroundColor,
       color: props.color,
     }"
     @click="onClick"
   >
-    <span v-if="props.prefix" class="pu-notice-bar__prefix" aria-hidden="true">
-      <span :class="`i-mdi-${props.prefix}`" class="pu-notice-bar__icon"></span>
+    <span v-if="props.prefix" class="pu-announcement-bar__prefix" aria-hidden="true">
+      <span :class="`i-mdi-${props.prefix}`" class="pu-announcement-bar__icon"></span>
     </span>
 
-    <div class="pu-notice-bar__content">
+    <div class="pu-announcement-bar__content">
       <div
-        class="pu-notice-bar__text"
+        class="pu-announcement-bar__text"
         :class="{
-          'pu-notice-bar__text--scrollable': props.scrollable && props.direction === 'horizontal',
-          'pu-notice-bar__text--vertical': props.direction === 'vertical',
+          'pu-announcement-bar__text--scrollable': props.scrollable && props.direction === 'horizontal',
+          'pu-announcement-bar__text--vertical': props.direction === 'vertical',
         }"
       >
         <span>{{ currentText }}</span>
       </div>
     </div>
 
-    <button v-if="props.closeable" type="button" class="pu-notice-bar__close" @click.stop="onClose">
-      <span class="i-mdi-close pu-notice-bar__icon" aria-hidden="true"></span>
+    <button v-if="props.closeable" type="button" class="pu-announcement-bar__close" @click.stop="onClose">
+      <span class="i-mdi-close pu-announcement-bar__icon" aria-hidden="true"></span>
     </button>
   </div>
 </template>
 
-<style scoped lang="scss" src="./puNoticeBar.scss"></style>
+<style scoped lang="scss" src="./puAnnouncementBar.scss"></style>

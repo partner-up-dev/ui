@@ -38,7 +38,7 @@ const pickerColumns = [
     </section>
 
     <section class="demo__section">
-      <PuNoticeBar text="这是一条 Web 版 NoticeBar" prefix="information-outline" closeable />
+      <PuAnnouncementBar text="这是一条 Web 版 AnnouncementBar" prefix="information-outline" closeable />
       <PuAccordion v-model="checked" title="Accordion" content="这段内容用于验证折叠组件在 Web 中的基础行为。" />
     </section>
 
