@@ -3,123 +3,86 @@ import { ref } from "vue";
 import PuFileUpload from "../../components/puFileUpload/puFileUpload.vue";
 import type { PuFileUploadItem } from "../../types";
 
-const emptyValue = ref<PuFileUploadItem[]>([]);
-const urlValue = ref<PuFileUploadItem[]>([]);
-const selectedFiles = ref<PuFileUploadItem[]>([
-  {
-    id: "story-contract",
-    source: "file",
-    name: "contract.pdf",
-    size: 2480000,
-    type: "application/pdf",
-    status: "ready",
-  },
-  {
-    id: "story-brief",
-    source: "url",
-    name: "partner-brief.pdf",
-    url: "https://example.com/docs/partner-brief.pdf",
-    status: "ready",
-  },
-]);
-const statusFiles = ref<PuFileUploadItem[]>([
-  {
-    id: "story-uploading",
-    source: "file",
-    name: "venue-map.png",
-    size: 842000,
-    type: "image/png",
-    status: "uploading",
-  },
-  {
-    id: "story-success",
-    source: "file",
-    name: "signed-agreement.pdf",
-    size: 1240000,
-    type: "application/pdf",
-    status: "success",
-  },
-  {
-    id: "story-error",
-    source: "url",
-    name: "missing-file.pdf",
-    url: "https://example.com/missing-file.pdf",
-    status: "error",
-    message: "Unable to fetch",
-  },
-]);
-const singleFile = ref<PuFileUploadItem[]>([
-  {
-    id: "story-single",
-    source: "file",
-    name: "business-license.pdf",
-    size: 1680000,
-    type: "application/pdf",
-    status: "ready",
-  },
-]);
+const inlineValue = ref<PuFileUploadItem | null>(null);
+const panelValue = ref<PuFileUploadItem | null>({
+  id: "story-contract",
+  source: "file",
+  name: "contract.pdf",
+  size: 2480000,
+  type: "application/pdf",
+  status: "ready",
+});
+const urlValue = ref<PuFileUploadItem | null>(null);
+const successFile = ref<PuFileUploadItem | null>({
+  id: "story-success",
+  source: "file",
+  name: "venue-map.png",
+  size: 842000,
+  type: "image/png",
+  status: "success",
+});
+const errorFile = ref<PuFileUploadItem | null>({
+  id: "story-error",
+  source: "url",
+  name: "missing-file.pdf",
+  url: "https://example.com/missing-file.pdf",
+  status: "error",
+  message: "Unable to fetch",
+});
 </script>
 
 <template>
   <Story title="PuFileUpload" group="forms">
-    <Variant title="Basic">
+    <Variant title="Inline">
+      <div class="pu-story pu-story--narrow">
+        <PuFileUpload v-model="inlineValue" accept=".pdf,image/*" />
+      </div>
+    </Variant>
+
+    <Variant title="Panel">
       <div class="pu-story pu-story--narrow">
         <PuFileUpload
-          v-model="emptyValue"
-          title="Attachments"
-          description="Collect files from the device or a remote URL."
-          helper-text="PDF, PNG, and JPG files up to 5 MB."
+          v-model="panelValue"
+          layout="panel"
+          title="Contract"
+          description="Collect one file from the device or a remote URL."
+          helper-text="Adding a new file replaces the current value."
           accept=".pdf,image/*"
-          :max-size="5242880"
         />
       </div>
     </Variant>
 
-    <Variant title="Selected Files">
-      <div class="pu-story pu-story--narrow">
-        <PuFileUpload
-          v-model="selectedFiles"
-          title="Submitted files"
-          helper-text="Files stay in the list until the consumer uploads or removes them."
-        />
-      </div>
-    </Variant>
-
-    <Variant title="URL Only">
+    <Variant title="URL">
       <div class="pu-story pu-story--narrow">
         <PuFileUpload
           v-model="urlValue"
           mode="url"
-          title="External document"
+          placeholder="Attach from URL"
           url-placeholder="https://example.com/attachment.pdf"
-          empty-label="No links added"
         />
       </div>
     </Variant>
 
     <Variant title="Statuses">
       <div class="pu-story pu-story--narrow">
-        <PuFileUpload
-          v-model="statusFiles"
-          title="Upload queue"
-          helper-text="Status and message come from item.status and item.message."
-        />
+        <div class="pu-story__stack">
+          <PuFileUpload v-model="successFile" />
+          <PuFileUpload v-model="errorFile" />
+        </div>
       </div>
     </Variant>
 
-    <Variant title="Single And Disabled">
+    <Variant title="Disabled And Readonly">
       <div class="pu-story pu-story--narrow">
         <div class="pu-story__stack">
           <PuFileUpload
-            v-model="singleFile"
-            title="Single file"
-            :multiple="false"
-            helper-text="Adding another item replaces the current item."
+            :model-value="null"
+            placeholder="Disabled upload"
+            disabled
           />
           <PuFileUpload
-            :model-value="[]"
-            title="Disabled"
-            disabled
+            :model-value="panelValue"
+            readonly
           />
         </div>
       </div>

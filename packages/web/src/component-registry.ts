@@ -19,12 +19,12 @@ import PuDescriptionItem from './components/puDescriptionItem/puDescriptionItem.
 import PuDescriptionList from './components/puDescriptionList/puDescriptionList.vue'
 import PuDrawer from './components/puDrawer/puDrawer.vue'
 import PuEmptyState from './components/puEmptyState/puEmptyState.vue'
+import PuFilesUpload from './components/puFilesUpload/puFilesUpload.vue'
 import PuFileUpload from './components/puFileUpload/puFileUpload.vue'
 import PuForm from './components/puForm/puForm.vue'
 import PuFormItem from './components/puFormItem/puFormItem.vue'
 import PuImg from './components/puImg/puImg.vue'
 import PuImgCropper from './components/puImgCropper/puImgCropper.vue'
-import PuInlineFileUpload from './components/puInlineFileUpload/puInlineFileUpload.vue'
 import PuInlineNotice from './components/puInlineNotice/puInlineNotice.vue'
 import PuInput from './components/puInput/puInput.vue'
 import PuModal from './components/puModal/puModal.vue'
@@ -58,12 +58,12 @@ export {
   PuDescriptionList,
   PuDrawer,
   PuEmptyState,
+  PuFilesUpload,
   PuFileUpload,
   PuForm,
   PuFormItem,
   PuImg,
   PuImgCropper,
-  PuInlineFileUpload,
   PuInlineNotice,
   PuInput,
   PuModal,
@@ -100,12 +100,12 @@ const components: readonly ComponentEntry[] = [
   ['PuDescriptionList', PuDescriptionList],
   ['PuDrawer', PuDrawer],
   ['PuEmptyState', PuEmptyState],
+  ['PuFilesUpload', PuFilesUpload],
   ['PuFileUpload', PuFileUpload],
   ['PuForm', PuForm],
   ['PuFormItem', PuFormItem],
   ['PuImg', PuImg],
   ['PuImgCropper', PuImgCropper],
-  ['PuInlineFileUpload', PuInlineFileUpload],
   ['PuInlineNotice', PuInlineNotice],
   ['PuInput', PuInput],
   ['PuModal', PuModal],

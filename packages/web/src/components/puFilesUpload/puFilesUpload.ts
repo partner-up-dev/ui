@@ -9,13 +9,13 @@ import {
 } from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
-export type PuFileUploadValue = PuFileUploadItem | null;
-export type PuFileUploadUrlValidator = (url: string) => boolean | string;
+export type PuFilesUploadValue = PuFileUploadItem[];
+export type PuFilesUploadUrlValidator = (url: string) => boolean | string;
 
-export const puFileUploadProps = {
+export const puFilesUploadProps = {
   modelValue: {
-    type: Object as PropType<PuFileUploadValue>,
-    default: null,
+    type: Array as PropType<PuFilesUploadValue>,
+    default: () => [],
   },
   mode: {
     type: String as PropType<PuFileUploadMode>,
@@ -24,10 +24,14 @@ export const puFileUploadProps = {
   },
   layout: {
     type: String as PropType<PuFileUploadLayout>,
-    default: "inline",
+    default: "panel",
     validator: (value: string) => puFileUploadLayouts.includes(value as PuFileUploadLayout),
   },
   accept: makeStringProp(""),
+  maxFiles: {
+    type: Number,
+    default: undefined,
+  },
   maxSize: {
     type: Number,
     default: undefined,
@@ -37,26 +41,27 @@ export const puFileUploadProps = {
   title: makeStringProp<string | undefined>(undefined),
   description: makeStringProp<string | undefined>(undefined),
   helperText: makeStringProp<string | undefined>(undefined),
-  dropLabel: makeStringProp("Drop file here"),
-  dropDescription: makeStringProp("Choose a file or drag it into this area."),
-  chooseLabel: makeStringProp("Choose"),
-  placeholder: makeStringProp("Attach a file"),
-  urlLabel: makeStringProp("URL"),
+  dropLabel: makeStringProp("Drop files here"),
+  dropDescription: makeStringProp("Choose files or drag them into this area."),
+  chooseLabel: makeStringProp("Choose files"),
+  placeholder: makeStringProp("Attach files"),
+  urlLabel: makeStringProp("File URL"),
   urlPlaceholder: makeStringProp("https://example.com/file.pdf"),
-  urlAddLabel: makeStringProp("Add"),
-  emptyLabel: makeStringProp("No file added"),
+  urlAddLabel: makeStringProp("Add URL"),
+  emptyLabel: makeStringProp("No files added"),
   removeLabel: makeStringProp("Remove file"),
-  replaceLabel: makeStringProp("Replace"),
+  clearLabel: makeStringProp("Clear files"),
+  replaceOnAdd: makeBooleanProp(false),
   validateUrl: {
-    type: Function as PropType<PuFileUploadUrlValidator>,
+    type: Function as PropType<PuFilesUploadUrlValidator>,
     default: undefined,
   },
 };
 
-export const puFileUploadEmits = {
-  "update:modelValue": (_item: PuFileUploadValue) => true,
-  change: (_item: PuFileUploadValue) => true,
-  add: (_item: PuFileUploadItem, _event: Event) => true,
+export const puFilesUploadEmits = {
+  "update:modelValue": (_items: PuFilesUploadValue) => true,
+  change: (_items: PuFilesUploadValue) => true,
+  add: (_items: PuFileUploadItem[], _event: Event) => true,
   remove: (_item: PuFileUploadItem, _event: Event) => true,
   reject: (_rejections: PuFileUploadRejection[], _event: Event) => true,
   drop: (_files: File[], _event: DragEvent) => true,
