@@ -27,7 +27,6 @@ declare module 'vue' {
     PuFullScreenPageScaffold: typeof import('../src/components/puFullScreenPageScaffold/puFullScreenPageScaffold.vue')['default']
     PuImg: typeof import('../src/components/puImg/puImg.vue')['default']
     PuImgCropper: typeof import('../src/components/puImgCropper/puImgCropper.vue')['default']
-    PuInfoRow: typeof import('../src/components/puInfoRow/puInfoRow.vue')['default']
     PuInlineFileUpload: typeof import('../src/components/puInlineFileUpload/puInlineFileUpload.vue')['default']
     PuInlineNotice: typeof import('../src/components/puInlineNotice/puInlineNotice.vue')['default']
     PuInput: typeof import('../src/components/puInput/puInput.vue')['default']

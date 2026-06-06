@@ -80,8 +80,8 @@ PuDescriptionItem
 Reason:
 
 ```
-This is the strongest new abstraction. It fills the current gap between
-single-row PuInfoRow and card-level PuSurfaceCard. It also creates a migration
+This is the strongest new abstraction. It fills the current gap between local
+one-off fact markup and card-level PuSurfaceCard. It also creates a migration
 target for facts-card style screens.
 ```
 

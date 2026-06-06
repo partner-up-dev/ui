@@ -27,7 +27,6 @@ import PuFormItem from './components/puFormItem/puFormItem.vue'
 import PuFullScreenPageScaffold from './components/puFullScreenPageScaffold/puFullScreenPageScaffold.vue'
 import PuImg from './components/puImg/puImg.vue'
 import PuImgCropper from './components/puImgCropper/puImgCropper.vue'
-import PuInfoRow from './components/puInfoRow/puInfoRow.vue'
 import PuInlineFileUpload from './components/puInlineFileUpload/puInlineFileUpload.vue'
 import PuInlineNotice from './components/puInlineNotice/puInlineNotice.vue'
 import PuInput from './components/puInput/puInput.vue'
@@ -72,7 +71,6 @@ export {
   PuFullScreenPageScaffold,
   PuImg,
   PuImgCropper,
-  PuInfoRow,
   PuInlineFileUpload,
   PuInlineNotice,
   PuInput,
@@ -120,7 +118,6 @@ const components: readonly ComponentEntry[] = [
   ['PuFullScreenPageScaffold', PuFullScreenPageScaffold],
   ['PuImg', PuImg],
   ['PuImgCropper', PuImgCropper],
-  ['PuInfoRow', PuInfoRow],
   ['PuInlineFileUpload', PuInlineFileUpload],
   ['PuInlineNotice', PuInlineNotice],
   ['PuInput', PuInput],

@@ -45,9 +45,10 @@ PuDescriptionList.story.vue declares:
 
 PuDescriptionList is the semantic group for name-value facts.
 
-PuInfoRow remains useful for isolated facts. PuDescriptionList provides the
-group-level structure, header, density, dividers, layout, and semantic `dl`
-relationship.
+PuDescriptionList provides the group-level structure, header, density, dividers,
+layout, and semantic `dl` relationship. Standalone one-off fact rows should use
+local markup or become a small PuDescriptionList when the label/value
+relationship matters.
 
 ## Primary Use Cases
 
@@ -313,10 +314,6 @@ Component CSS variables:
 ## Relationship To Existing Components
 
 ```
-PuInfoRow
-+-- isolated single fact
-+-- useful inside custom layouts
-
 PuDescriptionList
 +-- grouped facts
 +-- semantic dl relationship

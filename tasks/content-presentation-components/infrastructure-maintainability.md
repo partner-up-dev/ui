@@ -204,10 +204,10 @@ Static markdown generated from component metadata
 Minimum pragmatic path:
 
 ```
-src/demo/catalog/
-+-- component route per category
-+-- examples co-located near components
-+-- visual smoke page for all public components
+src/stories/
++-- component story per category
++-- examples co-located in the story catalog
++-- visual smoke coverage for public components
 ```
 
 ### 5. Verification Matrix
@@ -363,4 +363,3 @@ Then:
 PuDescriptionList / PuDescriptionItem uses PuSize/PuDensity/PuAlign/PuLayout.
 Future PuChip, PuInlineNotice, PuEmptyState reuse the same vocabulary.
 ```
-

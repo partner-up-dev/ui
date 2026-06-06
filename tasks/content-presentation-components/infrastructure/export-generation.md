@@ -120,7 +120,6 @@ puFormItem
 puFullScreenPageScaffold
 puImg
 puImgCropper
-puInfoRow
 puInput
 puModal
 puAnnouncementBar

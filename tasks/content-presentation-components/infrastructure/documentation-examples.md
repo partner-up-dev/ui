@@ -14,17 +14,15 @@ Current docs/demo surfaces:
 
 ```
 packages/web/docs/component-contract.md
-packages/web/src/demo/App.vue
-packages/web/src/demo/main.ts
-packages/web/index.html
+packages/web/src/stories/
 ```
 
 Observed issue:
 
 ```
-src/demo/App.vue is a single growing surface.
-It is useful for smoke testing but weak for scanable docs, state coverage,
-keyboard testing, and per-component examples.
+The old standalone demo surface was a single growing page.
+Stories are better for scanable docs, state coverage, keyboard testing, and
+per-component examples.
 ```
 
 Related packet decisions:
@@ -104,21 +102,8 @@ packages/web/
         +-- pu-description-list.md
 ```
 
-Keep `src/demo` small:
-
-```
-packages/web/src/demo/
-+-- App.vue
-+-- main.ts
-```
-
-Role of `src/demo`:
-
-```
-manual install smoke surface
-quick local sanity page
-not the canonical documentation catalog
-```
+Do not keep a separate demo surface. Histoire stories are the canonical
+documentation, example, and visual-smoke surface.
 
 Reason:
 
@@ -327,7 +312,7 @@ Phase A:
 Add Histoire config.
 Add story:dev and story:build scripts.
 Add first stories for PuButton, PuCell, PuToggleSwitch, PuWheelPicker, PuModal.
-Keep src/demo as install smoke.
+Use stories as the install smoke surface.
 Run story:build with existing type-check/build gates.
 ```
 

@@ -106,10 +106,8 @@ Use PuCell when the row can be acted on, scanned as a list item, or paired with
 leading/trailing affordances.
 
 Use PuDescriptionList + PuDescriptionItem when the content is a semantic
-label/value fact group.
-
-Use PuInfoRow for isolated, lightweight facts where a full description list is
-too much structure.
+label/value fact group. Use local markup for rare one-off facts that do not need
+a public component contract.
 ```
 
 ## Proposed PuCell IA

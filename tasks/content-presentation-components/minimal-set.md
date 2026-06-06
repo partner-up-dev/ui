@@ -7,7 +7,7 @@ Existing web components already cover these areas:
 ```
 layout shells      -> PuPageScaffold*
 surfaces           -> PuSurfaceCard, PuExpandableCard
-single facts       -> PuCell, PuInfoRow
+read-only facts    -> PuDescriptionList, PuDescriptionItem
 announcement strip -> PuAnnouncementBar
 simple tag         -> PuTag
 ```
@@ -112,8 +112,8 @@ Implemented on 2026-05-12.
 Problem:
 
 ```
-Many product screens show grouped name-value facts. PuInfoRow handles one fact.
-DescriptionList turns a fact group into a semantic, scan-friendly unit.
+Many product screens show name-value facts. DescriptionList makes those facts a
+semantic, scan-friendly unit without carrying a separate one-off fact-row API.
 ```
 
 Minimum shape:

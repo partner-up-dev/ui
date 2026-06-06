@@ -16,7 +16,6 @@ packages/web
 +-- page content entry exists: PuPageHeader
 +-- cards exist: PuSurfaceCard, PuExpandableCard
 +-- grouped action/list rows exist: PuCell, PuCellGroup
-+-- simple fact rows exist: PuInfoRow
 +-- grouped facts exist: PuDescriptionList, PuDescriptionItem
 +-- inline messages exist: PuInlineNotice
 +-- empty content states exist: PuEmptyState

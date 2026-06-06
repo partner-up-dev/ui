@@ -4,8 +4,9 @@
 import { ref } from "vue";
 import PuAccordion from "../../components/puAccordion/puAccordion.vue";
 import PuAccordionItem from "../../components/puAccordion/puAccordionItem.vue";
-import PuInfoRow from "../../components/puInfoRow/puInfoRow.vue";
 import PuCard from "../../components/puCard/puCard.vue";
+import PuDescriptionItem from "../../components/puDescriptionItem/puDescriptionItem.vue";
+import PuDescriptionList from "../../components/puDescriptionList/puDescriptionList.vue";
 import PuTag from "../../components/puTag/puTag.vue";
 
 const openPanels = ref(["details"]);
@@ -21,14 +22,18 @@ const viewMoreOpen = ref(false);
           <PuAccordion v-model="openPanels">
             <PuAccordionItem name="details" title="Event details">
               <div class="pu-accordion-story__body">
-                <PuInfoRow label="Time" value="May 12, 19:00" />
-                <PuInfoRow label="Location" value="West Lake Cultural Plaza" />
+                <PuDescriptionList layout="inline" density="compact">
+                  <PuDescriptionItem label="Time" value="May 12, 19:00" />
+                  <PuDescriptionItem label="Location" value="West Lake Cultural Plaza" />
+                </PuDescriptionList>
               </div>
             </PuAccordionItem>
             <PuAccordionItem name="capacity" title="Capacity">
               <div class="pu-accordion-story__body">
-                <PuInfoRow label="Reserved" value="12 seats" />
-                <PuInfoRow label="Available" value="8 seats" />
+                <PuDescriptionList layout="inline" density="compact">
+                  <PuDescriptionItem label="Reserved" value="12 seats" />
+                  <PuDescriptionItem label="Available" value="8 seats" />
+                </PuDescriptionList>
               </div>
             </PuAccordionItem>
             <PuAccordionItem name="disabled" title="Locked section" disabled>
