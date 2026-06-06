@@ -253,6 +253,29 @@ Use existing global tokens:
 --ref-*
 ```
 
+## Composition Principles
+
+Follow `docs/composition-principles.md` as the durable source for ownership,
+composition, tokens, local CSS, and adaptive layout decisions.
+
+For component authors, add query boundaries only where the component owns the
+measured layout region. Avoid arbitrary leaf-level containers.
+
+When a component creates a query boundary, name it after the owning component or
+region:
+
+```scss
+.pu-page-scaffold {
+  container: pu-page / inline-size;
+}
+
+@container pu-page (max-width: 56.25rem) {
+  .pu-page-scaffold__shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+```
+
 ## Source File Shape
 
 Preferred public component folder:

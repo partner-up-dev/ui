@@ -48,6 +48,7 @@
   ],
   "files": [
     "dist",
+    "skills",
     "src/components",
     "src/styles",
     "src/utils",
@@ -58,20 +59,25 @@
     "preview": "vite preview",
     "generate": "node scripts/generate-component-registry.mjs",
     "generate:check": "node scripts/generate-component-registry.mjs --check",
+    "skill:generate": "node scripts/generate-agent-skill.mjs",
+    "skill:generate:check": "node scripts/generate-agent-skill.mjs --check",
+    "skill:validate": "intent validate",
+    "skill:stale": "intent stale",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:coverage": "node scripts/check-story-coverage.mjs",
-    "type-check": "pnpm run generate:check && vue-tsc --noEmit",
+    "type-check": "pnpm run generate:check && pnpm run skill:generate:check && vue-tsc --noEmit",
     "clean": "rimraf dist",
     "build": "pnpm run generate && pnpm run clean && vite build && vue-tsc -p tsconfig.build.json --declaration --emitDeclarationOnly",
-    "verify": "pnpm run type-check && pnpm run build && pnpm run story:coverage && pnpm run story:build"
+    "verify": "pnpm run type-check && pnpm run skill:validate && pnpm run build && pnpm run story:coverage && pnpm run story:build"
   },
   "keywords": [
     "partnerup",
     "design-system",
     "web",
     "vue3",
-    "components"
+    "components",
+    "tanstack-intent"
   ],
   "author": "PartnerUp Team",
   "license": "MIT",
@@ -88,6 +94,7 @@
   "devDependencies": {
     "@histoire/controls": "1.0.0-beta.1",
     "@histoire/plugin-vue": "1.0.0-beta.1",
+    "@tanstack/intent": "^0.0.41",
     "@types/node": "^20.0.0",
     "@vitejs/plugin-vue": "^6.0.6",
     "histoire": "1.0.0-beta.1",

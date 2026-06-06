@@ -1,0 +1,383 @@
+{
+  "package": "@partner-up-dev/design-web",
+  "skill": {
+    "name": "design-web",
+    "displayName": "PartnerUp Design Web",
+    "description": "Use @partner-up-dev/design-web Vue components correctly in application UI."
+  },
+  "storyGroups": {
+    "actions": {
+      "label": "Actions",
+      "intent": "Commands and user-triggered actions."
+    },
+    "forms": {
+      "label": "Forms",
+      "intent": "Inputs, selection, upload, and form structure."
+    },
+    "display": {
+      "label": "Display",
+      "intent": "Content presentation, status, navigation, and compact structure."
+    },
+    "overlay": {
+      "label": "Overlay",
+      "intent": "Dialogs, drawers, and layered interactions."
+    },
+    "layout": {
+      "label": "Layout",
+      "intent": "Page scaffolds, scroll regions, and structural containers."
+    }
+  },
+  "skillReferences": [
+    {
+      "source": "docs/composition-principles.md",
+      "target": "references/composition-principles.md",
+      "description": "durable package principles for component ownership, composition, tokens, and local CSS."
+    }
+  ],
+  "components": {
+    "PuAccordion": {
+      "category": "display",
+      "intent": ["disclosure group", "accordion panels", "show more content"],
+      "preferWhen": ["Use for expandable content sections where users reveal or hide details."],
+      "avoidWhen": ["Avoid for navigation tabs or mutually exclusive view switching."],
+      "composeWith": ["PuAccordionItem", "PuCard", "PuInlineNotice"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuAccordion.story.vue"
+    },
+    "PuAccordionItem": {
+      "category": "display",
+      "intent": ["accordion item", "disclosure panel"],
+      "preferWhen": ["Use inside PuAccordion for each expandable panel."],
+      "avoidWhen": ["Do not use outside PuAccordion unless the component explicitly supports standalone usage."],
+      "composeWith": ["PuAccordion"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuAccordion.story.vue"
+    },
+    "PuBentoGrid": {
+      "category": "display",
+      "intent": ["bento grid", "asymmetric overview layout", "dashboard summary"],
+      "preferWhen": ["Use for overview surfaces where tiles have different emphasis and spans."],
+      "avoidWhen": ["Avoid for simple equal-column lists; use normal layout or cards instead."],
+      "composeWith": ["PuBentoItem", "PuCard", "PuTag"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuBentoGrid.story.vue"
+    },
+    "PuBentoItem": {
+      "category": "display",
+      "intent": ["bento item", "highlight tile"],
+      "preferWhen": ["Use inside PuBentoGrid for an individual overview tile."],
+      "avoidWhen": ["Avoid as a general-purpose card outside bento layouts."],
+      "composeWith": ["PuBentoGrid"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuBentoGrid.story.vue"
+    },
+    "PuButton": {
+      "category": "actions",
+      "intent": ["command button", "loading command", "icon button"],
+      "preferWhen": ["Use for user-triggered commands, form actions, and compact icon commands."],
+      "avoidWhen": ["Avoid for plain navigation unless the implementation supports link semantics."],
+      "composeWith": ["PuPageHeader", "PuFormItem", "PuModal", "PuCard"],
+      "apiCaveats": ["Uses legacy theme, type, and size values rather than canonical tone/size vocabulary."],
+      "accessibilityNotes": ["Icon-only buttons need an accessible label."],
+      "storyGroup": "actions",
+      "storyFile": "src/stories/actions/PuButton.story.vue"
+    },
+    "PuCard": {
+      "category": "display",
+      "intent": ["content card", "collapsible card", "grouped content surface"],
+      "preferWhen": ["Use for grouped content with optional hero, header, body, footer, or collapsible content."],
+      "avoidWhen": ["Avoid for dense list rows; use PuCellGroup and PuCell for row-based settings or lists."],
+      "composeWith": ["PuButton", "PuTag", "PuInlineNotice"],
+      "apiCaveats": ["Supports tone and a compatibility theme prop; prefer tone in consumer code."],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuCard.story.vue"
+    },
+    "PuCell": {
+      "category": "display",
+      "intent": ["list row", "settings row", "navigation row"],
+      "preferWhen": ["Use for a compact row with label, description, meta, icon, action, or navigation affordance."],
+      "avoidWhen": ["Avoid for grouped facts that should use PuDescriptionList."],
+      "composeWith": ["PuCellGroup", "PuToggleSwitch", "PuTag"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuCell.story.vue"
+    },
+    "PuCellGroup": {
+      "category": "display",
+      "intent": ["grouped rows", "settings group", "structured list"],
+      "preferWhen": ["Use to group PuCell rows into a titled or visually bounded section."],
+      "avoidWhen": ["Avoid for free-form card content; use PuCard."],
+      "composeWith": ["PuCell", "PuInlineNotice"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuCellGroup.story.vue"
+    },
+    "PuCheckbox": {
+      "category": "forms",
+      "intent": ["checkbox", "boolean selection", "multi-select option"],
+      "preferWhen": ["Use for an individual boolean or multi-select choice."],
+      "avoidWhen": ["Avoid for exclusive choices; use PuTabs or PuPicker depending on context."],
+      "composeWith": ["PuCheckboxGroup", "PuFormItem"],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuCheckbox.story.vue"
+    },
+    "PuCheckboxGroup": {
+      "category": "forms",
+      "intent": ["checkbox group", "multi-select field"],
+      "preferWhen": ["Use when multiple checkbox options share one value array or field label."],
+      "avoidWhen": ["Avoid for a single boolean toggle; use PuCheckbox or PuToggleSwitch."],
+      "composeWith": ["PuCheckbox", "PuFormItem"],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuCheckboxGroup.story.vue"
+    },
+    "PuChip": {
+      "category": "display",
+      "intent": ["chip", "filter token", "compact status", "removable label"],
+      "preferWhen": ["Use for compact labels, filters, selected values, or removable tokens."],
+      "avoidWhen": ["Avoid as a primary command button."],
+      "composeWith": ["PuChipGroup", "PuCard", "PuPageHeader"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuChip.story.vue"
+    },
+    "PuChipGroup": {
+      "category": "display",
+      "intent": ["chip group", "filter group", "compact option list"],
+      "preferWhen": ["Use to organize related PuChip items with consistent spacing and wrapping."],
+      "avoidWhen": ["Avoid for form fields requiring checkbox semantics unless the component exposes the needed behavior."],
+      "composeWith": ["PuChip"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuChip.story.vue"
+    },
+    "PuDescriptionItem": {
+      "category": "display",
+      "intent": ["description item", "label-value item", "metadata row"],
+      "preferWhen": ["Use inside PuDescriptionList for one label-value pair."],
+      "avoidWhen": ["Avoid as a standalone layout primitive."],
+      "composeWith": ["PuDescriptionList"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuDescriptionList.story.vue"
+    },
+    "PuDescriptionList": {
+      "category": "display",
+      "intent": ["description list", "metadata group", "label-value facts"],
+      "preferWhen": ["Use for grouped facts, profile details, order metadata, or read-only field summaries."],
+      "avoidWhen": ["Avoid for editable forms; use PuForm and field components."],
+      "composeWith": ["PuDescriptionItem", "PuCard"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuDescriptionList.story.vue"
+    },
+    "PuDrawer": {
+      "category": "overlay",
+      "intent": ["drawer", "side panel", "non-blocking overlay"],
+      "preferWhen": ["Use for secondary workflows, filters, or details that slide over the page."],
+      "avoidWhen": ["Avoid for blocking confirmation; use PuModal."],
+      "composeWith": ["PuButton", "PuForm", "PuCellGroup"],
+      "apiCaveats": ["Uses visible and update:visible for control; do not assume open or v-model:open."],
+      "storyGroup": "overlay",
+      "storyFile": "src/stories/overlay/PuDrawer.story.vue"
+    },
+    "PuEmptyState": {
+      "category": "display",
+      "intent": ["empty state", "zero state", "no results"],
+      "preferWhen": ["Use when a region has no data, no search results, or needs a first-use prompt."],
+      "avoidWhen": ["Avoid for transient loading; use PuSkeleton."],
+      "composeWith": ["PuButton", "PuInlineNotice"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuEmptyState.story.vue"
+    },
+    "PuFileUpload": {
+      "category": "forms",
+      "intent": ["single file upload", "single attachment input", "URL file entry"],
+      "preferWhen": ["Use for one attachment value by picker, drag/drop, or URL."],
+      "avoidWhen": ["Avoid for multi-file collections; use PuFilesUpload."],
+      "composeWith": ["PuFormItem", "PuInlineNotice"],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuFileUpload.story.vue"
+    },
+    "PuFilesUpload": {
+      "category": "forms",
+      "intent": ["multiple file upload", "file collection", "drag and drop upload", "URL file entry"],
+      "preferWhen": ["Use for collecting multiple files by picker, drag/drop, or URL."],
+      "avoidWhen": ["Avoid for a single attachment value; use PuFileUpload."],
+      "composeWith": ["PuFormItem", "PuInlineNotice", "PuButton"],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuFilesUpload.story.vue"
+    },
+    "PuForm": {
+      "category": "forms",
+      "intent": ["form container", "validated form"],
+      "preferWhen": ["Use as the structural container for grouped fields and submit actions."],
+      "avoidWhen": ["Avoid for read-only metadata; use PuDescriptionList."],
+      "composeWith": ["PuFormItem", "PuInput", "PuTextarea", "PuCheckbox", "PuFileUpload", "PuFilesUpload"],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuForm.story.vue"
+    },
+    "PuFormItem": {
+      "category": "forms",
+      "intent": ["form field wrapper", "field label", "field validation"],
+      "preferWhen": ["Use to connect labels, helper text, errors, and field controls."],
+      "avoidWhen": ["Avoid wrapping non-field display content."],
+      "composeWith": ["PuForm", "PuInput", "PuTextarea", "PuCheckbox", "PuPicker"],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuForm.story.vue"
+    },
+    "PuImg": {
+      "category": "display",
+      "intent": ["image", "responsive image", "fallback image"],
+      "preferWhen": ["Use for package-consistent image rendering and fallback behavior."],
+      "avoidWhen": ["Avoid when native img with no package behavior is explicitly required."],
+      "composeWith": ["PuCard", "PuBentoItem"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuImg.story.vue"
+    },
+    "PuImgCropper": {
+      "category": "forms",
+      "intent": ["image cropper", "avatar crop", "image editing input"],
+      "preferWhen": ["Use when users need to crop or adjust an uploaded image."],
+      "avoidWhen": ["Avoid for passive image display; use PuImg."],
+      "composeWith": ["PuFileUpload", "PuModal", "PuButton"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuImgCropper.story.vue"
+    },
+    "PuInlineNotice": {
+      "category": "display",
+      "intent": ["inline notice", "local alert", "contextual message"],
+      "preferWhen": ["Use for local info, success, warning, or error messages inside a page section."],
+      "avoidWhen": ["Avoid for page-level announcement strips; use PuAnnouncementBar if it matches."],
+      "composeWith": ["PuForm", "PuCard", "PuCellGroup"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuInlineNotice.story.vue"
+    },
+    "PuInput": {
+      "category": "forms",
+      "intent": ["text input", "single-line field", "search input"],
+      "preferWhen": ["Use for single-line text or numeric input with package styling and events."],
+      "avoidWhen": ["Avoid for multi-line text; use PuTextarea."],
+      "composeWith": ["PuFormItem", "PuForm"],
+      "apiCaveats": ["Includes uni-app-compatible input props and legacy event names."],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuInput.story.vue"
+    },
+    "PuModal": {
+      "category": "overlay",
+      "intent": ["modal dialog", "blocking confirmation", "focused overlay"],
+      "preferWhen": ["Use for blocking decisions, confirmations, and focused short workflows."],
+      "avoidWhen": ["Avoid for secondary side-panel workflows; use PuDrawer."],
+      "composeWith": ["PuButton", "PuForm", "PuInlineNotice"],
+      "apiCaveats": ["Uses required open plus close event; do not assume v-model:open."],
+      "accessibilityNotes": ["Provide a useful title or aria label for dialog context."],
+      "storyGroup": "overlay",
+      "storyFile": "src/stories/overlay/PuModal.story.vue"
+    },
+    "PuAnnouncementBar": {
+      "category": "display",
+      "intent": ["announcement bar", "announcement strip", "rotating announcement"],
+      "preferWhen": ["Use for prominent page-level or banner-style announcements."],
+      "avoidWhen": ["Avoid for local form helper text; use PuInlineNotice or PuFormItem."],
+      "composeWith": ["PuPageHeader", "PuCard"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuAnnouncementBar.story.vue"
+    },
+    "PuPageHeader": {
+      "category": "display",
+      "intent": ["page header", "page title", "page actions", "page metadata"],
+      "preferWhen": ["Use for page titles with optional subtitle, metadata, and actions."],
+      "avoidWhen": ["Avoid custom page header markup when this component covers the structure."],
+      "composeWith": ["PuButton", "PuChip", "PuInlineNotice"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuPageHeader.story.vue"
+    },
+    "PuPageScaffold": {
+      "category": "layout",
+      "intent": ["page scaffold", "responsive page shell", "full-screen page", "aside page layout", "footer reveal layout"],
+      "preferWhen": ["Use for page-level structure across document pages, full-screen flows, centered flows, responsive aside layouts, and reveal-footer pages."],
+      "avoidWhen": ["Avoid for small local sections inside a page; use cards, sections, or normal layout utilities instead."],
+      "composeWith": ["PuPageHeader", "PuScrollView", "PuForm", "PuCard"],
+      "storyGroup": "layout",
+      "storyFile": "src/stories/layout/PuPageScaffold.story.vue"
+    },
+    "PuPicker": {
+      "category": "forms",
+      "intent": ["picker", "select field", "option selection"],
+      "preferWhen": ["Use for selecting from option lists when a picker interaction is desired."],
+      "avoidWhen": ["Avoid for section navigation; use PuTabs."],
+      "composeWith": ["PuFormItem", "PuForm"],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuPicker.story.vue"
+    },
+    "PuScrollView": {
+      "category": "layout",
+      "intent": ["scroll view", "scrollable region"],
+      "preferWhen": ["Use for package-consistent scrollable content regions."],
+      "avoidWhen": ["Avoid adding nested scroll regions unless the layout requires them."],
+      "composeWith": ["PuPageScaffold", "PuCellGroup"],
+      "storyGroup": "layout"
+    },
+    "PuSkeleton": {
+      "category": "display",
+      "intent": ["skeleton", "loading placeholder", "async content placeholder"],
+      "preferWhen": ["Use while content is loading and the final layout shape is known."],
+      "avoidWhen": ["Avoid for empty data states; use PuEmptyState."],
+      "composeWith": ["PuCard", "PuDescriptionList", "PuCellGroup"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuSkeleton.story.vue"
+    },
+    "PuTab": {
+      "category": "display",
+      "intent": ["tab item", "tab option"],
+      "preferWhen": ["Use inside PuTabs when individual tab components are required."],
+      "avoidWhen": ["Avoid standalone usage."],
+      "composeWith": ["PuTabs"],
+      "apiCaveats": ["Current tab APIs use legacy size values in related tabs components."],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuTabs.story.vue"
+    },
+    "PuTabs": {
+      "category": "display",
+      "intent": ["tabs", "section navigation", "indexed view switch"],
+      "preferWhen": ["Use for switching between related sections where tab semantics are expected."],
+      "avoidWhen": ["Avoid for picker-style option selection; use PuPicker or PuWheelPicker."],
+      "composeWith": ["PuTab"],
+      "apiCaveats": ["Uses legacy size values Large, Medium, and Small."],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuTabs.story.vue"
+    },
+    "PuTag": {
+      "category": "display",
+      "intent": ["tag", "status label", "category label"],
+      "preferWhen": ["Use for compact non-interactive status or category labels."],
+      "avoidWhen": ["Avoid for removable or selected tokens; use PuChip."],
+      "composeWith": ["PuCard", "PuPageHeader", "PuCell"],
+      "apiCaveats": ["Uses legacy theme values Surface and SurfaceOutlined rather than canonical tone.", "Uses legacy size values xSmall, Small, and Medium."],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuTag.story.vue"
+    },
+    "PuTextarea": {
+      "category": "forms",
+      "intent": ["textarea", "multi-line field", "long text input"],
+      "preferWhen": ["Use for multi-line text entry."],
+      "avoidWhen": ["Avoid for single-line fields; use PuInput."],
+      "composeWith": ["PuFormItem", "PuForm"],
+      "apiCaveats": ["Uses legacy theme values surface-container and surface."],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuTextarea.story.vue"
+    },
+    "PuToggleSwitch": {
+      "category": "forms",
+      "intent": ["toggle switch", "boolean setting", "on off control"],
+      "preferWhen": ["Use for immediate boolean settings or preferences."],
+      "avoidWhen": ["Avoid for multi-select choices; use PuCheckboxGroup."],
+      "composeWith": ["PuCell", "PuFormItem"],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuToggleSwitch.story.vue"
+    },
+    "PuWheelPicker": {
+      "category": "forms",
+      "intent": ["wheel picker", "mobile-style picker", "scrolling selection"],
+      "preferWhen": ["Use for wheel-style option selection where that interaction matches the product surface."],
+      "avoidWhen": ["Avoid for section navigation; use PuTabs."],
+      "composeWith": ["PuFormItem", "PuModal", "PuDrawer"],
+      "apiCaveats": ["Includes both variant and tone concepts; preserve extracted package values instead of inventing generic picker props."],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuWheelPicker.story.vue"
+    }
+  }
+}
