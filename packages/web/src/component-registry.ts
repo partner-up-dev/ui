@@ -17,14 +17,11 @@ import PuChip from './components/puChip/puChip.vue'
 import PuChipGroup from './components/puChipGroup/puChipGroup.vue'
 import PuDescriptionItem from './components/puDescriptionItem/puDescriptionItem.vue'
 import PuDescriptionList from './components/puDescriptionList/puDescriptionList.vue'
-import PuDesktopPageScaffold from './components/puDesktopPageScaffold/puDesktopPageScaffold.vue'
 import PuDrawer from './components/puDrawer/puDrawer.vue'
 import PuEmptyState from './components/puEmptyState/puEmptyState.vue'
 import PuFileUpload from './components/puFileUpload/puFileUpload.vue'
-import PuFooterRevealPageScaffold from './components/puFooterRevealPageScaffold/puFooterRevealPageScaffold.vue'
 import PuForm from './components/puForm/puForm.vue'
 import PuFormItem from './components/puFormItem/puFormItem.vue'
-import PuFullScreenPageScaffold from './components/puFullScreenPageScaffold/puFullScreenPageScaffold.vue'
 import PuImg from './components/puImg/puImg.vue'
 import PuImgCropper from './components/puImgCropper/puImgCropper.vue'
 import PuInlineFileUpload from './components/puInlineFileUpload/puInlineFileUpload.vue'
@@ -33,8 +30,6 @@ import PuInput from './components/puInput/puInput.vue'
 import PuModal from './components/puModal/puModal.vue'
 import PuPageHeader from './components/puPageHeader/puPageHeader.vue'
 import PuPageScaffold from './components/puPageScaffold/puPageScaffold.vue'
-import PuPageScaffoldCentered from './components/puPageScaffoldCentered/puPageScaffoldCentered.vue'
-import PuPageScaffoldFlow from './components/puPageScaffoldFlow/puPageScaffoldFlow.vue'
 import PuPicker from './components/puPicker/puPicker.vue'
 import PuScrollView from './components/puScrollView/puScrollView.vue'
 import PuSkeleton from './components/puSkeleton/puSkeleton.vue'
@@ -61,14 +56,11 @@ export {
   PuChipGroup,
   PuDescriptionItem,
   PuDescriptionList,
-  PuDesktopPageScaffold,
   PuDrawer,
   PuEmptyState,
   PuFileUpload,
-  PuFooterRevealPageScaffold,
   PuForm,
   PuFormItem,
-  PuFullScreenPageScaffold,
   PuImg,
   PuImgCropper,
   PuInlineFileUpload,
@@ -77,8 +69,6 @@ export {
   PuModal,
   PuPageHeader,
   PuPageScaffold,
-  PuPageScaffoldCentered,
-  PuPageScaffoldFlow,
   PuPicker,
   PuScrollView,
   PuSkeleton,
@@ -108,14 +98,11 @@ const components: readonly ComponentEntry[] = [
   ['PuChipGroup', PuChipGroup],
   ['PuDescriptionItem', PuDescriptionItem],
   ['PuDescriptionList', PuDescriptionList],
-  ['PuDesktopPageScaffold', PuDesktopPageScaffold],
   ['PuDrawer', PuDrawer],
   ['PuEmptyState', PuEmptyState],
   ['PuFileUpload', PuFileUpload],
-  ['PuFooterRevealPageScaffold', PuFooterRevealPageScaffold],
   ['PuForm', PuForm],
   ['PuFormItem', PuFormItem],
-  ['PuFullScreenPageScaffold', PuFullScreenPageScaffold],
   ['PuImg', PuImg],
   ['PuImgCropper', PuImgCropper],
   ['PuInlineFileUpload', PuInlineFileUpload],
@@ -124,8 +111,6 @@ const components: readonly ComponentEntry[] = [
   ['PuModal', PuModal],
   ['PuPageHeader', PuPageHeader],
   ['PuPageScaffold', PuPageScaffold],
-  ['PuPageScaffoldCentered', PuPageScaffoldCentered],
-  ['PuPageScaffoldFlow', PuPageScaffoldFlow],
   ['PuPicker', PuPicker],
   ['PuScrollView', PuScrollView],
   ['PuSkeleton', PuSkeleton],

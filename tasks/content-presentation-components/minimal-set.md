@@ -5,7 +5,7 @@
 Existing web components already cover these areas:
 
 ```
-layout shells      -> PuPageScaffold*
+layout shells      -> PuPageScaffold
 surfaces           -> PuSurfaceCard, PuExpandableCard
 read-only facts    -> PuDescriptionList, PuDescriptionItem
 announcement strip -> PuAnnouncementBar
