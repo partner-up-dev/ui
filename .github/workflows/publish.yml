@@ -53,6 +53,7 @@ jobs:
         uses: changesets/action@v1
         with:
           publish: pnpm run release
+          createGithubReleases: true
           commit: "chore: version packages"
           title: "chore: version packages"
         env:
