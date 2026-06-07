@@ -5,7 +5,7 @@ Thank you for your interest in contributing to the PartnerUp Design System!
 ## Development Setup
 
 1. **Prerequisites**
-   - Node.js 20+ 
+   - Node.js 22.12+
    - pnpm 10+
 
 2. **Install Dependencies**
