@@ -6,41 +6,43 @@
     :class="rootClasses"
     :role="noticeRole"
   >
-    <span v-if="hasIcon" class="pu-inline-notice__icon" aria-hidden="true">
-      <slot name="icon">
-        <span :class="resolvedIcon" />
-      </slot>
-    </span>
-
-    <div class="pu-inline-notice__content">
-      <div v-if="hasTitle" class="pu-inline-notice__title">
-        <slot name="title">
-          {{ props.title }}
+    <div class="pu-inline-notice__layout">
+      <span v-if="hasIcon" class="pu-inline-notice__icon" aria-hidden="true">
+        <slot name="icon">
+          <span :class="resolvedIcon" />
         </slot>
+      </span>
+
+      <div class="pu-inline-notice__content">
+        <div v-if="hasTitle" class="pu-inline-notice__title">
+          <slot name="title">
+            {{ props.title }}
+          </slot>
+        </div>
+
+        <div v-if="hasMessage" class="pu-inline-notice__message">
+          <slot>
+            {{ props.message }}
+          </slot>
+        </div>
       </div>
 
-      <div v-if="hasMessage" class="pu-inline-notice__message">
-        <slot>
-          {{ props.message }}
-        </slot>
+      <div v-if="$slots.actions" class="pu-inline-notice__actions">
+        <slot name="actions" />
       </div>
-    </div>
 
-    <div v-if="$slots.actions" class="pu-inline-notice__actions">
-      <slot name="actions" />
+      <button
+        v-if="props.dismissible"
+        class="pu-inline-notice__close"
+        type="button"
+        :aria-label="props.closeLabel"
+        @click="onClose"
+      >
+        <slot name="close-icon">
+          <span class="i-mdi-close" aria-hidden="true" />
+        </slot>
+      </button>
     </div>
-
-    <button
-      v-if="props.dismissible"
-      class="pu-inline-notice__close"
-      type="button"
-      :aria-label="props.closeLabel"
-      @click="onClose"
-    >
-      <slot name="close-icon">
-        <span class="i-mdi-close" aria-hidden="true" />
-      </slot>
-    </button>
   </component>
 </template>
 

@@ -77,6 +77,25 @@ const eventFacts = [
       </div>
     </Variant>
 
+    <Variant title="Narrow Container">
+      <div class="pu-description-list-story__narrow-frame">
+        <PuDescriptionList
+          title="Embedded profile"
+          description="The two-column grid collapses by list container width."
+          layout="grid"
+          tone="outline"
+          :columns="2"
+          label-align="end"
+          dividers
+        >
+          <PuDescriptionItem label="Name" value="Lina Chen" />
+          <PuDescriptionItem label="Role" value="Organizer" />
+          <PuDescriptionItem label="City" value="Hangzhou" />
+          <PuDescriptionItem label="Member since" value="2024" />
+        </PuDescriptionList>
+      </div>
+    </Variant>
+
     <Variant title="Slots And Empty">
       <div class="pu-story pu-story--narrow">
         <PuDescriptionList layout="inline" density="compact" empty-text="Pending">
@@ -105,3 +124,11 @@ const eventFacts = [
     </Variant>
   </Story>
 </template>
+
+<style scoped>
+.pu-description-list-story__narrow-frame {
+  width: min(100%, 24rem);
+  border: 1px solid var(--sys-color-outline-variant);
+  background: var(--sys-color-surface);
+}
+</style>

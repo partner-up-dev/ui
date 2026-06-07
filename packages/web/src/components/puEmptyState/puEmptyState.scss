@@ -1,6 +1,12 @@
 @use "../../styles/mixins" as *;
 
 .pu-empty-state {
+  min-width: 0;
+  color: var(--sys-color-on-surface);
+  container: pu-empty-state / inline-size;
+}
+
+.pu-empty-state__layout {
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -8,33 +14,32 @@
   border: 1px solid transparent;
   border-radius: var(--sys-radius-medium);
   gap: var(--sys-spacing-medium);
-  color: var(--sys-color-on-surface);
 }
 
-.pu-empty-state--align-center {
+.pu-empty-state--align-center .pu-empty-state__layout {
   align-items: center;
   text-align: center;
 }
 
-.pu-empty-state--align-start {
+.pu-empty-state--align-start .pu-empty-state__layout {
   align-items: flex-start;
   text-align: left;
 }
 
-.pu-empty-state--tone-plain {
+.pu-empty-state--tone-plain .pu-empty-state__layout {
   background: transparent;
 }
 
-.pu-empty-state--tone-surface,
-.pu-empty-state--tone-section {
+.pu-empty-state--tone-surface .pu-empty-state__layout,
+.pu-empty-state--tone-section .pu-empty-state__layout {
   background: var(--sys-color-surface-container);
 }
 
-.pu-empty-state--tone-inset-high {
+.pu-empty-state--tone-inset-high .pu-empty-state__layout {
   background: var(--sys-color-surface-container-high);
 }
 
-.pu-empty-state--tone-outline {
+.pu-empty-state--tone-outline .pu-empty-state__layout {
   border-color: var(--sys-color-outline-variant);
   background: transparent;
 }
@@ -88,7 +93,7 @@
   justify-content: flex-start;
 }
 
-.pu-empty-state.is-compact {
+.pu-empty-state.is-compact .pu-empty-state__layout {
   padding: var(--sys-spacing-medium);
   gap: var(--sys-spacing-small);
 }
@@ -103,8 +108,8 @@
   @include pu-font(section);
 }
 
-@media (max-width: 639px) {
-  .pu-empty-state {
+@container pu-empty-state (max-width: 39.9375rem) {
+  .pu-empty-state__layout {
     padding: var(--sys-spacing-medium);
   }
 

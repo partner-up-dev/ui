@@ -82,7 +82,7 @@
   color: var(--sys-color-on-surface-variant);
 }
 
-@media (max-width: 879px) {
+@container pu-description-list (max-width: 54.9375rem) {
   .pu-description-item--collapse-on-mobile.pu-description-item--layout-inline,
   .pu-description-item--collapse-on-mobile.pu-description-item--layout-grid {
     grid-template-columns: 1fr;

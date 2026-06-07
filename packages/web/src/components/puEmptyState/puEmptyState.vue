@@ -6,36 +6,38 @@
     :aria-labelledby="hasTitle ? titleId : undefined"
     :aria-describedby="hasDescription ? descriptionId : undefined"
   >
-    <div v-if="hasIcon" class="pu-empty-state__icon" aria-hidden="true">
-      <slot name="icon">
-        <span :class="props.icon" />
-      </slot>
-    </div>
-
-    <div class="pu-empty-state__content">
-      <h2 v-if="hasTitle" :id="titleId" class="pu-empty-state__title">
-        <slot name="title">
-          {{ props.title }}
+    <div class="pu-empty-state__layout">
+      <div v-if="hasIcon" class="pu-empty-state__icon" aria-hidden="true">
+        <slot name="icon">
+          <span :class="props.icon" />
         </slot>
-      </h2>
-
-      <p
-        v-if="hasDescription"
-        :id="descriptionId"
-        class="pu-empty-state__description"
-      >
-        <slot name="description">
-          {{ props.description }}
-        </slot>
-      </p>
-
-      <div v-if="$slots.default" class="pu-empty-state__body">
-        <slot />
       </div>
-    </div>
 
-    <div v-if="$slots.actions" class="pu-empty-state__actions">
-      <slot name="actions" />
+      <div class="pu-empty-state__content">
+        <h2 v-if="hasTitle" :id="titleId" class="pu-empty-state__title">
+          <slot name="title">
+            {{ props.title }}
+          </slot>
+        </h2>
+
+        <p
+          v-if="hasDescription"
+          :id="descriptionId"
+          class="pu-empty-state__description"
+        >
+          <slot name="description">
+            {{ props.description }}
+          </slot>
+        </p>
+
+        <div v-if="$slots.default" class="pu-empty-state__body">
+          <slot />
+        </div>
+      </div>
+
+      <div v-if="$slots.actions" class="pu-empty-state__actions">
+        <slot name="actions" />
+      </div>
     </div>
   </component>
 </template>

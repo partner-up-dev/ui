@@ -8,6 +8,7 @@
   color: var(--sys-color-on-surface);
   --pu-description-list-label-width: 7rem;
   --pu-description-list-grid-columns: 1;
+  container: pu-description-list / inline-size;
 }
 
 .pu-description-list--tone-surface,
@@ -107,7 +108,7 @@
   @include pu-font(support);
 }
 
-@media (max-width: 879px) {
+@container pu-description-list (max-width: 54.9375rem) {
   .pu-description-list.is-collapse-on-mobile .pu-description-list__body {
     grid-template-columns: 1fr;
   }

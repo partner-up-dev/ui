@@ -12,6 +12,7 @@ Status:
 
 ```
 Implemented as a first slice on 2026-06-06.
+Expanded conservatively on 2026-06-07.
 Awaiting visual review.
 ```
 
@@ -33,6 +34,13 @@ Confirmed decisions:
 
 5. Use PuPageHeader as the first nested consumer. It owns header wrapping and
    action placement, so it should respond to its own available inline size.
+
+6. Expand the pattern only where the component owns the responsive layout
+   decision. Keep prefers-reduced-motion and true viewport/device behavior as
+   media queries.
+
+7. Use an internal layout element when the root must be the container boundary
+   but the component needs to change its own visual grid or padding.
 ```
 
 Implementation record:
@@ -51,6 +59,29 @@ packages/web/src/components/puPageHeader/puPageHeader.scss
 packages/web/src/stories/layout/PuPageScaffold.story.vue
   - adds a Narrow Container variant to prove scaffold behavior responds to
     parent width, not browser viewport width
+
+packages/web/src/components/puDescriptionList/puDescriptionList.scss
+packages/web/src/components/puDescriptionItem/puDescriptionItem.scss
+  - changes description-list collapse behavior from viewport width to
+    `@container pu-description-list`
+
+packages/web/src/components/puInlineNotice/puInlineNotice.vue
+packages/web/src/components/puInlineNotice/puInlineNotice.scss
+  - adds an internal layout wrapper so root can act as `pu-inline-notice`
+    container boundary
+  - changes action wrapping from viewport width to container width
+
+packages/web/src/components/puEmptyState/puEmptyState.vue
+packages/web/src/components/puEmptyState/puEmptyState.scss
+  - adds an internal layout wrapper so root can act as `pu-empty-state`
+    container boundary
+  - changes compact embedded padding/action behavior from viewport width to
+    container width
+
+packages/web/src/stories/display/PuDescriptionList.story.vue
+packages/web/src/stories/display/PuInlineNotice.story.vue
+packages/web/src/stories/display/PuEmptyState.story.vue
+  - add Narrow Container variants for the expanded components
 ```
 
 Verification:
@@ -70,6 +101,24 @@ pnpm --filter @partner-up-dev/design-web run story:build
 pnpm --filter @partner-up-dev/design-web run story:coverage
   passed
   covered: 38/39 public components
+  missing backlog: PuScrollView
+
+Expanded slice on 2026-06-07:
+
+pnpm --filter @partner-up-dev/design-web exec vue-tsc --noEmit
+  passed
+
+pnpm --filter @partner-up-dev/design-web exec vite build
+  passed
+
+pnpm --filter @partner-up-dev/design-web run story:build
+  passed
+  note: existing story build warning remains:
+        "Group layout not found for story ... PuPageScaffold.story.vue"
+
+pnpm --filter @partner-up-dev/design-web run story:coverage
+  passed
+  covered: 36/37 public components
   missing backlog: PuScrollView
 ```
 

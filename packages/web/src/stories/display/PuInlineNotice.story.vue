@@ -83,5 +83,30 @@ const tones = [
         </PuInlineNotice>
       </div>
     </Variant>
+
+    <Variant title="Narrow Container">
+      <div class="pu-inline-notice-story__narrow-frame">
+        <PuInlineNotice
+          tone="warning"
+          title="Review blocked"
+          message="This notice is embedded in a narrow region while the viewport may still be wide."
+          dismissible
+          close-label="Dismiss notice"
+        >
+          <template #actions>
+            <PuButton text="Review" theme="SurfaceOutlined" size="xSmall" />
+            <PuButton text="Resolve" theme="PrimaryContainer" size="xSmall" />
+          </template>
+        </PuInlineNotice>
+      </div>
+    </Variant>
   </Story>
 </template>
+
+<style scoped>
+.pu-inline-notice-story__narrow-frame {
+  width: min(100%, 24rem);
+  border: 1px solid var(--sys-color-outline-variant);
+  background: var(--sys-color-surface);
+}
+</style>

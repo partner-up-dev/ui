@@ -1,6 +1,12 @@
 @use "../../styles/mixins" as *;
 
 .pu-inline-notice {
+  min-width: 0;
+  color: var(--sys-color-on-surface);
+  container: pu-inline-notice / inline-size;
+}
+
+.pu-inline-notice__layout {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: flex-start;
@@ -9,7 +15,6 @@
   border: 1px solid transparent;
   border-radius: var(--sys-radius-medium);
   gap: var(--sys-spacing-small);
-  color: var(--sys-color-on-surface);
 }
 
 .pu-inline-notice__icon,
@@ -70,32 +75,32 @@
   background: rgb(0 0 0 / 8%);
 }
 
-.pu-inline-notice--tone-info {
+.pu-inline-notice--tone-info .pu-inline-notice__layout {
   border-color: var(--sys-color-secondary-container);
   background: var(--sys-color-secondary-container);
   color: var(--sys-color-on-secondary-container);
 }
 
-.pu-inline-notice--tone-success {
+.pu-inline-notice--tone-success .pu-inline-notice__layout {
   border-color: var(--sys-color-tertiary-container);
   background: var(--sys-color-tertiary-container);
   color: var(--sys-color-on-tertiary-container);
 }
 
-.pu-inline-notice--tone-warning {
+.pu-inline-notice--tone-warning .pu-inline-notice__layout {
   border-color: var(--sys-color-warning);
   background: var(--sys-color-warning);
   color: var(--sys-color-on-warning);
 }
 
-.pu-inline-notice--tone-error {
+.pu-inline-notice--tone-error .pu-inline-notice__layout {
   border-color: var(--sys-color-error-container);
   background: var(--sys-color-error-container);
   color: var(--sys-color-on-error-container);
 }
 
-@media (max-width: 639px) {
-  .pu-inline-notice {
+@container pu-inline-notice (max-width: 39.9375rem) {
+  .pu-inline-notice__layout {
     grid-template-columns: auto minmax(0, 1fr) auto;
   }
 

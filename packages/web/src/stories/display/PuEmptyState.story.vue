@@ -71,5 +71,29 @@ import PuEmptyState from "../../components/puEmptyState/puEmptyState.vue";
         />
       </div>
     </Variant>
+
+    <Variant title="Narrow Container">
+      <div class="pu-empty-state-story__narrow-frame">
+        <PuEmptyState
+          tone="outline"
+          icon="i-mdi-filter-remove-outline"
+          title="No matching results"
+          description="This empty state is embedded in a constrained panel while the viewport may still be wide."
+        >
+          <template #actions>
+            <PuButton text="Clear filters" theme="SurfaceOutlined" />
+            <PuButton text="Create saved view" theme="PrimaryContainer" />
+          </template>
+        </PuEmptyState>
+      </div>
+    </Variant>
   </Story>
 </template>
+
+<style scoped>
+.pu-empty-state-story__narrow-frame {
+  width: min(100%, 24rem);
+  border: 1px solid var(--sys-color-outline-variant);
+  background: var(--sys-color-surface);
+}
+</style>
