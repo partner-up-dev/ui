@@ -92,6 +92,45 @@ import PuTag from "../../components/puTag/puTag.vue";
       </PuPageScaffold>
     </Variant>
 
+    <Variant title="Narrow Container">
+      <div class="pu-page-scaffold-story__narrow-frame">
+        <PuPageScaffold layout="aside" width="wide" sticky-aside>
+          <template #header>
+            <PuPageHeader
+              title="Container-aware review"
+              subtitle="This header and aside layout respond to the scaffold container width."
+              show-back
+            >
+              <template #actions>
+                <PuButton text="Preview" theme="SurfaceOutlined" />
+                <PuButton text="Publish" theme="PrimaryContainer" />
+              </template>
+            </PuPageHeader>
+          </template>
+
+          <template #aside>
+            <PuCard title="Aside" tone="outline">
+              <div class="pu-page-scaffold-story__nav">
+                <span>Summary</span>
+                <span>Checklist</span>
+                <span>History</span>
+              </div>
+            </PuCard>
+          </template>
+
+          <div class="pu-page-scaffold-story__stack">
+            <PuCard title="Main content">
+              <p class="pu-story__text">
+                The parent frame is narrow while the viewport may still be wide.
+                The scaffold collapses by its own container, not by the browser
+                viewport.
+              </p>
+            </PuCard>
+          </div>
+        </PuPageScaffold>
+      </div>
+    </Variant>
+
     <Variant title="Footer Reveal">
       <PuPageScaffold
         viewport="screen"
@@ -133,6 +172,12 @@ import PuTag from "../../components/puTag/puTag.vue";
   justify-items: center;
   gap: 12px;
   text-align: center;
+}
+
+.pu-page-scaffold-story__narrow-frame {
+  width: min(100%, 28rem);
+  border: 1px solid var(--sys-color-outline-variant);
+  background: var(--sys-color-surface);
 }
 
 .pu-page-scaffold-story__title {

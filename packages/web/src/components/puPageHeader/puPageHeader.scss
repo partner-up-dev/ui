@@ -6,6 +6,7 @@
   min-width: 0;
   gap: var(--sys-spacing-small);
   color: var(--sys-color-on-surface);
+  container: pu-page-header / inline-size;
 }
 
 .pu-page-header--density-compact {
@@ -127,7 +128,7 @@
   @include pu-font(control);
 }
 
-@media (max-width: 639px) {
+@container pu-page-header (max-width: 39.9375rem) {
   .pu-page-header__main {
     flex-wrap: wrap;
   }
