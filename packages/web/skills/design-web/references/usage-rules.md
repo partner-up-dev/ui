@@ -34,6 +34,7 @@
 - PuInput: Includes uni-app-compatible input props and legacy event names.
 - PuModal: Uses required open plus close event; do not assume v-model:open.
 - PuModal: Provide a useful title or aria label for dialog context.
+- PuSegmented: Use semantics="tabs" only when the items control associated tab panels.
 - PuTab: Current tab APIs use legacy size values in related tabs components.
 - PuTabs: Uses legacy size values Large, Medium, and Small.
 - PuTag: Uses legacy theme values Surface and SurfaceOutlined rather than canonical tone.

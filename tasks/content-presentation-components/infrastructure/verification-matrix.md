@@ -25,6 +25,7 @@ packages/web/src/stories/display/PuDescriptionList.story.vue
 packages/web/src/stories/display/PuEmptyState.story.vue
 packages/web/src/stories/display/PuInlineNotice.story.vue
 packages/web/src/stories/display/PuPageHeader.story.vue
+packages/web/src/stories/display/PuSegmented.story.vue
 packages/web/src/stories/display/PuSkeleton.story.vue
 packages/web/src/stories/forms/PuToggleSwitch.story.vue
 packages/web/src/stories/forms/PuWheelPicker.story.vue
@@ -224,6 +225,7 @@ PuDescriptionList covers PuDescriptionItem through one parent story
 PuEmptyState    4 variants
 PuInlineNotice  4 variants
 PuPageHeader    4 variants
+PuSegmented     covers PuSegmentedItem through one parent story
 PuSkeleton      8 variants
 PuToggleSwitch 3 variants
 PuWheelPicker  4 variants
@@ -273,6 +275,10 @@ errors.
 Browser smoke opened PuBentoGrid Admin Overview, verified one grid, five items,
 key span/collapse/density classes, visible Anchor event and Applications text,
 and no console errors.
+Browser smoke opened PuSegmented Radio Control/Page View Tabs/Manual Keyboard
+Activation variants, verified radiogroup and tablist semantics, click selection,
+aria-checked, aria-selected, aria-controls, manual keyboard activation, and no
+console errors.
 ```
 
 Latest local run on 2026-05-13:
@@ -286,6 +292,20 @@ pnpm --filter @partner-up-dev/design-web story:build
 Story coverage:
 32/44 public components covered.
 PuBentoGrid and PuBentoItem covered by PuBentoGrid.story.vue.
+```
+
+Latest local run on 2026-05-17:
+
+```
+pnpm --filter @partner-up-dev/design-web type-check
+pnpm --filter @partner-up-dev/design-web build
+pnpm --filter @partner-up-dev/design-web story:coverage
+pnpm --filter @partner-up-dev/design-web story:build
+
+Story coverage:
+39/46 public components covered in the current workspace.
+PuSegmented and PuSegmentedItem covered by PuSegmented.story.vue.
+Histoire built 32 stories and 131 variants.
 ```
 
 Known warnings:

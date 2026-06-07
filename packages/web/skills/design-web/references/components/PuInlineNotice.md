@@ -63,6 +63,7 @@ Story: `src/stories/display/PuInlineNotice.story.vue`
 - Tones
 - Dismissible
 - Slots And Actions
+- Narrow Container
 
 ## Types
 

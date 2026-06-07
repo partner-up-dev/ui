@@ -60,6 +60,7 @@ Story: `src/stories/display/PuEmptyState.story.vue`
 - Search Results
 - First Run
 - Compact
+- Narrow Container
 
 ## Types
 

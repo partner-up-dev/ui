@@ -21,6 +21,7 @@ packages/web
 +-- empty content states exist: PuEmptyState
 +-- async content placeholders exist: PuSkeleton
 +-- asymmetric overview layout exists: PuBentoGrid, PuBentoItem
++-- compact single-choice view/mode switching exists: PuSegmented, PuSegmentedItem
 +-- announcement strip exists: PuAnnouncementBar
 +-- tags exist: PuTag
 ```
@@ -99,6 +100,12 @@ skeleton/implementation-record.md
 pu-bento.md
 +-- PuBentoGrid and PuBentoItem IA, DOM, props, slots, emits, and responsive behavior
 
+pu-segmented.md
++-- PuSegmented and PuSegmentedItem IA, DOM, props, slots, emits, keyboard behavior, and open decisions
+
+container-roadmap.md
++-- content container candidates, existing container enhancement map, and next priority recommendation
+
 implementation-order.md
 +-- suggested order and verification gates
 
@@ -110,6 +117,9 @@ infrastructure-maintainability.md
 
 infrastructure/variant-vocabulary.md
 +-- shared variant enum decisions and implementation status
+
+infrastructure/shape-vocabulary.md
++-- conservative corner-radius preference and first Segmented application
 
 infrastructure/component-contract.md
 +-- public component contract decisions and implementation status

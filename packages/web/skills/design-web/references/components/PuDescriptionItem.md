@@ -55,6 +55,7 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 - Stack
 - Inline Surface
 - Grid
+- Narrow Container
 - Slots And Empty
 
 ## Types

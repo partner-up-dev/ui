@@ -1,0 +1,102 @@
+@use "../../styles/mixins" as *;
+
+.pu-segmented-item {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: var(--pu-segmented-item-min-height, 34px);
+  padding: 0 var(--pu-segmented-item-padding-inline, 12px);
+  gap: var(--sys-spacing-xsmall);
+  border: 1px solid transparent;
+  border-radius: var(--sys-radius-small);
+  background: transparent;
+  color: var(--sys-color-on-surface-variant);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.pu-segmented-item:hover:not(:disabled) {
+  background: var(--sys-color-surface-container-high);
+  color: var(--sys-color-on-surface);
+}
+
+.pu-segmented-item:focus-visible {
+  outline: 2px solid var(--sys-color-primary);
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.pu-segmented-item:disabled {
+  cursor: not-allowed;
+}
+
+.pu-segmented-item__leading,
+.pu-segmented-item__trailing {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.08em;
+  line-height: 1;
+}
+
+.pu-segmented-item__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pu-segmented-item--size-sm {
+  @include pu-font(caption);
+}
+
+.pu-segmented-item--size-md,
+.pu-segmented-item--size-lg {
+  @include pu-font(control);
+}
+
+.pu-segmented-item--density-compact {
+  letter-spacing: 0;
+}
+
+.pu-segmented-item--tone-surface.is-selected,
+.pu-segmented-item--tone-outline.is-selected {
+  background: var(--sys-color-surface-container-highest);
+  border-color: var(--sys-color-outline-variant);
+  color: var(--sys-color-on-surface);
+}
+
+.pu-segmented-item--tone-primary.is-selected {
+  background: var(--sys-color-primary-container);
+  color: var(--sys-color-on-primary-container);
+}
+
+.pu-segmented-item--tone-secondary.is-selected {
+  background: var(--sys-color-secondary-container);
+  color: var(--sys-color-on-secondary-container);
+}
+
+.pu-segmented-item--tone-tertiary.is-selected {
+  background: var(--sys-color-tertiary-container);
+  color: var(--sys-color-on-tertiary-container);
+}
+
+.pu-segmented-item.is-disabled {
+  opacity: var(--sys-opacity-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-segmented-item {
+    transition: none;
+  }
+}

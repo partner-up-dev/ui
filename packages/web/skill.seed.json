@@ -311,6 +311,25 @@
       "composeWith": ["PuPageScaffold", "PuCellGroup"],
       "storyGroup": "layout"
     },
+    "PuSegmented": {
+      "category": "display",
+      "intent": ["segmented control", "single-choice switch", "view mode switch", "compact tabs"],
+      "preferWhen": ["Use for compact single-choice mode, filter, or page-view switching with keyboard behavior."],
+      "avoidWhen": ["Avoid for large option sets or free-form navigation; use PuTabs, PuPicker, or application routing as appropriate."],
+      "composeWith": ["PuSegmentedItem", "PuPageHeader", "PuCard"],
+      "accessibilityNotes": ["Use semantics=\"tabs\" only when the items control associated tab panels."],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuSegmented.story.vue"
+    },
+    "PuSegmentedItem": {
+      "category": "display",
+      "intent": ["segmented item", "single-choice option", "view mode option"],
+      "preferWhen": ["Use inside PuSegmented for each selectable option."],
+      "avoidWhen": ["Avoid standalone usage because selection state and keyboard behavior come from PuSegmented."],
+      "composeWith": ["PuSegmented"],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuSegmented.story.vue"
+    },
     "PuSkeleton": {
       "category": "display",
       "intent": ["skeleton", "loading placeholder", "async content placeholder"],

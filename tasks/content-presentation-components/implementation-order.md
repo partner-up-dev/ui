@@ -31,8 +31,9 @@ PuChip / PuChipGroup
   grouped spacing/alignment.
 
 PuInlineNotice
-  Highest remaining inline feedback primitive. PuAnnouncementBar is an announcement strip;
-  InlineNotice should live inside content sections and carry status semantics.
+  Highest remaining inline feedback primitive. PuAnnouncementBar is an
+  announcement strip; InlineNotice should live inside content sections and carry
+  status semantics.
 
 PuEmptyState
   Completes repeated content states for empty lists, missing data, no search
@@ -45,6 +46,10 @@ Deferred content-adjacent candidates:
 PuChoiceCard
   Useful for selectable content surfaces. Implement after base presentation
   primitives because it mixes card layout, selection state, and form semantics.
+
+PuSegmented / PuSegmentedItem
+  Useful for compact single-choice mode switching and page view switching.
+  First slice implemented on 2026-05-17.
 
 PuFitChipGroup
   Depends on PuChip/PuChipGroup and adds measurement behavior with ResizeObserver.
@@ -212,6 +217,35 @@ Implemented story:
 
 ```
 packages/web/src/stories/display/PuSkeleton.story.vue
+```
+
+## Phase 5
+
+Status:
+
+```
+Implemented on 2026-05-17.
+```
+
+Implement:
+
+```
+PuSegmented
+PuSegmentedItem
+```
+
+Reason:
+
+```
+This covers compact single-choice mode switching and page view switching with a
+compound API. The parent owns state, semantics, variants, and keyboard behavior;
+items own value, label, disabled state, and leading/trailing content slots.
+```
+
+Implemented story:
+
+```
+packages/web/src/stories/display/PuSegmented.story.vue
 ```
 
 ## Deferred

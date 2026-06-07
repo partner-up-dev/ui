@@ -32,6 +32,8 @@ import PuPageHeader from './components/puPageHeader/puPageHeader.vue'
 import PuPageScaffold from './components/puPageScaffold/puPageScaffold.vue'
 import PuPicker from './components/puPicker/puPicker.vue'
 import PuScrollView from './components/puScrollView/puScrollView.vue'
+import PuSegmented from './components/puSegmented/puSegmented.vue'
+import PuSegmentedItem from './components/puSegmentedItem/puSegmentedItem.vue'
 import PuSkeleton from './components/puSkeleton/puSkeleton.vue'
 import PuTab from './components/puTab/puTab.vue'
 import PuTabs from './components/puTabs/puTabs.vue'
@@ -71,6 +73,8 @@ export {
   PuPageScaffold,
   PuPicker,
   PuScrollView,
+  PuSegmented,
+  PuSegmentedItem,
   PuSkeleton,
   PuTab,
   PuTabs,
@@ -113,6 +117,8 @@ const components: readonly ComponentEntry[] = [
   ['PuPageScaffold', PuPageScaffold],
   ['PuPicker', PuPicker],
   ['PuScrollView', PuScrollView],
+  ['PuSegmented', PuSegmented],
+  ['PuSegmentedItem', PuSegmentedItem],
   ['PuSkeleton', PuSkeleton],
   ['PuTab', PuTab],
   ['PuTabs', PuTabs],

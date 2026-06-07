@@ -99,6 +99,12 @@ files only after narrowing the candidate set.
 - [PuPageHeader](references/components/PuPageHeader.md)
   - Intent: page header, page title, page actions, page metadata
   - Prefer: Use for page titles with optional subtitle, metadata, and actions.
+- [PuSegmented](references/components/PuSegmented.md)
+  - Intent: segmented control, single-choice switch, view mode switch, compact tabs
+  - Prefer: Use for compact single-choice mode, filter, or page-view switching with keyboard behavior.
+- [PuSegmentedItem](references/components/PuSegmentedItem.md)
+  - Intent: segmented item, single-choice option, view mode option
+  - Prefer: Use inside PuSegmented for each selectable option.
 - [PuSkeleton](references/components/PuSkeleton.md)
   - Intent: skeleton, loading placeholder, async content placeholder
   - Prefer: Use while content is loading and the final layout shape is known.

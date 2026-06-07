@@ -32,6 +32,8 @@ declare module 'vue' {
     PuPageScaffold: typeof import('../src/components/puPageScaffold/puPageScaffold.vue')['default']
     PuPicker: typeof import('../src/components/puPicker/puPicker.vue')['default']
     PuScrollView: typeof import('../src/components/puScrollView/puScrollView.vue')['default']
+    PuSegmented: typeof import('../src/components/puSegmented/puSegmented.vue')['default']
+    PuSegmentedItem: typeof import('../src/components/puSegmentedItem/puSegmentedItem.vue')['default']
     PuSkeleton: typeof import('../src/components/puSkeleton/puSkeleton.vue')['default']
     PuTab: typeof import('../src/components/puTab/puTab.vue')['default']
     PuTabs: typeof import('../src/components/puTabs/puTabs.vue')['default']
