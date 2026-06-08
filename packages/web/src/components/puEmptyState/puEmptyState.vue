@@ -54,7 +54,12 @@ export default {
 <script setup lang="ts">
 import { computed, useSlots } from "vue";
 import { usePuId } from "../../composables";
-import { puSurfaceTones, type PuSurfaceTone } from "../../types";
+import {
+  puContainerVariants,
+  puSurfaceLevels,
+  type PuContainerVariant,
+  type PuSurfaceLevel,
+} from "../../types";
 import {
   createPuModifierClass,
   createPuStateClass,
@@ -76,8 +81,11 @@ const descriptionId = computed(() => `${baseId.value}-description`);
 const align = computed<PuEmptyStateAlign>(() =>
   normalizePuVariant(puEmptyStateAligns, props.align, "center"),
 );
-const tone = computed<PuSurfaceTone>(() =>
-  normalizePuVariant(puSurfaceTones, props.tone, "section"),
+const surfaceLevel = computed<PuSurfaceLevel>(() =>
+  normalizePuVariant(puSurfaceLevels, props.surfaceLevel, "section"),
+);
+const variant = computed<PuContainerVariant>(() =>
+  normalizePuVariant(puContainerVariants, props.variant, "soft"),
 );
 
 const hasIcon = computed(() => Boolean(slots.icon) || Boolean(props.icon));
@@ -88,7 +96,8 @@ const hasDescription = computed(
 
 const rootClasses = computed(() => [
   createPuModifierClass("pu-empty-state", "align", align.value),
-  createPuModifierClass("pu-empty-state", "tone", tone.value),
+  createPuModifierClass("pu-empty-state", "surface-level", surfaceLevel.value),
+  createPuModifierClass("pu-empty-state", "variant", variant.value),
   createPuStateClass("compact", props.compact),
   createPuStateClass("with-actions", Boolean(slots.actions)),
 ]);

@@ -78,7 +78,7 @@ function resetSquare(): void {
   <Story title="PuImgCropper" group="display">
     <Variant title="Square">
       <div class="pu-story">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <div class="pu-img-cropper-story__layout">
             <PuImgCropper
               ref="squareCropper"
@@ -107,7 +107,8 @@ function resetSquare(): void {
               </div>
               <div class="pu-img-cropper-story__actions">
                 <PuButton
-                  tone="surface"
+                  tone="neutral"
+                  variant="soft"
                   size="sm"
                   @click="resetSquare"
                 >
@@ -128,7 +129,7 @@ function resetSquare(): void {
 
     <Variant title="Round Avatar">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <div class="pu-img-cropper-story__center">
             <PuImgCropper
               ref="avatarCropper"
@@ -157,7 +158,7 @@ function resetSquare(): void {
 
     <Variant title="Disabled">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <PuImgCropper
             :src="landscapeImage"
             :width="260"

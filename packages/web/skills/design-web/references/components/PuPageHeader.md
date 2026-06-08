@@ -31,7 +31,8 @@ import { PuPageHeader } from '@partner-up-dev/design-web'
 - `showBack`
 - `backLabel`
 - `density`
-- `tone`
+- `surfaceLevel`
+- `variant`
 - `bordered`
 
 ## Slots
@@ -65,12 +66,13 @@ Story: `src/stories/display/PuPageHeader.story.vue`
 ## Types
 
 - `PuPageHeaderDensity`
+- `PuPageHeaderSurfaceLevel`
 - `PuPageHeaderTitleAs`
-- `PuPageHeaderTone`
+- `PuPageHeaderVariant`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 
 ## Source Evidence
 

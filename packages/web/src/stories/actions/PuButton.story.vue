@@ -5,20 +5,18 @@ import type {
   PuButtonFeedback,
   PuButtonSize,
   PuButtonTone,
+  PuButtonVariant,
 } from "../../components/puButton/puButton";
 
 const tones: PuButtonTone[] = [
   "primary",
-  "primary-outline",
   "secondary",
-  "outline",
-  "surface",
   "tertiary",
-  "dashed",
+  "neutral",
   "danger",
-  "ghost",
 ];
 
+const variants: PuButtonVariant[] = ["solid", "soft", "outline", "ghost", "dashed"];
 const sizes: PuButtonSize[] = ["sm", "md", "lg"];
 const feedbackStates: PuButtonFeedback[] = ["idle", "pending", "success", "error"];
 
@@ -49,6 +47,27 @@ function handleClick(event: MouseEvent): void {
       </div>
     </Variant>
 
+    <Variant title="Variants">
+      <div class="pu-story">
+        <div class="pu-story__grid">
+          <div
+            v-for="variant in variants"
+            :key="variant"
+            class="pu-story__surface"
+          >
+            <p class="pu-story__label">{{ variant }}</p>
+            <PuButton
+              tone="primary"
+              :variant="variant"
+              @click="handleClick"
+            >
+              {{ variant }}
+            </PuButton>
+          </div>
+        </div>
+      </div>
+    </Variant>
+
     <Variant title="Shapes And Sizes">
       <div class="pu-story">
         <div class="pu-story__row">
@@ -67,11 +86,27 @@ function handleClick(event: MouseEvent): void {
             v-for="size in sizes"
             :key="`pill-${size}`"
             shape="pill"
-            tone="outline"
+            variant="outline"
             :size="size"
             @click="handleClick"
           >
             Pill {{ size }}
+          </PuButton>
+        </div>
+
+        <div class="pu-story__row">
+          <PuButton
+            v-for="size in sizes"
+            :key="`circle-${size}`"
+            :size="size"
+            shape="circle"
+            variant="ghost"
+            :aria-label="`Circle icon ${size}`"
+            @click="handleClick"
+          >
+            <template #leading>
+              <span class="i-mdi-star-outline"></span>
+            </template>
           </PuButton>
         </div>
       </div>
@@ -87,6 +122,7 @@ function handleClick(event: MouseEvent): void {
           <PuButton
             :action="{ native: 'submit' }"
             tone="secondary"
+            variant="outline"
             @click="handleClick"
           >
             Native submit
@@ -94,7 +130,8 @@ function handleClick(event: MouseEvent): void {
 
           <PuButton
             :action="{ href: 'https://partner-up.dev', external: true }"
-            tone="outline"
+            tone="neutral"
+            variant="outline"
             @click="handleClick"
           >
             External link
@@ -103,7 +140,8 @@ function handleClick(event: MouseEvent): void {
           <PuButton
             :action="{ href: 'https://partner-up.dev' }"
             disabled
-            tone="surface"
+            tone="neutral"
+            variant="soft"
             @click="handleClick"
           >
             Disabled link
@@ -126,7 +164,8 @@ function handleClick(event: MouseEvent): void {
           </PuButton>
 
           <PuButton
-            tone="surface"
+            tone="neutral"
+            variant="soft"
             @click="handleClick"
           >
             Continue
@@ -137,8 +176,9 @@ function handleClick(event: MouseEvent): void {
 
           <PuButton
             aria-label="Search"
-            shape="pill"
-            tone="ghost"
+            shape="circle"
+            tone="neutral"
+            variant="ghost"
             @click="handleClick"
           >
             <template #leading>
@@ -164,7 +204,7 @@ function handleClick(event: MouseEvent): void {
             v-for="state in feedbackStates"
             :key="state"
             :feedback="state"
-            :tone="state === 'idle' ? 'outline' : 'primary'"
+            :variant="state === 'idle' ? 'outline' : 'solid'"
             @click="handleClick"
           >
             {{ state }}

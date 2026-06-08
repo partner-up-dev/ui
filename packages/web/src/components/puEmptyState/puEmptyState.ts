@@ -1,11 +1,18 @@
 import type { PropType } from "vue";
-import { puSurfaceTones, type PuAlign, type PuSurfaceTone } from "../../types";
+import {
+  puContainerVariants,
+  puSurfaceLevels,
+  type PuAlign,
+  type PuContainerVariant,
+  type PuSurfaceLevel,
+} from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
 export const puEmptyStateAligns = ["start", "center"] as const;
 
 export type PuEmptyStateAlign = Extract<PuAlign, "start" | "center">;
-export type PuEmptyStateTone = PuSurfaceTone;
+export type PuEmptyStateSurfaceLevel = PuSurfaceLevel;
+export type PuEmptyStateVariant = PuContainerVariant;
 
 export const puEmptyStateProps = {
   as: makeStringProp("section"),
@@ -18,9 +25,16 @@ export const puEmptyStateProps = {
     default: "center",
     validator: (value: string) => puEmptyStateAligns.includes(value as PuEmptyStateAlign),
   },
-  tone: {
-    type: String as PropType<PuEmptyStateTone>,
+  surfaceLevel: {
+    type: String as PropType<PuEmptyStateSurfaceLevel>,
     default: "section",
-    validator: (value: string) => puSurfaceTones.includes(value as PuSurfaceTone),
+    validator: (value: string) =>
+      puSurfaceLevels.includes(value as PuEmptyStateSurfaceLevel),
+  },
+  variant: {
+    type: String as PropType<PuEmptyStateVariant>,
+    default: "soft",
+    validator: (value: string) =>
+      puContainerVariants.includes(value as PuEmptyStateVariant),
   },
 };

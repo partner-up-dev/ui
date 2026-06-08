@@ -66,6 +66,7 @@ const buttonClasses = computed(() => [
   "pu-button",
   `pu-button--shape-${props.shape}`,
   `pu-button--tone-${props.tone}`,
+  `pu-button--variant-${props.variant}`,
   `pu-button--size-${props.size}`,
   `pu-button--feedback-${resolvedFeedback.value}`,
   {

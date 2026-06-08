@@ -1,5 +1,9 @@
 import type { PropType } from "vue";
 import {
+  puContainerVariants,
+  type PuContainerVariant,
+} from "../../types";
+import {
   baseProps,
   makeBooleanProp,
   makeNumberProp,
@@ -7,7 +11,8 @@ import {
   numericProp,
 } from "../../utils/props";
 
-// ==================== 组件 Props 定义 ====================
+export type PuTextareaVariant = PuContainerVariant;
+
 export const puTextareaProps = {
   ...baseProps,
   modelValue: makeStringProp(""),
@@ -27,10 +32,14 @@ export const puTextareaProps = {
   disableDefaultPadding: makeBooleanProp(false),
   height: makeNumberProp(80),
   focusHeight: { type: Number as PropType<number | undefined>, default: undefined },
-  theme: makeStringProp<"surface-container" | "surface">("surface-container"),
+  variant: {
+    type: String as PropType<PuTextareaVariant>,
+    default: "soft",
+    validator: (value: string) =>
+      puContainerVariants.includes(value as PuTextareaVariant),
+  },
 };
 
-// ==================== 组件 Emits 定义 ====================
 export const puTextareaEmits = {
   "update:modelValue": (value: string) => true,
   input: (value: string) => true,

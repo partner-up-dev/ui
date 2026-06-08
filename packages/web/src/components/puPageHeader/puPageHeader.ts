@@ -1,16 +1,19 @@
 import type { PropType } from "vue";
 import {
+  puContainerVariants,
   puDensities,
-  puSurfaceTones,
+  puSurfaceLevels,
+  type PuContainerVariant,
   type PuDensity,
-  type PuSurfaceTone,
+  type PuSurfaceLevel,
 } from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
 export const puPageHeaderTitleTags = ["h1", "h2", "h3", "h4"] as const;
 
 export type PuPageHeaderDensity = PuDensity;
-export type PuPageHeaderTone = PuSurfaceTone;
+export type PuPageHeaderSurfaceLevel = PuSurfaceLevel;
+export type PuPageHeaderVariant = PuContainerVariant;
 export type PuPageHeaderTitleAs = (typeof puPageHeaderTitleTags)[number];
 
 export const puPageHeaderProps = {
@@ -30,10 +33,17 @@ export const puPageHeaderProps = {
     default: "comfortable",
     validator: (value: string) => puDensities.includes(value as PuDensity),
   },
-  tone: {
-    type: String as PropType<PuPageHeaderTone>,
+  surfaceLevel: {
+    type: String as PropType<PuPageHeaderSurfaceLevel>,
     default: "plain",
-    validator: (value: string) => puSurfaceTones.includes(value as PuSurfaceTone),
+    validator: (value: string) =>
+      puSurfaceLevels.includes(value as PuPageHeaderSurfaceLevel),
+  },
+  variant: {
+    type: String as PropType<PuPageHeaderVariant>,
+    default: "plain",
+    validator: (value: string) =>
+      puContainerVariants.includes(value as PuPageHeaderVariant),
   },
   bordered: makeBooleanProp(false),
 };

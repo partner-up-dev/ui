@@ -44,7 +44,6 @@ export default {
 import { computed, inject, onBeforeUnmount, onMounted, ref, useSlots } from "vue";
 import { usePuId } from "../../composables";
 import {
-  puCommonTones,
   puDensities,
   puSizes,
   type PuDensity,
@@ -57,7 +56,10 @@ import {
   normalizePuVariant,
 } from "../../utils";
 import { puSegmentedKey } from "../puSegmented/context";
-import type { PuSegmentedSemantics, PuSegmentedValue } from "../puSegmented/puSegmented";
+import type {
+  PuSegmentedSemantics,
+  PuSegmentedValue,
+} from "../puSegmented/puSegmented";
 import { puSegmentedItemProps } from "./puSegmentedItem";
 
 const props = defineProps(puSegmentedItemProps);
@@ -79,9 +81,7 @@ const density = computed<PuDensity>(() =>
     ? segmented.density.value
     : normalizePuVariant(puDensities, "comfortable", "comfortable"),
 );
-const tone = computed<PuTone>(() =>
-  segmented ? segmented.tone.value : normalizePuVariant(puCommonTones, "surface", "surface"),
-);
+const tone = computed<PuTone>(() => segmented?.tone.value ?? "neutral");
 const isSelected = computed(() =>
   segmented ? segmented.isSelected(props.value) : false,
 );

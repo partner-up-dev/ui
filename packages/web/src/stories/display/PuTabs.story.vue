@@ -75,7 +75,7 @@ function handleChange(payload: PuTabsChangePayload): void {
             @change="handleChange"
           />
 
-          <PuCard tone="outline">
+          <PuCard tone="neutral" variant="outline">
             <p class="pu-story__label">
               Active: {{ activeOverviewLabel }}
             </p>
@@ -92,8 +92,7 @@ function handleChange(payload: PuTabsChangePayload): void {
         <div class="pu-tabs-story__sizes">
           <PuCard
             v-for="size in tabSizes"
-            :key="size"
-            tone="outline"
+            :key="size" tone="neutral" variant="outline"
           >
             <p class="pu-story__label">{{ size }}</p>
             <PuTabs
@@ -108,7 +107,7 @@ function handleChange(payload: PuTabsChangePayload): void {
 
     <Variant title="Pill Tab Bar">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface">
+        <PuCard tone="neutral" variant="soft">
           <PuTabs
             v-model="statusTab"
             :tabs="statusTabs"
@@ -127,7 +126,7 @@ function handleChange(payload: PuTabsChangePayload): void {
 
     <Variant title="Scrollable Active Tab">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface">
+        <PuCard tone="neutral" variant="soft">
           <PuTabs
             v-model="scrollTab"
             :tabs="scrollTabs"
@@ -147,7 +146,7 @@ function handleChange(payload: PuTabsChangePayload): void {
             @change="handleChange"
           />
 
-          <PuCard tone="outline">
+          <PuCard tone="neutral" variant="outline">
             <p class="pu-story__label">
               Active: {{ activeKeyboardLabel }}
             </p>
@@ -158,7 +157,7 @@ function handleChange(payload: PuTabsChangePayload): void {
 
     <Variant title="Standalone Tab Variants">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <div class="pu-tabs-story__standalone">
             <template
               v-for="variant in tabVariants"

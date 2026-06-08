@@ -46,12 +46,14 @@ export default {
 import { computed, provide, useSlots } from "vue";
 import { usePuId } from "../../composables";
 import {
+  puContainerVariants,
   puDensities,
   puLayouts,
-  puSurfaceTones,
+  puSurfaceLevels,
+  type PuContainerVariant,
   type PuDensity,
   type PuLayout,
-  type PuSurfaceTone,
+  type PuSurfaceLevel,
 } from "../../types";
 import {
   createPuModifierClass,
@@ -77,8 +79,11 @@ const layout = computed<PuLayout>(() =>
 const density = computed<PuDensity>(() =>
   normalizePuVariant(puDensities, props.density, "comfortable"),
 );
-const tone = computed<PuSurfaceTone>(() =>
-  normalizePuVariant(puSurfaceTones, props.tone, "plain"),
+const surfaceLevel = computed<PuSurfaceLevel>(() =>
+  normalizePuVariant(puSurfaceLevels, props.surfaceLevel, "plain"),
+);
+const variant = computed<PuContainerVariant>(() =>
+  normalizePuVariant(puContainerVariants, props.variant, "plain"),
 );
 const labelAlign = computed<PuDescriptionLabelAlign>(() =>
   normalizePuVariant(puDescriptionLabelAligns, props.labelAlign, "start"),
@@ -103,7 +108,12 @@ const defaultHeaderLabelledBy = computed(() =>
 const rootClasses = computed(() => [
   createPuModifierClass("pu-description-list", "layout", layout.value),
   createPuModifierClass("pu-description-list", "density", density.value),
-  createPuModifierClass("pu-description-list", "tone", tone.value),
+  createPuModifierClass(
+    "pu-description-list",
+    "surface-level",
+    surfaceLevel.value,
+  ),
+  createPuModifierClass("pu-description-list", "variant", variant.value),
   createPuModifierClass("pu-description-list", "columns", columns.value),
   createPuModifierClass("pu-description-list", "label-align", labelAlign.value),
   createPuStateClass("bordered", props.bordered),
@@ -119,7 +129,7 @@ const rootStyle = computed(() => ({
 provide(puDescriptionListKey, {
   layout,
   density,
-  tone,
+  surfaceLevel,
   dividers: computed(() => props.dividers),
   labelWidth,
   labelAlign,

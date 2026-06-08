@@ -55,8 +55,8 @@ import PuDescriptionList from "../../components/puDescriptionList/puDescriptionL
             </div>
           </PuBentoItem>
 
-          <PuBentoItem title="Risk" description="Pending checks" tone="outline">
-            <PuCellGroup tone="plain" density="compact" :dividers="false">
+          <PuBentoItem title="Risk" description="Pending checks" surface-level="plain" variant="outline">
+            <PuCellGroup surface-level="plain" variant="plain" density="compact" :dividers="false">
               <PuCell title="Venue" value="Confirmed" />
               <PuCell title="Payment" value="Pending" />
             </PuCellGroup>
@@ -77,7 +77,7 @@ import PuDescriptionList from "../../components/puDescriptionList/puDescriptionL
     <Variant title="Slots And Spans">
       <div class="pu-story pu-bento-story">
         <PuBentoGrid :columns="3" gap="sm" auto-rows="96px" collapse-at="sm">
-          <PuBentoItem :span="2" :row-span="2" tone="surface">
+          <PuBentoItem :span="2" :row-span="2" surface-level="surface" variant="soft">
             <template #header>
               <div class="pu-bento-story__custom-header">
                 <div>
@@ -103,7 +103,7 @@ import PuDescriptionList from "../../components/puDescriptionList/puDescriptionL
             </p>
           </PuBentoItem>
 
-          <PuBentoItem title="Full width" span="full" tone="inset-high">
+          <PuBentoItem title="Full width" span="full" surface-level="inset-high" variant="soft">
             <div class="pu-bento-story__row">
               <span>Full span works across every configured column count.</span>
               <PuButton size="sm">
@@ -121,14 +121,14 @@ import PuDescriptionList from "../../components/puDescriptionList/puDescriptionL
     <Variant title="Plain Composition">
       <div class="pu-story pu-bento-story">
         <PuBentoGrid :columns="2" gap="md" collapse-at="md">
-          <PuBentoItem title="Plain item" tone="plain">
+          <PuBentoItem title="Plain item" surface-level="plain" variant="plain">
             <p class="pu-story__text">
               Plain tone keeps the layout metadata while allowing the parent
               page surface to carry the visual container.
             </p>
           </PuBentoItem>
 
-          <PuBentoItem title="Outlined item" tone="outline">
+          <PuBentoItem title="Outlined item" surface-level="plain" variant="outline">
             <p class="pu-story__text">
               Outline tone is useful when the surrounding page already has a
               strong background.

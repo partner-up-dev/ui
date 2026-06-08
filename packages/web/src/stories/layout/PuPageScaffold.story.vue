@@ -42,14 +42,14 @@ import PuTag from "../../components/puTag/puTag.vue";
     <Variant title="Centered Screen">
       <PuPageScaffold viewport="screen" content-placement="center" width="full">
         <div class="pu-page-scaffold-story__centered">
-          <PuTag text="Ready" theme="SurfaceOutlined" />
+          <PuTag text="Ready" variant="outline" />
           <h2 class="pu-page-scaffold-story__title">Review before publishing</h2>
           <p class="pu-story__text">
             Full-screen centered flows are a viewport mode plus content
             placement, not a separate component.
           </p>
           <div class="pu-page-scaffold-story__actions">
-            <PuButton tone="outline">Back</PuButton>
+            <PuButton tone="neutral" variant="outline">Back</PuButton>
             <PuButton>Publish</PuButton>
           </div>
         </div>
@@ -66,7 +66,7 @@ import PuTag from "../../components/puTag/puTag.vue";
         </template>
 
         <template #aside>
-          <PuCard title="Navigation" tone="outline">
+          <PuCard title="Navigation" tone="neutral" variant="outline">
             <div class="pu-page-scaffold-story__nav">
               <span>Overview</span>
               <span>Trust</span>
@@ -102,14 +102,14 @@ import PuTag from "../../components/puTag/puTag.vue";
               show-back
             >
               <template #actions>
-                <PuButton tone="outline">Preview</PuButton>
+                <PuButton tone="neutral" variant="outline">Preview</PuButton>
                 <PuButton>Publish</PuButton>
               </template>
             </PuPageHeader>
           </template>
 
           <template #aside>
-            <PuCard title="Aside" tone="outline">
+            <PuCard title="Aside" tone="neutral" variant="outline">
               <div class="pu-page-scaffold-story__nav">
                 <span>Summary</span>
                 <span>Checklist</span>
@@ -151,7 +151,7 @@ import PuTag from "../../components/puTag/puTag.vue";
 
         <template #footer>
           <div class="pu-page-scaffold-story__footer">
-            <PuButton tone="outline">Save draft</PuButton>
+            <PuButton tone="neutral" variant="outline">Save draft</PuButton>
             <PuButton>Continue</PuButton>
           </div>
         </template>

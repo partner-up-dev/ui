@@ -41,7 +41,7 @@ import { PuTextarea } from '@partner-up-dev/design-web'
 - `disableDefaultPadding`
 - `height`
 - `focusHeight`
-- `theme`
+- `variant`
 
 ## Slots
 
@@ -72,11 +72,11 @@ Story: `src/stories/forms/PuTextarea.story.vue`
 
 ## Types
 
-- No exported TypeScript types extracted.
+- `PuTextareaVariant`
 
 ## Caveats
 
-- Uses legacy theme values surface-container and surface.
+- Use variant for field treatment such as soft, plain, outline, or solid.
 
 ## Source Evidence
 

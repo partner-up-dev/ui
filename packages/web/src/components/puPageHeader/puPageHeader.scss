@@ -17,24 +17,30 @@
   gap: var(--sys-spacing-small);
 }
 
-.pu-page-header--tone-surface,
-.pu-page-header--tone-section {
+.pu-page-header--surface-level-surface.pu-page-header--variant-soft,
+.pu-page-header--surface-level-section.pu-page-header--variant-soft {
   padding: var(--sys-spacing-medium);
   border-radius: var(--sys-radius-medium);
   background: var(--sys-color-surface-container);
 }
 
-.pu-page-header--tone-inset-high {
+.pu-page-header--surface-level-inset-high.pu-page-header--variant-soft {
   padding: var(--sys-spacing-small);
   border-radius: var(--sys-radius-small);
   background: var(--sys-color-surface-container-high);
 }
 
-.pu-page-header--tone-outline {
+.pu-page-header--variant-outline {
   padding: var(--sys-spacing-medium);
   border: 1px solid var(--sys-color-outline);
   border-radius: var(--sys-radius-medium);
   background: transparent;
+}
+
+.pu-page-header--variant-solid {
+  padding: var(--sys-spacing-medium);
+  border-radius: var(--sys-radius-medium);
+  background: var(--sys-color-surface-container-high);
 }
 
 .pu-page-header.is-bordered {

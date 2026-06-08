@@ -28,7 +28,7 @@ const verticalMessages = [
 
     <Variant title="Scrollable">
       <div class="pu-story">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <PuAnnouncementBar
             text="This longer announcement uses horizontal movement when the available width is tight, keeping the bar compact inside dense layouts."
             prefix="bullhorn-outline"

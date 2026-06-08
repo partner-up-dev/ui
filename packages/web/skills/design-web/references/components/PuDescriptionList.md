@@ -28,7 +28,8 @@ import { PuDescriptionList } from '@partner-up-dev/design-web'
 - `description`
 - `layout`
 - `density`
-- `tone`
+- `surfaceLevel`
+- `variant`
 - `bordered`
 - `dividers`
 - `labelWidth`
@@ -70,11 +71,12 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 - `PuDescriptionListColumns`
 - `PuDescriptionListDensity`
 - `PuDescriptionListLayout`
-- `PuDescriptionListTone`
+- `PuDescriptionListSurfaceLevel`
+- `PuDescriptionListVariant`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 
 ## Source Evidence
 

@@ -21,23 +21,28 @@
   gap: var(--sys-spacing-small);
 }
 
-.pu-bento-item--tone-plain {
+.pu-bento-item--variant-plain,
+.pu-bento-item--surface-level-plain {
   background: transparent;
 }
 
-.pu-bento-item--tone-surface,
-.pu-bento-item--tone-section {
+.pu-bento-item--surface-level-surface.pu-bento-item--variant-soft,
+.pu-bento-item--surface-level-section.pu-bento-item--variant-soft {
   background: var(--sys-color-surface-container);
 }
 
-.pu-bento-item--tone-inset-high {
+.pu-bento-item--surface-level-inset-high.pu-bento-item--variant-soft {
   border-radius: var(--sys-radius-small);
   background: var(--sys-color-surface-container-high);
 }
 
-.pu-bento-item--tone-outline {
+.pu-bento-item--variant-outline {
   border-color: var(--sys-color-outline-variant);
   background: transparent;
+}
+
+.pu-bento-item--variant-solid {
+  background: var(--sys-color-surface-container-high);
 }
 
 .pu-bento-item--span-1 {

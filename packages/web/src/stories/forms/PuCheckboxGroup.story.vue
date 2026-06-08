@@ -31,7 +31,7 @@ function handleChange(payload: unknown): void {
 
     <Variant title="Square Limited">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <PuCheckboxGroup
             v-model="days"
             shape="square"
@@ -65,7 +65,7 @@ function handleChange(payload: unknown): void {
 
     <Variant title="Disabled">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface" padding="sm">
+        <PuCard tone="neutral" variant="soft" padding="sm">
           <PuCheckboxGroup :model-value="['email']" disabled>
             <PuCheckbox model-value="email">Email reminders</PuCheckbox>
             <PuCheckbox model-value="sms">SMS reminders</PuCheckbox>

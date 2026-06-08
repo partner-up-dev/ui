@@ -19,7 +19,7 @@ function handleClose(name: string): void {
   <Story title="PuDrawer" group="overlay">
     <Variant title="Controlled">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <p class="pu-story__label">Bottom drawer</p>
           <p class="pu-story__text">
             The trigger controls visible state through v-model:visible.
@@ -41,7 +41,8 @@ function handleClose(name: string): void {
             <PuCell title="Arrival" value="19:00" />
             <div class="pu-drawer-story__actions">
               <PuButton
-                tone="surface"
+                tone="neutral"
+                variant="soft"
                 @click="controlledVisible = false"
               >
                 Cancel
@@ -57,7 +58,7 @@ function handleClose(name: string): void {
 
     <Variant title="Open State">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <p class="pu-story__label">Pinned for visual review</p>
           <p class="pu-story__text">
             This variant keeps the drawer open while preserving surface
@@ -84,13 +85,14 @@ function handleClose(name: string): void {
 
     <Variant title="Full Custom">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <p class="pu-story__label">Custom drawer body</p>
           <p class="pu-story__text">
             fullCustom hands the whole drawer interior to the consumer.
           </p>
           <PuButton
-            tone="outline"
+            tone="neutral"
+            variant="outline"
             @click="customVisible = true"
           >
             Open custom drawer

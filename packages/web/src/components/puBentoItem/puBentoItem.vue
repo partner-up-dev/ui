@@ -54,10 +54,12 @@ export default {
 import { computed, useSlots } from "vue";
 import { usePuId } from "../../composables";
 import {
+  puContainerVariants,
   puDensities,
-  puSurfaceTones,
+  puSurfaceLevels,
+  type PuContainerVariant,
   type PuDensity,
-  type PuSurfaceTone,
+  type PuSurfaceLevel,
 } from "../../types";
 import {
   createPuModifierClass,
@@ -91,8 +93,11 @@ const rowSpan = computed<PuBentoItemRowSpan>(() =>
     ? (Number(props.rowSpan) as PuBentoItemRowSpan)
     : 1,
 );
-const tone = computed<PuSurfaceTone>(() =>
-  normalizePuVariant(puSurfaceTones, props.tone, "section"),
+const surfaceLevel = computed<PuSurfaceLevel>(() =>
+  normalizePuVariant(puSurfaceLevels, props.surfaceLevel, "section"),
+);
+const variant = computed<PuContainerVariant>(() =>
+  normalizePuVariant(puContainerVariants, props.variant, "soft"),
 );
 const density = computed<PuDensity>(() =>
   normalizePuVariant(puDensities, props.density, "comfortable"),
@@ -119,7 +124,8 @@ const defaultHeaderDescribedBy = computed(() =>
 const rootClasses = computed(() => [
   createPuModifierClass("pu-bento-item", "span", span.value),
   createPuModifierClass("pu-bento-item", "row-span", rowSpan.value),
-  createPuModifierClass("pu-bento-item", "tone", tone.value),
+  createPuModifierClass("pu-bento-item", "surface-level", surfaceLevel.value),
+  createPuModifierClass("pu-bento-item", "variant", variant.value),
   createPuModifierClass("pu-bento-item", "density", density.value),
   createPuStateClass("with-header", hasHeader.value),
   createPuStateClass("with-footer", Boolean(slots.footer)),

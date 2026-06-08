@@ -11,24 +11,30 @@
   container: pu-description-list / inline-size;
 }
 
-.pu-description-list--tone-surface,
-.pu-description-list--tone-section {
+.pu-description-list--surface-level-surface.pu-description-list--variant-soft,
+.pu-description-list--surface-level-section.pu-description-list--variant-soft {
   padding: var(--sys-spacing-medium);
   border-radius: var(--sys-radius-medium);
   background: var(--sys-color-surface-container);
 }
 
-.pu-description-list--tone-inset-high {
+.pu-description-list--surface-level-inset-high.pu-description-list--variant-soft {
   padding: var(--sys-spacing-small);
   border-radius: var(--sys-radius-small);
   background: var(--sys-color-surface-container-high);
 }
 
-.pu-description-list--tone-outline {
+.pu-description-list--variant-outline {
   padding: var(--sys-spacing-medium);
   border: 1px solid var(--sys-color-outline);
   border-radius: var(--sys-radius-medium);
   background: transparent;
+}
+
+.pu-description-list--variant-solid {
+  padding: var(--sys-spacing-medium);
+  border-radius: var(--sys-radius-medium);
+  background: var(--sys-color-surface-container-high);
 }
 
 .pu-description-list__header {

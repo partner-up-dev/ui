@@ -26,7 +26,8 @@ import { PuCellGroup } from '@partner-up-dev/design-web'
 - `as`
 - `title`
 - `description`
-- `tone`
+- `surfaceLevel`
+- `variant`
 - `density`
 - `dividers`
 - `inset`
@@ -61,11 +62,12 @@ Story: `src/stories/display/PuCellGroup.story.vue`
 ## Types
 
 - `PuCellGroupDensity`
-- `PuCellGroupTone`
+- `PuCellGroupSurfaceLevel`
+- `PuCellGroupVariant`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 
 ## Source Evidence
 

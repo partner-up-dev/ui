@@ -1,19 +1,18 @@
 import type { PropType } from "vue";
-import type { PuAction, PuShape } from "../../types";
+import type {
+  PuAction,
+  PuControlVariant,
+  PuShape,
+  PuSize,
+  PuTone,
+} from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
-export type PuButtonTone =
-  | "primary"
-  | "primary-outline"
-  | "secondary"
-  | "outline"
-  | "surface"
-  | "tertiary"
-  | "dashed"
-  | "danger"
-  | "ghost";
+export type PuButtonTone = PuTone;
 
-export type PuButtonSize = "sm" | "md" | "lg";
+export type PuButtonVariant = PuControlVariant;
+
+export type PuButtonSize = PuSize;
 
 export type PuButtonFeedback = "idle" | "pending" | "success" | "error";
 
@@ -26,6 +25,7 @@ export const puButtonProps = {
   action: actionProp,
   shape: makeStringProp<PuShape>("rect"),
   tone: makeStringProp<PuButtonTone>("primary"),
+  variant: makeStringProp<PuButtonVariant>("solid"),
   size: makeStringProp<PuButtonSize>("md"),
   feedback: makeStringProp<PuButtonFeedback>("idle"),
   loading: makeBooleanProp(false),

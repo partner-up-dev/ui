@@ -15,16 +15,15 @@ export default {
 <script setup lang="ts">
 import { computed } from "vue";
 import { puTagProps } from "./puTag";
-import { kebabCase } from '../../utils/string'
 
 const props = defineProps(puTagProps);
 
 const rootClasses = computed(() => {
   const classes = ["pu-tag"] as string[];
-  if (props.rounded) classes.push("rounded");
-  if (props.outlined) classes.push("outlined");
-  classes.push(kebabCase(props.theme));
-  classes.push(kebabCase(props.size));
+  classes.push(`pu-tag--tone-${props.tone}`);
+  classes.push(`pu-tag--variant-${props.variant}`);
+  classes.push(`pu-tag--shape-${props.shape}`);
+  classes.push(`pu-tag--size-${props.size}`);
   if (props.customClass) classes.push(props.customClass);
   return classes;
 });

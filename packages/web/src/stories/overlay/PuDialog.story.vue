@@ -65,7 +65,8 @@ function submitForm(): void {
     <Variant title="Form Workflow">
       <div class="pu-story pu-story--narrow">
         <PuButton
-          tone="surface"
+          tone="neutral"
+          variant="soft"
           @click="formOpen = true"
         >
           Invite guest
@@ -94,7 +95,8 @@ function submitForm(): void {
     <Variant title="Custom Slots">
       <div class="pu-story pu-story--narrow">
         <PuButton
-          tone="outline"
+          tone="neutral"
+          variant="outline"
           @click="customOpen = true"
         >
           Open custom dialog
@@ -118,13 +120,15 @@ function submitForm(): void {
           />
           <template #actions>
             <PuButton
-              tone="ghost"
+              tone="neutral"
+              variant="ghost"
               @click="customOpen = false"
             >
               Save draft
             </PuButton>
             <PuButton
-              tone="surface"
+              tone="neutral"
+              variant="soft"
               @click="customOpen = false"
             >
               Cancel

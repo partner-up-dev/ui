@@ -5,7 +5,7 @@ import PuWheelPicker from "../../components/puWheelPicker/puWheelPicker.vue";
 import type {
   PuWheelPickerOption,
   PuWheelPickerValue,
-  PuWheelPickerVariant,
+  PuWheelPickerTone,
 } from "../../components/puWheelPicker/puWheelPicker";
 
 const city = ref<PuWheelPickerValue>("hangzhou");
@@ -20,13 +20,14 @@ const options: PuWheelPickerOption[] = [
   { label: "Chengdu", value: "chengdu" },
 ];
 
-const tones: PuWheelPickerVariant[] = [
-  "surface",
-  "outline",
+const tones: PuWheelPickerTone[] = [
+  "neutral",
   "primary",
   "secondary",
   "tertiary",
 ];
+
+const variants = ["soft", "outline", "solid", "plain"] as const;
 
 function handleChange(
   value: PuWheelPickerValue,
@@ -78,8 +79,31 @@ function handleChange(
             <PuWheelPicker
               v-model="toneCity"
               :options="options"
-              :variant="tone"
+              :tone="tone"
               :aria-label="`${tone} city`"
+              :visible-count="3"
+              @change="handleChange"
+            />
+          </div>
+        </div>
+      </div>
+    </Variant>
+
+    <Variant title="Variants">
+      <div class="pu-story">
+        <div class="pu-story__grid">
+          <div
+            v-for="variant in variants"
+            :key="variant"
+            class="pu-story__surface"
+          >
+            <p class="pu-story__label">{{ variant }}</p>
+            <PuWheelPicker
+              v-model="toneCity"
+              :options="options"
+              tone="primary"
+              :variant="variant"
+              :aria-label="`${variant} city`"
               :visible-count="3"
               @change="handleChange"
             />

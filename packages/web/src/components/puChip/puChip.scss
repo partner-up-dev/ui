@@ -1,6 +1,11 @@
 @use "../../styles/mixins" as *;
 
 .pu-chip {
+  --pu-chip-accent: var(--sys-color-on-surface);
+  --pu-chip-on-accent: var(--sys-color-surface);
+  --pu-chip-soft-background: var(--sys-color-surface-container);
+  --pu-chip-soft-color: var(--sys-color-on-surface);
+
   appearance: none;
   display: inline-flex;
   align-items: center;
@@ -78,42 +83,75 @@ button.pu-chip {
   @include pu-font(control);
 }
 
-.pu-chip--tone-surface {
-  background: var(--sys-color-surface-container);
-  color: var(--sys-color-on-surface);
-}
-
-.pu-chip--tone-outline {
-  border-color: var(--sys-color-outline-variant);
-  background: transparent;
-  color: var(--sys-color-on-surface);
+.pu-chip--tone-neutral {
+  --pu-chip-accent: var(--sys-color-on-surface);
+  --pu-chip-on-accent: var(--sys-color-surface);
+  --pu-chip-soft-background: var(--sys-color-surface-container);
+  --pu-chip-soft-color: var(--sys-color-on-surface);
 }
 
 .pu-chip--tone-primary {
-  background: var(--sys-color-primary-container);
-  color: var(--sys-color-on-primary-container);
+  --pu-chip-accent: var(--sys-color-primary);
+  --pu-chip-on-accent: var(--sys-color-on-primary);
+  --pu-chip-soft-background: var(--sys-color-primary-container);
+  --pu-chip-soft-color: var(--sys-color-on-primary-container);
 }
 
 .pu-chip--tone-secondary,
 .pu-chip--tone-info {
-  background: var(--sys-color-secondary-container);
-  color: var(--sys-color-on-secondary-container);
+  --pu-chip-accent: var(--sys-color-secondary);
+  --pu-chip-on-accent: var(--sys-color-on-secondary);
+  --pu-chip-soft-background: var(--sys-color-secondary-container);
+  --pu-chip-soft-color: var(--sys-color-on-secondary-container);
 }
 
 .pu-chip--tone-tertiary,
 .pu-chip--tone-success {
-  background: var(--sys-color-tertiary-container);
-  color: var(--sys-color-on-tertiary-container);
+  --pu-chip-accent: var(--sys-color-tertiary);
+  --pu-chip-on-accent: var(--sys-color-on-tertiary);
+  --pu-chip-soft-background: var(--sys-color-tertiary-container);
+  --pu-chip-soft-color: var(--sys-color-on-tertiary-container);
+}
+
+.pu-chip--tone-danger,
+.pu-chip--tone-error {
+  --pu-chip-accent: var(--sys-color-error);
+  --pu-chip-on-accent: var(--sys-color-on-error);
+  --pu-chip-soft-background: var(--sys-color-error-container);
+  --pu-chip-soft-color: var(--sys-color-on-error-container);
 }
 
 .pu-chip--tone-warning {
-  background: var(--sys-color-warning);
-  color: var(--sys-color-on-warning);
+  --pu-chip-accent: var(--sys-color-warning);
+  --pu-chip-on-accent: var(--sys-color-on-warning);
+  --pu-chip-soft-background: var(--sys-color-warning);
+  --pu-chip-soft-color: var(--sys-color-on-warning);
 }
 
-.pu-chip--tone-error {
-  background: var(--sys-color-error-container);
-  color: var(--sys-color-on-error-container);
+.pu-chip--variant-soft {
+  background: var(--pu-chip-soft-background);
+  color: var(--pu-chip-soft-color);
+}
+
+.pu-chip--variant-solid {
+  background: var(--pu-chip-accent);
+  color: var(--pu-chip-on-accent);
+}
+
+.pu-chip--variant-outline,
+.pu-chip--variant-dashed {
+  border-color: color-mix(in srgb, var(--pu-chip-accent) 56%, transparent);
+  background: transparent;
+  color: var(--pu-chip-accent);
+}
+
+.pu-chip--variant-dashed {
+  border-style: dashed;
+}
+
+.pu-chip--variant-ghost {
+  background: transparent;
+  color: var(--pu-chip-accent);
 }
 
 .pu-chip.is-selected {

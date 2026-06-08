@@ -50,10 +50,12 @@ export default {
 import { computed, useSlots } from "vue";
 import { usePuId } from "../../composables";
 import {
+  puContainerVariants,
   puDensities,
-  puSurfaceTones,
+  puSurfaceLevels,
+  type PuContainerVariant,
   type PuDensity,
-  type PuSurfaceTone,
+  type PuSurfaceLevel,
 } from "../../types";
 import {
   createPuModifierClass,
@@ -69,8 +71,11 @@ const baseId = usePuId("pu-cell-group");
 const titleId = computed(() => `${baseId.value}-title`);
 const descriptionId = computed(() => `${baseId.value}-description`);
 
-const tone = computed<PuSurfaceTone>(() =>
-  normalizePuVariant(puSurfaceTones, props.tone, "plain"),
+const surfaceLevel = computed<PuSurfaceLevel>(() =>
+  normalizePuVariant(puSurfaceLevels, props.surfaceLevel, "plain"),
+);
+const variant = computed<PuContainerVariant>(() =>
+  normalizePuVariant(puContainerVariants, props.variant, "plain"),
 );
 const density = computed<PuDensity>(() =>
   normalizePuVariant(puDensities, props.density, "comfortable"),
@@ -85,7 +90,8 @@ const hasHeader = computed(
 );
 
 const rootClasses = computed(() => [
-  createPuModifierClass("pu-cell-group", "tone", tone.value),
+  createPuModifierClass("pu-cell-group", "surface-level", surfaceLevel.value),
+  createPuModifierClass("pu-cell-group", "variant", variant.value),
   createPuModifierClass("pu-cell-group", "density", density.value),
   createPuStateClass("dividers", props.dividers),
   createPuStateClass("inset", props.inset),

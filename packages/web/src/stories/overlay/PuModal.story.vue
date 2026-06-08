@@ -36,7 +36,8 @@ function closeCustom(): void {
           </p>
           <div class="pu-story__modal-actions">
             <PuButton
-              tone="surface"
+              tone="neutral"
+              variant="soft"
               @click="closeControlled"
             >
               Cancel
@@ -67,7 +68,8 @@ function closeCustom(): void {
     <Variant title="Custom Header">
       <div class="pu-story pu-story--narrow">
         <PuButton
-          tone="surface"
+          tone="neutral"
+          variant="soft"
           @click="customOpen = true"
         >
           Open custom modal

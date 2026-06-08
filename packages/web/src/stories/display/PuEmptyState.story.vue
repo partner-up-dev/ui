@@ -24,14 +24,15 @@ import PuEmptyState from "../../components/puEmptyState/puEmptyState.vue";
     <Variant title="Search Results">
       <div class="pu-story">
         <PuEmptyState
-          tone="outline"
+          surface-level="plain"
+          variant="outline"
           align="start"
           icon="i-mdi-magnify"
           title="No matching members"
           description="Try adjusting the city, interest, or availability filters."
         >
           <template #actions>
-            <PuButton tone="outline">Clear filters</PuButton>
+            <PuButton tone="neutral" variant="outline">Clear filters</PuButton>
           </template>
         </PuEmptyState>
       </div>
@@ -42,7 +43,8 @@ import PuEmptyState from "../../components/puEmptyState/puEmptyState.vue";
         <PuEmptyState
           title="Build your organizer profile"
           description="Add details that help members understand what kind of gatherings you host."
-          tone="surface"
+          surface-level="section"
+          variant="soft"
         >
           <template #icon>
             <span class="i-mdi-account-star-outline" />
@@ -50,11 +52,11 @@ import PuEmptyState from "../../components/puEmptyState/puEmptyState.vue";
           <PuChipGroup align="center">
             <PuChip tone="secondary" label="Profile" />
             <PuChip tone="success" label="Trust" />
-            <PuChip tone="outline" label="Public page" />
+            <PuChip tone="neutral" variant="outline" label="Public page" />
           </PuChipGroup>
           <template #actions>
             <PuButton>Start setup</PuButton>
-            <PuButton tone="ghost">Skip</PuButton>
+            <PuButton tone="neutral" variant="ghost">Skip</PuButton>
           </template>
         </PuEmptyState>
       </div>
@@ -64,7 +66,8 @@ import PuEmptyState from "../../components/puEmptyState/puEmptyState.vue";
       <div class="pu-story pu-story--narrow">
         <PuEmptyState
           compact
-          tone="plain"
+          surface-level="plain"
+          variant="plain"
           icon="i-mdi-inbox-outline"
           title="Nothing to review"
           description="New review requests will appear here."
@@ -75,13 +78,14 @@ import PuEmptyState from "../../components/puEmptyState/puEmptyState.vue";
     <Variant title="Narrow Container">
       <div class="pu-empty-state-story__narrow-frame">
         <PuEmptyState
-          tone="outline"
+          surface-level="plain"
+          variant="outline"
           icon="i-mdi-filter-remove-outline"
           title="No matching results"
           description="This empty state is embedded in a constrained panel while the viewport may still be wide."
         >
           <template #actions>
-            <PuButton tone="outline">Clear filters</PuButton>
+            <PuButton tone="neutral" variant="outline">Clear filters</PuButton>
             <PuButton>Create saved view</PuButton>
           </template>
         </PuEmptyState>

@@ -5,7 +5,7 @@
       'is-disabled': disabled,
       'is-readonly': readonly,
       'is-focused': isFocused,
-      [`theme-${theme}`]: true,
+      [`pu-textarea--variant-${variant}`]: true,
     }"
     :style="[rootStyle, props.customStyle]"
   >

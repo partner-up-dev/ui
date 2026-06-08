@@ -132,7 +132,6 @@ files only after narrowing the candidate set.
 - [PuModal](references/components/PuModal.md)
   - Intent: modal dialog, blocking confirmation, focused overlay
   - Prefer: Use for blocking decisions, confirmations, and focused short workflows.
-
 - [PuSnackbar](references/components/PuSnackbar.md)
   - Intent: snackbar, toast, transient feedback
   - Prefer: Use for brief, non-blocking feedback that appears above the current page after an action.

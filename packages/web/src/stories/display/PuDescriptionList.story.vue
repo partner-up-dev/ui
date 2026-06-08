@@ -35,8 +35,7 @@ const eventFacts = [
       <div class="pu-story pu-story--narrow">
         <PuDescriptionList
           title="Order summary"
-          layout="inline"
-          tone="surface"
+          layout="inline" surface-level="surface" variant="soft"
           label-align="end"
           bordered
         >
@@ -56,8 +55,7 @@ const eventFacts = [
       <div class="pu-story">
         <PuDescriptionList
           title="Profile details"
-          layout="grid"
-          tone="outline"
+          layout="grid" surface-level="plain" variant="outline"
           :columns="2"
           label-width="6rem"
         >
@@ -83,8 +81,7 @@ const eventFacts = [
         <PuDescriptionList
           title="Embedded profile"
           description="The two-column grid collapses by list container width."
-          layout="grid"
-          tone="outline"
+          layout="grid" surface-level="plain" variant="outline"
           :columns="2"
           label-align="end"
           dividers
@@ -128,8 +125,7 @@ const eventFacts = [
       <div class="pu-story pu-story--narrow">
         <PuDescriptionList
           title="Interactive facts"
-          layout="inline"
-          tone="surface"
+          layout="inline" surface-level="surface" variant="soft"
           label-align="end"
           bordered
         >

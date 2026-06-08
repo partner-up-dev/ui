@@ -29,7 +29,8 @@ import { PuEmptyState } from '@partner-up-dev/design-web'
 - `icon`
 - `compact`
 - `align`
-- `tone`
+- `surfaceLevel`
+- `variant`
 
 ## Slots
 
@@ -61,11 +62,12 @@ Story: `src/stories/display/PuEmptyState.story.vue`
 ## Types
 
 - `PuEmptyStateAlign`
-- `PuEmptyStateTone`
+- `PuEmptyStateSurfaceLevel`
+- `PuEmptyStateVariant`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 
 ## Source Evidence
 

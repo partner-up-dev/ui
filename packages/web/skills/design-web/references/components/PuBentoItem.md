@@ -27,7 +27,8 @@ import { PuBentoItem } from '@partner-up-dev/design-web'
 - `description`
 - `span`
 - `rowSpan`
-- `tone`
+- `surfaceLevel`
+- `variant`
 - `density`
 
 ## Slots
@@ -60,11 +61,12 @@ Story: `src/stories/display/PuBentoGrid.story.vue`
 - `PuBentoItemDensity`
 - `PuBentoItemRowSpan`
 - `PuBentoItemSpan`
-- `PuBentoItemTone`
+- `PuBentoItemSurfaceLevel`
+- `PuBentoItemVariant`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 
 ## Source Evidence
 

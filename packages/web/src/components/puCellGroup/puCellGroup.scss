@@ -18,24 +18,30 @@
   --pu-cell-min-height: 2rem;
 }
 
-.pu-cell-group--tone-surface,
-.pu-cell-group--tone-section {
+.pu-cell-group--surface-level-surface.pu-cell-group--variant-soft,
+.pu-cell-group--surface-level-section.pu-cell-group--variant-soft {
   overflow: hidden;
   border-radius: var(--sys-radius-medium);
   background: var(--sys-color-surface-container);
 }
 
-.pu-cell-group--tone-inset-high {
+.pu-cell-group--surface-level-inset-high.pu-cell-group--variant-soft {
   overflow: hidden;
   border-radius: var(--sys-radius-small);
   background: var(--sys-color-surface-container-high);
 }
 
-.pu-cell-group--tone-outline {
+.pu-cell-group--variant-outline {
   overflow: hidden;
   border: 1px solid var(--sys-color-outline-variant);
   border-radius: var(--sys-radius-medium);
   background: transparent;
+}
+
+.pu-cell-group--variant-solid {
+  overflow: hidden;
+  border-radius: var(--sys-radius-medium);
+  background: var(--sys-color-surface-container-high);
 }
 
 .pu-cell-group.is-inset {

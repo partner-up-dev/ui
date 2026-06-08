@@ -1,15 +1,18 @@
 import type { PropType } from "vue";
 import {
+  puContainerVariants,
   puDensities,
-  puSurfaceTones,
+  puSurfaceLevels,
+  type PuContainerVariant,
   type PuDensity,
-  type PuSurfaceTone,
+  type PuSurfaceLevel,
 } from "../../types";
 import { makeStringProp, numericProp } from "../../utils/props";
 
 export type PuBentoItemSpan = 1 | 2 | 3 | 4 | "full";
 export type PuBentoItemRowSpan = 1 | 2 | 3;
-export type PuBentoItemTone = PuSurfaceTone;
+export type PuBentoItemSurfaceLevel = PuSurfaceLevel;
+export type PuBentoItemVariant = PuContainerVariant;
 export type PuBentoItemDensity = PuDensity;
 
 export const puBentoItemNumericSpans = [1, 2, 3, 4] as const;
@@ -45,10 +48,17 @@ export const puBentoItemProps = {
     default: 1,
     validator: isPuBentoItemRowSpan,
   },
-  tone: {
-    type: String as PropType<PuBentoItemTone>,
+  surfaceLevel: {
+    type: String as PropType<PuBentoItemSurfaceLevel>,
     default: "section",
-    validator: (value: string) => puSurfaceTones.includes(value as PuSurfaceTone),
+    validator: (value: string) =>
+      puSurfaceLevels.includes(value as PuBentoItemSurfaceLevel),
+  },
+  variant: {
+    type: String as PropType<PuBentoItemVariant>,
+    default: "soft",
+    validator: (value: string) =>
+      puContainerVariants.includes(value as PuBentoItemVariant),
   },
   density: {
     type: String as PropType<PuBentoItemDensity>,

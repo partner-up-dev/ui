@@ -9,27 +9,32 @@ const resetKey = ref(0);
 
 const tones = [
   {
-    tone: "surface",
+    tone: "neutral",
+    variant: "soft",
     title: "Surface",
     description: "Default card for grouped content.",
   },
   {
-    tone: "outline",
+    tone: "neutral",
+    variant: "outline",
     title: "Outline",
     description: "Low-emphasis card on the page background.",
   },
   {
     tone: "primary",
+    variant: "soft",
     title: "Primary",
     description: "High-emphasis card for key recommendations.",
   },
   {
     tone: "secondary",
+    variant: "soft",
     title: "Secondary",
     description: "Supporting card for secondary context.",
   },
   {
     tone: "tertiary",
+    variant: "soft",
     title: "Tertiary",
     description: "Accent card for special categories.",
   },
@@ -40,7 +45,7 @@ const tones = [
   <Story title="PuCard" group="display">
     <Variant title="Regions">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface">
+        <PuCard>
           <template #hero>
             <div class="pu-card-story__hero" aria-hidden="true"></div>
           </template>
@@ -51,7 +56,7 @@ const tones = [
                 <p class="pu-story__label">Weekend plan</p>
                 <h3 class="pu-card-story__title">West Lake evening walk</h3>
               </div>
-              <PuTag text="Open" theme="SurfaceOutlined" />
+              <PuTag text="Open" variant="outline" />
             </div>
           </template>
 
@@ -73,8 +78,9 @@ const tones = [
         <div class="pu-card-story__grid">
           <PuCard
             v-for="item in tones"
-            :key="item.tone"
+            :key="`${item.tone}-${item.variant}`"
             :tone="item.tone"
+            :variant="item.variant"
           >
             <template #header>
               <h3 class="pu-card-story__title">{{ item.title }}</h3>
@@ -88,7 +94,8 @@ const tones = [
     <Variant title="Collapsible">
       <div class="pu-story pu-story--narrow">
         <PuCard
-          tone="outline"
+          tone="neutral"
+          variant="outline"
           collapsible
           title="Public details"
           subtitle="Visible header with collapsible content."
@@ -106,6 +113,7 @@ const tones = [
         <PuCard
           v-model:expanded="expanded"
           tone="secondary"
+          variant="soft"
           collapsible
           title="Organizer profile"
           subtitle="Expansion can be controlled by the parent."
@@ -134,7 +142,8 @@ const tones = [
         <div class="pu-card-story__grid">
           <PuCard
             :action="{ href: 'https://partner-up.dev', external: true }"
-            tone="outline"
+            tone="neutral"
+            variant="outline"
             title="External event page"
             subtitle="The whole card can navigate when it has no nested controls."
           >
@@ -146,7 +155,8 @@ const tones = [
           <PuCard
             selectable
             active
-            tone="surface"
+            tone="neutral"
+            variant="soft"
             title="Selected option"
             subtitle="Selectable cards expose pressed state for button-like choices."
           >
@@ -158,7 +168,8 @@ const tones = [
           <PuCard
             selectable
             disabled
-            tone="surface"
+            tone="neutral"
+            variant="soft"
             title="Unavailable option"
             subtitle="Disabled cards stop interaction and reduce emphasis."
           >
@@ -174,7 +185,8 @@ const tones = [
       <div class="pu-story pu-story--narrow">
         <PuCard
           :expanded-reset-key="resetKey"
-          tone="outline"
+          tone="neutral"
+          variant="outline"
           collapsible
           keep-content-mounted
           title="Retained editor"

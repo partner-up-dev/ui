@@ -18,7 +18,7 @@
     border: 1px solid fn.sys-var(color, primary);
   }
 
-  &.theme-surface-container {
+  &--variant-soft {
     background-color: fn.sys-var(color, surface-container);
     border: 1px solid transparent;
 
@@ -27,12 +27,30 @@
     }
   }
 
-  &.theme-surface {
+  &--variant-plain {
     background-color: fn.sys-var(color, surface);
     border: 1px solid transparent;
 
     &.is-focused {
       border-bottom: 1px solid fn.sys-var(color, outline);
+    }
+  }
+
+  &--variant-outline {
+    background-color: fn.sys-var(color, surface);
+    border: 1px solid fn.sys-var(color, outline-variant);
+
+    &.is-focused {
+      border: 1px solid fn.sys-var(color, primary);
+    }
+  }
+
+  &--variant-solid {
+    background-color: fn.sys-var(color, surface-container-high);
+    border: 1px solid transparent;
+
+    &.is-focused {
+      border: 1px solid fn.sys-var(color, primary);
     }
   }
 

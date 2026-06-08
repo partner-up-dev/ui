@@ -3,10 +3,21 @@
 
 .pu-button {
   @include pu-font("control");
+  --pu-button-min-height: calc(
+    #{fn.sys-var(spacing, large)} + #{fn.sys-var(spacing, small)} + #{fn.sys-var(spacing, xsmall)}
+  );
+  --pu-button-radius: #{fn.sys-var(radius, small)};
+  --pu-button-accent: #{fn.sys-var(color, primary)};
+  --pu-button-on-accent: #{fn.sys-var(color, on-primary)};
+  --pu-button-soft-background: #{fn.sys-var(color, primary-container)};
+  --pu-button-soft-color: #{fn.sys-var(color, on-primary-container)};
+
   position: relative;
   box-sizing: border-box;
   min-width: 0;
+  min-height: var(--pu-button-min-height);
   border: 1px solid transparent;
+  border-radius: var(--pu-button-radius);
   color: inherit;
   font: inherit;
   text-decoration: none;
@@ -33,7 +44,8 @@
 }
 
 .pu-button--shape-rect,
-.pu-button--shape-pill {
+.pu-button--shape-pill,
+.pu-button--shape-circle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -41,30 +53,40 @@
 }
 
 .pu-button--shape-rect {
-  border-radius: fn.sys-var(radius, small);
+  --pu-button-radius: #{fn.sys-var(radius, small)};
 }
 
 .pu-button--shape-pill {
-  border-radius: fn.sys-var(radius, full);
+  --pu-button-radius: #{fn.sys-var(radius, pill)};
+}
+
+.pu-button--shape-circle {
+  --pu-button-radius: #{fn.sys-var(radius, full)};
 }
 
 .pu-button--size-sm {
-  min-height: fn.sys-var(spacing, large);
+  --pu-button-min-height: #{fn.sys-var(spacing, large)};
+
+  min-height: var(--pu-button-min-height);
   padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, small);
 }
 
 .pu-button--size-md {
-  min-height: calc(
+  --pu-button-min-height: calc(
     #{fn.sys-var(spacing, large)} + #{fn.sys-var(spacing, small)} + #{fn.sys-var(spacing, xsmall)}
   );
+
+  min-height: var(--pu-button-min-height);
   padding: fn.sys-var(spacing, small) fn.sys-var(spacing, medium);
 }
 
 .pu-button--size-lg {
   @include pu-font("section");
-  min-height: calc(
+  --pu-button-min-height: calc(
     #{fn.sys-var(spacing, large)} + (2 * #{fn.sys-var(spacing, small)}) + #{fn.sys-var(spacing, xsmall)}
   );
+
+  min-height: var(--pu-button-min-height);
   padding: fn.sys-var(spacing, medium) fn.sys-var(spacing, large);
 }
 
@@ -78,63 +100,73 @@
 }
 
 .pu-button--tone-primary {
-  border-color: fn.sys-var(color, primary);
-  background: fn.sys-var(color, primary);
-  color: fn.sys-var(color, on-primary);
-}
-
-.pu-button--tone-primary-outline {
-  border-color: fn.sys-var(color, primary);
-  background: transparent;
-  color: fn.sys-var(color, primary);
+  --pu-button-accent: #{fn.sys-var(color, primary)};
+  --pu-button-on-accent: #{fn.sys-var(color, on-primary)};
+  --pu-button-soft-background: #{fn.sys-var(color, primary-container)};
+  --pu-button-soft-color: #{fn.sys-var(color, on-primary-container)};
 }
 
 .pu-button--tone-secondary {
-  border-color: fn.sys-var(color, secondary);
+  --pu-button-accent: #{fn.sys-var(color, secondary)};
+  --pu-button-on-accent: #{fn.sys-var(color, on-secondary)};
+  --pu-button-soft-background: #{fn.sys-var(color, secondary-container)};
+  --pu-button-soft-color: #{fn.sys-var(color, on-secondary-container)};
+}
+
+.pu-button--tone-tertiary {
+  --pu-button-accent: #{fn.sys-var(color, tertiary)};
+  --pu-button-on-accent: #{fn.sys-var(color, on-tertiary)};
+  --pu-button-soft-background: #{fn.sys-var(color, tertiary-container)};
+  --pu-button-soft-color: #{fn.sys-var(color, on-tertiary-container)};
+}
+
+.pu-button--tone-neutral {
+  --pu-button-accent: #{fn.sys-var(color, on-surface)};
+  --pu-button-on-accent: #{fn.sys-var(color, surface)};
+  --pu-button-soft-background: #{fn.sys-var(color, surface-container)};
+  --pu-button-soft-color: #{fn.sys-var(color, on-surface)};
+}
+
+.pu-button--tone-danger {
+  --pu-button-accent: #{fn.sys-var(color, error)};
+  --pu-button-on-accent: #{fn.sys-var(color, on-error)};
+  --pu-button-soft-background: #{fn.sys-var(color, error-container)};
+  --pu-button-soft-color: #{fn.sys-var(color, on-error-container)};
+}
+
+.pu-button--variant-solid {
+  border-color: var(--pu-button-accent);
+  background: var(--pu-button-accent);
+  color: var(--pu-button-on-accent);
+}
+
+.pu-button--variant-soft {
+  border-color: transparent;
+  background: var(--pu-button-soft-background);
+  color: var(--pu-button-soft-color);
+}
+
+.pu-button--variant-outline,
+.pu-button--variant-dashed {
+  border-color: var(--pu-button-accent);
   background: transparent;
-  color: fn.sys-var(color, secondary);
+  color: var(--pu-button-accent);
 }
 
-.pu-button--shape-pill.pu-button--tone-secondary {
-  background: fn.sys-var(color, secondary);
-  color: fn.sys-var(color, on-secondary);
+.pu-button--variant-dashed {
+  border-style: dashed;
 }
 
-.pu-button--tone-outline {
-  border-color: fn.sys-var(color, outline);
+.pu-button--variant-ghost {
+  border-color: transparent;
   background: transparent;
-  color: fn.sys-var(color, on-surface);
+  color: var(--pu-button-accent);
 }
 
-.pu-button--tone-surface {
-  border-color: fn.sys-var(color, outline);
-  background: fn.sys-var(color, surface-container);
-  color: fn.sys-var(color, on-surface);
-}
-
-.pu-button--shape-pill.pu-button--tone-surface {
-  border-color: fn.sys-var(color, outline-variant);
-  background: fn.sys-var(color, surface-container-lowest);
-}
-
-.pu-button--tone-tertiary,
 .pu-button--feedback-success {
   border-color: fn.sys-var(color, tertiary);
   background: fn.sys-var(color, tertiary);
   color: fn.sys-var(color, on-tertiary);
-}
-
-.pu-button--tone-dashed {
-  border-style: dashed;
-  border-color: fn.sys-var(color, outline);
-  background: transparent;
-  color: fn.sys-var(color, on-surface);
-}
-
-.pu-button--tone-danger {
-  border-color: fn.sys-var(color, error);
-  background: transparent;
-  color: fn.sys-var(color, error);
 }
 
 .pu-button--feedback-error {
@@ -143,18 +175,12 @@
   color: fn.sys-var(color, on-error);
 }
 
-.pu-button--tone-ghost {
-  border-color: transparent;
-  background: transparent;
-  color: fn.sys-var(color, on-surface);
-}
-
-.pu-button--tone-ghost:hover:not(.is-disabled),
-.pu-button--tone-ghost:focus-visible:not(.is-disabled) {
+.pu-button--variant-ghost:hover:not(.is-disabled),
+.pu-button--variant-ghost:focus-visible:not(.is-disabled) {
   background: fn.sys-var(color, surface-container-high);
 }
 
-.pu-button:hover:not(.is-disabled):not(.pu-button--tone-ghost) {
+.pu-button:hover:not(.is-disabled):not(.pu-button--variant-ghost) {
   filter: brightness(0.98);
 }
 

@@ -2,12 +2,18 @@
 @use "../../styles/mixins" as *;
 
 .pu-tag {
+  --pu-tag-accent: #{fn.sys-var(color, on-surface)};
+  --pu-tag-on-accent: #{fn.sys-var(color, surface)};
+  --pu-tag-soft-background: #{fn.sys-var(color, surface-container)};
+  --pu-tag-soft-color: #{fn.sys-var(color, on-surface)};
+
   display: flex;
   align-items: center;
   justify-content: center;
   padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, medium);
-  background-color: fn.sys-var(color, surface-container);
-  color: fn.sys-var(color, on-surface);
+  border: 1px solid transparent;
+  background-color: var(--pu-tag-soft-background);
+  color: var(--pu-tag-soft-color);
 
   .text {
     @include pu-font(control);
@@ -16,37 +22,93 @@
     text-align: center;
   }
 
-  &.rounded {
-    border-radius: fn.sys-var(radius, full);
+  &--shape-rect {
+    border-radius: fn.sys-var(radius, small);
   }
 
-  &.outlined {
-    border: 1px solid fn.sys-var(color, outline-variant);
+  &--shape-pill {
+    border-radius: fn.sys-var(radius, pill);
   }
 
-  &.surface-outlined {
-    background-color: fn.sys-var(color, surface-container);
-    border: 1px solid fn.sys-var(color, outline-variant);
+  &--tone-neutral {
+    --pu-tag-accent: #{fn.sys-var(color, on-surface)};
+    --pu-tag-on-accent: #{fn.sys-var(color, surface)};
+    --pu-tag-soft-background: #{fn.sys-var(color, surface-container)};
+    --pu-tag-soft-color: #{fn.sys-var(color, on-surface)};
   }
 
-  &.surface {
-    background-color: fn.sys-var(color, surface-container);
-    border: none;
+  &--tone-primary {
+    --pu-tag-accent: #{fn.sys-var(color, primary)};
+    --pu-tag-on-accent: #{fn.sys-var(color, on-primary)};
+    --pu-tag-soft-background: #{fn.sys-var(color, primary-container)};
+    --pu-tag-soft-color: #{fn.sys-var(color, on-primary-container)};
   }
 
-  &.x-small {
+  &--tone-secondary,
+  &--tone-info {
+    --pu-tag-accent: #{fn.sys-var(color, secondary)};
+    --pu-tag-on-accent: #{fn.sys-var(color, on-secondary)};
+    --pu-tag-soft-background: #{fn.sys-var(color, secondary-container)};
+    --pu-tag-soft-color: #{fn.sys-var(color, on-secondary-container)};
+  }
+
+  &--tone-tertiary,
+  &--tone-success {
+    --pu-tag-accent: #{fn.sys-var(color, tertiary)};
+    --pu-tag-on-accent: #{fn.sys-var(color, on-tertiary)};
+    --pu-tag-soft-background: #{fn.sys-var(color, tertiary-container)};
+    --pu-tag-soft-color: #{fn.sys-var(color, on-tertiary-container)};
+  }
+
+  &--tone-danger,
+  &--tone-error {
+    --pu-tag-accent: #{fn.sys-var(color, error)};
+    --pu-tag-on-accent: #{fn.sys-var(color, on-error)};
+    --pu-tag-soft-background: #{fn.sys-var(color, error-container)};
+    --pu-tag-soft-color: #{fn.sys-var(color, on-error-container)};
+  }
+
+  &--tone-warning {
+    --pu-tag-accent: #{fn.sys-var(color, warning)};
+    --pu-tag-on-accent: #{fn.sys-var(color, on-warning)};
+    --pu-tag-soft-background: #{fn.sys-var(color, warning)};
+    --pu-tag-soft-color: #{fn.sys-var(color, on-warning)};
+  }
+
+  &--variant-plain {
+    background-color: transparent;
+    color: var(--pu-tag-accent);
+  }
+
+  &--variant-soft {
+    background-color: var(--pu-tag-soft-background);
+    color: var(--pu-tag-soft-color);
+  }
+
+  &--variant-outline {
+    border-color: color-mix(in srgb, var(--pu-tag-accent) 56%, transparent);
+    background-color: transparent;
+    color: var(--pu-tag-accent);
+  }
+
+  &--variant-solid {
+    background-color: var(--pu-tag-accent);
+    color: var(--pu-tag-on-accent);
+  }
+
+  &--size-xs {
     padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, small);
     .text {
       @include pu-font(caption);
     }
   }
-  &.small {
+  &--size-sm {
     padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, small);
     .text {
       @include pu-font(caption);
     }
   }
-  &.medium {
+  &--size-md {
     padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, medium);
     .text {
       @include pu-font(control);

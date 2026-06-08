@@ -35,7 +35,7 @@ function logInput(event: string, payload: unknown): void {
 
     <Variant title="Icons And Alignment">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <PuInput
             v-model="search"
             placeholder="Search members"
@@ -58,7 +58,7 @@ function logInput(event: string, payload: unknown): void {
 
     <Variant title="Password And Count">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface">
+        <PuCard tone="neutral" variant="soft">
           <PuInput
             v-model="password"
             label="Password"
@@ -77,7 +77,7 @@ function logInput(event: string, payload: unknown): void {
 
     <Variant title="Validation States">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface" padding="sm">
+        <PuCard tone="neutral" variant="soft" padding="sm">
           <PuInput
             model-value=""
             label="Event title"
@@ -97,7 +97,7 @@ function logInput(event: string, payload: unknown): void {
 
     <Variant title="Slots">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <PuInput model-value="Hangzhou" placeholder="City">
             <template #label>
               <span class="pu-input-story__label">Custom city</span>

@@ -47,6 +47,7 @@ Story: `src/stories/display/PuChip.story.vue`
 
 - Basic
 - Tones
+- Variants
 - Sizes
 - Group Layout
 - Fit To Width

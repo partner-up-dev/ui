@@ -53,7 +53,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, useSlots } from "vue";
-import { puSizes } from "../../types";
+import { puControlVariants, puSizes } from "../../types";
 import {
   createPuModifierClass,
   createPuStateClass,
@@ -66,7 +66,10 @@ const emit = defineEmits(puChipEmits);
 const slots = useSlots();
 
 const isButton = computed(() => props.as === "button");
-const tone = computed(() => normalizePuVariant(puChipTones, props.tone, "surface"));
+const tone = computed(() => normalizePuVariant(puChipTones, props.tone, "neutral"));
+const variant = computed(() =>
+  normalizePuVariant(puControlVariants, props.variant, "soft"),
+);
 const size = computed<PuChipSize>(() => normalizePuVariant(puSizes, props.size, "md"));
 
 const hasPrefix = computed(() => Boolean(slots.prefix) || Boolean(props.prefixIcon));
@@ -86,6 +89,7 @@ const ariaPressed = computed(() =>
 
 const rootClasses = computed(() => [
   createPuModifierClass("pu-chip", "tone", tone.value),
+  createPuModifierClass("pu-chip", "variant", variant.value),
   createPuModifierClass("pu-chip", "size", size.value),
   createPuStateClass("selected", props.selected),
   createPuStateClass("disabled", props.disabled),

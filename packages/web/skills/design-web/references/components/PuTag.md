@@ -25,9 +25,9 @@ import { PuTag } from '@partner-up-dev/design-web'
 
 - `...baseProps`
 - `text`
-- `rounded`
-- `outlined`
-- `theme`
+- `tone`
+- `variant`
+- `shape`
 - `size`
 
 ## Slots
@@ -55,11 +55,14 @@ Story: `src/stories/display/PuTag.story.vue`
 ## Types
 
 - `PuTagProps`
+- `PuTagShape`
+- `PuTagSize`
+- `PuTagTone`
+- `PuTagVariant`
 
 ## Caveats
 
-- Uses legacy theme values Surface and SurfaceOutlined rather than canonical tone.
-- Uses legacy size values xSmall, Small, and Medium.
+- Use tone for semantic/status color, variant for tag treatment, shape for rect or pill geometry, and size xs, sm, or md.
 
 ## Source Evidence
 

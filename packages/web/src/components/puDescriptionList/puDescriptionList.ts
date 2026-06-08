@@ -1,17 +1,20 @@
 import type { PropType } from "vue";
 import {
+  puContainerVariants,
   puDensities,
   puLayouts,
-  puSurfaceTones,
+  puSurfaceLevels,
+  type PuContainerVariant,
   type PuDensity,
   type PuLayout,
-  type PuSurfaceTone,
+  type PuSurfaceLevel,
 } from "../../types";
 import { makeBooleanProp, makeNumberProp, makeStringProp } from "../../utils/props";
 import type { PuDescriptionLabelAlign } from "./context";
 
 export type PuDescriptionListColumns = 1 | 2;
-export type PuDescriptionListTone = PuSurfaceTone;
+export type PuDescriptionListSurfaceLevel = PuSurfaceLevel;
+export type PuDescriptionListVariant = PuContainerVariant;
 export type PuDescriptionListDensity = PuDensity;
 export type PuDescriptionListLayout = PuLayout;
 
@@ -31,10 +34,17 @@ export const puDescriptionListProps = {
     default: "comfortable",
     validator: (value: string) => puDensities.includes(value as PuDensity),
   },
-  tone: {
-    type: String as PropType<PuDescriptionListTone>,
+  surfaceLevel: {
+    type: String as PropType<PuDescriptionListSurfaceLevel>,
     default: "plain",
-    validator: (value: string) => puSurfaceTones.includes(value as PuSurfaceTone),
+    validator: (value: string) =>
+      puSurfaceLevels.includes(value as PuDescriptionListSurfaceLevel),
+  },
+  variant: {
+    type: String as PropType<PuDescriptionListVariant>,
+    default: "plain",
+    validator: (value: string) =>
+      puContainerVariants.includes(value as PuDescriptionListVariant),
   },
   bordered: makeBooleanProp(false),
   dividers: makeBooleanProp(true),

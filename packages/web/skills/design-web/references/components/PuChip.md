@@ -28,6 +28,7 @@ import { PuChip } from '@partner-up-dev/design-web'
 - `type`
 - `label`
 - `tone`
+- `variant`
 - `size`
 - `selected`
 - `disabled`
@@ -60,6 +61,7 @@ Story: `src/stories/display/PuChip.story.vue`
 
 - Basic
 - Tones
+- Variants
 - Sizes
 - Group Layout
 - Fit To Width
@@ -70,10 +72,11 @@ Story: `src/stories/display/PuChip.story.vue`
 - `PuChipSize`
 - `PuChipTone`
 - `PuChipType`
+- `PuChipVariant`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use tone for semantic/status color and variant for chip treatment such as soft, outline, solid, ghost, or dashed.
 
 ## Source Evidence
 

@@ -18,7 +18,7 @@ const viewMoreOpen = ref(false);
   <Story title="PuAccordion" group="display">
     <Variant title="Multiple">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline" gap="none">
+        <PuCard tone="neutral" variant="outline" gap="none">
           <PuAccordion v-model="openPanels">
             <PuAccordionItem name="details" title="Event details">
               <div class="pu-accordion-story__body">
@@ -48,7 +48,7 @@ const viewMoreOpen = ref(false);
 
     <Variant title="Single">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface" gap="none">
+        <PuCard tone="neutral" variant="soft" gap="none">
           <PuAccordion v-model="singlePanel" accordion>
             <PuAccordionItem name="agenda" title="Agenda">
               <div class="pu-accordion-story__body">
@@ -68,7 +68,7 @@ const viewMoreOpen = ref(false);
 
     <Variant title="Custom Title">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface" padding="sm" gap="none">
+        <PuCard tone="neutral" variant="soft" padding="sm" gap="none">
           <PuAccordion v-model="openPanels">
             <PuAccordionItem name="review" title="Review">
               <template #title="{ expanded }">
@@ -76,9 +76,9 @@ const viewMoreOpen = ref(false);
                   <span>Review status</span>
                   <PuTag
                     :text="expanded ? 'Open' : 'Ready'"
-                    theme="SurfaceOutlined"
-                    size="xSmall"
-                    rounded
+                    variant="outline"
+                    size="xs"
+                    shape="pill"
                   />
                 </div>
               </template>
@@ -93,7 +93,7 @@ const viewMoreOpen = ref(false);
 
     <Variant title="View More">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <PuAccordion v-model="viewMoreOpen" viewmore :line-num="2">
             PartnerUp hosts can add longer operational notes for a gathering.
             The view more mode keeps the first lines visible, then allows the

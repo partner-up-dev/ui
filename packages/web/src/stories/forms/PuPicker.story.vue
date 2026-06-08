@@ -87,7 +87,7 @@ function formatDateParts(items: PickerColumnItem | PickerColumnItem[]): string {
 
     <Variant title="Clearable And States">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <PuPicker
             v-model="clearableCity"
             :columns="cities"
@@ -119,7 +119,7 @@ function formatDateParts(items: PickerColumnItem | PickerColumnItem[]): string {
           :columns="cities"
           @confirm="handleConfirm"
         >
-          <PuButton tone="outline">Open city picker</PuButton>
+          <PuButton tone="neutral" variant="outline">Open city picker</PuButton>
         </PuPicker>
       </div>
     </Variant>

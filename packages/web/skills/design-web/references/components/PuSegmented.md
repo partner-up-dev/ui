@@ -32,6 +32,7 @@ import { PuSegmented } from '@partner-up-dev/design-web'
 - `size`
 - `density`
 - `tone`
+- `variant`
 - `fullWidth`
 - `equalWidth`
 - `ariaLabel`
@@ -72,9 +73,11 @@ Story: `src/stories/display/PuSegmented.story.vue`
 - `PuSegmentedSize`
 - `PuSegmentedTone`
 - `PuSegmentedValue`
+- `PuSegmentedVariant`
 
 ## Caveats
 
+- Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed.
 - Use semantics="tabs" only when the items control associated tab panels.
 
 ## Source Evidence

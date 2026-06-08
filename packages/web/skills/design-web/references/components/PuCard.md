@@ -29,7 +29,7 @@ import { PuCard } from '@partner-up-dev/design-web'
 - `action`
 - `as`
 - `tone`
-- `theme`
+- `variant`
 - `padding`
 - `gap`
 - `title`
@@ -79,10 +79,13 @@ Story: `src/stories/display/PuCard.story.vue`
 
 - `PuCardExpandablePolicy`
 - `PuCardPadding`
+- `PuCardTone`
+- `PuCardVariant`
 
 ## Caveats
 
 - Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.
+- Use tone for semantic emphasis and variant for container treatment such as soft, outline, plain, or solid.
 - Use selectable for button-like choice cards without a navigation target.
 - Use keepContentMounted only when collapsed content owns local state that must survive collapse.
 - Interactive cards must not contain nested interactive controls.

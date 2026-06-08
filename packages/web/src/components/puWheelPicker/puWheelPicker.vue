@@ -3,7 +3,8 @@
     ref="rootRef"
     class="pu-wheel-picker"
     :class="[
-      `pu-wheel-picker--tone-${resolvedTone}`,
+      `pu-wheel-picker--tone-${props.tone}`,
+      `pu-wheel-picker--variant-${props.variant}`,
       {
         'is-disabled': props.disabled,
         'is-dragging': isDragging,
@@ -89,7 +90,6 @@ import {
   puWheelPickerEmits,
   puWheelPickerProps,
   type PuWheelPickerOption,
-  type PuWheelPickerTone,
 } from "./puWheelPicker";
 
 type WheelPickerStyle = CSSProperties & Record<`--${string}`, string>;
@@ -134,11 +134,6 @@ const dragState = ref<DragState | null>(null);
 let snapTimer: number | null = null;
 let wheelTimer: number | null = null;
 let lastWheelDirection = 0;
-
-const resolvedTone = computed<PuWheelPickerTone>(() => {
-  const rawTone = props.tone ?? props.variant;
-  return rawTone === "teritary" ? "tertiary" : rawTone;
-});
 
 const itemHeightPx = computed(() => {
   if (!Number.isFinite(props.itemHeight)) {

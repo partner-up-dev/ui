@@ -1,6 +1,7 @@
 import type { PropType } from "vue";
 import type {
   PuAction,
+  PuContainerVariant,
   PuExpandablePolicy,
   PuExpansionResetKey,
   PuGap,
@@ -9,6 +10,8 @@ import type {
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
 export type PuCardPadding = "none" | "sm" | "md" | "lg";
+export type PuCardTone = PuTone;
+export type PuCardVariant = PuContainerVariant;
 
 export const puCardProps = {
   action: {
@@ -16,8 +19,8 @@ export const puCardProps = {
     default: undefined,
   },
   as: makeStringProp("article"),
-  tone: makeStringProp<PuTone>("surface"),
-  theme: makeStringProp<PuTone | undefined>(undefined),
+  tone: makeStringProp<PuCardTone>("neutral"),
+  variant: makeStringProp<PuCardVariant>("soft"),
   padding: makeStringProp<PuCardPadding>("md"),
   gap: makeStringProp<PuGap>("sm"),
   title: makeStringProp<string | undefined>(undefined),

@@ -1,9 +1,11 @@
 import type { PropType } from "vue";
 import {
-  puCommonTones,
+  puControlVariants,
   puDensities,
   puOrientations,
   puSizes,
+  puTones,
+  type PuControlVariant,
   type PuDensity,
   type PuOrientation,
   type PuSize,
@@ -18,6 +20,7 @@ export type PuSegmentedSize = PuSize;
 export type PuSegmentedDensity = PuDensity;
 export type PuSegmentedOrientation = PuOrientation;
 export type PuSegmentedTone = PuTone;
+export type PuSegmentedVariant = PuControlVariant;
 
 export const puSegmentedSemantics = ["radio", "tabs"] as const;
 export const puSegmentedActivations = ["automatic", "manual"] as const;
@@ -57,8 +60,14 @@ export const puSegmentedProps = {
   },
   tone: {
     type: String as PropType<PuSegmentedTone>,
-    default: "surface",
-    validator: (value: string) => puCommonTones.includes(value as PuTone),
+    default: "neutral",
+    validator: (value: string) => puTones.includes(value as PuTone),
+  },
+  variant: {
+    type: String as PropType<PuSegmentedVariant>,
+    default: "soft",
+    validator: (value: string) =>
+      puControlVariants.includes(value as PuSegmentedVariant),
   },
   fullWidth: makeBooleanProp(false),
   equalWidth: makeBooleanProp(false),

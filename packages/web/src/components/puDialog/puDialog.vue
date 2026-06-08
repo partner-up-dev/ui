@@ -78,7 +78,8 @@
             <slot name="actions">
               <PuButton
                 v-if="props.showCancel"
-                tone="surface"
+                tone="neutral"
+                variant="soft"
                 :disabled="props.cancelDisabled"
                 @click="requestClose('cancel')"
               >

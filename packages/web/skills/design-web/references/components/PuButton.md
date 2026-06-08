@@ -28,6 +28,7 @@ import { PuButton } from '@partner-up-dev/design-web'
 - `action`
 - `shape`
 - `tone`
+- `variant`
 - `size`
 - `feedback`
 - `loading`
@@ -48,6 +49,7 @@ import { PuButton } from '@partner-up-dev/design-web'
 
 - PuPageHeader
 - PuFormItem
+- PuDialog
 - PuModal
 - PuCard
 
@@ -56,6 +58,7 @@ import { PuButton } from '@partner-up-dev/design-web'
 Story: `src/stories/actions/PuButton.story.vue`
 
 - Tones
+- Variants
 - Shapes And Sizes
 - Action Targets
 - Slots And Block
@@ -66,10 +69,12 @@ Story: `src/stories/actions/PuButton.story.vue`
 - `PuButtonFeedback`
 - `PuButtonSize`
 - `PuButtonTone`
+- `PuButtonVariant`
 
 ## Caveats
 
 - Use the structured action prop with the shared PuAction type for native, href, or route targets; route actions render the consuming app's globally registered RouterLink.
+- Use tone for semantic color intent and variant for visual treatment such as solid, soft, outline, ghost, or dashed.
 - Use feedback for transient idle, pending, success, and error action states.
 - Icon-only buttons need an accessible label.
 - Disabled link actions use aria-disabled and stop click navigation.

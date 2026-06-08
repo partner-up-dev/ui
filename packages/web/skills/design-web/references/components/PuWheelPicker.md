@@ -25,8 +25,8 @@ import { PuWheelPicker } from '@partner-up-dev/design-web'
 
 - `modelValue`
 - `options`
-- `variant`
 - `tone`
+- `variant`
 - `itemHeight`
 - `visibleCount`
 - `disabled`
@@ -55,6 +55,7 @@ Story: `src/stories/forms/PuWheelPicker.story.vue`
 - Controlled
 - Compact
 - Tones
+- Variants
 - Empty
 
 ## Types
@@ -66,7 +67,7 @@ Story: `src/stories/forms/PuWheelPicker.story.vue`
 
 ## Caveats
 
-- Includes both variant and tone concepts; preserve extracted package values instead of inventing generic picker props.
+- Use tone for semantic highlight color and variant for picker surface treatment.
 
 ## Source Evidence
 

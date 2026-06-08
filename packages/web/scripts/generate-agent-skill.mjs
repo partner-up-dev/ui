@@ -626,6 +626,9 @@ const componentFileName = (componentName) => `references/components/${componentN
 
 const renderSkill = (model) => {
   const firstSkillReference = model.skillReferences[0];
+  const variantReference = model.skillReferences.find(
+    (reference) => reference.target === "references/variant-vocabulary.md",
+  );
   const featured = [
     ["Page title with actions", "PuPageHeader"],
     ["Command or icon command", "PuButton"],
@@ -657,8 +660,9 @@ when a task asks which PartnerUp design component to use.
 2. Read \`references/component-map.md\` for candidate components.
 3. For page-level UI, read \`references/composition-recipes.md\`.
 4. ${firstSkillReference ? `For structure, styling, or responsive decisions, read \`${firstSkillReference.target}\`.` : "Apply the package usage rules before writing custom UI."}
-5. Read only the selected files under \`references/components/\`.
-6. Implement with public package APIs from the selected component references.
+${variantReference ? `5. For tone, status, variant, surface, or shape choices, read \`${variantReference.target}\`.` : ""}
+${variantReference ? "6" : "5"}. Read only the selected files under \`references/components/\`.
+${variantReference ? "7" : "6"}. Implement with public package APIs from the selected component references.
 
 ## Component Selection
 
@@ -791,6 +795,9 @@ ${list(recipe.use)}
 
 const renderUsageRules = (model) => {
   const firstSkillReference = model.skillReferences[0];
+  const variantReference = model.skillReferences.find(
+    (reference) => reference.target === "references/variant-vocabulary.md",
+  );
   const caveats = model.components.flatMap((component) =>
     [...component.apiCaveats, ...component.accessibilityNotes, ...component.commonMistakes].map((note) => `${component.name}: ${note}`),
   );
@@ -821,6 +828,16 @@ const renderUsageRules = (model) => {
 - Prefer package-owned composition before app-level markup or wrapper CSS.
 - Use local CSS mechanisms for component-specific behavior instead of promoting one-off values into tokens.
 ${firstSkillReference ? `- Read \`${firstSkillReference.target}\` before making structure, styling, or responsive implementation decisions.` : "- Follow package docs before making structure, styling, or responsive implementation decisions."}
+${variantReference ? `- Read \`${variantReference.target}\` before choosing tone, status tone, variant, surface level, or shape props.` : ""}
+
+## Variant Vocabulary
+
+${variantReference ? `- Use \`${variantReference.target}\` as the durable source for tone, status tone, control variant, container variant, surface level, and shape choices.` : "- Follow package vocabulary docs before adding or choosing visual API values."}
+- Use \`tone\` for semantic color intent: neutral, primary, secondary, tertiary, or danger.
+- Use status tone for feedback state: info, success, warning, or error.
+- Use \`variant\` for visual treatment such as solid, soft, outline, ghost, or dashed.
+- Use \`surfaceLevel\` only for neutral page or content depth.
+- Do not treat outline, ghost, dashed, soft, or surface as tones.
 
 ## Package Caveats
 

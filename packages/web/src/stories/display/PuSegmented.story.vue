@@ -57,6 +57,7 @@ function handleChange(value: string | number): void {
             v-model="view"
             semantics="tabs"
             tone="primary"
+            variant="soft"
             aria-label="Admin view"
             equal-width
             full-width
@@ -87,7 +88,8 @@ function handleChange(value: string | number): void {
           <PuCard
             :id="`segmented-${view}-panel`"
             role="tabpanel"
-            tone="outline"
+            tone="neutral"
+            variant="outline"
           >
             <p class="pu-story__label">{{ view }}</p>
             <p class="pu-story__text">{{ activePanelText }}</p>
@@ -98,7 +100,7 @@ function handleChange(value: string | number): void {
 
     <Variant title="Icons And Counts">
       <div class="pu-story">
-        <PuSegmented v-model="density" aria-label="Density" tone="secondary">
+          <PuSegmented v-model="density" aria-label="Density" tone="secondary">
           <PuSegmentedItem value="compact">
             <template #leading>
               <span class="i-mdi-format-align-justify" />
@@ -124,7 +126,7 @@ function handleChange(value: string | number): void {
     <Variant title="Sizes And Density">
       <div class="pu-story">
         <div class="pu-segmented-story__grid">
-          <PuCard tone="outline">
+          <PuCard tone="neutral" variant="outline">
             <p class="pu-story__label">Small compact</p>
             <PuSegmented
               v-model="smallRange"
@@ -138,7 +140,7 @@ function handleChange(value: string | number): void {
             </PuSegmented>
           </PuCard>
 
-          <PuCard tone="outline">
+          <PuCard tone="neutral" variant="outline">
             <p class="pu-story__label">Large comfortable</p>
             <PuSegmented
               v-model="layoutView"

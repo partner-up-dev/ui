@@ -46,18 +46,18 @@ function handleLineChange(payload: unknown): void {
     <Variant title="Themes">
       <div class="pu-story">
         <div class="pu-story__grid">
-          <PuCard tone="outline">
-            <p class="pu-story__label">surface-container</p>
+          <PuCard tone="neutral" variant="outline">
+            <p class="pu-story__label">soft</p>
             <PuTextarea
               model-value="Container tone gives the field a filled surface."
-              theme="surface-container"
+              variant="soft"
             />
           </PuCard>
-          <PuCard tone="outline">
-            <p class="pu-story__label">surface</p>
+          <PuCard tone="neutral" variant="outline">
+            <p class="pu-story__label">plain</p>
             <PuTextarea
               model-value="Surface tone reads like an inline field."
-              theme="surface"
+              variant="plain"
             />
           </PuCard>
         </div>
@@ -66,7 +66,7 @@ function handleLineChange(payload: unknown): void {
 
     <Variant title="Readonly Disabled">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface" padding="sm">
+        <PuCard tone="neutral" variant="soft" padding="sm">
           <PuTextarea model-value="Readonly notes remain selectable." readonly />
           <PuTextarea model-value="Disabled notes are unavailable." disabled />
         </PuCard>

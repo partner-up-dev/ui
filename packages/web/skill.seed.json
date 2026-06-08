@@ -32,6 +32,11 @@
       "source": "../../docs/30-unit-tdd/web/composition-principles.md",
       "target": "references/composition-principles.md",
       "description": "durable package principles for component ownership, composition, tokens, and local CSS."
+    },
+    {
+      "source": "../../docs/30-unit-tdd/web/variant-vocabulary.md",
+      "target": "references/variant-vocabulary.md",
+      "description": "durable package vocabulary for tone, status tone, control variants, container variants, surface levels, and shapes."
     }
   ],
   "components": {
@@ -68,6 +73,7 @@
       "preferWhen": ["Use inside PuBentoGrid for an individual overview tile."],
       "avoidWhen": ["Avoid as a general-purpose card outside bento layouts."],
       "composeWith": ["PuBentoGrid"],
+      "apiCaveats": ["Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuBentoGrid.story.vue"
     },
@@ -77,7 +83,7 @@
       "preferWhen": ["Use for user-triggered commands, form actions, compact icon commands, link-styled calls to action, and transient pending/success/error feedback actions."],
       "avoidWhen": ["Avoid for plain inline text links."],
       "composeWith": ["PuPageHeader", "PuFormItem", "PuDialog", "PuModal", "PuCard"],
-      "apiCaveats": ["Use the structured action prop with the shared PuAction type for native, href, or route targets; route actions render the consuming app's globally registered RouterLink.", "Use feedback for transient idle, pending, success, and error action states."],
+      "apiCaveats": ["Use the structured action prop with the shared PuAction type for native, href, or route targets; route actions render the consuming app's globally registered RouterLink.", "Use tone for semantic color intent and variant for visual treatment such as solid, soft, outline, ghost, or dashed.", "Use feedback for transient idle, pending, success, and error action states."],
       "accessibilityNotes": ["Icon-only buttons need an accessible label.", "Disabled link actions use aria-disabled and stop click navigation."],
       "storyGroup": "actions",
       "storyFile": "src/stories/actions/PuButton.story.vue"
@@ -88,7 +94,7 @@
       "preferWhen": ["Use for grouped content with optional hero, header, body, footer, collapsible content, or whole-card action targets."],
       "avoidWhen": ["Avoid for dense list rows; use PuCellGroup and PuCell for row-based settings or lists.", "Avoid putting buttons, links, or form controls inside an interactive card root."],
       "composeWith": ["PuButton", "PuTag", "PuInlineNotice"],
-      "apiCaveats": ["Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.", "Use selectable for button-like choice cards without a navigation target.", "Use keepContentMounted only when collapsed content owns local state that must survive collapse."],
+      "apiCaveats": ["Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.", "Use tone for semantic emphasis and variant for container treatment such as soft, outline, plain, or solid.", "Use selectable for button-like choice cards without a navigation target.", "Use keepContentMounted only when collapsed content owns local state that must survive collapse."],
       "accessibilityNotes": ["Interactive cards must not contain nested interactive controls.", "Disabled link and route cards use aria-disabled and stop click navigation."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuCard.story.vue"
@@ -108,6 +114,7 @@
       "preferWhen": ["Use to group PuCell rows into a titled or visually bounded section."],
       "avoidWhen": ["Avoid for free-form card content; use PuCard."],
       "composeWith": ["PuCell", "PuInlineNotice"],
+      "apiCaveats": ["Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuCellGroup.story.vue"
     },
@@ -135,6 +142,7 @@
       "preferWhen": ["Use for compact labels, filters, selected values, or removable tokens."],
       "avoidWhen": ["Avoid as a primary command button."],
       "composeWith": ["PuChipGroup", "PuCard", "PuPageHeader"],
+      "apiCaveats": ["Use tone for semantic/status color and variant for chip treatment such as soft, outline, solid, ghost, or dashed."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuChip.story.vue"
     },
@@ -164,6 +172,7 @@
       "preferWhen": ["Use for grouped facts, profile details, order metadata, or read-only field summaries."],
       "avoidWhen": ["Avoid for editable forms; use PuForm and field components."],
       "composeWith": ["PuDescriptionItem", "PuCard"],
+      "apiCaveats": ["Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuDescriptionList.story.vue"
     },
@@ -194,6 +203,7 @@
       "preferWhen": ["Use when a region has no data, no search results, or needs a first-use prompt."],
       "avoidWhen": ["Avoid for transient loading; use PuSkeleton."],
       "composeWith": ["PuButton", "PuInlineNotice"],
+      "apiCaveats": ["Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuEmptyState.story.vue"
     },
@@ -319,6 +329,7 @@
       "preferWhen": ["Use for page titles with optional subtitle, metadata, and actions."],
       "avoidWhen": ["Avoid custom page header markup when this component covers the structure."],
       "composeWith": ["PuButton", "PuChip", "PuInlineNotice"],
+      "apiCaveats": ["Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuPageHeader.story.vue"
     },
@@ -354,6 +365,7 @@
       "preferWhen": ["Use for compact single-choice mode, filter, or page-view switching with keyboard behavior."],
       "avoidWhen": ["Avoid for large option sets or free-form navigation; use PuTabs, PuPicker, or application routing as appropriate."],
       "composeWith": ["PuSegmentedItem", "PuPageHeader", "PuCard"],
+      "apiCaveats": ["Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed."],
       "accessibilityNotes": ["Use semantics=\"tabs\" only when the items control associated tab panels."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuSegmented.story.vue"
@@ -414,7 +426,7 @@
       "preferWhen": ["Use for compact non-interactive status or category labels."],
       "avoidWhen": ["Avoid for removable or selected tokens; use PuChip."],
       "composeWith": ["PuCard", "PuPageHeader", "PuCell"],
-      "apiCaveats": ["Uses legacy theme values Surface and SurfaceOutlined rather than canonical tone.", "Uses legacy size values xSmall, Small, and Medium."],
+      "apiCaveats": ["Use tone for semantic/status color, variant for tag treatment, shape for rect or pill geometry, and size xs, sm, or md."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuTag.story.vue"
     },
@@ -424,7 +436,7 @@
       "preferWhen": ["Use for multi-line text entry."],
       "avoidWhen": ["Avoid for single-line fields; use PuInput."],
       "composeWith": ["PuFormItem", "PuForm"],
-      "apiCaveats": ["Uses legacy theme values surface-container and surface."],
+      "apiCaveats": ["Use variant for field treatment such as soft, plain, outline, or solid."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuTextarea.story.vue"
     },
@@ -443,7 +455,7 @@
       "preferWhen": ["Use for wheel-style option selection where that interaction matches the product surface."],
       "avoidWhen": ["Avoid for section navigation; use PuTabs."],
       "composeWith": ["PuFormItem", "PuModal", "PuDrawer"],
-      "apiCaveats": ["Includes both variant and tone concepts; preserve extracted package values instead of inventing generic picker props."],
+      "apiCaveats": ["Use tone for semantic highlight color and variant for picker surface treatment."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuWheelPicker.story.vue"
     }

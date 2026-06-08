@@ -25,10 +25,12 @@ export default {
 <script setup lang="ts">
 import { computed, nextTick, provide, ref, shallowRef } from "vue";
 import {
-  puCommonTones,
+  puControlVariants,
   puDensities,
   puOrientations,
   puSizes,
+  puTones,
+  type PuControlVariant,
   type PuDensity,
   type PuOrientation,
   type PuSize,
@@ -74,7 +76,10 @@ const density = computed<PuDensity>(() =>
   normalizePuVariant(puDensities, props.density, "comfortable"),
 );
 const tone = computed<PuTone>(() =>
-  normalizePuVariant(puCommonTones, props.tone, "surface"),
+  normalizePuVariant(puTones, props.tone, "neutral"),
+);
+const variant = computed<PuControlVariant>(() =>
+  normalizePuVariant(puControlVariants, props.variant, "soft"),
 );
 const selectedValue = computed(() => props.modelValue);
 
@@ -89,6 +94,7 @@ const rootClasses = computed(() => [
   createPuModifierClass("pu-segmented", "size", size.value),
   createPuModifierClass("pu-segmented", "density", density.value),
   createPuModifierClass("pu-segmented", "tone", tone.value),
+  createPuModifierClass("pu-segmented", "variant", variant.value),
   createPuStateClass("disabled", props.disabled),
   createPuStateClass("full-width", props.fullWidth),
   createPuStateClass("equal-width", props.equalWidth),
@@ -290,6 +296,7 @@ provide(puSegmentedKey, {
   size,
   density,
   tone,
+  variant,
   registerItem,
   unregisterItem,
   isSelected,

@@ -28,7 +28,7 @@ function handleChange(payload: unknown): void {
 
     <Variant title="Shapes">
       <div class="pu-story">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <div class="pu-checkbox-story__row">
             <PuCheckbox v-model="accepted" shape="circle">Circle</PuCheckbox>
             <PuCheckbox v-model="square" shape="square">Square</PuCheckbox>
@@ -47,7 +47,7 @@ function handleChange(payload: unknown): void {
 
     <Variant title="Bar">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface" gap="none">
+        <PuCard tone="neutral" variant="soft" gap="none">
           <PuCheckbox
             :model-value="true"
             type="Bar"
@@ -70,7 +70,7 @@ function handleChange(payload: unknown): void {
 
     <Variant title="States">
       <div class="pu-story">
-        <PuCard tone="surface" padding="sm">
+        <PuCard tone="neutral" variant="soft" padding="sm">
           <div class="pu-checkbox-story__row">
             <PuCheckbox :model-value="true" disabled>Disabled checked</PuCheckbox>
             <PuCheckbox :model-value="false" disabled>Disabled off</PuCheckbox>

@@ -28,7 +28,7 @@ CSS class blocks use kebab case:
 ```
 .pu-description-list
 .pu-description-list__header
-.pu-description-list--tone-surface
+.pu-component--variant-outline
 .pu-description-list.is-disabled
 ```
 
@@ -41,13 +41,22 @@ Canonical values:
 
 ```
 tone:
-  surface | outline | primary | secondary | tertiary
+  neutral | primary | secondary | tertiary | danger
 
 status tone:
   info | success | warning | error
 
-surface tone:
-  plain | surface | section | inset-high | outline
+control variant:
+  solid | soft | outline | ghost | dashed
+
+container variant:
+  plain | soft | outline | solid
+
+surface level:
+  plain | surface | section | inset-high
+
+shape:
+  rect | pill | circle
 
 size:
   sm | md | lg
@@ -82,6 +91,11 @@ type PuWheelPickerTone = PuTone;
 type PuDescriptionListLayout = PuLayout;
 ```
 
+Do not put treatment values into `tone`. `outline`, `ghost`, `dashed`, and
+`soft` are variants. `surface`, `section`, and `inset-high` are neutral surface
+levels. `danger` is a semantic tone for destructive or risky actions; `error`
+is a status tone for failed or invalid state.
+
 ## Props
 
 Use stable semantic prop names:
@@ -93,8 +107,11 @@ disabled         non-interactive state
 readonly         readable but immutable state
 loading          pending command state
 error            invalid or failed state
-tone             visual intent
-status           semantic status when info/success/warning/error matters
+tone             semantic color intent
+status           semantic feedback state when info/success/warning/error matters
+variant          visual treatment
+surfaceLevel     neutral page or content surface depth
+shape            bounded geometry
 size             dimensional scale
 density          spacing density
 layout           structural arrangement
@@ -239,6 +256,8 @@ Modifier class format:
 
 ```
 .pu-component--tone-primary
+.pu-component--variant-outline
+.pu-component--surface-level-section
 .pu-component--size-md
 .pu-component--density-compact
 .pu-component.is-disabled

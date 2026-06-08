@@ -24,30 +24,50 @@
 - Prefer package-owned composition before app-level markup or wrapper CSS.
 - Use local CSS mechanisms for component-specific behavior instead of promoting one-off values into tokens.
 - Read `references/composition-principles.md` before making structure, styling, or responsive implementation decisions.
+- Read `references/variant-vocabulary.md` before choosing tone, status tone, variant, surface level, or shape props.
+
+## Variant Vocabulary
+
+- Use `references/variant-vocabulary.md` as the durable source for tone, status tone, control variant, container variant, surface level, and shape choices.
+- Use `tone` for semantic color intent: neutral, primary, secondary, tertiary, or danger.
+- Use status tone for feedback state: info, success, warning, or error.
+- Use `variant` for visual treatment such as solid, soft, outline, ghost, or dashed.
+- Use `surfaceLevel` only for neutral page or content depth.
+- Do not treat outline, ghost, dashed, soft, or surface as tones.
 
 ## Package Caveats
 
+- PuBentoItem: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuButton: Use the structured action prop with the shared PuAction type for native, href, or route targets; route actions render the consuming app's globally registered RouterLink.
+- PuButton: Use tone for semantic color intent and variant for visual treatment such as solid, soft, outline, ghost, or dashed.
 - PuButton: Use feedback for transient idle, pending, success, and error action states.
 - PuButton: Icon-only buttons need an accessible label.
 - PuButton: Disabled link actions use aria-disabled and stop click navigation.
 - PuCard: Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.
+- PuCard: Use tone for semantic emphasis and variant for container treatment such as soft, outline, plain, or solid.
 - PuCard: Use selectable for button-like choice cards without a navigation target.
 - PuCard: Use keepContentMounted only when collapsed content owns local state that must survive collapse.
 - PuCard: Interactive cards must not contain nested interactive controls.
 - PuCard: Disabled link and route cards use aria-disabled and stop click navigation.
+- PuCellGroup: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
+- PuChip: Use tone for semantic/status color and variant for chip treatment such as soft, outline, solid, ghost, or dashed.
 - PuChipGroup: fit mode measures rendered element children and hides overflow items; keep slot content element-based and avoid relying on hidden chip count.
+- PuDescriptionItem: Use suffix for non-interactive trailing content such as badges or status markers; use the action slot for trailing interactive affordances.
+- PuDescriptionList: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuDialog: Uses required open plus close, cancel, and confirm events; do not assume v-model:open.
 - PuDialog: close emits a reason of overlay, escape, close, or cancel.
 - PuDialog: Provide a useful title, title slot, or aria label for dialog context.
 - PuDialog: Use the actions slot when custom commands are needed while preserving footer spacing.
 - PuDrawer: Uses visible and update:visible for control; do not assume open or v-model:open.
+- PuEmptyState: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuImg: Use shape from the shared PuShape vocabulary instead of local radius values.
 - PuImg: Use the fallback slot for custom fallback rendering; fallbackInitial and name cover simple initial fallback.
 - PuImg: Provide alt text for meaningful images; fallback content derives an accessible label from alt or name when available.
 - PuInput: Includes uni-app-compatible input props and legacy event names.
 - PuModal: Uses required open plus close event; do not assume v-model:open.
 - PuModal: Provide a useful title or aria label for dialog context.
+- PuPageHeader: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
+- PuSegmented: Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed.
 - PuSegmented: Use semantics="tabs" only when the items control associated tab panels.
 - PuSnackbar: Use duration 0 for persistent story or test examples; positive durations auto-dismiss.
 - PuSnackbar: Action clicks close the snackbar after emitting the action event.
@@ -62,10 +82,9 @@
 - PuTabs: Use the append slot for trailing controls that are not part of the tablist.
 - PuTabs: Disabled tabs are skipped by keyboard navigation.
 - PuTabs: ArrowLeft, ArrowRight, Home, and End move between enabled tabs.
-- PuTag: Uses legacy theme values Surface and SurfaceOutlined rather than canonical tone.
-- PuTag: Uses legacy size values xSmall, Small, and Medium.
-- PuTextarea: Uses legacy theme values surface-container and surface.
-- PuWheelPicker: Includes both variant and tone concepts; preserve extracted package values instead of inventing generic picker props.
+- PuTag: Use tone for semantic/status color, variant for tag treatment, shape for rect or pill geometry, and size xs, sm, or md.
+- PuTextarea: Use variant for field treatment such as soft, plain, outline, or solid.
+- PuWheelPicker: Use tone for semantic highlight color and variant for picker surface treatment.
 
 ## Anti-patterns
 

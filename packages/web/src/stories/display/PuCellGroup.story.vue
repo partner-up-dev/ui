@@ -7,7 +7,7 @@ import PuCellGroup from "../../components/puCellGroup/puCellGroup.vue";
   <Story title="PuCellGroup" group="display">
     <Variant title="Plain">
       <div class="pu-story pu-story--narrow">
-        <PuCellGroup tone="plain">
+        <PuCellGroup surface-level="plain" variant="plain">
           <PuCell title="Account" value="PartnerUp" />
           <PuCell title="Status" value="Active" />
           <PuCell
@@ -22,7 +22,7 @@ import PuCellGroup from "../../components/puCellGroup/puCellGroup.vue";
 
     <Variant title="Surface Dividers">
       <div class="pu-story pu-story--narrow">
-        <PuCellGroup tone="surface">
+        <PuCellGroup surface-level="surface" variant="soft">
           <PuCell title="City" value="Hangzhou" />
           <PuCell title="Seats" value="24" />
           <PuCell title="Visibility" value="Members" />
@@ -32,8 +32,7 @@ import PuCellGroup from "../../components/puCellGroup/puCellGroup.vue";
 
     <Variant title="Header Footer">
       <div class="pu-story pu-story--narrow">
-        <PuCellGroup
-          tone="outline"
+        <PuCellGroup surface-level="plain" variant="outline"
           title="Organizer"
           description="Public profile fields"
         >
@@ -54,7 +53,7 @@ import PuCellGroup from "../../components/puCellGroup/puCellGroup.vue";
 
     <Variant title="Compact Inset">
       <div class="pu-story pu-story--narrow">
-        <PuCellGroup tone="inset-high" density="compact" inset>
+        <PuCellGroup surface-level="inset-high" variant="soft" density="compact" inset>
           <PuCell title="Messages" value="3 unread" />
           <PuCell title="Requests" value="2 pending" />
           <PuCell title="Reviews" value="None" />
@@ -64,7 +63,7 @@ import PuCellGroup from "../../components/puCellGroup/puCellGroup.vue";
 
     <Variant title="No Dividers">
       <div class="pu-story pu-story--narrow">
-        <PuCellGroup tone="section" :dividers="false">
+        <PuCellGroup surface-level="section" variant="soft" :dividers="false">
           <PuCell title="Morning" value="Available" />
           <PuCell title="Afternoon" value="Booked" />
           <PuCell title="Evening" value="Limited" />

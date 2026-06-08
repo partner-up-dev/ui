@@ -1,5 +1,11 @@
 import type { ComputedRef, InjectionKey, Ref } from "vue";
-import type { PuDensity, PuOrientation, PuSize, PuTone } from "../../types";
+import type {
+  PuControlVariant,
+  PuDensity,
+  PuOrientation,
+  PuSize,
+  PuTone,
+} from "../../types";
 import type {
   PuSegmentedActivation,
   PuSegmentedSemantics,
@@ -22,6 +28,7 @@ export type PuSegmentedContext = {
   size: ComputedRef<PuSize>;
   density: ComputedRef<PuDensity>;
   tone: ComputedRef<PuTone>;
+  variant: ComputedRef<PuControlVariant>;
   registerItem: (item: PuSegmentedItemRegistration) => void;
   unregisterItem: (id: string) => void;
   isSelected: (value: PuSegmentedValue) => boolean;

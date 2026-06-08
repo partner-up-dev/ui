@@ -1,12 +1,17 @@
 import type { ComputedRef, InjectionKey } from "vue";
-import type { PuAlign, PuDensity, PuLayout, PuSurfaceTone } from "../../types";
+import type {
+  PuAlign,
+  PuDensity,
+  PuLayout,
+  PuSurfaceLevel,
+} from "../../types";
 
 export type PuDescriptionLabelAlign = Extract<PuAlign, "start" | "end">;
 
 export type PuDescriptionListContext = {
   layout: ComputedRef<PuLayout>;
   density: ComputedRef<PuDensity>;
-  tone: ComputedRef<PuSurfaceTone>;
+  surfaceLevel: ComputedRef<PuSurfaceLevel>;
   dividers: ComputedRef<boolean>;
   labelWidth: ComputedRef<string>;
   labelAlign: ComputedRef<PuDescriptionLabelAlign>;

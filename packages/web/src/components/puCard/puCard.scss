@@ -3,14 +3,18 @@
 .pu-card {
   --pu-card-padding: var(--sys-spacing-medium);
   --pu-card-gap: var(--sys-spacing-small);
+  --pu-card-background: var(--sys-color-surface-container);
+  --pu-card-color: var(--sys-color-on-surface);
+  --pu-card-border-color: transparent;
 
   display: flex;
   flex-direction: column;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid transparent;
+  border: 1px solid var(--pu-card-border-color);
   border-radius: var(--sys-radius-large);
-  color: var(--sys-color-on-surface);
+  background: var(--pu-card-background);
+  color: var(--pu-card-color);
   text-align: inherit;
   text-decoration: none;
 }
@@ -56,28 +60,63 @@
   box-shadow: none;
 }
 
-.pu-card--tone-surface {
-  background: var(--sys-color-surface-container);
-}
-
-.pu-card--tone-outline {
-  border-color: var(--sys-color-outline-variant);
-  background: var(--sys-color-surface);
+.pu-card--tone-neutral {
+  --pu-card-color: var(--sys-color-on-surface);
+  --pu-card-soft-background: var(--sys-color-surface-container);
+  --pu-card-solid-background: var(--sys-color-surface-container-high);
+  --pu-card-outline-color: var(--sys-color-outline-variant);
 }
 
 .pu-card--tone-primary {
-  background: var(--sys-color-primary-container);
-  color: var(--sys-color-on-primary-container);
+  --pu-card-color: var(--sys-color-on-primary-container);
+  --pu-card-soft-background: var(--sys-color-primary-container);
+  --pu-card-solid-background: var(--sys-color-primary);
+  --pu-card-solid-color: var(--sys-color-on-primary);
+  --pu-card-outline-color: var(--sys-color-primary);
 }
 
 .pu-card--tone-secondary {
-  background: var(--sys-color-secondary-container);
-  color: var(--sys-color-on-secondary-container);
+  --pu-card-color: var(--sys-color-on-secondary-container);
+  --pu-card-soft-background: var(--sys-color-secondary-container);
+  --pu-card-solid-background: var(--sys-color-secondary);
+  --pu-card-solid-color: var(--sys-color-on-secondary);
+  --pu-card-outline-color: var(--sys-color-secondary);
 }
 
 .pu-card--tone-tertiary {
-  background: var(--sys-color-tertiary-container);
-  color: var(--sys-color-on-tertiary-container);
+  --pu-card-color: var(--sys-color-on-tertiary-container);
+  --pu-card-soft-background: var(--sys-color-tertiary-container);
+  --pu-card-solid-background: var(--sys-color-tertiary);
+  --pu-card-solid-color: var(--sys-color-on-tertiary);
+  --pu-card-outline-color: var(--sys-color-tertiary);
+}
+
+.pu-card--tone-danger {
+  --pu-card-color: var(--sys-color-on-error-container);
+  --pu-card-soft-background: var(--sys-color-error-container);
+  --pu-card-solid-background: var(--sys-color-error);
+  --pu-card-solid-color: var(--sys-color-on-error);
+  --pu-card-outline-color: var(--sys-color-error);
+}
+
+.pu-card--variant-plain {
+  --pu-card-background: transparent;
+  --pu-card-border-color: transparent;
+  --pu-card-color: var(--sys-color-on-surface);
+}
+
+.pu-card--variant-soft {
+  --pu-card-background: var(--pu-card-soft-background);
+}
+
+.pu-card--variant-outline {
+  --pu-card-background: var(--sys-color-surface);
+  --pu-card-border-color: color-mix(in srgb, var(--pu-card-outline-color) 72%, transparent);
+}
+
+.pu-card--variant-solid {
+  --pu-card-background: var(--pu-card-solid-background);
+  --pu-card-color: var(--pu-card-solid-color, var(--sys-color-on-surface));
 }
 
 .pu-card--padding-none {

@@ -66,7 +66,7 @@ async function validateSubErrors(): Promise<void> {
   <Story title="PuForm" group="forms">
     <Variant title="Validation">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="surface">
+        <PuCard tone="neutral" variant="soft">
           <PuForm ref="formRef" :schema="schema">
             <PuFormItem prop="title">
               <PuInput
@@ -104,7 +104,7 @@ async function validateSubErrors(): Promise<void> {
 
     <Variant title="Sub Errors">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <PuForm ref="subErrorFormRef" :schema="subErrorSchema">
             <PuFormItem prop="location" include-sub>
               <PuInput
@@ -117,7 +117,8 @@ async function validateSubErrors(): Promise<void> {
           <div class="pu-story__row">
             <p class="pu-story__text">Sub-field errors collapse into one item.</p>
             <PuButton
-              tone="outline"
+              tone="neutral"
+              variant="outline"
               @click="validateSubErrors"
             >
               Validate

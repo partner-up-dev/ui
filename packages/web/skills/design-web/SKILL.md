@@ -18,8 +18,9 @@ when a task asks which PartnerUp design component to use.
 2. Read `references/component-map.md` for candidate components.
 3. For page-level UI, read `references/composition-recipes.md`.
 4. For structure, styling, or responsive decisions, read `references/composition-principles.md`.
-5. Read only the selected files under `references/components/`.
-6. Implement with public package APIs from the selected component references.
+5. For tone, status, variant, surface, or shape choices, read `references/variant-vocabulary.md`.
+6. Read only the selected files under `references/components/`.
+7. Implement with public package APIs from the selected component references.
 
 ## Component Selection
 
@@ -64,6 +65,7 @@ published package exposes its built style entry and Sass source entry.
 - `references/component-map.md`: intent-to-component index.
 - `references/composition-recipes.md`: common page and workflow combinations.
 - `references/composition-principles.md`: durable package principles for component ownership, composition, tokens, and local CSS.
+- `references/variant-vocabulary.md`: durable package vocabulary for tone, status tone, control variants, container variants, surface levels, and shapes.
 - `references/usage-rules.md`: cross-component consumer rules and caveats.
 
 ## Avoid

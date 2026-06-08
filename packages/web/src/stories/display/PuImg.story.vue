@@ -49,7 +49,7 @@ function svgToDataUri(svg: string): string {
   <Story title="PuImg" group="display">
     <Variant title="Basic">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <PuImg
             :src="venueImage"
             alt="Illustrated lake venue"
@@ -95,8 +95,7 @@ function svgToDataUri(svg: string): string {
         <div class="pu-story__grid">
           <PuCard
             v-for="shape in shapes"
-            :key="shape"
-            tone="outline"
+            :key="shape" tone="neutral" variant="outline"
           >
             <PuImg
               :src="venueImage"
@@ -118,8 +117,7 @@ function svgToDataUri(svg: string): string {
         <div class="pu-story__grid">
           <PuCard
             v-for="mode in modes"
-            :key="mode"
-            tone="surface"
+            :key="mode" tone="neutral" variant="soft"
           >
             <PuImg
               :src="venueImage"
@@ -138,7 +136,7 @@ function svgToDataUri(svg: string): string {
 
     <Variant title="Fallback">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="outline">
+        <PuCard tone="neutral" variant="outline">
           <div class="pu-img-story__fallback-grid">
             <PuImg
               name="Lin"

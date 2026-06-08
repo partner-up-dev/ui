@@ -1,4 +1,5 @@
 import type { PropType } from "vue";
+import type { PuContainerVariant, PuTone } from "../../types";
 import { makeBooleanProp, makeNumberProp, makeStringProp } from "../../utils/props";
 
 export type PuWheelPickerValue = string | number;
@@ -9,14 +10,8 @@ export type PuWheelPickerOption = {
   disabled?: boolean;
 };
 
-export type PuWheelPickerTone =
-  | "surface"
-  | "outline"
-  | "primary"
-  | "secondary"
-  | "tertiary";
-
-export type PuWheelPickerVariant = PuWheelPickerTone | "teritary";
+export type PuWheelPickerTone = PuTone;
+export type PuWheelPickerVariant = PuContainerVariant;
 
 export const puWheelPickerProps = {
   modelValue: {
@@ -27,8 +22,8 @@ export const puWheelPickerProps = {
     type: Array as PropType<readonly PuWheelPickerOption[]>,
     required: true as const,
   },
-  variant: makeStringProp<PuWheelPickerVariant>("surface"),
-  tone: makeStringProp<PuWheelPickerVariant | undefined>(undefined),
+  tone: makeStringProp<PuWheelPickerTone>("neutral"),
+  variant: makeStringProp<PuWheelPickerVariant>("soft"),
   itemHeight: makeNumberProp(44),
   visibleCount: makeNumberProp(5),
   disabled: makeBooleanProp(false),
@@ -40,4 +35,3 @@ export const puWheelPickerEmits = {
   "update:modelValue": (_value: PuWheelPickerValue) => true,
   change: (_value: PuWheelPickerValue, _option: PuWheelPickerOption, _index: number) => true,
 };
-

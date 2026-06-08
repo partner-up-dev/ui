@@ -29,7 +29,7 @@ const backCount = ref(0);
           @back="backCount += 1"
         >
           <template #actions>
-            <PuButton tone="outline">Edit</PuButton>
+            <PuButton tone="neutral" variant="outline">Edit</PuButton>
             <PuButton>Publish</PuButton>
           </template>
 
@@ -47,7 +47,7 @@ const backCount = ref(0);
             <PuChipGroup>
               <PuChip tone="success" label="Verified" />
               <PuChip tone="secondary" label="Organizer" />
-              <PuChip tone="outline" label="Hangzhou" />
+              <PuChip tone="neutral" variant="outline" label="Hangzhou" />
             </PuChipGroup>
           </template>
         </PuPageHeader>
@@ -59,12 +59,13 @@ const backCount = ref(0);
         <PuPageHeader
           title="Review before publishing"
           subtitle="Compact density inside a surfaced section."
-          tone="surface"
+          surface-level="section"
+          variant="soft"
           density="compact"
           title-as="h2"
         >
           <template #actions>
-            <PuButton tone="outline" size="sm">Preview</PuButton>
+            <PuButton tone="neutral" variant="outline" size="sm">Preview</PuButton>
           </template>
         </PuPageHeader>
       </div>

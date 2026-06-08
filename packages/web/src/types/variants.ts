@@ -1,34 +1,95 @@
-export const puCommonTones = [
-  "surface",
-  "outline",
+export const puTones = [
+  "neutral",
   "primary",
   "secondary",
   "tertiary",
+  "danger",
 ] as const;
 
-export type PuTone = (typeof puCommonTones)[number];
+/**
+ * Semantic color role for a component.
+ *
+ * Tone answers "what product intent does this UI express?". It must not encode
+ * visual treatment such as outline, ghost, dashed, or surface depth. Use
+ * `PuStatusTone` for informational lifecycle states and `PuControlVariant` or
+ * `PuContainerVariant` for rendering treatment.
+ */
+export type PuTone = (typeof puTones)[number];
 
 export const puStatusTones = ["info", "success", "warning", "error"] as const;
 
+/**
+ * Semantic status role for system feedback.
+ *
+ * Status tone is for stateful messages such as validation, process result, or
+ * alert feedback. Use `PuTone` "danger" for destructive or risky actions; use
+ * `PuStatusTone` "error" for an error state that already happened.
+ */
 export type PuStatusTone = (typeof puStatusTones)[number];
 
-export const puSurfaceTones = [
+export const puSurfaceLevels = [
   "plain",
   "surface",
   "section",
   "inset-high",
-  "outline",
 ] as const;
 
-export type PuSurfaceTone = (typeof puSurfaceTones)[number];
+/**
+ * Neutral surface depth for page and content structure.
+ *
+ * Surface level answers "where does this container sit in the page stack?" and
+ * is intentionally neutral. It should not change semantic color intent. If a
+ * component also supports primary/secondary emphasis, model that through
+ * `PuTone` and keep surface depth separate.
+ */
+export type PuSurfaceLevel = (typeof puSurfaceLevels)[number];
+
+export const puContainerVariants = [
+  "plain",
+  "soft",
+  "outline",
+  "solid",
+] as const;
+
+/**
+ * Visual treatment for content containers.
+ *
+ * Container variant answers "how strong is this surface treatment?". It can be
+ * combined with `PuTone` when a component owns both semantic emphasis and
+ * container rendering. Use `PuSurfaceLevel` for neutral page depth instead.
+ */
+export type PuContainerVariant = (typeof puContainerVariants)[number];
 
 export const puSizes = ["sm", "md", "lg"] as const;
 
 export type PuSize = (typeof puSizes)[number];
 
-export const puShapes = ["rect", "pill"] as const;
+export const puShapes = ["rect", "pill", "circle"] as const;
 
+/**
+ * Geometry shape for bounded controls and media.
+ *
+ * `rect` uses the component's normal radius, `pill` uses a capsule-like radius
+ * that preserves the component's natural width, and `circle` is reserved for
+ * square icon/avatar surfaces that intentionally become round.
+ */
 export type PuShape = (typeof puShapes)[number];
+
+export const puControlVariants = [
+  "solid",
+  "soft",
+  "outline",
+  "ghost",
+  "dashed",
+] as const;
+
+/**
+ * Visual treatment for interactive controls.
+ *
+ * Control variant answers "how is the control rendered?". Values such as
+ * outline, ghost, and dashed belong here, not in `PuTone`.
+ */
+export type PuControlVariant = (typeof puControlVariants)[number];
 
 export const puExtendedSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 
@@ -69,9 +130,11 @@ export type PuOrientation = (typeof puOrientations)[number];
 export type PuVariantValue =
   | PuTone
   | PuStatusTone
-  | PuSurfaceTone
   | PuSize
   | PuShape
+  | PuControlVariant
+  | PuContainerVariant
+  | PuSurfaceLevel
   | PuExtendedSize
   | PuDensity
   | PuAlign

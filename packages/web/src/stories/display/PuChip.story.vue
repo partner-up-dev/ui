@@ -8,16 +8,18 @@ import PuChipGroup from "../../components/puChipGroup/puChipGroup.vue";
 const removed = ref(false);
 
 const tones = [
-  "surface",
-  "outline",
+  "neutral",
   "primary",
   "secondary",
   "tertiary",
+  "danger",
   "info",
   "success",
   "warning",
   "error",
 ] as const;
+
+const variants = ["soft", "outline", "solid", "ghost", "dashed"] as const;
 </script>
 
 <template>
@@ -46,6 +48,20 @@ const tones = [
       </div>
     </Variant>
 
+    <Variant title="Variants">
+      <div class="pu-story">
+        <PuChipGroup gap="sm">
+          <PuChip
+            v-for="variant in variants"
+            :key="variant"
+            tone="primary"
+            :variant="variant"
+            :label="variant"
+          />
+        </PuChipGroup>
+      </div>
+    </Variant>
+
     <Variant title="Sizes">
       <div class="pu-story">
         <PuChipGroup align="start">
@@ -60,8 +76,8 @@ const tones = [
       <div class="pu-story pu-story--narrow">
         <PuChipGroup align="center" gap="xs">
           <PuChip tone="secondary" label="Community" />
-          <PuChip tone="surface" label="Hangzhou" />
-          <PuChip tone="outline" label="Weekend" />
+          <PuChip tone="neutral" label="Hangzhou" />
+          <PuChip tone="neutral" variant="outline" label="Weekend" />
           <PuChip tone="success" label="Available" />
           <PuChip tone="warning" label="Limited seats" />
           <PuChip tone="info" label="Verified host" />
@@ -74,8 +90,8 @@ const tones = [
         <div class="pu-chip-story__fit-frame">
           <PuChipGroup fit gap="xs">
             <PuChip tone="secondary" label="Community" />
-            <PuChip tone="surface" label="Hangzhou West Lake" />
-            <PuChip tone="outline" label="Weekend evening" />
+            <PuChip tone="neutral" label="Hangzhou West Lake" />
+            <PuChip tone="neutral" variant="outline" label="Weekend evening" />
             <PuChip tone="success" label="Available" />
             <PuChip tone="warning" label="Limited seats" />
             <PuChip tone="info" label="Verified host" />
@@ -87,7 +103,13 @@ const tones = [
     <Variant title="Slots And Actions">
       <div class="pu-story">
         <PuChipGroup>
-          <PuChip as="button" tone="outline" selected @click="removed = false">
+          <PuChip
+            as="button"
+            tone="neutral"
+            variant="outline"
+            selected
+            @click="removed = false"
+          >
             <template #prefix>
               <span class="i-mdi-check-circle" />
             </template>
@@ -103,7 +125,7 @@ const tones = [
             @remove="removed = true"
           />
 
-          <PuChip v-else tone="surface" label="Removed" disabled />
+          <PuChip v-else tone="neutral" label="Removed" disabled />
 
           <PuChip tone="primary">
             <template #default>

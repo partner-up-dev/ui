@@ -78,7 +78,7 @@ const tones = [
           The billing account needs a manual review before this event can accept
           paid reservations.
           <template #actions>
-            <PuButton tone="outline" size="sm">Review</PuButton>
+            <PuButton tone="neutral" variant="outline" size="sm">Review</PuButton>
           </template>
         </PuInlineNotice>
       </div>
@@ -94,7 +94,7 @@ const tones = [
           close-label="Dismiss notice"
         >
           <template #actions>
-            <PuButton tone="outline" size="sm">Review</PuButton>
+            <PuButton tone="neutral" variant="outline" size="sm">Review</PuButton>
             <PuButton size="sm">Resolve</PuButton>
           </template>
         </PuInlineNotice>

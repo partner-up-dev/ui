@@ -1,17 +1,20 @@
 import type { PropType } from "vue";
 import {
-  puCommonTones,
+  puControlVariants,
   puSizes,
   puStatusTones,
+  puTones,
+  type PuControlVariant,
   type PuSize,
   type PuStatusTone,
   type PuTone,
 } from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
-export const puChipTones = [...puCommonTones, ...puStatusTones] as const;
+export const puChipTones = [...puTones, ...puStatusTones] as const;
 
 export type PuChipTone = PuTone | PuStatusTone;
+export type PuChipVariant = PuControlVariant;
 export type PuChipSize = PuSize;
 export type PuChipType = "button" | "submit" | "reset";
 
@@ -24,8 +27,14 @@ export const puChipProps = {
   label: makeStringProp<string | undefined>(undefined),
   tone: {
     type: String as PropType<PuChipTone>,
-    default: "surface",
+    default: "neutral",
     validator: (value: string) => puChipTones.includes(value as PuChipTone),
+  },
+  variant: {
+    type: String as PropType<PuChipVariant>,
+    default: "soft",
+    validator: (value: string) =>
+      puControlVariants.includes(value as PuChipVariant),
   },
   size: {
     type: String as PropType<PuChipSize>,

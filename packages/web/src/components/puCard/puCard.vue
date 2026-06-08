@@ -127,7 +127,6 @@ const hasHeader = computed(() => Boolean(slots.header));
 const hasDefault = computed(() => Boolean(slots.default));
 const hasFooter = computed(() => Boolean(slots.footer));
 const hasBody = computed(() => hasDefault.value || hasFooter.value);
-const effectiveTone = computed(() => props.theme ?? props.tone);
 const isInteractive = computed(() => Boolean(props.action) || props.selectable);
 const bodyCollapsed = computed(
   () => hasBody.value && props.collapsible && !isExpanded.value,
@@ -142,7 +141,8 @@ const cardLabelledBy = computed(() =>
 );
 
 const cardClasses = computed(() => [
-  `pu-card--tone-${effectiveTone.value}`,
+  `pu-card--tone-${props.tone}`,
+  `pu-card--variant-${props.variant}`,
   `pu-card--padding-${props.padding}`,
   `pu-card--gap-${props.gap}`,
   {
