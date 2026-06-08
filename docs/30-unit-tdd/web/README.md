@@ -9,6 +9,8 @@ This directory owns durable technical contracts for
   accessibility, styling, file shape, and verification expectations.
 - `composition-principles.md`: package ownership and composition guidance for
   design-package and downstream application UI.
+- `verification.md`: package-local verification constraints, including
+  Histoire story color-scheme behavior.
 
 ## Related Surfaces
 

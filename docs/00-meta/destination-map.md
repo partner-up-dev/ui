@@ -11,6 +11,7 @@ Use the closest durable owner for the truth.
 | Cross-package API alignment | `docs/20-product-tdd/cross-package-contracts.md` |
 | Web component contracts | `docs/30-unit-tdd/web/component-contract.md` |
 | Web composition principles | `docs/30-unit-tdd/web/composition-principles.md` |
+| Web package verification constraints | `docs/30-unit-tdd/web/verification.md` |
 | UniApp package technical constraints | `docs/30-unit-tdd/uniapp/README.md` |
 | Publish workflow and release runbook | `docs/40-deployment/release-runbook.md` |
 | Local hazards and package-specific edit rules | nearest `AGENTS.md` |
