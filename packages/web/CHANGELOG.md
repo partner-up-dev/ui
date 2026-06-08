@@ -1,5 +1,42 @@
 # Changelog
 
+## 0.2.0
+
+### Minor Changes
+
+- 6c187e2: Add PuDialog as an opinionated confirmation and short-workflow dialog with
+  structured header, body, footer, action slots, focus management, and overlay
+  dismissal events.
+- 1933e4b: Add PuSpinner as a public loading indicator primitive that inherits
+  currentColor and supports accessible status labeling.
+- 0e43d2b: Add PuSnackbar and PuSnackbarHost for transient toast/snackbar feedback.
+- 0394d38: Redesign PuButton as the unified action primitive with shared structured native,
+  href, and route action targets plus canonical tone, variant, shape, size, and
+  feedback props.
+- 234eb1f: Enhance PuCard with shared action targets, selectable/active/disabled card
+  semantics, and reusable expandable policy state; add PuChipGroup fit-to-width
+  measurement and PuImg fallback slot, shape, and border support.
+
+### Patch Changes
+
+- 1bac1e4: Align PuButton interaction states with the Material state model. Non-ghost
+  buttons now use a content-colored state layer for hover, focus, and active
+  feedback, while ghost buttons keep hover and active feedback on content opacity
+  instead of adding a background layer.
+- 0218d52: Correct PuDescriptionItem internal layout so list grid mode no longer leaks
+  into item classes. Items now normalize to stack or inline internally: inline
+  items keep label-value columns across viewport sizes, carry inline padding,
+  center simple rows vertically, and default values to end alignment. Stack items
+  keep suffix and action content in the label row, while inline items treat suffix
+  or action as the definition value instead of appending it after a separate
+  value.
+- 1933e4b: Update the web `pu-icon` mixin to use an explicit em-based icon scale of
+  `1.25em`, `1.5em`, and `2.5em`, and document that the scale is proportional to
+  surrounding text rather than rem token sizing.
+- 5af6d26: Update PuTabs and PuTab to use value-based tab items with shared sizing,
+  keyboard navigation, active tab scrolling, an append slot, and a pill tab
+  presentation while preserving the original text-only default tab styling.
+
 ## 0.1.1
 
 ### Patch Changes
