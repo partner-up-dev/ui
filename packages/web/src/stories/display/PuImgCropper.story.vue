@@ -107,16 +107,18 @@ function resetSquare(): void {
               </div>
               <div class="pu-img-cropper-story__actions">
                 <PuButton
-                  text="Reset"
-                  theme="Surface"
-                  size="xSmall"
+                  tone="surface"
+                  size="sm"
                   @click="resetSquare"
-                />
+                >
+                  Reset
+                </PuButton>
                 <PuButton
-                  text="Confirm"
-                  size="xSmall"
+                  size="sm"
                   @click="confirmSquare"
-                />
+                >
+                  Confirm
+                </PuButton>
               </div>
             </div>
           </div>
@@ -142,10 +144,11 @@ function resetSquare(): void {
             />
             <div class="pu-img-cropper-story__actions">
               <PuButton
-                text="Export avatar"
-                size="xSmall"
+                size="sm"
                 @click="confirmAvatar"
-              />
+              >
+                Export avatar
+              </PuButton>
             </div>
           </div>
         </PuCard>

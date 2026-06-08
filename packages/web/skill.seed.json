@@ -73,12 +73,12 @@
     },
     "PuButton": {
       "category": "actions",
-      "intent": ["command button", "loading command", "icon button"],
-      "preferWhen": ["Use for user-triggered commands, form actions, and compact icon commands."],
-      "avoidWhen": ["Avoid for plain navigation unless the implementation supports link semantics."],
+      "intent": ["command button", "loading command", "icon button", "link-styled action", "feedback action"],
+      "preferWhen": ["Use for user-triggered commands, form actions, compact icon commands, link-styled calls to action, and transient pending/success/error feedback actions."],
+      "avoidWhen": ["Avoid for plain inline text links."],
       "composeWith": ["PuPageHeader", "PuFormItem", "PuModal", "PuCard"],
-      "apiCaveats": ["Uses legacy theme, type, and size values rather than canonical tone/size vocabulary."],
-      "accessibilityNotes": ["Icon-only buttons need an accessible label."],
+      "apiCaveats": ["Use the structured action prop with the shared PuAction type for native, href, or route targets; route actions render the consuming app's globally registered RouterLink.", "Use feedback for transient idle, pending, success, and error action states."],
+      "accessibilityNotes": ["Icon-only buttons need an accessible label.", "Disabled link actions use aria-disabled and stop click navigation."],
       "storyGroup": "actions",
       "storyFile": "src/stories/actions/PuButton.story.vue"
     },

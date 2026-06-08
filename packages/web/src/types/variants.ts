@@ -26,6 +26,10 @@ export const puSizes = ["sm", "md", "lg"] as const;
 
 export type PuSize = (typeof puSizes)[number];
 
+export const puShapes = ["rect", "pill"] as const;
+
+export type PuShape = (typeof puShapes)[number];
+
 export const puExtendedSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 
 export type PuExtendedSize = (typeof puExtendedSizes)[number];
@@ -67,6 +71,7 @@ export type PuVariantValue =
   | PuStatusTone
   | PuSurfaceTone
   | PuSize
+  | PuShape
   | PuExtendedSize
   | PuDensity
   | PuAlign

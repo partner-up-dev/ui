@@ -29,8 +29,8 @@ const backCount = ref(0);
           @back="backCount += 1"
         >
           <template #actions>
-            <PuButton text="Edit" theme="SurfaceOutlined" />
-            <PuButton text="Publish" theme="PrimaryContainer" />
+            <PuButton tone="outline">Edit</PuButton>
+            <PuButton>Publish</PuButton>
           </template>
 
           <template #meta>
@@ -64,7 +64,7 @@ const backCount = ref(0);
           title-as="h2"
         >
           <template #actions>
-            <PuButton text="Preview" theme="SurfaceOutlined" size="xSmall" />
+            <PuButton tone="outline" size="sm">Preview</PuButton>
           </template>
         </PuPageHeader>
       </div>

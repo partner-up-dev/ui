@@ -24,10 +24,9 @@ function handleClose(name: string): void {
           <p class="pu-story__text">
             The trigger controls visible state through v-model:visible.
           </p>
-          <PuButton
-            text="Open drawer"
-            @click="controlledVisible = true"
-          />
+          <PuButton @click="controlledVisible = true">
+            Open drawer
+          </PuButton>
         </PuCard>
 
         <PuDrawer
@@ -42,14 +41,14 @@ function handleClose(name: string): void {
             <PuCell title="Arrival" value="19:00" />
             <div class="pu-drawer-story__actions">
               <PuButton
-                text="Cancel"
-                theme="Surface"
+                tone="surface"
                 @click="controlledVisible = false"
-              />
-              <PuButton
-                text="Confirm"
-                @click="controlledVisible = false"
-              />
+              >
+                Cancel
+              </PuButton>
+              <PuButton @click="controlledVisible = false">
+                Confirm
+              </PuButton>
             </div>
           </div>
         </PuDrawer>
@@ -91,10 +90,11 @@ function handleClose(name: string): void {
             fullCustom hands the whole drawer interior to the consumer.
           </p>
           <PuButton
-            text="Open custom drawer"
-            theme="SurfaceOutlined"
+            tone="outline"
             @click="customVisible = true"
-          />
+          >
+            Open custom drawer
+          </PuButton>
         </PuCard>
 
         <PuDrawer
@@ -126,10 +126,9 @@ function handleClose(name: string): void {
                 Meet guests at the north entrance and keep the first stop clear
                 for check-in.
               </p>
-              <PuButton
-                text="Done"
-                @click="customVisible = false"
-              />
+              <PuButton @click="customVisible = false">
+                Done
+              </PuButton>
             </div>
           </template>
         </PuDrawer>

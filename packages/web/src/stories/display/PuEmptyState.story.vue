@@ -15,7 +15,7 @@ import PuEmptyState from "../../components/puEmptyState/puEmptyState.vue";
           description="Create your first event to start collecting reservations and host notes."
         >
           <template #actions>
-            <PuButton text="Create event" theme="PrimaryContainer" />
+            <PuButton>Create event</PuButton>
           </template>
         </PuEmptyState>
       </div>
@@ -31,7 +31,7 @@ import PuEmptyState from "../../components/puEmptyState/puEmptyState.vue";
           description="Try adjusting the city, interest, or availability filters."
         >
           <template #actions>
-            <PuButton text="Clear filters" theme="SurfaceOutlined" />
+            <PuButton tone="outline">Clear filters</PuButton>
           </template>
         </PuEmptyState>
       </div>
@@ -53,8 +53,8 @@ import PuEmptyState from "../../components/puEmptyState/puEmptyState.vue";
             <PuChip tone="outline" label="Public page" />
           </PuChipGroup>
           <template #actions>
-            <PuButton text="Start setup" theme="PrimaryContainer" />
-            <PuButton text="Skip" theme="Plain" />
+            <PuButton>Start setup</PuButton>
+            <PuButton tone="ghost">Skip</PuButton>
           </template>
         </PuEmptyState>
       </div>
@@ -81,8 +81,8 @@ import PuEmptyState from "../../components/puEmptyState/puEmptyState.vue";
           description="This empty state is embedded in a constrained panel while the viewport may still be wide."
         >
           <template #actions>
-            <PuButton text="Clear filters" theme="SurfaceOutlined" />
-            <PuButton text="Create saved view" theme="PrimaryContainer" />
+            <PuButton tone="outline">Clear filters</PuButton>
+            <PuButton>Create saved view</PuButton>
           </template>
         </PuEmptyState>
       </div>

@@ -27,8 +27,10 @@
 
 ## Package Caveats
 
-- PuButton: Uses legacy theme, type, and size values rather than canonical tone/size vocabulary.
+- PuButton: Use the structured action prop with the shared PuAction type for native, href, or route targets; route actions render the consuming app's globally registered RouterLink.
+- PuButton: Use feedback for transient idle, pending, success, and error action states.
 - PuButton: Icon-only buttons need an accessible label.
+- PuButton: Disabled link actions use aria-disabled and stop click navigation.
 - PuCard: Supports tone and a compatibility theme prop; prefer tone in consumer code.
 - PuDrawer: Uses visible and update:visible for control; do not assume open or v-model:open.
 - PuInput: Includes uni-app-compatible input props and legacy event names.

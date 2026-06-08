@@ -26,12 +26,12 @@ import PuDescriptionList from "../../components/puDescriptionList/puDescriptionL
               <span>Ready for final review</span>
             </div>
             <template #actions>
-              <PuButton
-                text="Preview"
-                size="Small"
-                theme="PrimaryContainer"
-                prefix-icon="i-mdi-eye-outline"
-              />
+              <PuButton size="sm">
+                <template #leading>
+                  <span class="i-mdi-eye-outline"></span>
+                </template>
+                Preview
+              </PuButton>
             </template>
             <template #footer>
               Updated 12 minutes ago
@@ -106,7 +106,12 @@ import PuDescriptionList from "../../components/puDescriptionList/puDescriptionL
           <PuBentoItem title="Full width" span="full" tone="inset-high">
             <div class="pu-bento-story__row">
               <span>Full span works across every configured column count.</span>
-              <PuButton text="Open" size="Small" prefix-icon="i-mdi-open-in-new" />
+              <PuButton size="sm">
+                <template #leading>
+                  <span class="i-mdi-open-in-new"></span>
+                </template>
+                Open
+              </PuButton>
             </div>
           </PuBentoItem>
         </PuBentoGrid>

@@ -1,54 +1,38 @@
-import type { PropType, StyleValue } from 'vue'
-import { makeStringProp, makeBooleanProp } from '../../utils/props'
+import type { PropType } from "vue";
+import type { PuAction, PuShape } from "../../types";
+import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
-// ==================== 组件相关类型定义 ====================
+export type PuButtonTone =
+  | "primary"
+  | "primary-outline"
+  | "secondary"
+  | "outline"
+  | "surface"
+  | "tertiary"
+  | "dashed"
+  | "danger"
+  | "ghost";
 
-export type ButtonTheme =
-  | 'Primary'
-  | 'PrimaryContainer'
-  | 'Tertiary'
-  | 'Surface'
-  | 'SurfaceOutlined'
-  | 'Plain'
+export type PuButtonSize = "sm" | "md" | "lg";
 
-export type ButtonType = 'WithText' | 'OnlyIcon' | 'Bar'
+export type PuButtonFeedback = "idle" | "pending" | "success" | "error";
 
-export type ButtonSize = 'xSmall' | 'Small' | 'Medium' | 'Large'
-
-// ==================== 组件 Props 定义 ====================
+const actionProp = {
+  type: Object as PropType<PuAction | undefined>,
+  default: undefined,
+};
 
 export const puButtonProps = {
-  // Button content
-  text: makeStringProp('Button'),
-  prefixIcon: makeStringProp(''),
-  suffixIcon: makeStringProp(''),
-
-  // Display controls
-  showDot: makeBooleanProp(false),
-
-  // State controls
-  toggled: makeBooleanProp(false),
-  active: makeBooleanProp(false),
-
-  // Button variants
-  theme: makeStringProp<ButtonTheme>('PrimaryContainer'),
-  type: makeStringProp<ButtonType>('WithText'),
-  size: makeStringProp<ButtonSize>('Small'),
-  rounded: makeBooleanProp(false),
-
-  // Interaction
-  disabled: makeBooleanProp(false),
+  action: actionProp,
+  shape: makeStringProp<PuShape>("rect"),
+  tone: makeStringProp<PuButtonTone>("primary"),
+  size: makeStringProp<PuButtonSize>("md"),
+  feedback: makeStringProp<PuButtonFeedback>("idle"),
   loading: makeBooleanProp(false),
-
-  // Custom styling
-  customStyle: {
-    type: [Object, String, Array] as PropType<StyleValue>,
-    default: ''
-  }
-}
-
-// ==================== 组件 Emits 定义 ====================
+  disabled: makeBooleanProp(false),
+  block: makeBooleanProp(false),
+};
 
 export const puButtonEmits = {
-  click: (_event: unknown) => true
-}
+  click: (_event: MouseEvent) => true,
+};

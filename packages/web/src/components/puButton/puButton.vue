@@ -1,77 +1,154 @@
 <template>
-  <button
-    type="button"
+  <component
+    :is="rootComponent"
     :class="buttonClasses"
-    :style="props.customStyle"
-    :disabled="props.disabled || props.loading"
-    :aria-busy="props.loading"
-    @click="onClick"
+    v-bind="rootAttrs"
+    @click="handleClick"
   >
-    <span v-if="props.loading" class="loading-icon icon-wrapper" aria-hidden="true">
-      <span class="i-mdi-loading icon loading-spinner"></span>
+    <span
+      v-if="isPending"
+      class="pu-button__loading"
+      aria-hidden="true"
+    >
+      <span class="i-mdi-loading pu-button__loading-icon"></span>
     </span>
 
-    <span v-if="!props.loading && props.prefixIcon" class="prefix-icon icon-wrapper" aria-hidden="true">
-      <span :class="props.prefixIcon" class="icon"></span>
+    <span
+      v-if="$slots.leading && !isPending"
+      class="pu-button__leading"
+      aria-hidden="true"
+    >
+      <slot name="leading" />
     </span>
 
-    <span v-if="props.type !== 'OnlyIcon' && props.text" class="text font-control">
-      {{ props.text }}
+    <span
+      v-if="$slots.default"
+      class="pu-button__content"
+    >
+      <slot />
     </span>
 
-    <span v-if="!props.loading && props.suffixIcon" class="suffix-icon icon-wrapper" aria-hidden="true">
-      <span :class="props.suffixIcon" class="icon"></span>
+    <span
+      v-if="$slots.trailing && !isPending"
+      class="pu-button__trailing"
+      aria-hidden="true"
+    >
+      <slot name="trailing" />
     </span>
-
-    <span v-if="props.showDot" class="dot" aria-hidden="true" />
-  </button>
+  </component>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'PuButton',
-  options: BasicComponentOptions
-}
+  name: "PuButton",
+  options: BasicComponentOptions,
+};
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { puButtonProps, puButtonEmits } from './puButton'
-import { BasicComponentOptions } from '../../utils/vue';
-import { kebabCase } from '../../utils/string'
+import { computed, useSlots } from "vue";
+import {
+  puButtonEmits,
+  puButtonProps,
+} from "./puButton";
+import type { PuAction, PuHrefAction, PuRouteAction } from "../../types";
+import { BasicComponentOptions } from "../../utils/vue";
 
-const props = defineProps(puButtonProps)
-const emit = defineEmits(puButtonEmits)
+const props = defineProps(puButtonProps);
+const emit = defineEmits(puButtonEmits);
+const slots = useSlots();
 
-const buttonClasses = computed(() => {
-  const classes = ['pu-button']
+const isPending = computed(() => props.loading || props.feedback === "pending");
+const isDisabled = computed(() => props.disabled || isPending.value);
+const isIconOnly = computed(() => !slots.default);
 
-  // Theme classes
-  classes.push(kebabCase(props.theme))
+const buttonClasses = computed(() => [
+  "pu-button",
+  `pu-button--shape-${props.shape}`,
+  `pu-button--tone-${props.tone}`,
+  `pu-button--size-${props.size}`,
+  `pu-button--feedback-${resolvedFeedback.value}`,
+  {
+    "pu-button--block": props.block,
+    "pu-button--icon-only": isIconOnly.value,
+    "is-disabled": isDisabled.value,
+    "is-loading": isPending.value,
+  },
+]);
 
-  // Type classes
-  classes.push(kebabCase(props.type))
-  classes.push(kebabCase(props.type) + '--' + kebabCase(props.size))
-
-  // Size classes
-  classes.push(kebabCase(props.size))
-
-  // Shape classes
-  if (props.rounded) classes.push('rounded')
-
-  // State classes
-  if (props.disabled) classes.push('disabled')
-  if (props.loading) classes.push('loading')
-  if (props.active) classes.push('active')
-  if (props.toggled) classes.push('toggled')
-
-  return classes
-})
-
-const onClick = (event: unknown) => {
-  if (!props.disabled && !props.loading) {
-    emit('click', event)
+const rootComponent = computed(() => {
+  if (isRouteAction(props.action)) {
+    return "RouterLink";
   }
+
+  if (isHrefAction(props.action)) {
+    return "a";
+  }
+
+  return "button";
+});
+
+const rootAttrs = computed<Record<string, unknown>>(() => {
+  if (isRouteAction(props.action)) {
+    return {
+      to: props.action.to,
+      "aria-disabled": isDisabled.value ? "true" : undefined,
+      "aria-busy": isPending.value ? "true" : undefined,
+      tabindex: isDisabled.value ? -1 : undefined,
+    };
+  }
+
+  if (isHrefAction(props.action)) {
+    const target = props.action.target ?? (props.action.external ? "_blank" : undefined);
+    const rel =
+      props.action.rel ??
+      (target === "_blank" ? "noopener noreferrer" : undefined);
+
+    return {
+      href: props.action.href,
+      target,
+      rel,
+      "aria-disabled": isDisabled.value ? "true" : undefined,
+      "aria-busy": isPending.value ? "true" : undefined,
+      tabindex: isDisabled.value ? -1 : undefined,
+    };
+  }
+
+  return {
+    type: props.action?.native ?? "button",
+    disabled: isDisabled.value || undefined,
+    "aria-busy": isPending.value ? "true" : undefined,
+  };
+});
+
+const resolvedFeedback = computed(() => {
+  if (isPending.value) {
+    return "pending";
+  }
+
+  return props.feedback;
+});
+
+function isHrefAction(
+  action: PuAction | undefined,
+): action is PuHrefAction {
+  return Boolean(action && "href" in action);
+}
+
+function isRouteAction(
+  action: PuAction | undefined,
+): action is PuRouteAction {
+  return Boolean(action && "to" in action);
+}
+
+function handleClick(event: MouseEvent): void {
+  if (isDisabled.value) {
+    event.preventDefault();
+    event.stopPropagation();
+    return;
+  }
+
+  emit("click", event);
 }
 </script>
 

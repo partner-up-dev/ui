@@ -60,8 +60,8 @@ const tones = [
           </p>
 
           <template #footer>
-            <PuButton text="Save" theme="SurfaceOutlined" size="xSmall" />
-            <PuButton text="Review" theme="PrimaryContainer" size="xSmall" />
+            <PuButton tone="outline" size="sm">Save</PuButton>
+            <PuButton size="sm">Review</PuButton>
           </template>
         </PuCard>
       </div>
@@ -116,11 +116,12 @@ const tones = [
 
           <template #footer>
             <PuButton
-              :text="expanded ? 'Collapse' : 'Expand'"
-              theme="SurfaceOutlined"
-              size="xSmall"
+              tone="outline"
+              size="sm"
               @click="expanded = !expanded"
-            />
+            >
+              {{ expanded ? "Collapse" : "Expand" }}
+            </PuButton>
           </template>
         </PuCard>
       </div>

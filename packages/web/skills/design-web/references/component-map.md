@@ -7,8 +7,8 @@ files only after narrowing the candidate set.
 ## Actions
 
 - [PuButton](references/components/PuButton.md)
-  - Intent: command button, loading command, icon button
-  - Prefer: Use for user-triggered commands, form actions, and compact icon commands.
+  - Intent: command button, loading command, icon button, link-styled action, feedback action
+  - Prefer: Use for user-triggered commands, form actions, compact icon commands, link-styled calls to action, and transient pending/success/error feedback actions.
 
 ## Forms
 

@@ -6,14 +6,16 @@
 - command button
 - loading command
 - icon button
+- link-styled action
+- feedback action
 
 ## Prefer When
 
-- Use for user-triggered commands, form actions, and compact icon commands.
+- Use for user-triggered commands, form actions, compact icon commands, link-styled calls to action, and transient pending/success/error feedback actions.
 
 ## Avoid When
 
-- Avoid for plain navigation unless the implementation supports link semantics.
+- Avoid for plain inline text links.
 
 ## Import
 
@@ -23,29 +25,24 @@ import { PuButton } from '@partner-up-dev/design-web'
 
 ## Props
 
-- `text`
-- `prefixIcon`
-- `suffixIcon`
-- `showDot`
-- `toggled`
-- `active`
-- `theme`
-- `type`
+- `action`
+- `shape`
+- `tone`
 - `size`
-- `rounded`
-- `disabled`
+- `feedback`
 - `loading`
-- `customStyle`
-- `default`
+- `disabled`
+- `block`
 
 ## Slots
 
-- No slots extracted.
+- `default`
+- `leading`
+- `trailing`
 
 ## Events
 
 - `click`
-- `_event`
 
 ## Composition
 
@@ -58,21 +55,24 @@ import { PuButton } from '@partner-up-dev/design-web'
 
 Story: `src/stories/actions/PuButton.story.vue`
 
-- Themes
-- Sizes
-- States
-- Icons
+- Tones
+- Shapes And Sizes
+- Action Targets
+- Slots And Block
+- Feedback
 
 ## Types
 
-- `ButtonSize`
-- `ButtonTheme`
-- `ButtonType`
+- `PuButtonFeedback`
+- `PuButtonSize`
+- `PuButtonTone`
 
 ## Caveats
 
-- Uses legacy theme, type, and size values rather than canonical tone/size vocabulary.
+- Use the structured action prop with the shared PuAction type for native, href, or route targets; route actions render the consuming app's globally registered RouterLink.
+- Use feedback for transient idle, pending, success, and error action states.
 - Icon-only buttons need an accessible label.
+- Disabled link actions use aria-disabled and stop click navigation.
 
 ## Source Evidence
 

@@ -22,7 +22,9 @@ function closeCustom(): void {
   <Story title="PuModal" group="overlay">
     <Variant title="Controlled">
       <div class="pu-story pu-story--narrow">
-        <PuButton text="Open modal" @click="controlledOpen = true" />
+        <PuButton @click="controlledOpen = true">
+          Open modal
+        </PuButton>
         <PuModal
           :open="controlledOpen"
           title="Confirm action"
@@ -34,11 +36,14 @@ function closeCustom(): void {
           </p>
           <div class="pu-story__modal-actions">
             <PuButton
-              text="Cancel"
-              theme="Surface"
+              tone="surface"
               @click="closeControlled"
-            />
-            <PuButton text="Confirm" @click="closeControlled" />
+            >
+              Cancel
+            </PuButton>
+            <PuButton @click="closeControlled">
+              Confirm
+            </PuButton>
           </div>
         </PuModal>
       </div>
@@ -62,10 +67,11 @@ function closeCustom(): void {
     <Variant title="Custom Header">
       <div class="pu-story pu-story--narrow">
         <PuButton
-          text="Open custom modal"
-          theme="Surface"
+          tone="surface"
           @click="customOpen = true"
-        />
+        >
+          Open custom modal
+        </PuButton>
         <PuModal
           :open="customOpen"
           aria-label="Custom modal"

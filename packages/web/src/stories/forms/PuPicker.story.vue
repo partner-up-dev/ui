@@ -119,7 +119,7 @@ function formatDateParts(items: PickerColumnItem | PickerColumnItem[]): string {
           :columns="cities"
           @confirm="handleConfirm"
         >
-          <PuButton text="Open city picker" theme="SurfaceOutlined" />
+          <PuButton tone="outline">Open city picker</PuButton>
         </PuPicker>
       </div>
     </Variant>

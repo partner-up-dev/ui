@@ -16,7 +16,7 @@ import PuTag from "../../components/puTag/puTag.vue";
             subtitle="Document pages keep content in normal page flow."
           >
             <template #actions>
-              <PuButton text="New event" theme="PrimaryContainer" />
+              <PuButton>New event</PuButton>
             </template>
           </PuPageHeader>
         </template>
@@ -49,8 +49,8 @@ import PuTag from "../../components/puTag/puTag.vue";
             placement, not a separate component.
           </p>
           <div class="pu-page-scaffold-story__actions">
-            <PuButton text="Back" theme="SurfaceOutlined" />
-            <PuButton text="Publish" theme="PrimaryContainer" />
+            <PuButton tone="outline">Back</PuButton>
+            <PuButton>Publish</PuButton>
           </div>
         </div>
       </PuPageScaffold>
@@ -102,8 +102,8 @@ import PuTag from "../../components/puTag/puTag.vue";
               show-back
             >
               <template #actions>
-                <PuButton text="Preview" theme="SurfaceOutlined" />
-                <PuButton text="Publish" theme="PrimaryContainer" />
+                <PuButton tone="outline">Preview</PuButton>
+                <PuButton>Publish</PuButton>
               </template>
             </PuPageHeader>
           </template>
@@ -151,8 +151,8 @@ import PuTag from "../../components/puTag/puTag.vue";
 
         <template #footer>
           <div class="pu-page-scaffold-story__footer">
-            <PuButton text="Save draft" theme="SurfaceOutlined" />
-            <PuButton text="Continue" theme="PrimaryContainer" />
+            <PuButton tone="outline">Save draft</PuButton>
+            <PuButton>Continue</PuButton>
           </div>
         </template>
       </PuPageScaffold>

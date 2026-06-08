@@ -96,7 +96,7 @@ async function validateSubErrors(): Promise<void> {
 
           <div class="pu-story__row">
             <p class="pu-story__text">Validation errors appear below fields.</p>
-            <PuButton text="Validate" theme="PrimaryContainer" @click="validateForm" />
+            <PuButton @click="validateForm">Validate</PuButton>
           </div>
         </PuCard>
       </div>
@@ -117,10 +117,11 @@ async function validateSubErrors(): Promise<void> {
           <div class="pu-story__row">
             <p class="pu-story__text">Sub-field errors collapse into one item.</p>
             <PuButton
-              text="Validate"
-              theme="SurfaceOutlined"
+              tone="outline"
               @click="validateSubErrors"
-            />
+            >
+              Validate
+            </PuButton>
           </div>
         </PuCard>
       </div>

@@ -2,246 +2,211 @@
 @use "../../styles/mixins" as *;
 
 .pu-button {
-  appearance: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include pu-font("control");
   position: relative;
   box-sizing: border-box;
-  margin: 0;
-  cursor: pointer;
-  font: inherit;
-  transition: all 0.2s ease;
+  min-width: 0;
   border: 1px solid transparent;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease,
+    filter 180ms ease;
+
+  &:focus-visible {
+    outline: 2px solid fn.sys-var(color, primary);
+    outline-offset: 2px;
+  }
 }
 
-.icon-wrapper {
-  display: flex;
+.pu-button--block {
+  width: 100%;
+}
+
+.pu-button--shape-rect,
+.pu-button--shape-pill {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: fn.sys-var(spacing, xsmall);
 }
 
-.loading-icon {
-  .loading-spinner {
-    animation: pu-button-spin 1s linear infinite;
+.pu-button--shape-rect {
+  border-radius: fn.sys-var(radius, small);
+}
+
+.pu-button--shape-pill {
+  border-radius: fn.sys-var(radius, full);
+}
+
+.pu-button--size-sm {
+  min-height: fn.sys-var(spacing, large);
+  padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, small);
+}
+
+.pu-button--size-md {
+  min-height: calc(
+    #{fn.sys-var(spacing, large)} + #{fn.sys-var(spacing, small)} + #{fn.sys-var(spacing, xsmall)}
+  );
+  padding: fn.sys-var(spacing, small) fn.sys-var(spacing, medium);
+}
+
+.pu-button--size-lg {
+  @include pu-font("section");
+  min-height: calc(
+    #{fn.sys-var(spacing, large)} + (2 * #{fn.sys-var(spacing, small)}) + #{fn.sys-var(spacing, xsmall)}
+  );
+  padding: fn.sys-var(spacing, medium) fn.sys-var(spacing, large);
+}
+
+.pu-button--shape-pill.pu-button--size-lg {
+  padding-block: fn.sys-var(spacing, small);
+}
+
+.pu-button--icon-only {
+  aspect-ratio: 1;
+  padding-inline: 0;
+}
+
+.pu-button--tone-primary {
+  border-color: fn.sys-var(color, primary);
+  background: fn.sys-var(color, primary);
+  color: fn.sys-var(color, on-primary);
+}
+
+.pu-button--tone-primary-outline {
+  border-color: fn.sys-var(color, primary);
+  background: transparent;
+  color: fn.sys-var(color, primary);
+}
+
+.pu-button--tone-secondary {
+  border-color: fn.sys-var(color, secondary);
+  background: transparent;
+  color: fn.sys-var(color, secondary);
+}
+
+.pu-button--shape-pill.pu-button--tone-secondary {
+  background: fn.sys-var(color, secondary);
+  color: fn.sys-var(color, on-secondary);
+}
+
+.pu-button--tone-outline {
+  border-color: fn.sys-var(color, outline);
+  background: transparent;
+  color: fn.sys-var(color, on-surface);
+}
+
+.pu-button--tone-surface {
+  border-color: fn.sys-var(color, outline);
+  background: fn.sys-var(color, surface-container);
+  color: fn.sys-var(color, on-surface);
+}
+
+.pu-button--shape-pill.pu-button--tone-surface {
+  border-color: fn.sys-var(color, outline-variant);
+  background: fn.sys-var(color, surface-container-lowest);
+}
+
+.pu-button--tone-tertiary,
+.pu-button--feedback-success {
+  border-color: fn.sys-var(color, tertiary);
+  background: fn.sys-var(color, tertiary);
+  color: fn.sys-var(color, on-tertiary);
+}
+
+.pu-button--tone-dashed {
+  border-style: dashed;
+  border-color: fn.sys-var(color, outline);
+  background: transparent;
+  color: fn.sys-var(color, on-surface);
+}
+
+.pu-button--tone-danger {
+  border-color: fn.sys-var(color, error);
+  background: transparent;
+  color: fn.sys-var(color, error);
+}
+
+.pu-button--feedback-error {
+  border-color: fn.sys-var(color, error);
+  background: fn.sys-var(color, error);
+  color: fn.sys-var(color, on-error);
+}
+
+.pu-button--tone-ghost {
+  border-color: transparent;
+  background: transparent;
+  color: fn.sys-var(color, on-surface);
+}
+
+.pu-button--tone-ghost:hover:not(.is-disabled),
+.pu-button--tone-ghost:focus-visible:not(.is-disabled) {
+  background: fn.sys-var(color, surface-container-high);
+}
+
+.pu-button:hover:not(.is-disabled):not(.pu-button--tone-ghost) {
+  filter: brightness(0.98);
+}
+
+.pu-button:active:not(.is-disabled) {
+  transform: scale(0.99);
+}
+
+.pu-button.is-disabled {
+  opacity: fn.sys-var(opacity, disabled);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.pu-button__content {
+  min-width: 0;
+}
+
+.pu-button__leading,
+.pu-button__trailing,
+.pu-button__loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pu-button__leading :deep([class^="i-"]),
+.pu-button__leading :deep([class*=" i-"]),
+.pu-button__trailing :deep([class^="i-"]),
+.pu-button__trailing :deep([class*=" i-"]),
+.pu-button__loading-icon {
+  @include pu-icon("small");
+}
+
+.pu-button__loading-icon {
+  animation: pu-button-spin 0.8s linear infinite;
+}
+
+.is-loading .pu-button__content {
+  opacity: 0.92;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-button,
+  .pu-button__loading-icon {
+    transition: none !important;
+    animation: none !important;
   }
 }
 
 @keyframes pu-button-spin {
-  from {
-    transform: rotate(0deg);
-  }
   to {
     transform: rotate(360deg);
   }
 }
-
-.dot {
-  position: absolute;
-  top: fn.sys-var(spacing, xsmall);
-  right: fn.sys-var(spacing, xsmall);
-  width: 6px;
-  height: 6px;
-  background-color: fn.sys-var(color, error);
-  border-radius: 50%;
-}
-
-// Type variations
-.only-icon {
-  gap: fn.sys-var(spacing, xsmall);
-  padding: 0 0;
-
-  &--x-small {
-    width: 1.25rem;
-  }
-
-  &--small {
-    width: 2rem;
-  }
-
-  &--medium {
-    width: 2rem;
-  }
-
-  &--large {
-    width: 2.75rem;
-  }
-}
-
-.with-text {
-  gap: fn.sys-var(spacing, small);
-  padding: 0 12px;
-}
-
-.bar {
-  padding: 0 0;
-  justify-content: space-between;
-
-  .text {
-    flex: 1;
-    padding: 0 fn.sys-var(spacing, xsmall);
-  }
-
-  &.small {
-    height: 1.25rem;
-  }
-}
-
-// Size variations
-.x-small {
-  gap: fn.sys-var(spacing, xsmall);
-  height: 1.25rem;
-
-  .text {
-    @include pu-font('control');
-  }
-
-  .icon-wrapper {
-    height: 1em;
-    width: 1em;
-  }
-
-  .icon {
-    @include pu-font('control');
-  }
-}
-
-.small {
-  gap: fn.sys-var(spacing, xsmall);
-  height: 2rem;
-
-  .text {
-    @include pu-font('control');
-  }
-
-  .icon-wrapper {
-    height: 1em;
-    width: 1em;
-  }
-
-  .icon {
-    @include pu-font('body');
-  }
-}
-
-.medium {
-  gap: fn.sys-var(spacing, small);
-  height: 2rem;
-
-  .text {
-    @include pu-font('control');
-  }
-
-  .icon-wrapper {
-    height: 1em;
-    width: 1em;
-  }
-
-  .icon {
-    @include pu-font('body');
-  }
-}
-
-.large {
-  gap: fn.sys-var(spacing, small);
-  height: 2.75rem;
-
-  .text {
-    @include pu-font('control');
-  }
-
-  .icon-wrapper {
-    height: 1em;
-    width: 1em;
-  }
-
-  .icon {
-    @include pu-font('title');
-  }
-}
-
-// Theme variations
-.primary {
-  background-color: fn.sys-var(color, primary);
-  color: fn.sys-var(color, on-primary);
-
-  .text {
-    color: fn.sys-var(color, on-primary);
-  }
-}
-
-.primary-container {
-  background-color: fn.sys-var(color, primary-container);
-  color: fn.sys-var(color, on-primary-container);
-
-  .text {
-    color: fn.sys-var(color, on-primary-container);
-  }
-}
-
-.tertiary {
-  background-color: fn.sys-var(color, tertiary);
-  color: fn.sys-var(color, on-tertiary);
-
-  .text {
-    color: fn.sys-var(color, on-tertiary);
-  }
-}
-
-.surface {
-  background-color: fn.sys-var(color, surface-container);
-  color: fn.sys-var(color, on-surface);
-
-  .text {
-    color: fn.sys-var(color, on-surface);
-  }
-
-  &.active {
-    border: 1px solid fn.sys-var(color, primary);
-  }
-
-  &.toggled {
-    background-color: fn.sys-var(color, surface-container-highest);
-  }
-}
-
-.surface-outlined {
-  background-color: transparent;
-  color: fn.sys-var(color, on-surface);
-  border: 1px solid fn.sys-var(color, outline);
-
-  .text {
-    color: fn.sys-var(color, on-surface);
-  }
-}
-
-.plain {
-  background-color: transparent;
-  color: fn.sys-var(color, on-surface);
-
-  .text {
-    color: fn.sys-var(color, on-surface);
-  }
-}
-
-// Rounded variation
-.rounded {
-  border-radius: fn.sys-var(radius, small);
-}
-
-// State variations
-.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.loading {
-  cursor: not-allowed;
-}
-
-// Hover effects (for H5/web)
-// #ifdef H5
-.pu-button:hover:not(.disabled):not(.loading) {
-  opacity: 0.8;
-}
-// #endif
