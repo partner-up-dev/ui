@@ -65,6 +65,7 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 - Narrow Container
 - Slots And Empty
 - Trailing Actions
+- Stack Affordances
 
 ## Types
 

@@ -5,9 +5,40 @@ Date: 2026-06-08
 Status:
 
 ```
-Implemented in packages/web on 2026-06-08.
-Full package verify is currently blocked by unrelated PuTabs type/story drift.
+Follow-up layout correction in packages/web on 2026-06-08.
+`pnpm --filter @partner-up-dev/design-web run verify` passed after the
+affordance, alignment, padding, and item-collapse corrections.
 ```
+
+## Follow-up Layout Correction
+
+The original action-slot slice described `suffix` and `action` as trailing
+content attached to a value row. That was too broad.
+
+Corrected layout rule:
+
+```
+PuDescriptionList layout:
+  stack | inline | grid
+
+PuDescriptionItem internal layout:
+  stack when the parent list is stack
+  inline when the parent list is inline or grid
+
+stack item layout:
+  suffix/action belongs to the label row, even when there is no label text.
+
+inline item layout:
+  suffix/action is the definition value itself.
+  It is not rendered after a separate value inside a value row.
+  The internal label/value columns do not collapse because of viewport or
+  container width; only the parent list's item columns may collapse.
+  Default label alignment is start and default value alignment is end.
+```
+
+This means `value + action` is not the preferred description-item shape for
+inline/grid. Consumers should put the visible value text inside the action slot
+when the value is interactive.
 
 ## Source Gap
 
@@ -62,17 +93,19 @@ Slot intent:
 
 ```
 suffix
-  Non-interactive trailing content attached to the value.
+  Non-interactive value content when rendered in inline/grid.
+  Label-row affordance when rendered in stack.
   Examples: badge, tag, status icon, unit, readonly marker.
 
 action
-  Interactive trailing affordance attached to the value row.
+  Interactive value content when rendered in inline/grid.
+  Label-row affordance when rendered in stack.
   Examples: open map, view roster, copy value, open details.
 ```
 
 Do not silently treat `suffix` as interactive. Consumers may still place custom
 interactive content in `suffix`, but documented usage should steer interactive
-affordances to `action`.
+values to `action`.
 
 ## Target DOM Shape
 
@@ -320,6 +353,19 @@ Implemented behavior:
 8. Regenerated agent skill references.
 9. Corrected `stack` layout so suffix/action render in the label row when a
    label exists, while `inline/grid` keep them in the value row.
+10. Follow-up correction: `stack` layout renders suffix/action in the label row
+    even without label text.
+11. Follow-up correction: `inline/grid` treats suffix/action as the definition
+    value itself instead of appending them after a separate value.
+12. Updated stories so inline/grid action examples put the visible value inside
+    the action slot.
+13. Follow-up correction: added inline item padding, centered simple inline/grid
+    rows vertically, and removed item-level viewport/container collapse.
+14. Follow-up correction: inline/grid values now default to end alignment while
+    stack values remain start-aligned.
+15. Follow-up correction: parent `grid` layout no longer leaks into
+    PuDescriptionItem classes; grid-list items now use the same internal
+    `pu-description-item--layout-inline` class as inline-list items.
 ```
 
 ## Migration Target

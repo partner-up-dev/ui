@@ -36,13 +36,12 @@ const eventFacts = [
         <PuDescriptionList
           title="Order summary"
           layout="inline" surface-level="surface" variant="soft"
-          label-align="end"
           bordered
         >
           <PuDescriptionItem label="Plan" value="Team annual" />
           <PuDescriptionItem label="Seats" value="24" />
           <PuDescriptionItem label="Renewal" value="2026-06-01" />
-          <PuDescriptionItem label="Status" value="Ready">
+          <PuDescriptionItem label="Status">
             <template #suffix>
               <span class="pu-story__badge">Active</span>
             </template>
@@ -83,7 +82,6 @@ const eventFacts = [
           description="The two-column grid collapses by list container width."
           layout="grid" surface-level="plain" variant="outline"
           :columns="2"
-          label-align="end"
           dividers
         >
           <PuDescriptionItem label="Name" value="Lina Chen" />
@@ -126,10 +124,9 @@ const eventFacts = [
         <PuDescriptionList
           title="Interactive facts"
           layout="inline" surface-level="surface" variant="soft"
-          label-align="end"
           bordered
         >
-          <PuDescriptionItem label="Status" value="Ready">
+          <PuDescriptionItem label="Status">
             <template #suffix>
               <span class="pu-story__badge">Active</span>
             </template>
@@ -152,16 +149,50 @@ const eventFacts = [
             </template>
           </PuDescriptionItem>
 
-          <PuDescriptionItem label="Invite code" value="APR-2048">
+          <PuDescriptionItem label="Invite code">
             <template #action>
               <PuButton
                 tone="secondary"
                 variant="ghost"
                 size="sm"
                 shape="pill"
-                aria-label="Copy invite code"
+                aria-label="Copy invite code APR-2048"
               >
-                Copy
+                APR-2048
+                <template #trailing>
+                  <span class="i-mdi-content-copy" />
+                </template>
+              </PuButton>
+            </template>
+          </PuDescriptionItem>
+        </PuDescriptionList>
+      </div>
+    </Variant>
+
+    <Variant title="Stack Affordances">
+      <div class="pu-story pu-story--narrow">
+        <PuDescriptionList
+          title="Stacked facts"
+          layout="stack" surface-level="surface" variant="soft"
+          bordered
+        >
+          <PuDescriptionItem label="Status">
+            <template #suffix>
+              <span class="pu-story__badge">Queued</span>
+            </template>
+            Draft itinerary waits for confirmation.
+          </PuDescriptionItem>
+
+          <PuDescriptionItem value="Route details available">
+            <template #action>
+              <PuButton
+                tone="secondary"
+                variant="ghost"
+                size="sm"
+                shape="pill"
+                aria-label="Open route details"
+              >
+                Open details
                 <template #trailing>
                   <span class="i-mdi-chevron-right" />
                 </template>

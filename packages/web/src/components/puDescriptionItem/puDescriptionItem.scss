@@ -3,7 +3,9 @@
 .pu-description-item {
   display: grid;
   min-width: 0;
-  padding: var(--pu-description-item-padding-block, var(--sys-spacing-small)) 0;
+  padding:
+    var(--pu-description-item-padding-block, var(--sys-spacing-small))
+    var(--pu-description-item-padding-inline, var(--sys-spacing-small));
   column-gap: var(--sys-spacing-small);
   row-gap: var(--sys-spacing-xsmall);
 }
@@ -20,11 +22,14 @@
   grid-template-columns: 1fr;
 }
 
-.pu-description-item--layout-inline,
-.pu-description-item--layout-grid {
+.pu-description-item--layout-inline {
   grid-template-columns:
     minmax(0, var(--pu-description-item-label-width, 7rem))
     minmax(0, 1fr);
+  align-items: center;
+}
+
+.pu-description-item--layout-inline.is-has-hint {
   align-items: start;
 }
 
@@ -57,7 +62,7 @@
   margin: 0;
 }
 
-.pu-description-item__value-row {
+.pu-description-item__affordance-value {
   display: flex;
   align-items: center;
   min-width: 0;
@@ -84,6 +89,9 @@
   justify-content: flex-end;
   flex: 0 1 auto;
   min-width: 0;
+}
+
+.pu-description-item__label-row .pu-description-item__action {
   margin-left: auto;
 }
 
@@ -112,34 +120,20 @@
   text-align: center;
 }
 
+.pu-description-item--value-align-center .pu-description-item__affordance-value {
+  justify-content: center;
+  text-align: center;
+}
+
 .pu-description-item--value-align-end .pu-description-item__value {
+  text-align: right;
+}
+
+.pu-description-item--value-align-end .pu-description-item__affordance-value {
+  justify-content: flex-end;
   text-align: right;
 }
 
 .pu-description-item.is-empty .pu-description-item__value {
   color: var(--sys-color-on-surface-variant);
-}
-
-@container pu-description-list (max-width: 20rem) {
-  .pu-description-item.is-collapse-on-mobile.pu-description-item--layout-inline,
-  .pu-description-item.is-collapse-on-mobile.pu-description-item--layout-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pu-description-item.is-collapse-on-mobile .pu-description-item__label-text,
-  .pu-description-item.is-collapse-on-mobile .pu-description-item__value {
-    text-align: left;
-  }
-}
-
-@media (max-width: 20rem) {
-  .pu-description-item.is-collapse-on-mobile.pu-description-item--layout-inline,
-  .pu-description-item.is-collapse-on-mobile.pu-description-item--layout-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pu-description-item.is-collapse-on-mobile .pu-description-item__label-text,
-  .pu-description-item.is-collapse-on-mobile .pu-description-item__value {
-    text-align: left;
-  }
 }

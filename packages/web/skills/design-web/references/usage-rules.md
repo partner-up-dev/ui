@@ -52,7 +52,11 @@
 - PuCellGroup: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuChip: Use tone for semantic/status color and variant for chip treatment such as soft, outline, solid, ghost, or dashed.
 - PuChipGroup: fit mode measures rendered element children and hides overflow items; keep slot content element-based and avoid relying on hidden chip count.
-- PuDescriptionItem: Use suffix for non-interactive trailing content such as badges or status markers; use the action slot for trailing interactive affordances.
+- PuDescriptionItem: PuDescriptionItem normalizes the parent list layout into only two internal layouts: stack for stack lists, and inline for inline or grid lists.
+- PuDescriptionItem: In stack item layout, suffix and action render in the label row even when no label text is present; in inline item layout, suffix or action is the definition value itself, not content appended after value.
+- PuDescriptionItem: Inline item layout keeps internal label/value columns across viewport changes; only the parent description-list grid may collapse its item columns.
+- PuDescriptionItem: Inline item layout defaults to start-aligned labels and end-aligned values; use valueAlign only when a value needs a different alignment.
+- PuDescriptionItem: Use suffix for non-interactive value content such as badges or status markers; use the action slot when the value itself is an interactive affordance.
 - PuDescriptionList: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuDialog: Uses required open plus close, cancel, and confirm events; do not assume v-model:open.
 - PuDialog: close emits a reason of overlay, escape, close, or cancel.

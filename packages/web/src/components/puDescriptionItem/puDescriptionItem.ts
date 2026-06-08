@@ -16,7 +16,7 @@ export const puDescriptionItemProps = {
   span: makeNumberProp<PuDescriptionItemSpan>(1),
   valueAlign: {
     type: String as PropType<PuDescriptionItemValueAlign>,
-    default: "start",
+    default: undefined,
     validator: (value: string) => puAligns.includes(value as PuAlign),
   },
   emptyText: makeStringProp<string | undefined>(undefined),

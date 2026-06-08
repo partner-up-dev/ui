@@ -58,6 +58,7 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 - Narrow Container
 - Slots And Empty
 - Trailing Actions
+- Stack Affordances
 
 ## Types
 
@@ -67,7 +68,11 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 
 ## Caveats
 
-- Use suffix for non-interactive trailing content such as badges or status markers; use the action slot for trailing interactive affordances.
+- PuDescriptionItem normalizes the parent list layout into only two internal layouts: stack for stack lists, and inline for inline or grid lists.
+- In stack item layout, suffix and action render in the label row even when no label text is present; in inline item layout, suffix or action is the definition value itself, not content appended after value.
+- Inline item layout keeps internal label/value columns across viewport changes; only the parent description-list grid may collapse its item columns.
+- Inline item layout defaults to start-aligned labels and end-aligned values; use valueAlign only when a value needs a different alignment.
+- Use suffix for non-interactive value content such as badges or status markers; use the action slot when the value itself is an interactive affordance.
 
 ## Source Evidence
 

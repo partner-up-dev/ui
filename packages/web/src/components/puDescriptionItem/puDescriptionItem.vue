@@ -1,8 +1,8 @@
 <template>
   <div class="pu-description-item" :class="rootClasses" :style="rootStyle">
-    <dt v-if="hasLabel" class="pu-description-item__label">
+    <dt v-if="shouldRenderLabelRow" class="pu-description-item__label">
       <div class="pu-description-item__label-row">
-        <span class="pu-description-item__label-text">
+        <span v-if="hasLabel" class="pu-description-item__label-text">
           <slot name="label">
             {{ props.label }}
           </slot>
@@ -17,16 +17,17 @@
     </dt>
 
     <dd class="pu-description-item__content">
-      <div v-if="shouldRenderValueRow" class="pu-description-item__value-row">
-        <div v-if="shouldRenderValue" class="pu-description-item__value">
-          <slot>
-            {{ displayValue }}
-          </slot>
-        </div>
-        <div v-if="hasSuffix && placesAffordanceInValueRow" class="pu-description-item__suffix">
+      <div v-if="shouldRenderPlainValue" class="pu-description-item__value">
+        <slot>
+          {{ displayValue }}
+        </slot>
+      </div>
+
+      <div v-if="shouldRenderAffordanceValue" class="pu-description-item__affordance-value">
+        <div v-if="hasSuffix" class="pu-description-item__suffix">
           <slot name="suffix" />
         </div>
-        <div v-if="hasAction && placesAffordanceInValueRow" class="pu-description-item__action">
+        <div v-if="hasAction" class="pu-description-item__action">
           <slot name="action" />
         </div>
       </div>
@@ -68,14 +69,19 @@ import { puDescriptionListKey, type PuDescriptionLabelAlign } from "../puDescrip
 import { puDescriptionLabelAligns } from "../puDescriptionList/puDescriptionList";
 import { puDescriptionItemProps, type PuDescriptionItemSpan } from "./puDescriptionItem";
 
+type PuDescriptionItemInternalLayout = Extract<PuLayout, "stack" | "inline">;
+
 const props = defineProps(puDescriptionItemProps);
 const slots = useSlots();
 const listContext = inject(puDescriptionListKey, null);
 
-const layout = computed<PuLayout>(() =>
+const listLayout = computed<PuLayout>(() =>
   listContext
     ? listContext.layout.value
     : normalizePuVariant(puLayouts, "stack", "stack"),
+);
+const itemLayout = computed<PuDescriptionItemInternalLayout>(() =>
+  listLayout.value === "stack" ? "stack" : "inline",
 );
 const density = computed<PuDensity>(() =>
   listContext
@@ -88,13 +94,14 @@ const labelAlign = computed<PuDescriptionLabelAlign>(() =>
     : normalizePuVariant(puDescriptionLabelAligns, "start", "start"),
 );
 const valueAlign = computed<PuAlign>(() =>
-  normalizePuVariant(puAligns, props.valueAlign, "start"),
+  normalizePuVariant(
+    puAligns,
+    props.valueAlign,
+    itemLayout.value === "stack" ? "start" : "end",
+  ),
 );
 const span = computed<PuDescriptionItemSpan>(() => (props.span === 2 ? 2 : 1));
 const labelWidth = computed(() => listContext?.labelWidth.value ?? "7rem");
-const collapseOnMobile = computed(
-  () => listContext?.collapseOnMobile.value ?? true,
-);
 const emptyText = computed(() => props.emptyText ?? listContext?.emptyText.value ?? "-");
 
 const hasLabel = computed(() => Boolean(slots.label) || Boolean(props.label));
@@ -109,28 +116,33 @@ const hasValue = computed(
       String(props.value).length > 0),
 );
 const displayValue = computed(() => (hasValue.value ? props.value : emptyText.value));
-const shouldRenderValue = computed(() => hasValue.value || !hasAction.value);
 const placesAffordanceInLabelRow = computed(
-  () => layout.value === "stack" && hasLabel.value,
+  () => itemLayout.value === "stack",
 );
-const placesAffordanceInValueRow = computed(
+const placesAffordanceInDefinition = computed(
   () => !placesAffordanceInLabelRow.value,
 );
-const hasValueRowAffordance = computed(
-  () => placesAffordanceInValueRow.value && (hasSuffix.value || hasAction.value),
+const hasAffordance = computed(() => hasSuffix.value || hasAction.value);
+const shouldRenderLabelRow = computed(
+  () => hasLabel.value || (placesAffordanceInLabelRow.value && hasAffordance.value),
 );
-const shouldRenderValueRow = computed(
-  () => shouldRenderValue.value || hasValueRowAffordance.value,
+const shouldRenderAffordanceValue = computed(
+  () => placesAffordanceInDefinition.value && hasAffordance.value,
+);
+const shouldRenderPlainValue = computed(
+  () =>
+    !shouldRenderAffordanceValue.value &&
+    (hasValue.value || !hasAffordance.value),
 );
 
 const rootClasses = computed(() => [
-  createPuModifierClass("pu-description-item", "layout", layout.value),
+  createPuModifierClass("pu-description-item", "layout", itemLayout.value),
   createPuModifierClass("pu-description-item", "density", density.value),
   createPuModifierClass("pu-description-item", "label-align", labelAlign.value),
   createPuModifierClass("pu-description-item", "value-align", valueAlign.value),
   createPuModifierClass("pu-description-item", "span", span.value),
-  createPuStateClass("collapse-on-mobile", collapseOnMobile.value),
-  createPuStateClass("empty", !hasValue.value),
+  createPuStateClass("empty", !hasValue.value && !hasAffordance.value),
+  createPuStateClass("has-hint", hasHint.value),
 ]);
 
 const rootStyle = computed(() => ({
