@@ -35,7 +35,20 @@
   @include pu-font(control);
 }
 
-.pu-description-item--label-align-end .pu-description-item__label {
+.pu-description-item__label-row {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-description-item__label-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.pu-description-item--label-align-end .pu-description-item__label-text {
   text-align: right;
 }
 
@@ -46,7 +59,7 @@
 
 .pu-description-item__value-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   min-width: 0;
   gap: var(--sys-spacing-xsmall);
 }
@@ -60,8 +73,33 @@
 }
 
 .pu-description-item__suffix {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  min-width: 0;
   color: var(--sys-color-on-surface-variant);
+}
+
+.pu-description-item__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 1 auto;
+  min-width: 0;
+  margin-left: auto;
+}
+
+.pu-description-item__action :deep(.pu-button) {
+  max-width: 100%;
+}
+
+.pu-description-item__action :deep(.pu-button--variant-ghost) {
+  min-height: calc(var(--sys-spacing-medium) + var(--sys-spacing-xsmall));
+  padding: 0 var(--sys-spacing-xsmall);
+}
+
+.pu-description-item__action :deep(.pu-button__content) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pu-description-item__hint {
@@ -78,18 +116,30 @@
   text-align: right;
 }
 
-.pu-description-item--empty .pu-description-item__value {
+.pu-description-item.is-empty .pu-description-item__value {
   color: var(--sys-color-on-surface-variant);
 }
 
-@container pu-description-list (max-width: 54.9375rem) {
-  .pu-description-item--collapse-on-mobile.pu-description-item--layout-inline,
-  .pu-description-item--collapse-on-mobile.pu-description-item--layout-grid {
+@container pu-description-list (max-width: 20rem) {
+  .pu-description-item.is-collapse-on-mobile.pu-description-item--layout-inline,
+  .pu-description-item.is-collapse-on-mobile.pu-description-item--layout-grid {
     grid-template-columns: 1fr;
   }
 
-  .pu-description-item--collapse-on-mobile .pu-description-item__label,
-  .pu-description-item--collapse-on-mobile .pu-description-item__value {
+  .pu-description-item.is-collapse-on-mobile .pu-description-item__label-text,
+  .pu-description-item.is-collapse-on-mobile .pu-description-item__value {
+    text-align: left;
+  }
+}
+
+@media (max-width: 20rem) {
+  .pu-description-item.is-collapse-on-mobile.pu-description-item--layout-inline,
+  .pu-description-item.is-collapse-on-mobile.pu-description-item--layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pu-description-item.is-collapse-on-mobile .pu-description-item__label-text,
+  .pu-description-item.is-collapse-on-mobile .pu-description-item__value {
     text-align: left;
   }
 }

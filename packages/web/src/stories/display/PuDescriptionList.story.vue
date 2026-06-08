@@ -1,6 +1,7 @@
 <!-- @pu-story-covers PuDescriptionList PuDescriptionItem -->
 
 <script setup lang="ts">
+import PuButton from "../../components/puButton/puButton.vue";
 import PuDescriptionItem from "../../components/puDescriptionItem/puDescriptionItem.vue";
 import PuDescriptionList from "../../components/puDescriptionList/puDescriptionList.vue";
 
@@ -122,12 +123,64 @@ const eventFacts = [
         </PuDescriptionList>
       </div>
     </Variant>
+
+    <Variant title="Trailing Actions">
+      <div class="pu-story pu-story--narrow">
+        <PuDescriptionList
+          title="Interactive facts"
+          layout="inline"
+          tone="surface"
+          label-align="end"
+          bordered
+        >
+          <PuDescriptionItem label="Status" value="Ready">
+            <template #suffix>
+              <span class="pu-story__badge">Active</span>
+            </template>
+          </PuDescriptionItem>
+
+          <PuDescriptionItem label="Route">
+            <template #action>
+              <PuButton
+                tone="secondary"
+                variant="ghost"
+                size="sm"
+                shape="pill"
+                aria-label="View route map"
+              >
+                View map
+                <template #trailing>
+                  <span class="i-mdi-chevron-right" />
+                </template>
+              </PuButton>
+            </template>
+          </PuDescriptionItem>
+
+          <PuDescriptionItem label="Invite code" value="APR-2048">
+            <template #action>
+              <PuButton
+                tone="secondary"
+                variant="ghost"
+                size="sm"
+                shape="pill"
+                aria-label="Copy invite code"
+              >
+                Copy
+                <template #trailing>
+                  <span class="i-mdi-chevron-right" />
+                </template>
+              </PuButton>
+            </template>
+          </PuDescriptionItem>
+        </PuDescriptionList>
+      </div>
+    </Variant>
   </Story>
 </template>
 
 <style scoped>
 .pu-description-list-story__narrow-frame {
-  width: min(100%, 24rem);
+  width: min(100%, 21rem);
   border: 1px solid var(--sys-color-outline-variant);
   background: var(--sys-color-surface);
 }

@@ -63,6 +63,7 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 - Grid
 - Narrow Container
 - Slots And Empty
+- Trailing Actions
 
 ## Types
 

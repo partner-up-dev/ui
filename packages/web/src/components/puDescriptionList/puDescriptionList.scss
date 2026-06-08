@@ -108,7 +108,7 @@
   @include pu-font(support);
 }
 
-@container pu-description-list (max-width: 54.9375rem) {
+@container pu-description-list (max-width: 20rem) {
   .pu-description-list.is-collapse-on-mobile .pu-description-list__body {
     grid-template-columns: 1fr;
   }

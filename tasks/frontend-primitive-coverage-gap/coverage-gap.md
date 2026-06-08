@@ -50,6 +50,7 @@ Cell.vue -> PuCell
 Chip.vue -> PuChip
 ChipGroup.vue -> PuChipGroup
 InfoRow.vue -> PuDescriptionList / PuDescriptionItem for grouped facts
+InfoRowAction.vue -> PuDescriptionItem action slot for trailing affordances
 InlineNotice.vue -> PuInlineNotice compatibility wrapper
 EmptyState.vue -> PuEmptyState
 Modal.vue -> PuModal
@@ -65,7 +66,6 @@ These primitives have no equivalent public Pu* component today:
 | `actions/FeedbackButton.vue` | Transient action button states beyond loading: idle, pending, success, and error. |
 | `containers/ChoiceCard.vue` | Selectable button/router-link card with active and disabled states. |
 | `display/FitChipGroup.vue` | Single-line chip group that measures available width and renders only fully fitting chips. |
-| `display/InfoRowAction.vue` | Label/value row where only the trailing value affordance is actionable. |
 | `overlay/ConfirmDialog.vue` | Standard confirm/cancel dialog composition on top of modal behavior. |
 | `feedback/LoadingIndicator.vue` | Region-level spinner/loading state with optional message. |
 | `feedback/ErrorToast.vue` | Toast/snackbar feedback with dismiss behavior. |

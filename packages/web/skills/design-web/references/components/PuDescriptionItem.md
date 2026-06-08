@@ -33,6 +33,7 @@ import { PuDescriptionItem } from '@partner-up-dev/design-web'
 ## Slots
 
 - `default`
+- `action`
 - `hint`
 - `label`
 - `suffix`
@@ -44,6 +45,8 @@ import { PuDescriptionItem } from '@partner-up-dev/design-web'
 ## Composition
 
 - PuDescriptionList
+- PuButton
+- PuTag
 
 ## Story Variants
 
@@ -54,6 +57,7 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 - Grid
 - Narrow Container
 - Slots And Empty
+- Trailing Actions
 
 ## Types
 
@@ -63,7 +67,7 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use suffix for non-interactive trailing content such as badges or status markers; use the action slot for trailing interactive affordances.
 
 ## Source Evidence
 
