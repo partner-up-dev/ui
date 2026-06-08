@@ -6,14 +6,17 @@
 - content card
 - collapsible card
 - grouped content surface
+- selectable card
+- action card
 
 ## Prefer When
 
-- Use for grouped content with optional hero, header, body, footer, or collapsible content.
+- Use for grouped content with optional hero, header, body, footer, collapsible content, or whole-card action targets.
 
 ## Avoid When
 
 - Avoid for dense list rows; use PuCellGroup and PuCell for row-based settings or lists.
+- Avoid putting buttons, links, or form controls inside an interactive card root.
 
 ## Import
 
@@ -23,6 +26,7 @@ import { PuCard } from '@partner-up-dev/design-web'
 
 ## Props
 
+- `action`
 - `as`
 - `tone`
 - `theme`
@@ -33,9 +37,12 @@ import { PuCard } from '@partner-up-dev/design-web'
 - `collapsible`
 - `defaultExpanded`
 - `expanded`
-- `type`
-- `default`
+- `expandedResetKey`
 - `toggleLabel`
+- `selectable`
+- `active`
+- `disabled`
+- `keepContentMounted`
 
 ## Slots
 
@@ -46,8 +53,8 @@ import { PuCard } from '@partner-up-dev/design-web'
 
 ## Events
 
+- `click`
 - `update:expanded`
-- `_value`
 - `expand`
 - `collapse`
 
@@ -65,14 +72,21 @@ Story: `src/stories/display/PuCard.story.vue`
 - Themes
 - Collapsible
 - Controlled Expansion
+- Action Cards
+- Mounted Expansion
 
 ## Types
 
+- `PuCardExpandablePolicy`
 - `PuCardPadding`
 
 ## Caveats
 
-- Supports tone and a compatibility theme prop; prefer tone in consumer code.
+- Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.
+- Use selectable for button-like choice cards without a navigation target.
+- Use keepContentMounted only when collapsed content owns local state that must survive collapse.
+- Interactive cards must not contain nested interactive controls.
+- Disabled link and route cards use aria-disabled and stop click navigation.
 
 ## Source Evidence
 

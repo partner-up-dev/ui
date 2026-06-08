@@ -41,7 +41,6 @@ import { PuDrawer } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:visible`
-- `value`
 - `close`
 
 ## Composition

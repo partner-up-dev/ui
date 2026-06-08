@@ -18,4 +18,5 @@ export const puChipGroupProps = {
     validator: (value: string) => puAligns.includes(value as PuAlign),
   },
   wrap: makeBooleanProp(true),
+  fit: makeBooleanProp(false),
 };

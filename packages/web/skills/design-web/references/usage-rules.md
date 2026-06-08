@@ -31,12 +31,20 @@
 - PuButton: Use feedback for transient idle, pending, success, and error action states.
 - PuButton: Icon-only buttons need an accessible label.
 - PuButton: Disabled link actions use aria-disabled and stop click navigation.
-- PuCard: Supports tone and a compatibility theme prop; prefer tone in consumer code.
+- PuCard: Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.
+- PuCard: Use selectable for button-like choice cards without a navigation target.
+- PuCard: Use keepContentMounted only when collapsed content owns local state that must survive collapse.
+- PuCard: Interactive cards must not contain nested interactive controls.
+- PuCard: Disabled link and route cards use aria-disabled and stop click navigation.
+- PuChipGroup: fit mode measures rendered element children and hides overflow items; keep slot content element-based and avoid relying on hidden chip count.
 - PuDialog: Uses required open plus close, cancel, and confirm events; do not assume v-model:open.
 - PuDialog: close emits a reason of overlay, escape, close, or cancel.
 - PuDialog: Provide a useful title, title slot, or aria label for dialog context.
 - PuDialog: Use the actions slot when custom commands are needed while preserving footer spacing.
 - PuDrawer: Uses visible and update:visible for control; do not assume open or v-model:open.
+- PuImg: Use shape from the shared PuShape vocabulary instead of local radius values.
+- PuImg: Use the fallback slot for custom fallback rendering; fallbackInitial and name cover simple initial fallback.
+- PuImg: Provide alt text for meaningful images; fallback content derives an accessible label from alt or name when available.
 - PuInput: Includes uni-app-compatible input props and legacy event names.
 - PuModal: Uses required open plus close event; do not assume v-model:open.
 - PuModal: Provide a useful title or aria label for dialog context.

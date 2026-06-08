@@ -67,8 +67,8 @@ files only after narrowing the candidate set.
   - Intent: bento item, highlight tile
   - Prefer: Use inside PuBentoGrid for an individual overview tile.
 - [PuCard](references/components/PuCard.md)
-  - Intent: content card, collapsible card, grouped content surface
-  - Prefer: Use for grouped content with optional hero, header, body, footer, or collapsible content.
+  - Intent: content card, collapsible card, grouped content surface, selectable card, action card
+  - Prefer: Use for grouped content with optional hero, header, body, footer, collapsible content, or whole-card action targets.
 - [PuCell](references/components/PuCell.md)
   - Intent: list row, settings row, navigation row
   - Prefer: Use for a compact row with label, description, meta, icon, action, or navigation affordance.
@@ -80,7 +80,7 @@ files only after narrowing the candidate set.
   - Prefer: Use for compact labels, filters, selected values, or removable tokens.
 - [PuChipGroup](references/components/PuChipGroup.md)
   - Intent: chip group, filter group, compact option list
-  - Prefer: Use to organize related PuChip items with consistent spacing and wrapping.
+  - Prefer: Use to organize related PuChip items with consistent spacing and wrapping, or use fit mode for one-line metadata that should show only complete chips.
 - [PuDescriptionItem](references/components/PuDescriptionItem.md)
   - Intent: description item, label-value item, metadata row
   - Prefer: Use inside PuDescriptionList for one label-value pair.
@@ -91,8 +91,8 @@ files only after narrowing the candidate set.
   - Intent: empty state, zero state, no results
   - Prefer: Use when a region has no data, no search results, or needs a first-use prompt.
 - [PuImg](references/components/PuImg.md)
-  - Intent: image, responsive image, fallback image
-  - Prefer: Use for package-consistent image rendering and fallback behavior.
+  - Intent: image, responsive image, fallback image, avatar image
+  - Prefer: Use for package-consistent image rendering, loading placeholders, fallback initials, and avatar-like image surfaces.
 - [PuInlineNotice](references/components/PuInlineNotice.md)
   - Intent: inline notice, local alert, contextual message
   - Prefer: Use for local info, success, warning, or error messages inside a page section.

@@ -185,6 +185,89 @@ const readQuoted = (source, index) => {
   return { value, end: cursor };
 };
 
+const skipTopLevelValue = (source, index) => {
+  let cursor = index;
+  let depth = 0;
+  let quote = "";
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+
+  while (cursor < source.length) {
+    const char = source[cursor];
+    const next = source[cursor + 1];
+
+    if (lineComment) {
+      if (char === "\n") lineComment = false;
+      cursor += 1;
+      continue;
+    }
+
+    if (blockComment) {
+      if (char === "*" && next === "/") {
+        blockComment = false;
+        cursor += 2;
+      } else {
+        cursor += 1;
+      }
+      continue;
+    }
+
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === quote) {
+        quote = "";
+      }
+      cursor += 1;
+      continue;
+    }
+
+    if (char === "/" && next === "/") {
+      lineComment = true;
+      cursor += 2;
+      continue;
+    }
+
+    if (char === "/" && next === "*") {
+      blockComment = true;
+      cursor += 2;
+      continue;
+    }
+
+    if (char === "'" || char === '"' || char === "`") {
+      quote = char;
+      cursor += 1;
+      continue;
+    }
+
+    if (char === "{" || char === "[" || char === "(") {
+      depth += 1;
+      cursor += 1;
+      continue;
+    }
+
+    if (char === "}" || char === "]" || char === ")") {
+      if (depth === 0 && char === "}") {
+        return cursor;
+      }
+      depth = Math.max(0, depth - 1);
+      cursor += 1;
+      continue;
+    }
+
+    if (depth === 0 && char === ",") {
+      return cursor + 1;
+    }
+
+    cursor += 1;
+  }
+
+  return cursor;
+};
+
 const parseTopLevelKeys = (objectBody) => {
   const keys = [];
   let index = 0;
@@ -293,7 +376,11 @@ const parseTopLevelKeys = (objectBody) => {
     index = skipWhitespaceAndComments(objectBody, index);
     if (objectBody[index] === ":") {
       keys.push(key);
+      index = skipTopLevelValue(objectBody, index + 1);
+      continue;
     }
+
+    index += 1;
   }
 
   return [...new Set(keys)];

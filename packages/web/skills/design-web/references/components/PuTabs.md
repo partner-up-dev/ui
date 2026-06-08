@@ -35,7 +35,6 @@ import { PuTabs } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
-- `index`
 - `change`
 
 ## Composition

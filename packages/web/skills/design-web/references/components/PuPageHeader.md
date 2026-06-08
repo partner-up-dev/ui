@@ -28,10 +28,6 @@ import { PuPageHeader } from '@partner-up-dev/design-web'
 - `title`
 - `subtitle`
 - `titleAs`
-- `type`
-- `default`
-- `validator`
-- `value`
 - `showBack`
 - `backLabel`
 - `density`
@@ -50,7 +46,6 @@ import { PuPageHeader } from '@partner-up-dev/design-web'
 ## Events
 
 - `back`
-- `_event`
 
 ## Composition
 

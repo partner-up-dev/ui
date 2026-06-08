@@ -24,8 +24,6 @@ import { PuToggleSwitch } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `type`
-- `required`
 - `label`
 - `disabled`
 
@@ -36,7 +34,6 @@ import { PuToggleSwitch } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
-- `_value`
 - `change`
 
 ## Composition

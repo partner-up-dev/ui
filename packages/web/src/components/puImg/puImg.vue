@@ -1,5 +1,6 @@
 <script lang="ts">
 import { BasicComponentOptions } from "../../utils/vue";
+
 export default {
   name: "PuImg",
   options: BasicComponentOptions,
@@ -8,59 +9,49 @@ export default {
 
 <script setup lang="ts">
 import { computed, onMounted, ref, watch, type CSSProperties } from "vue";
-import { puImgProps, puImgEmits } from "./puImg";
-import { kebabCase } from '../../utils/string'
-
+import { puImgEmits, puImgProps } from "./puImg";
 
 const props = defineProps(puImgProps);
 const emit = defineEmits(puImgEmits);
 
-const isLoading = ref(true);
+const isLoading = ref(Boolean(props.src));
 const isError = ref(false);
 
 const hasSrc = computed(() => Boolean(props.src));
-
-function resetState(src = props.src) {
-  isLoading.value = Boolean(src);
-  isError.value = false;
-  if (!src) {
-    isError.value = true;
-  }
-}
-
-watch(
-  () => props.src,
-  (src) => {
-    resetState(src);
-  }
+const shouldRenderImage = computed(() => hasSrc.value && !isError.value);
+const showLoadingState = computed(
+  () => props.showLoading && isLoading.value && hasSrc.value,
 );
-
-function onLoad(e: any) {
-  isLoading.value = false;
-  isError.value = false;
-  emit("load", e);
-}
-
-function onError(e: any) {
-  isLoading.value = false;
-  isError.value = true;
-  emit("error", e);
-}
+const showFallback = computed(() => !hasSrc.value || isError.value);
 
 const rootStyle = computed(() => {
   const style: Record<string, string> = {};
-  if (props.size) {
-    return style;
-  } else {
-    if (props.width)
+
+  if (!props.size) {
+    if (props.width) {
       style.width =
         typeof props.width === "number" ? `${props.width}px` : props.width;
-    if (props.height)
+    }
+
+    if (props.height) {
       style.height =
         typeof props.height === "number" ? `${props.height}px` : props.height;
+    }
   }
+
   return style;
 });
+
+const rootClasses = computed(() => [
+  `pu-img--shape-${props.shape}`,
+  {
+    [`pu-img--${props.size}`]: Boolean(props.size),
+    "is-bordered": props.bordered,
+    "is-loading": showLoadingState.value,
+    "is-error": isError.value,
+    "has-fallback": showFallback.value,
+  },
+]);
 
 const objectFit = computed(() => {
   switch (props.mode) {
@@ -100,43 +91,103 @@ const imageStyle = computed<CSSProperties>(() => ({
   objectPosition: objectPosition.value,
 }));
 
+const fallbackInitial = computed(() => {
+  const explicitInitial = props.fallbackInitial?.trim();
+  if (explicitInitial) {
+    return Array.from(explicitInitial)[0]?.toUpperCase() ?? "";
+  }
+
+  const normalizedName = props.name?.trim();
+  if (normalizedName) {
+    return Array.from(normalizedName)[0]?.toUpperCase() ?? "";
+  }
+
+  return "";
+});
+
+const fallbackLabel = computed(() => {
+  const alt = props.alt.trim();
+  if (alt) {
+    return alt;
+  }
+
+  return props.name?.trim() || undefined;
+});
+
+function resetState(src = props.src): void {
+  isLoading.value = Boolean(src);
+  isError.value = false;
+}
+
+watch(
+  () => props.src,
+  (src) => {
+    resetState(src);
+  },
+);
+
+function onLoad(event: Event): void {
+  isLoading.value = false;
+  isError.value = false;
+  emit("load", event);
+}
+
+function onError(event: Event): void {
+  isLoading.value = false;
+  isError.value = true;
+  emit("error", event);
+}
+
 onMounted(() => {
   if (!hasSrc.value) {
     isLoading.value = false;
-    isError.value = true;
+    isError.value = false;
   }
 });
 </script>
 
 <template>
-  <div class="pu-img" :class="[props.customClass, props.size ? `pu-img--${props.size}` : '']" :style="rootStyle">
+  <div
+    class="pu-img"
+    :class="rootClasses"
+    :style="rootStyle"
+  >
     <img
+      v-if="shouldRenderImage"
       class="pu-img__image"
-      :class="[
-        props.customImage,
-        `pu-img__image--r-${kebabCase(props.radius)}`,
-        {
-          'is-hidden':
-            (props.showError && isError) || (props.showLoading && isLoading),
-        },
-      ]"
+      :class="{ 'is-hidden': showLoadingState }"
       :src="props.src"
-      alt=""
+      :alt="props.alt"
       :loading="props.lazyLoad ? 'lazy' : 'eager'"
       :style="imageStyle"
       @load="onLoad"
       @error="onError"
     />
 
-    <div v-if="props.showLoading && isLoading && hasSrc" class="pu-img__placeholder is-loading">
+    <div
+      v-if="showLoadingState"
+      class="pu-img__placeholder is-loading"
+    >
       <slot name="loading">
-        <span class="pu-img__spinner" />
+        <span class="pu-img__spinner" aria-hidden="true" />
       </slot>
     </div>
 
-    <div v-if="props.showError && isError" class="pu-img__placeholder is-error">
-      <slot name="error">
-        <span class="pu-img__error-icon" />
+    <div
+      v-else-if="showFallback"
+      class="pu-img__placeholder is-fallback"
+      :role="fallbackLabel ? 'img' : undefined"
+      :aria-label="fallbackLabel"
+    >
+      <slot
+        name="fallback"
+        :initial="fallbackInitial"
+        :name="props.name"
+      >
+        <span v-if="fallbackInitial" class="pu-img__fallback-initial">
+          {{ fallbackInitial }}
+        </span>
+        <span v-else class="pu-img__fallback-icon" aria-hidden="true" />
       </slot>
     </div>
   </div>

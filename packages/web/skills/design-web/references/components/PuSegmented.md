@@ -25,11 +25,7 @@ import { PuSegmented } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `type`
-- `default`
 - `semantics`
-- `validator`
-- `value`
 - `activation`
 - `disabled`
 - `orientation`
@@ -48,7 +44,6 @@ import { PuSegmented } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
-- `_value`
 - `change`
 
 ## Composition

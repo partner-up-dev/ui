@@ -23,8 +23,6 @@ import { PuForm } from '@partner-up-dev/design-web'
 ## Props
 
 - `schema`
-- `type`
-- `required`
 - `cellPadding`
 
 ## Slots

@@ -24,7 +24,6 @@ import { PuAccordion } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `type`
 - `accordion`
 - `viewmore`
 - `useMoreSlot`
@@ -41,8 +40,7 @@ import { PuAccordion } from '@partner-up-dev/design-web'
 ## Events
 
 - `change`
-- `detail`
-- `value`
+- `update:modelValue`
 
 ## Composition
 

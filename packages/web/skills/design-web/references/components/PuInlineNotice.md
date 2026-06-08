@@ -25,10 +25,6 @@ import { PuInlineNotice } from '@partner-up-dev/design-web'
 
 - `as`
 - `tone`
-- `type`
-- `default`
-- `validator`
-- `value`
 - `title`
 - `message`
 - `icon`
@@ -47,7 +43,6 @@ import { PuInlineNotice } from '@partner-up-dev/design-web'
 ## Events
 
 - `close`
-- `_event`
 
 ## Composition
 

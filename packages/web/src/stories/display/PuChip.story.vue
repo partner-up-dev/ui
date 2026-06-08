@@ -69,6 +69,21 @@ const tones = [
       </div>
     </Variant>
 
+    <Variant title="Fit To Width">
+      <div class="pu-story pu-story--narrow">
+        <div class="pu-chip-story__fit-frame">
+          <PuChipGroup fit gap="xs">
+            <PuChip tone="secondary" label="Community" />
+            <PuChip tone="surface" label="Hangzhou West Lake" />
+            <PuChip tone="outline" label="Weekend evening" />
+            <PuChip tone="success" label="Available" />
+            <PuChip tone="warning" label="Limited seats" />
+            <PuChip tone="info" label="Verified host" />
+          </PuChipGroup>
+        </div>
+      </div>
+    </Variant>
+
     <Variant title="Slots And Actions">
       <div class="pu-story">
         <PuChipGroup>
@@ -103,3 +118,12 @@ const tones = [
     </Variant>
   </Story>
 </template>
+
+<style scoped>
+.pu-chip-story__fit-frame {
+  width: min(100%, 320px);
+  padding: 12px;
+  border: 1px dashed var(--sys-color-outline-variant);
+  border-radius: var(--sys-radius-medium);
+}
+</style>

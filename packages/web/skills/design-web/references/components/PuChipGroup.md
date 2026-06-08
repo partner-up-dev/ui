@@ -9,7 +9,7 @@
 
 ## Prefer When
 
-- Use to organize related PuChip items with consistent spacing and wrapping.
+- Use to organize related PuChip items with consistent spacing and wrapping, or use fit mode for one-line metadata that should show only complete chips.
 
 ## Avoid When
 
@@ -25,12 +25,9 @@ import { PuChipGroup } from '@partner-up-dev/design-web'
 
 - `as`
 - `gap`
-- `type`
-- `default`
-- `validator`
-- `value`
 - `align`
 - `wrap`
+- `fit`
 
 ## Slots
 
@@ -52,6 +49,7 @@ Story: `src/stories/display/PuChip.story.vue`
 - Tones
 - Sizes
 - Group Layout
+- Fit To Width
 - Slots And Actions
 
 ## Types
@@ -61,7 +59,7 @@ Story: `src/stories/display/PuChip.story.vue`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- fit mode measures rendered element children and hides overflow items; keep slot content element-based and avoid relying on hidden chip count.
 
 ## Source Evidence
 

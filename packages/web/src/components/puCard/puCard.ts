@@ -1,10 +1,20 @@
 import type { PropType } from "vue";
-import type { PuGap, PuTone } from "../../types";
+import type {
+  PuAction,
+  PuExpandablePolicy,
+  PuExpansionResetKey,
+  PuGap,
+  PuTone,
+} from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
 export type PuCardPadding = "none" | "sm" | "md" | "lg";
 
 export const puCardProps = {
+  action: {
+    type: Object as PropType<PuAction | undefined>,
+    default: undefined,
+  },
   as: makeStringProp("article"),
   tone: makeStringProp<PuTone>("surface"),
   theme: makeStringProp<PuTone | undefined>(undefined),
@@ -18,10 +28,21 @@ export const puCardProps = {
     type: Boolean as PropType<boolean | undefined>,
     default: undefined,
   },
+  expandedResetKey: {
+    type: [String, Number, Boolean] as PropType<PuExpansionResetKey>,
+    default: null,
+  },
   toggleLabel: makeStringProp("Toggle card"),
+  selectable: makeBooleanProp(false),
+  active: makeBooleanProp(false),
+  disabled: makeBooleanProp(false),
+  keepContentMounted: makeBooleanProp(false),
 };
 
+export type PuCardExpandablePolicy = PuExpandablePolicy;
+
 export const puCardEmits = {
+  click: (_event: MouseEvent | KeyboardEvent) => true,
   "update:expanded": (_value: boolean) => true,
   expand: () => true,
   collapse: () => true,

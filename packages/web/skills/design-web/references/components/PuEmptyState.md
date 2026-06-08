@@ -29,10 +29,6 @@ import { PuEmptyState } from '@partner-up-dev/design-web'
 - `icon`
 - `compact`
 - `align`
-- `type`
-- `default`
-- `validator`
-- `value`
 - `tone`
 
 ## Slots

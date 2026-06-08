@@ -27,7 +27,6 @@ import { PuCheckbox } from '@partner-up-dev/design-web'
 - `customLabelClass`
 - `customShapeClass`
 - `type`
-- `default`
 - `modelValue`
 - `shape`
 - `checkedColor`
@@ -45,9 +44,7 @@ import { PuCheckbox } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
-- `value`
 - `change`
-- `payload`
 
 ## Composition
 

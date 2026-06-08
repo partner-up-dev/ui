@@ -25,7 +25,6 @@ import { PuCell } from '@partner-up-dev/design-web'
 
 - `as`
 - `type`
-- `default`
 - `border`
 - `title`
 - `value`

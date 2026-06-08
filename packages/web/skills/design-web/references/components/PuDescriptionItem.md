@@ -25,12 +25,9 @@ import { PuDescriptionItem } from '@partner-up-dev/design-web'
 
 - `label`
 - `value`
-- `type`
-- `default`
 - `hint`
 - `span`
 - `valueAlign`
-- `validator`
 - `emptyText`
 
 ## Slots

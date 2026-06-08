@@ -26,11 +26,8 @@ import { PuChip } from '@partner-up-dev/design-web'
 
 - `as`
 - `type`
-- `default`
 - `label`
 - `tone`
-- `validator`
-- `value`
 - `size`
 - `selected`
 - `disabled`
@@ -49,7 +46,6 @@ import { PuChip } from '@partner-up-dev/design-web'
 ## Events
 
 - `click`
-- `_event`
 - `remove`
 
 ## Composition
@@ -66,6 +62,7 @@ Story: `src/stories/display/PuChip.story.vue`
 - Tones
 - Sizes
 - Group Layout
+- Fit To Width
 - Slots And Actions
 
 ## Types

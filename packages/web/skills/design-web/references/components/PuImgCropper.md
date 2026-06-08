@@ -25,8 +25,6 @@ import { PuImgCropper } from '@partner-up-dev/design-web'
 
 - `src`
 - `width`
-- `type`
-- `default`
 - `height`
 - `shape`
 - `scale`
@@ -51,12 +49,10 @@ import { PuImgCropper } from '@partner-up-dev/design-web'
 
 - `ready`
 - `change`
-- `_detail`
 - `confirm`
-- `_result`
 - `error`
-- `_err`
-- `_value`
+- `update:scale`
+- `update:rotate`
 
 ## Composition
 

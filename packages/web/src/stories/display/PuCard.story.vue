@@ -5,6 +5,7 @@ import PuCard from "../../components/puCard/puCard.vue";
 import PuTag from "../../components/puTag/puTag.vue";
 
 const expanded = ref(true);
+const resetKey = ref(0);
 
 const tones = [
   {
@@ -60,7 +61,7 @@ const tones = [
           </p>
 
           <template #footer>
-            <PuButton tone="outline" size="sm">Save</PuButton>
+            <PuButton tone="neutral" variant="outline" size="sm">Save</PuButton>
             <PuButton size="sm">Review</PuButton>
           </template>
         </PuCard>
@@ -116,11 +117,82 @@ const tones = [
 
           <template #footer>
             <PuButton
-              tone="outline"
+              tone="neutral"
+              variant="outline"
               size="sm"
               @click="expanded = !expanded"
             >
               {{ expanded ? "Collapse" : "Expand" }}
+            </PuButton>
+          </template>
+        </PuCard>
+      </div>
+    </Variant>
+
+    <Variant title="Action Cards">
+      <div class="pu-story">
+        <div class="pu-card-story__grid">
+          <PuCard
+            :action="{ href: 'https://partner-up.dev', external: true }"
+            tone="outline"
+            title="External event page"
+            subtitle="The whole card can navigate when it has no nested controls."
+          >
+            <p class="pu-story__text">
+              Action cards reuse the same PuAction target contract as PuButton.
+            </p>
+          </PuCard>
+
+          <PuCard
+            selectable
+            active
+            tone="surface"
+            title="Selected option"
+            subtitle="Selectable cards expose pressed state for button-like choices."
+          >
+            <p class="pu-story__text">
+              Use this form when the card is the direct choice target.
+            </p>
+          </PuCard>
+
+          <PuCard
+            selectable
+            disabled
+            tone="surface"
+            title="Unavailable option"
+            subtitle="Disabled cards stop interaction and reduce emphasis."
+          >
+            <p class="pu-story__text">
+              Disabled link and route actions also stop click navigation.
+            </p>
+          </PuCard>
+        </div>
+      </div>
+    </Variant>
+
+    <Variant title="Mounted Expansion">
+      <div class="pu-story pu-story--narrow">
+        <PuCard
+          :expanded-reset-key="resetKey"
+          tone="outline"
+          collapsible
+          keep-content-mounted
+          title="Retained editor"
+          subtitle="Collapsed content remains mounted but hidden."
+        >
+          <p class="pu-story__text">
+            Use keep-content-mounted when collapsed content owns local state
+            that should survive expansion changes.
+          </p>
+
+          <template #footer>
+            <PuButton
+              tone="neutral"
+              variant="outline"
+              size="sm"
+              @click="resetKey += 1"
+            >
+              Reset expansion
             </PuButton>
           </template>
         </PuCard>

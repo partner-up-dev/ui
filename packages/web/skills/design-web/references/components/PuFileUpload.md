@@ -24,11 +24,7 @@ import { PuFileUpload } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `type`
-- `default`
 - `mode`
-- `validator`
-- `value`
 - `layout`
 - `accept`
 - `maxSize`
@@ -56,20 +52,14 @@ import { PuFileUpload } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
-- `_item`
 - `change`
 - `add`
-- `_event`
 - `remove`
 - `reject`
-- `_rejections`
 - `drop`
-- `_files`
 - `select`
 - `addUrl`
-- `_url`
 - `toggleUrl`
-- `_open`
 
 ## Composition
 

@@ -24,10 +24,7 @@ import { PuWheelPicker } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `type`
-- `default`
 - `options`
-- `required`
 - `variant`
 - `tone`
 - `itemHeight`
@@ -43,10 +40,7 @@ import { PuWheelPicker } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
-- `_value`
 - `change`
-- `_option`
-- `_index`
 
 ## Composition
 

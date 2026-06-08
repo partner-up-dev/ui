@@ -37,7 +37,7 @@ const portraitImage = svgToDataUri(`
 `);
 
 const sizes = ["xSmall", "small", "medium", "large", "xLarge"] as const;
-const radii = ["none", "xSmall", "small", "medium", "large", "full"] as const;
+const shapes = ["rect", "pill"] as const;
 const modes = ["aspectFill", "aspectFit", "scaleToFill", "center"] as const;
 
 function svgToDataUri(svg: string): string {
@@ -52,9 +52,10 @@ function svgToDataUri(svg: string): string {
         <PuCard tone="outline">
           <PuImg
             :src="venueImage"
+            alt="Illustrated lake venue"
             width="100%"
             height="220px"
-            radius="medium"
+            shape="rect"
             :lazy-load="false"
             @load="logEvent('load', 'venue')"
             @error="logEvent('error', 'venue')"
@@ -76,8 +77,11 @@ function svgToDataUri(svg: string): string {
           >
             <PuImg
               :src="portraitImage"
+              :alt="`${size} portrait`"
+              name="Avery"
               :size="size"
-              radius="full"
+              shape="pill"
+              bordered
               :lazy-load="false"
             />
             <span class="pu-story__label">{{ size }}</span>
@@ -86,22 +90,24 @@ function svgToDataUri(svg: string): string {
       </div>
     </Variant>
 
-    <Variant title="Radius">
+    <Variant title="Shapes And Border">
       <div class="pu-story">
         <div class="pu-story__grid">
           <PuCard
-            v-for="radius in radii"
-            :key="radius"
+            v-for="shape in shapes"
+            :key="shape"
             tone="outline"
           >
             <PuImg
               :src="venueImage"
+              alt="Illustrated lake venue"
               width="100%"
               height="120px"
-              :radius="radius"
+              :shape="shape"
+              bordered
               :lazy-load="false"
             />
-            <p class="pu-story__label">{{ radius }}</p>
+            <p class="pu-story__label">{{ shape }}</p>
           </PuCard>
         </div>
       </div>
@@ -117,10 +123,11 @@ function svgToDataUri(svg: string): string {
           >
             <PuImg
               :src="venueImage"
+              alt="Illustrated lake venue"
               width="100%"
               height="112px"
               :mode="mode"
-              radius="small"
+              shape="rect"
               :lazy-load="false"
             />
             <p class="pu-story__label">{{ mode }}</p>
@@ -129,24 +136,34 @@ function svgToDataUri(svg: string): string {
       </div>
     </Variant>
 
-    <Variant title="Error Slot">
+    <Variant title="Fallback">
       <div class="pu-story pu-story--narrow">
         <PuCard tone="outline">
-          <PuImg
-            src="/missing-story-image.jpg"
-            width="100%"
-            height="180px"
-            radius="medium"
-            :lazy-load="false"
-            @error="logEvent('error', 'custom')"
-          >
-            <template #error>
-              <div class="pu-img-story__error">
-                <span class="i-mdi-image-off-outline" aria-hidden="true" />
-                <span>Image unavailable</span>
-              </div>
-            </template>
-          </PuImg>
+          <div class="pu-img-story__fallback-grid">
+            <PuImg
+              name="Lin"
+              size="xLarge"
+              shape="pill"
+              bordered
+            />
+
+            <PuImg
+              src="/missing-story-image.jpg"
+              alt="Unavailable venue image"
+              width="100%"
+              height="120px"
+              shape="rect"
+              :lazy-load="false"
+              @error="logEvent('error', 'custom')"
+            >
+              <template #fallback="{ initial }">
+                <div class="pu-img-story__error">
+                  <span class="i-mdi-image-off-outline" aria-hidden="true" />
+                  <span>{{ initial || "Image unavailable" }}</span>
+                </div>
+              </template>
+            </PuImg>
+          </div>
         </PuCard>
       </div>
     </Variant>
@@ -178,5 +195,10 @@ function svgToDataUri(svg: string): string {
 
 .pu-img-story__error .i-mdi-image-off-outline {
   font-size: 28px;
+}
+
+.pu-img-story__fallback-grid {
+  display: grid;
+  gap: 16px;
 }
 </style>

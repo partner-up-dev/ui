@@ -8,6 +8,16 @@
   flex-wrap: wrap;
 }
 
+.pu-chip-group.is-fit {
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.pu-chip-group.is-fit:not(.is-fit-ready) {
+  visibility: hidden;
+}
+
 .pu-chip-group--align-start {
   justify-content: flex-start;
 }

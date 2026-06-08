@@ -27,8 +27,6 @@ import { PuTextarea } from '@partner-up-dev/design-web'
 - `modelValue`
 - `placeholder`
 - `maxlength`
-- `type`
-- `default`
 - `showCount`
 - `autoHeight`
 - `disabled`
@@ -52,10 +50,8 @@ import { PuTextarea } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
-- `value`
 - `input`
 - `focus`
-- `e`
 - `blur`
 - `confirm`
 - `linechange`

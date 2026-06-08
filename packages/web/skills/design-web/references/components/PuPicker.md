@@ -24,8 +24,6 @@ import { PuPicker } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `type`
-- `default`
 - `columns`
 - `valueKey`
 - `labelKey`
@@ -55,9 +53,7 @@ import { PuPicker } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
-- `value`
 - `confirm`
-- `event`
 - `cancel`
 - `clear`
 - `change`

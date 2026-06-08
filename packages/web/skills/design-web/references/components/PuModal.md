@@ -25,8 +25,6 @@ import { PuModal } from '@partner-up-dev/design-web'
 
 - `id`
 - `open`
-- `type`
-- `required`
 - `maxWidth`
 - `title`
 - `ariaLabel`

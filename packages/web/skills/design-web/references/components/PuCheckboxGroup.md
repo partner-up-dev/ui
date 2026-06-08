@@ -24,8 +24,6 @@ import { PuCheckboxGroup } from '@partner-up-dev/design-web'
 
 - `...baseProps`
 - `modelValue`
-- `type`
-- `default`
 - `shape`
 - `checkedColor`
 - `disabled`

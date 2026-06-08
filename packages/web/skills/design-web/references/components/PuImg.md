@@ -6,10 +6,11 @@
 - image
 - responsive image
 - fallback image
+- avatar image
 
 ## Prefer When
 
-- Use for package-consistent image rendering and fallback behavior.
+- Use for package-consistent image rendering, loading placeholders, fallback initials, and avatar-like image surfaces.
 
 ## Avoid When
 
@@ -24,28 +25,26 @@ import { PuImg } from '@partner-up-dev/design-web'
 ## Props
 
 - `src`
-- `type`
-- `default`
+- `alt`
+- `name`
+- `fallbackInitial`
 - `mode`
 - `showLoading`
-- `showError`
 - `size`
 - `width`
 - `height`
 - `lazyLoad`
-- `customImage`
-- `radius`
-- `...baseProps`
+- `shape`
+- `bordered`
 
 ## Slots
 
-- `error`
+- `fallback`
 - `loading`
 
 ## Events
 
 - `load`
-- `_evt`
 - `error`
 
 ## Composition
@@ -59,18 +58,20 @@ Story: `src/stories/display/PuImg.story.vue`
 
 - Basic
 - Preset Sizes
-- Radius
+- Shapes And Border
 - Fit Modes
-- Error Slot
+- Fallback
 
 ## Types
 
-- `PuImgRadius`
+- `PuImgMode`
 - `PuImgSize`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use shape from the shared PuShape vocabulary instead of local radius values.
+- Use the fallback slot for custom fallback rendering; fallbackInitial and name cover simple initial fallback.
+- Provide alt text for meaningful images; fallback content derives an accessible label from alt or name when available.
 
 ## Source Evidence
 

@@ -188,9 +188,9 @@ type PuAction =
   | { href: string; external?: boolean; target?: string; rel?: string }
   | { to: unknown }
 
-shape?: PuShape
-tone?: "primary" | "primary-outline" | "secondary" | "outline" |
-       "surface" | "tertiary" | "dashed" | "danger" | "ghost"
+shape?: "rect" | "pill" | "circle"
+tone?: "primary" | "secondary" | "tertiary" | "neutral" | "danger"
+variant?: "solid" | "soft" | "outline" | "ghost" | "dashed"
 size?: "sm" | "md" | "lg"
 feedback?: "idle" | "pending" | "success" | "error"
 loading?: boolean
@@ -231,7 +231,7 @@ Implementation record:
 ```
 packages/web/src/components/puButton/puButton.ts
   - replaces legacy text/theme/type/prefixIcon/suffixIcon/customStyle props
-    with action, shape, tone, size, state, loading, disabled, and block
+    with action, shape, tone, variant, size, feedback, loading, disabled, and block
   - imports the shared PuAction target type
   - exports PuButtonFeedback for transient action feedback
 
@@ -242,7 +242,7 @@ packages/web/src/components/puButton/puButton.vue
     stopPropagation
 
 packages/web/src/components/puButton/puButton.scss
-  - adds rect/pill shape, canonical tones, sm/md/lg sizing, block width,
+  - adds rect/pill/circle shape, canonical tones, control variants, sm/md/lg sizing, block width,
     icon-only layout, pending loading spinner, success, and error feedback
 
 packages/web/src/types/action.ts
@@ -251,12 +251,12 @@ packages/web/src/types/index.ts
     package types for later PuCard reuse
 
 packages/web/src/stories/actions/PuButton.story.vue
-  - replaces legacy examples with tones, shapes, action targets,
+  - replaces legacy examples with tones, variants, shapes, action targets,
     slots/block, and feedback states
 
 packages/web/src/stories/**/*
   - migrates existing PuButton story usages from text/theme/legacy size props
-    to slots, tone, and canonical size values
+    to slots, tone, variant, and canonical size values
 
 packages/web/skill.seed.json
 packages/web/skills/design-web/references/components/PuButton.md

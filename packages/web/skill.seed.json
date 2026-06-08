@@ -84,11 +84,12 @@
     },
     "PuCard": {
       "category": "display",
-      "intent": ["content card", "collapsible card", "grouped content surface"],
-      "preferWhen": ["Use for grouped content with optional hero, header, body, footer, or collapsible content."],
-      "avoidWhen": ["Avoid for dense list rows; use PuCellGroup and PuCell for row-based settings or lists."],
+      "intent": ["content card", "collapsible card", "grouped content surface", "selectable card", "action card"],
+      "preferWhen": ["Use for grouped content with optional hero, header, body, footer, collapsible content, or whole-card action targets."],
+      "avoidWhen": ["Avoid for dense list rows; use PuCellGroup and PuCell for row-based settings or lists.", "Avoid putting buttons, links, or form controls inside an interactive card root."],
       "composeWith": ["PuButton", "PuTag", "PuInlineNotice"],
-      "apiCaveats": ["Supports tone and a compatibility theme prop; prefer tone in consumer code."],
+      "apiCaveats": ["Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.", "Use selectable for button-like choice cards without a navigation target.", "Use keepContentMounted only when collapsed content owns local state that must survive collapse."],
+      "accessibilityNotes": ["Interactive cards must not contain nested interactive controls.", "Disabled link and route cards use aria-disabled and stop click navigation."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuCard.story.vue"
     },
@@ -140,9 +141,10 @@
     "PuChipGroup": {
       "category": "display",
       "intent": ["chip group", "filter group", "compact option list"],
-      "preferWhen": ["Use to organize related PuChip items with consistent spacing and wrapping."],
+      "preferWhen": ["Use to organize related PuChip items with consistent spacing and wrapping, or use fit mode for one-line metadata that should show only complete chips."],
       "avoidWhen": ["Avoid for form fields requiring checkbox semantics unless the component exposes the needed behavior."],
       "composeWith": ["PuChip"],
+      "apiCaveats": ["fit mode measures rendered element children and hides overflow items; keep slot content element-based and avoid relying on hidden chip count."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuChip.story.vue"
     },
@@ -232,10 +234,12 @@
     },
     "PuImg": {
       "category": "display",
-      "intent": ["image", "responsive image", "fallback image"],
-      "preferWhen": ["Use for package-consistent image rendering and fallback behavior."],
+      "intent": ["image", "responsive image", "fallback image", "avatar image"],
+      "preferWhen": ["Use for package-consistent image rendering, loading placeholders, fallback initials, and avatar-like image surfaces."],
       "avoidWhen": ["Avoid when native img with no package behavior is explicitly required."],
       "composeWith": ["PuCard", "PuBentoItem"],
+      "apiCaveats": ["Use shape from the shared PuShape vocabulary instead of local radius values.", "Use the fallback slot for custom fallback rendering; fallbackInitial and name cover simple initial fallback."],
+      "accessibilityNotes": ["Provide alt text for meaningful images; fallback content derives an accessible label from alt or name when available."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuImg.story.vue"
     },

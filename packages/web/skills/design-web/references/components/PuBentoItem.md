@@ -26,12 +26,8 @@ import { PuBentoItem } from '@partner-up-dev/design-web'
 - `title`
 - `description`
 - `span`
-- `type`
-- `default`
-- `validator`
 - `rowSpan`
 - `tone`
-- `value`
 - `density`
 
 ## Slots

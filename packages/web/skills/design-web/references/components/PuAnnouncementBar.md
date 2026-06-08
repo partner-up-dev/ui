@@ -24,8 +24,6 @@ import { PuAnnouncementBar } from '@partner-up-dev/design-web'
 ## Props
 
 - `text`
-- `type`
-- `default`
 - `prefix`
 - `backgroundColor`
 - `color`

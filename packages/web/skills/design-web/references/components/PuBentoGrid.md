@@ -25,10 +25,6 @@ import { PuBentoGrid } from '@partner-up-dev/design-web'
 
 - `as`
 - `columns`
-- `type`
-- `default`
-- `validator`
-- `value`
 - `gap`
 - `collapseAt`
 - `autoRows`

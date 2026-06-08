@@ -25,8 +25,6 @@ import { PuScrollView } from '@partner-up-dev/design-web'
 - `direction`
 - `edgeFade`
 - `onRefresh`
-- `type`
-- `required`
 - `...baseProps`
 
 ## Slots
@@ -36,7 +34,6 @@ import { PuScrollView } from '@partner-up-dev/design-web'
 ## Events
 
 - `scroll`
-- `event`
 
 ## Composition
 

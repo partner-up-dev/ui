@@ -14,6 +14,8 @@ Status:
 ```
 Created on 2026-06-07 from repository inspection.
 PuButton action/feedback contract implemented on 2026-06-08.
+PuButton tone/variant split and circle shape implemented on 2026-06-08.
+PuCard, PuChipGroup, and PuImg enhancement slice implemented on 2026-06-08.
 ```
 
 Research inputs:
@@ -48,6 +50,12 @@ README.md
 
 coverage-gap.md
 +-- initial inventory, coverage categories, recommended priority, and risks
+
+implementation-plan.md
++-- planned implementation slices for PuCard, PuChipGroup, and PuImg
+
+implementation-record.md
++-- implementation decisions and verification notes for the enhancement slice
 ```
 
 Initial recommendation:
@@ -82,6 +90,26 @@ The package has not published this contract broadly enough to justify legacy
 compatibility. Remove the old theme/text/prefixIcon/suffixIcon/type/customStyle
 API and replace it with slots plus canonical shape/tone/size props and a
 narrow feedback prop.
+
+Split visual treatment out of `tone`:
+
+type PuButtonTone =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "neutral"
+  | "danger"
+
+type PuButtonVariant =
+  | "solid"
+  | "soft"
+  | "outline"
+  | "ghost"
+  | "dashed"
+
+`tone` owns semantic color intent. `variant` owns treatment/emphasis.
+`shape="pill"` uses a height-derived pill radius. `shape="circle"` is the
+separate full-radius icon-button form.
 
 Do not keep the old `type` prop. It mixed visual structure with native button
 semantics. The old values were `WithText`, `OnlyIcon`, and `Bar`; the new button

@@ -73,17 +73,12 @@ import { PuInput } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
-- `value`
 - `input`
-- `detail`
 - `focus`
-- `height`
 - `blur`
-- `cursor`
 - `clear`
 - `confirm`
 - `keyboardheightchange`
-- `duration`
 - `clickPrefixIcon`
 - `clickSuffixIcon`
 - `click`
