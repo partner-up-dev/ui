@@ -42,7 +42,12 @@ import { PuScrollView } from '@partner-up-dev/design-web'
 
 ## Story Variants
 
-- No story coverage discovered.
+Story: `src/stories/layout/PuScrollView.story.vue`
+
+- Vertical
+- Horizontal
+- Edge Fade
+- Scroll Event
 
 ## Types
 

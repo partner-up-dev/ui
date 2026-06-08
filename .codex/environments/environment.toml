@@ -1,0 +1,10 @@
+version = 1
+name = "design2"
+
+[setup]
+script = ""
+
+[[actions]]
+name = "Histoire"
+icon = "run"
+command = "pnpm --dir packages/web story:dev"

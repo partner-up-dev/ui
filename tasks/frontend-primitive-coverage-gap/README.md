@@ -15,8 +15,11 @@ Status:
 Created on 2026-06-07 from repository inspection.
 PuButton action/feedback contract implemented on 2026-06-08.
 PuButton tone/variant split and circle shape implemented on 2026-06-08.
+Shared vocabulary type/docs/skill coverage slice implemented on 2026-06-08.
+Component-level tone/variant/surfaceLevel migration implemented on 2026-06-08.
 PuCard, PuChipGroup, and PuImg enhancement slice implemented on 2026-06-08.
 PuTabs/PuTab API alignment implemented on 2026-06-08.
+PuDescriptionItem trailing action slot implemented on 2026-06-08.
 ```
 
 Research inputs:
@@ -54,6 +57,13 @@ coverage-gap.md
 
 implementation-plan.md
 +-- planned implementation slices for PuCard, PuChipGroup, PuImg, and PuTabs
+
+pu-description-item-action-plan.md
++-- planned action slot for InfoRowAction-style trailing affordances in facts
+
+variant-vocabulary-plan.md
++-- planned cleanup for shared tone, status tone, control variant, container
+    variant, and surface-level vocabulary
 
 implementation-record.md
 +-- implementation decisions and verification notes for the enhancement slice

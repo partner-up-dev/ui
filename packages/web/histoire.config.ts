@@ -27,6 +27,10 @@ export function setupVanilla() {}
         title: "Forms",
       },
       {
+        id: "layout",
+        title: "Layout",
+      },
+      {
         id: "overlay",
         title: "Overlay",
       },
