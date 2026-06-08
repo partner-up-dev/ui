@@ -1,9 +1,9 @@
 <template>
   <div :class="rootClasses" :style="props.customStyle">
     <slot>
-      <span class="pu-tab__text">{{ props.text }}</span>
+      <span class="pu-tab__text">{{ props.label }}</span>
     </slot>
-    <span v-if="props.showDot" :class="['pu-tab__dot', sizeClass]" aria-hidden="true" />
+    <span v-if="props.showDot" class="pu-tab__dot" aria-hidden="true" />
   </div>
 </template>
 
@@ -17,21 +17,30 @@ export default {
 
 <script setup lang="ts">
 import { computed } from "vue";
+import { puSizes } from "../../types";
+import {
+  createPuModifierClass,
+  createPuStateClass,
+  normalizePuVariant,
+} from "../../utils";
+import { puTabsVariants, type PuTabsVariant } from "../puTabs/puTabs";
 import { puTabProps } from "./puTab";
-import { kebabCase } from '../../utils/string'
-
 
 const props = defineProps(puTabProps);
 
-const sizeClass = computed(() => {
-  return kebabCase(props.size);
-});
+const variant = computed<PuTabsVariant>(() =>
+  normalizePuVariant(puTabsVariants, props.variant, "line"),
+);
+const size = computed(() => normalizePuVariant(puSizes, props.size, "md"));
 
 const rootClasses = computed(() => {
   const classes = ["pu-tab"] as string[];
-  classes.push(sizeClass.value);
+  classes.push(createPuModifierClass("pu-tab", "variant", variant.value) ?? "");
+  classes.push(createPuModifierClass("pu-tab", "size", size.value) ?? "");
+  classes.push(createPuStateClass("active", props.active) ?? "");
+  classes.push(createPuStateClass("disabled", props.disabled) ?? "");
   if (props.customClass) classes.push(props.customClass);
-  return classes;
+  return classes.filter(Boolean);
 });
 </script>
 

@@ -282,3 +282,84 @@ pnpm --filter @partner-up-dev/design-web run verify
   existing warning: Component PuScrollView has no matching story coverage
   existing warning: Group layout not found for PuPageScaffold.story.vue
 ```
+
+## PuTabs And PuTab API Alignment Decision
+
+Decision date: 2026-06-08
+
+```
+Do not add a separate public PuTabBar component.
+
+Treat mvp-HA `navigation/TabBar.vue` as a source compatibility gap whose
+reusable behavior belongs in PuTabs and PuTab. PuTabs remains the public
+primitive for section tabs, indexed view switching, and TabBar-style horizontal
+tab navigation.
+```
+
+New API direction:
+
+```ts
+type PuTabsVariant = "line" | "pill";
+type PuTabValue = string | number;
+
+type PuTabItem = {
+  value: PuTabValue;
+  label: string;
+  showDot?: boolean;
+  disabled?: boolean;
+};
+```
+
+Vocabulary decision:
+
+```
+Use the shared PuSize vocabulary from packages/web/src/types/variants.ts for
+PuTabs and PuTab size props.
+
+Keep PuTabsVariant local to the tabs contract because line and pill describe
+tab presentation, not the shared PuControlVariant treatment vocabulary.
+```
+
+Compatibility decision:
+
+```
+Do not preserve the old PuTabs and PuTab legacy props. The package is still
+early enough to clean the public contract before application migration.
+
+Remove:
+- legacy size values: Large, Medium, Small
+- index-only modelValue assumptions
+- `tabs[].text`
+
+Replace with:
+- size values: sm, md, lg
+- value-based modelValue
+- `tabs[].label`
+```
+
+Implementation direction:
+
+```
+PuTabs
+  - owns tablist semantics, value selection, keyboard navigation, active item
+    auto-scroll, horizontal overflow, and append slot placement
+  - accepts variant and shared PuSize, then passes visual state to PuTab
+  - emits update:modelValue with the selected value
+  - emits change with value, index, and tab payload
+
+PuTab
+  - owns single-tab visual rendering
+  - supports line and pill variants
+  - supports sm, md, and lg sizing
+  - receives active, disabled, showDot, label, variant, and shared PuSize
+```
+
+Behavior to carry forward from the mvp-HA TabBar primitive:
+
+```
+- data-driven item list
+- horizontally scrolling tab row
+- pill-styled variant
+- active tab auto-scroll
+- append slot for trailing controls
+```

@@ -1,31 +1,62 @@
 @use "../../styles/functions" as fn;
 
 .pu-tabs {
-  display: block;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: fn.sys-var(spacing, small);
+}
+
+.pu-tabs__list {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  min-width: 0;
   overflow-x: auto;
+  overflow-y: hidden;
   white-space: nowrap;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pu-tabs__list::-webkit-scrollbar {
+  display: none;
 }
 
 .pu-tabs__item {
   appearance: none;
+  flex: 0 0 auto;
   border: 0;
   background: transparent;
   color: inherit;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
   margin: 0;
   padding: 0;
   font: inherit;
-
-  &.active {
-    opacity: 1;
-  }
-
-  &.deactive {
-    opacity: fn.sys-var(opacity, invalid);
-  }
 }
 
-.space-m-l-med {
-  margin-left: fn.sys-var(spacing, medium);
+.pu-tabs__item:focus-visible {
+  outline: 2px solid fn.sys-var(color, primary);
+  outline-offset: 2px;
+  border-radius: fn.sys-var(radius, small);
+}
+
+.pu-tabs__item:disabled {
+  cursor: not-allowed;
+}
+
+.pu-tabs__append {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-width: 0;
+}
+
+.pu-tabs--variant-line .pu-tabs__list {
+  gap: fn.sys-var(spacing, medium);
+}
+
+.pu-tabs--variant-pill .pu-tabs__list {
+  gap: fn.sys-var(spacing, small);
 }

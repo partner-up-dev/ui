@@ -102,3 +102,69 @@ pnpm --filter @partner-up-dev/design-web run verify
   existing story build warning remains:
         Group layout not found for PuPageScaffold.story.vue
 ```
+
+## PuTabs And PuTab API Alignment
+
+Implemented on: 2026-06-08
+
+```
+PuTabs
+- replaced legacy index-only modelValue with value-based string/number tabs
+- replaced `tabs[].text` with `tabs[].label`
+- added variant="line" | "pill"
+- reused the shared PuSize vocabulary for size
+- added disabled tab support
+- added roving tabindex keyboard behavior for ArrowLeft, ArrowRight, Home, and
+  End
+- scrolls the active tab into view after mount and modelValue changes
+- added append slot outside the role=tablist element
+- emits update:modelValue with the selected value
+- emits change with value, index, and tab payload
+
+PuTab
+- replaced text prop with label
+- added active, disabled, variant, and shared PuSize-driven styling
+- owns only single-tab visual rendering; PuTabs owns interaction semantics
+- supports line and pill presentation
+- line presentation preserves the original text-only tab treatment; it must not
+  add an active underline
+```
+
+Files changed:
+
+```
+packages/web/src/components/puTabs/puTabs.ts
+packages/web/src/components/puTabs/puTabs.vue
+packages/web/src/components/puTabs/puTabs.scss
+packages/web/src/components/puTab/puTab.ts
+packages/web/src/components/puTab/puTab.vue
+packages/web/src/components/puTab/puTab.scss
+packages/web/src/stories/display/PuTabs.story.vue
+packages/web/skill.seed.json
+packages/web/skills/design-web/references/components/PuTabs.md
+packages/web/skills/design-web/references/components/PuTab.md
+packages/web/skills/design-web/references/usage-rules.md
+```
+
+Verification:
+
+```
+pnpm --filter @partner-up-dev/design-web exec vue-tsc --noEmit
+  passed
+
+pnpm --filter @partner-up-dev/design-web run generate
+  passed
+  result: generated component registry already up to date
+
+pnpm --filter @partner-up-dev/design-web run skill:generate
+  passed
+  result: generated 48 agent skill files
+  note: existing PuScrollView story coverage warning remains
+
+pnpm --filter @partner-up-dev/design-web run verify
+  passed
+  story coverage: 42/43 public components
+  missing backlog: PuScrollView
+  existing story build warning remains:
+        Group layout not found for PuPageScaffold.story.vue
+```

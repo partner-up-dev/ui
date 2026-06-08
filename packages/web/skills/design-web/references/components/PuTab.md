@@ -23,10 +23,12 @@ import { PuTab } from '@partner-up-dev/design-web'
 ## Props
 
 - `...baseProps`
-- `text`
+- `label`
+- `active`
+- `disabled`
 - `showDot`
+- `variant`
 - `size`
-- `customClass`
 
 ## Slots
 
@@ -44,18 +46,22 @@ import { PuTab } from '@partner-up-dev/design-web'
 
 Story: `src/stories/display/PuTabs.story.vue`
 
-- Controlled
+- Controlled Value Tabs
 - Sizes
-- Scrollable
-- Standalone Tab
+- Pill Tab Bar
+- Scrollable Active Tab
+- Disabled And Keyboard
+- Standalone Tab Variants
 
 ## Types
 
 - `PuTabProps`
+- `PuTabVariant`
 
 ## Caveats
 
-- Current tab APIs use legacy size values in related tabs components.
+- Use the shared PuSize vocabulary for sizing.
+- Use variant line or pill to match the parent PuTabs presentation.
 
 ## Source Evidence
 

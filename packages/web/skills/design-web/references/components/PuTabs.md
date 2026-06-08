@@ -5,11 +5,12 @@
 
 - tabs
 - section navigation
-- indexed view switch
+- value-based view switch
+- horizontal tab bar
 
 ## Prefer When
 
-- Use for switching between related sections where tab semantics are expected.
+- Use for switching between related sections where tab semantics are expected, including pill-styled horizontal tab bars.
 
 ## Avoid When
 
@@ -25,12 +26,13 @@ import { PuTabs } from '@partner-up-dev/design-web'
 
 - `tabs`
 - `modelValue`
+- `variant`
 - `size`
 - `...baseProps`
 
 ## Slots
 
-- No slots extracted.
+- `append`
 
 ## Events
 
@@ -45,18 +47,28 @@ import { PuTabs } from '@partner-up-dev/design-web'
 
 Story: `src/stories/display/PuTabs.story.vue`
 
-- Controlled
+- Controlled Value Tabs
 - Sizes
-- Scrollable
-- Standalone Tab
+- Pill Tab Bar
+- Scrollable Active Tab
+- Disabled And Keyboard
+- Standalone Tab Variants
 
 ## Types
 
+- `PuTabItem`
+- `PuTabValue`
+- `PuTabsChangePayload`
 - `PuTabsProps`
+- `PuTabsVariant`
 
 ## Caveats
 
-- Uses legacy size values Large, Medium, and Small.
+- Use value-based tabs with value and label fields; do not use index-only model values.
+- Use the shared PuSize vocabulary for sizing.
+- Use the append slot for trailing controls that are not part of the tablist.
+- Disabled tabs are skipped by keyboard navigation.
+- ArrowLeft, ArrowRight, Home, and End move between enabled tabs.
 
 ## Source Evidence
 

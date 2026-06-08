@@ -13,7 +13,8 @@ components when the UI intent is the same.
 
 Use already extracted shared vocabulary:
 - PuAction for native, href, and route action targets.
-- PuShape for rect and pill geometry.
+- PuShape for rect, pill, and circle geometry.
+- PuSize for sm, md, and lg sizing.
 ```
 
 Current shared types:
@@ -24,7 +25,8 @@ type PuAction =
   | { href: string; external?: boolean; target?: string; rel?: string }
   | { to: unknown };
 
-type PuShape = "rect" | "pill";
+type PuShape = "rect" | "pill" | "circle";
+type PuSize = "sm" | "md" | "lg";
 ```
 
 ## Slice 1: PuCard Action And Selection Contract
@@ -271,6 +273,154 @@ scale unless another component proves the need.
 
 Fallback initial extraction must handle empty names and non-Latin names without
 throwing or producing invisible content.
+```
+
+## Slice 4: PuTabs And PuTab API Alignment
+
+Target files:
+
+```
+packages/web/src/components/puTabs/puTabs.ts
+packages/web/src/components/puTabs/puTabs.vue
+packages/web/src/components/puTabs/puTabs.scss
+packages/web/src/components/puTab/puTab.ts
+packages/web/src/components/puTab/puTab.vue
+packages/web/src/components/puTab/puTab.scss
+packages/web/src/stories/display/PuTabs.story.vue
+packages/web/skill.seed.json
+```
+
+Decision:
+
+```
+Do not add a separate public PuTabBar component.
+
+The mvp-HA `navigation/TabBar.vue` primitive is a source compatibility gap,
+not a separate durable design-system intent. Move its reusable behavior into
+PuTabs and PuTab.
+
+Backwards compatibility is not required. Remove the legacy index-only,
+text-based, Large/Medium/Small tab contract instead of supporting both APIs.
+```
+
+API plan:
+
+```ts
+type PuTabsVariant = "line" | "pill";
+type PuTabValue = string | number;
+
+type PuTabItem = {
+  value: PuTabValue;
+  label: string;
+  showDot?: boolean;
+  disabled?: boolean;
+};
+
+// PuTabs
+tabs: PuTabItem[];
+modelValue: PuTabValue;
+variant?: PuTabsVariant;
+size?: PuSize;
+
+// PuTab
+label?: string;
+active?: boolean;
+disabled?: boolean;
+showDot?: boolean;
+variant?: PuTabsVariant;
+size?: PuSize;
+```
+
+Vocabulary plan:
+
+```
+Use the shared PuSize vocabulary from packages/web/src/types/variants.ts.
+Do not define a local PuTabsSize alias unless implementation readability needs
+one that directly aliases PuSize.
+
+Keep PuTabsVariant local to the tabs contract because line and pill describe
+tab presentation, not the shared PuControlVariant treatment vocabulary.
+```
+
+Emit plan:
+
+```ts
+"update:modelValue": (value: PuTabValue) => true;
+change: (payload: { value: PuTabValue; index: number; tab: PuTabItem }) => true;
+```
+
+Behavior:
+
+```
+1. PuTabs owns tablist semantics, selection state, keyboard navigation, and
+   active item scrolling.
+2. PuTab owns only single-tab visual rendering: label slot/text, dot, active,
+   disabled, variant, and size styles.
+3. `variant="line"` is the standard section-tab treatment.
+4. `variant="pill"` is the TabBar-style horizontally scrolling treatment.
+5. Disabled tabs must not emit selection changes and must be skipped by
+   keyboard navigation.
+6. Active tabs should hide their dot by default, matching the current behavior
+   where the dot indicates inactive attention.
+```
+
+Accessibility behavior:
+
+```
+1. Root uses `role="tablist"`.
+2. Each interactive item uses `role="tab"`, `aria-selected`, `aria-disabled`
+   when relevant, and roving `tabindex`.
+3. ArrowLeft and ArrowRight move to the previous or next enabled tab.
+4. Home and End move to the first or last enabled tab.
+5. Keyboard movement selects the target tab and focuses it.
+```
+
+Scrolling and slots:
+
+```
+1. Keep horizontal overflow as the default layout for PuTabs.
+2. When modelValue changes, scroll the active tab into view with inline nearest
+   behavior after DOM update.
+3. Add an append slot rendered after the scrollable tab list for small trailing
+   controls.
+4. The append slot must not be inside `role="tablist"` unless it renders a tab.
+```
+
+Cleanup plan:
+
+```
+Remove:
+- legacy size values: Large, Medium, Small
+- index-only modelValue assumptions
+- `tabs[].text`
+
+Replace with:
+- size values: sm, md, lg
+- value-based modelValue
+- `tabs[].label`
+```
+
+Story additions:
+
+```
+Controlled Value Tabs
+Pill Tab Bar
+Scrollable With Active Auto-scroll
+Disabled Tabs And Keyboard Navigation
+Append Slot
+Standalone PuTab Variants
+```
+
+Risks:
+
+```
+Uniapp currently has a matching legacy PuTabs/PuTab implementation. If this
+slice changes only design-web, the package split should be intentional and
+documented. If parity is required, apply the same contract to packages/uniapp.
+
+The append slot can accidentally be used as a tab-like item. Documentation
+should position it as a trailing action/filter affordance, not part of the tab
+set.
 ```
 
 ## Documentation And Generation

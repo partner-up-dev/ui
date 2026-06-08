@@ -2,59 +2,106 @@
 @use "../../styles/mixins" as *;
 
 .pu-tab {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  box-sizing: border-box;
+  min-width: 0;
+  gap: fn.sys-var(spacing, xsmall);
   color: fn.sys-var(color, on-surface);
+  white-space: nowrap;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
 }
 
 .pu-tab__text {
+  min-width: 0;
+  overflow: hidden;
+  color: currentColor;
   text-align: center;
-  color: fn.sys-var(color, on-surface);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pu-tab__dot {
   position: absolute;
-  background-color: fn.sys-var(color, red);
-  border-radius: 50%;
+  width: var(--pu-tab-dot-size, 8px);
+  height: var(--pu-tab-dot-size, 8px);
+  border-radius: fn.sys-var(radius, full);
+  background-color: fn.sys-var(color, error);
 }
 
-// Large
-.large {
-  .pu-tab__text {
-    @include pu-font("hero");
-  }
-  .pu-tab__dot {
-    width: 12px;
-    height: 12px;
-    right: -3px;
-    top: 3px;
-  }
+.pu-tab--size-sm {
+  @include pu-font("caption");
+
+  --pu-tab-dot-size: 6px;
 }
 
-// Medium
-.medium {
-  .pu-tab__text {
-    @include pu-font("title");
-  }
-  .pu-tab__dot {
-    width: 10px;
-    height: 10px;
-    right: -2px;
-    top: 1px;
-  }
+.pu-tab--size-md {
+  @include pu-font("control");
+
+  --pu-tab-dot-size: 8px;
 }
 
-// Small
-.small {
-  .pu-tab__text {
-    @include pu-font("section");
-  }
-  .pu-tab__dot {
-    width: 8px;
-    height: 8px;
-    right: -2px;
-    top: 0px;
+.pu-tab--size-lg {
+  @include pu-font("section");
+
+  --pu-tab-dot-size: 10px;
+}
+
+.pu-tab--variant-line {
+  padding: fn.sys-var(spacing, xsmall) 0;
+}
+
+.pu-tab--variant-line .pu-tab__dot {
+  top: 0;
+  right: calc(-1 * var(--pu-tab-dot-size));
+}
+
+.pu-tab--variant-line:not(.is-active) {
+  opacity: fn.sys-var(opacity, invalid);
+}
+
+.pu-tab--variant-pill {
+  min-height: var(--pu-tab-pill-height, 34px);
+  padding: 0 var(--pu-tab-pill-padding-inline, 14px);
+  border: 1px solid fn.sys-var(color, outline-variant);
+  border-radius: fn.sys-var(radius, pill);
+  background: fn.sys-var(color, surface);
+  color: fn.sys-var(color, on-surface-variant);
+}
+
+.pu-tab--variant-pill .pu-tab__dot {
+  top: 6px;
+  right: 8px;
+}
+
+.pu-tab--variant-pill.is-active {
+  border-color: fn.sys-var(color, primary);
+  background: fn.sys-var(color, primary-container);
+  color: fn.sys-var(color, on-primary-container);
+}
+
+.pu-tab--variant-pill.pu-tab--size-sm {
+  --pu-tab-pill-height: 30px;
+  --pu-tab-pill-padding-inline: 12px;
+}
+
+.pu-tab--variant-pill.pu-tab--size-lg {
+  --pu-tab-pill-height: 40px;
+  --pu-tab-pill-padding-inline: 18px;
+}
+
+.pu-tab.is-disabled {
+  opacity: fn.sys-var(opacity, disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-tab {
+    transition: none;
   }
 }

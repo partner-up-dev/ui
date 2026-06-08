@@ -115,8 +115,8 @@ files only after narrowing the candidate set.
   - Intent: tab item, tab option
   - Prefer: Use inside PuTabs when individual tab components are required.
 - [PuTabs](references/components/PuTabs.md)
-  - Intent: tabs, section navigation, indexed view switch
-  - Prefer: Use for switching between related sections where tab semantics are expected.
+  - Intent: tabs, section navigation, value-based view switch, horizontal tab bar
+  - Prefer: Use for switching between related sections where tab semantics are expected, including pill-styled horizontal tab bars.
 - [PuTag](references/components/PuTag.md)
   - Intent: tag, status label, category label
   - Prefer: Use for compact non-interactive status or category labels.

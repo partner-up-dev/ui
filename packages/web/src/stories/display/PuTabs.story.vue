@@ -1,38 +1,72 @@
 <!-- @pu-story-covers PuTab -->
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { logEvent } from "histoire/client";
+import type { PuSize } from "../../types";
+import PuButton from "../../components/puButton/puButton.vue";
 import PuCard from "../../components/puCard/puCard.vue";
 import PuTab from "../../components/puTab/puTab.vue";
 import PuTabs from "../../components/puTabs/puTabs.vue";
+import type {
+  PuTabItem,
+  PuTabsChangePayload,
+  PuTabsVariant,
+} from "../../components/puTabs/puTabs";
 
-const currentTab = ref(0);
-const compactTab = ref(1);
+const currentTab = ref("overview");
+const statusTab = ref("review");
+const scrollTab = ref("permissions");
+const keyboardTab = ref("details");
 
-const overviewTabs = [
-  { text: "Overview" },
-  { text: "Guests", showDot: true },
-  { text: "Messages", showDot: true },
-  { text: "Settings" },
+const overviewTabs: PuTabItem[] = [
+  { value: "overview", label: "Overview" },
+  { value: "guests", label: "Guests", showDot: true },
+  { value: "messages", label: "Messages", showDot: true },
+  { value: "settings", label: "Settings" },
 ];
 
-const compactTabs = [
-  { text: "Draft" },
-  { text: "Review", showDot: true },
-  { text: "Published" },
+const statusTabs: PuTabItem[] = [
+  { value: "draft", label: "Draft" },
+  { value: "review", label: "Review", showDot: true },
+  { value: "published", label: "Published" },
 ];
 
-const tabSizes = ["Large", "Medium", "Small"] as const;
+const scrollTabs: PuTabItem[] = [
+  { value: "profile", label: "Profile" },
+  { value: "tickets", label: "Tickets", showDot: true },
+  { value: "messages", label: "Messages" },
+  { value: "billing", label: "Billing" },
+  { value: "permissions", label: "Permissions", showDot: true },
+  { value: "audit", label: "Audit log" },
+  { value: "integrations", label: "Integrations" },
+];
 
-function handleChange(index: number): void {
-  logEvent("change", { index });
+const keyboardTabs: PuTabItem[] = [
+  { value: "summary", label: "Summary" },
+  { value: "details", label: "Details" },
+  { value: "approvals", label: "Approvals", disabled: true },
+  { value: "history", label: "History" },
+];
+
+const tabSizes: PuSize[] = ["sm", "md", "lg"];
+const tabVariants: PuTabsVariant[] = ["line", "pill"];
+
+const activeOverviewLabel = computed(
+  () => overviewTabs.find((tab) => tab.value === currentTab.value)?.label,
+);
+const activeKeyboardLabel = computed(
+  () => keyboardTabs.find((tab) => tab.value === keyboardTab.value)?.label,
+);
+
+function handleChange(payload: PuTabsChangePayload): void {
+  logEvent("change", payload);
 }
 </script>
 
 <template>
   <Story title="PuTabs" group="display">
-    <Variant title="Controlled">
+    <Variant title="Controlled Value Tabs">
       <div class="pu-story pu-story--narrow">
         <div class="pu-story__stack">
           <PuTabs
@@ -43,10 +77,10 @@ function handleChange(index: number): void {
 
           <PuCard tone="outline">
             <p class="pu-story__label">
-              Active: {{ overviewTabs[currentTab]?.text }}
+              Active: {{ activeOverviewLabel }}
             </p>
             <p class="pu-story__text">
-              Tab state is owned by the consumer through modelValue.
+              Tab state is owned by the consumer through value-based modelValue.
             </p>
           </PuCard>
         </div>
@@ -63,8 +97,8 @@ function handleChange(index: number): void {
           >
             <p class="pu-story__label">{{ size }}</p>
             <PuTabs
-              v-model="compactTab"
-              :tabs="compactTabs"
+              v-model="statusTab"
+              :tabs="statusTabs"
               :size="size"
             />
           </PuCard>
@@ -72,38 +106,88 @@ function handleChange(index: number): void {
       </div>
     </Variant>
 
-    <Variant title="Scrollable">
+    <Variant title="Pill Tab Bar">
       <div class="pu-story pu-story--narrow">
         <PuCard tone="surface">
           <PuTabs
-            :model-value="2"
-            :tabs="[
-              { text: 'Profile' },
-              { text: 'Tickets', showDot: true },
-              { text: 'Messages' },
-              { text: 'Billing' },
-              { text: 'Permissions', showDot: true },
-              { text: 'Audit log' },
-            ]"
-            size="Small"
+            v-model="statusTab"
+            :tabs="statusTabs"
+            variant="pill"
+            size="sm"
+          >
+            <template #append>
+              <PuButton size="sm" variant="ghost" tone="neutral">
+                Add
+              </PuButton>
+            </template>
+          </PuTabs>
+        </PuCard>
+      </div>
+    </Variant>
+
+    <Variant title="Scrollable Active Tab">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="surface">
+          <PuTabs
+            v-model="scrollTab"
+            :tabs="scrollTabs"
+            variant="pill"
           />
         </PuCard>
       </div>
     </Variant>
 
-    <Variant title="Standalone Tab">
+    <Variant title="Disabled And Keyboard">
+      <div class="pu-story pu-story--narrow">
+        <div class="pu-story__stack">
+          <PuTabs
+            v-model="keyboardTab"
+            :tabs="keyboardTabs"
+            variant="pill"
+            @change="handleChange"
+          />
+
+          <PuCard tone="outline">
+            <p class="pu-story__label">
+              Active: {{ activeKeyboardLabel }}
+            </p>
+          </PuCard>
+        </div>
+      </div>
+    </Variant>
+
+    <Variant title="Standalone Tab Variants">
       <div class="pu-story pu-story--narrow">
         <PuCard tone="outline">
           <div class="pu-tabs-story__standalone">
-            <PuTab text="Default" />
-            <PuTab text="Medium" size="Medium" />
-            <PuTab text="No dot" size="Small" :show-dot="false" />
-            <PuTab size="Small">
-              <span class="pu-tabs-story__custom-tab">
-                Custom
-                <span class="pu-story__badge">Slot</span>
-              </span>
-            </PuTab>
+            <template
+              v-for="variant in tabVariants"
+              :key="variant"
+            >
+              <PuTab
+                label="Default"
+                :variant="variant"
+              />
+              <PuTab
+                label="Active"
+                :variant="variant"
+                active
+              />
+              <PuTab
+                label="Attention"
+                :variant="variant"
+                show-dot
+              />
+              <PuTab
+                :variant="variant"
+                active
+              >
+                <span class="pu-tabs-story__custom-tab">
+                  Custom
+                  <span class="pu-story__badge">Slot</span>
+                </span>
+              </PuTab>
+            </template>
           </div>
         </PuCard>
       </div>

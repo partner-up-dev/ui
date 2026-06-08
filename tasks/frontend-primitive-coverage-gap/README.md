@@ -16,6 +16,7 @@ Created on 2026-06-07 from repository inspection.
 PuButton action/feedback contract implemented on 2026-06-08.
 PuButton tone/variant split and circle shape implemented on 2026-06-08.
 PuCard, PuChipGroup, and PuImg enhancement slice implemented on 2026-06-08.
+PuTabs/PuTab API alignment implemented on 2026-06-08.
 ```
 
 Research inputs:
@@ -52,7 +53,7 @@ coverage-gap.md
 +-- initial inventory, coverage categories, recommended priority, and risks
 
 implementation-plan.md
-+-- planned implementation slices for PuCard, PuChipGroup, and PuImg
++-- planned implementation slices for PuCard, PuChipGroup, PuImg, and PuTabs
 
 implementation-record.md
 +-- implementation decisions and verification notes for the enhancement slice

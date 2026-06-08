@@ -55,8 +55,13 @@
 - PuSnackbarHost: Uses items and update:items for queue control; do not assume an imperative toast service is included.
 - PuSpinner: Color inherits currentColor; set a class or parent color for primary, muted, or context-specific spinner color instead of using a tone prop.
 - PuSpinner: Pass label when the spinner itself should announce loading; omit label when another region or control already exposes busy status.
-- PuTab: Current tab APIs use legacy size values in related tabs components.
-- PuTabs: Uses legacy size values Large, Medium, and Small.
+- PuTab: Use the shared PuSize vocabulary for sizing.
+- PuTab: Use variant line or pill to match the parent PuTabs presentation.
+- PuTabs: Use value-based tabs with value and label fields; do not use index-only model values.
+- PuTabs: Use the shared PuSize vocabulary for sizing.
+- PuTabs: Use the append slot for trailing controls that are not part of the tablist.
+- PuTabs: Disabled tabs are skipped by keyboard navigation.
+- PuTabs: ArrowLeft, ArrowRight, Home, and End move between enabled tabs.
 - PuTag: Uses legacy theme values Surface and SurfaceOutlined rather than canonical tone.
 - PuTag: Uses legacy size values xSmall, Small, and Medium.
 - PuTextarea: Uses legacy theme values surface-container and surface.
