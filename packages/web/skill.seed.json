@@ -375,6 +375,17 @@
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuSkeleton.story.vue"
     },
+    "PuSpinner": {
+      "category": "display",
+      "intent": ["spinner", "loading indicator", "indeterminate loading", "inline loading"],
+      "preferWhen": ["Use for indeterminate loading where the final layout shape is unknown or a skeleton would be too heavy."],
+      "avoidWhen": ["Avoid as a content placeholder when the final layout shape is known; use PuSkeleton."],
+      "composeWith": ["PuButton", "PuInlineNotice", "PuSkeleton"],
+      "apiCaveats": ["Color inherits currentColor; set a class or parent color for primary, muted, or context-specific spinner color instead of using a tone prop."],
+      "accessibilityNotes": ["Pass label when the spinner itself should announce loading; omit label when another region or control already exposes busy status."],
+      "storyGroup": "display",
+      "storyFile": "src/stories/display/PuSpinner.story.vue"
+    },
     "PuTab": {
       "category": "display",
       "intent": ["tab item", "tab option"],

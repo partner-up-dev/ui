@@ -38,6 +38,7 @@ import PuSegmentedItem from './components/puSegmentedItem/puSegmentedItem.vue'
 import PuSkeleton from './components/puSkeleton/puSkeleton.vue'
 import PuSnackbar from './components/puSnackbar/puSnackbar.vue'
 import PuSnackbarHost from './components/puSnackbar/puSnackbarHost.vue'
+import PuSpinner from './components/puSpinner/puSpinner.vue'
 import PuTab from './components/puTab/puTab.vue'
 import PuTabs from './components/puTabs/puTabs.vue'
 import PuTag from './components/puTag/puTag.vue'
@@ -82,6 +83,7 @@ export {
   PuSkeleton,
   PuSnackbar,
   PuSnackbarHost,
+  PuSpinner,
   PuTab,
   PuTabs,
   PuTag,
@@ -129,6 +131,7 @@ const components: readonly ComponentEntry[] = [
   ['PuSkeleton', PuSkeleton],
   ['PuSnackbar', PuSnackbar],
   ['PuSnackbarHost', PuSnackbarHost],
+  ['PuSpinner', PuSpinner],
   ['PuTab', PuTab],
   ['PuTabs', PuTabs],
   ['PuTag', PuTag],

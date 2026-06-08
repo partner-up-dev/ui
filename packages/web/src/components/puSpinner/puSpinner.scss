@@ -1,0 +1,78 @@
+@use "../../styles/functions" as fn;
+
+.pu-spinner {
+  --pu-spinner-size: 1.25rem;
+  --pu-spinner-stroke: 2px;
+
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--pu-spinner-size);
+  height: var(--pu-spinner-size);
+  min-width: var(--pu-spinner-size);
+  color: currentColor;
+  vertical-align: -0.125em;
+}
+
+.pu-spinner__ring {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: var(--pu-spinner-stroke) solid currentColor;
+  border-block-start-color: transparent;
+  border-radius: fn.sys-var(radius, full);
+  opacity: 0.88;
+  animation: pu-spinner-rotate 0.8s linear infinite;
+}
+
+.pu-spinner__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pu-spinner--size-xs {
+  --pu-spinner-size: 0.75rem;
+  --pu-spinner-stroke: 1.5px;
+}
+
+.pu-spinner--size-sm {
+  --pu-spinner-size: 1rem;
+  --pu-spinner-stroke: 2px;
+}
+
+.pu-spinner--size-md {
+  --pu-spinner-size: 1.25rem;
+  --pu-spinner-stroke: 2px;
+}
+
+.pu-spinner--size-lg {
+  --pu-spinner-size: 1.75rem;
+  --pu-spinner-stroke: 2.5px;
+}
+
+.pu-spinner--size-xl {
+  --pu-spinner-size: 2.5rem;
+  --pu-spinner-stroke: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-spinner__ring {
+    animation: none !important;
+  }
+}
+
+@keyframes pu-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

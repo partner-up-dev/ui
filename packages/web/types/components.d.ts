@@ -38,6 +38,7 @@ declare module 'vue' {
     PuSkeleton: typeof import('../src/components/puSkeleton/puSkeleton.vue')['default']
     PuSnackbar: typeof import('../src/components/puSnackbar/puSnackbar.vue')['default']
     PuSnackbarHost: typeof import('../src/components/puSnackbar/puSnackbarHost.vue')['default']
+    PuSpinner: typeof import('../src/components/puSpinner/puSpinner.vue')['default']
     PuTab: typeof import('../src/components/puTab/puTab.vue')['default']
     PuTabs: typeof import('../src/components/puTabs/puTabs.vue')['default']
     PuTag: typeof import('../src/components/puTag/puTag.vue')['default']

@@ -108,6 +108,9 @@ files only after narrowing the candidate set.
 - [PuSkeleton](references/components/PuSkeleton.md)
   - Intent: skeleton, loading placeholder, async content placeholder
   - Prefer: Use while content is loading and the final layout shape is known.
+- [PuSpinner](references/components/PuSpinner.md)
+  - Intent: spinner, loading indicator, indeterminate loading, inline loading
+  - Prefer: Use for indeterminate loading where the final layout shape is unknown or a skeleton would be too heavy.
 - [PuTab](references/components/PuTab.md)
   - Intent: tab item, tab option
   - Prefer: Use inside PuTabs when individual tab components are required.

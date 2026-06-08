@@ -72,6 +72,7 @@ A data region is loading, empty, or has no search results.
 Use:
 
 - PuSkeleton
+- PuSpinner
 - PuEmptyState
 - PuInlineNotice
 - PuButton

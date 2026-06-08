@@ -762,7 +762,7 @@ const renderCompositionRecipes = (model) => {
     {
       title: "Empty Or Loading Region",
       when: "A data region is loading, empty, or has no search results.",
-      use: ["PuSkeleton", "PuEmptyState", "PuInlineNotice", "PuButton"].filter(has),
+      use: ["PuSkeleton", "PuSpinner", "PuEmptyState", "PuInlineNotice", "PuButton"].filter(has),
     },
     {
       title: "Focused Overlay Workflow",
@@ -813,7 +813,7 @@ const renderUsageRules = (model) => {
 - Use \`PuCard\` for grouped content surfaces with optional header, hero, footer, or collapse behavior.
 - Use \`PuInlineNotice\` for local contextual messages.
 - Use \`PuAnnouncementBar\` for page-level or rotating announcement strips.
-- Use \`PuSkeleton\` for loading placeholders and \`PuEmptyState\` for no-data states.
+- Use \`PuSkeleton\` for shape-known loading placeholders, \`PuSpinner\` for compact or indeterminate loading, and \`PuEmptyState\` for no-data states.
 - Use \`PuDialog\` for structured confirmations and short focused workflows, \`PuModal\` for lower-level custom modal shells, and \`PuDrawer\` for side-panel workflows.
 
 ## Implementation Principles
