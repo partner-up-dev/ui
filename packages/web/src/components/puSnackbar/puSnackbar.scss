@@ -1,0 +1,104 @@
+@use "../../styles/functions" as fn;
+@use "../../styles/mixins" as *;
+
+.pu-snackbar {
+  @include pu-font(body);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  width: min(100%, 36rem);
+  min-height: 3rem;
+  padding: 0.375rem 0.5rem 0.375rem 1rem;
+  border-radius: fn.sys-var(radius, small);
+  background: fn.sys-var(color, inverse-surface);
+  color: fn.sys-var(color, inverse-on-surface);
+  box-shadow: fn.sys-var(shadow, 3);
+  gap: 0.5rem;
+}
+
+.pu-snackbar__message {
+  min-width: 0;
+  padding-block: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.pu-snackbar__action,
+.pu-snackbar__close {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.pu-snackbar__action {
+  @include pu-font(control);
+  min-height: 2.25rem;
+  padding-inline: 0.75rem;
+  border-radius: fn.sys-var(radius, full);
+  color: fn.sys-var(color, inverse-primary);
+}
+
+.pu-snackbar__action:hover {
+  background: rgb(255 255 255 / 8%);
+}
+
+.pu-snackbar__close {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: fn.sys-var(radius, full);
+  color: currentColor;
+}
+
+.pu-snackbar__close:hover {
+  background: rgb(255 255 255 / 8%);
+}
+
+.pu-snackbar__close :deep([class^="i-"]),
+.pu-snackbar__close :deep([class*=" i-"]) {
+  @include pu-icon(small);
+}
+
+.pu-snackbar__action:focus-visible,
+.pu-snackbar__close:focus-visible {
+  outline: 2px solid fn.sys-var(color, inverse-primary);
+  outline-offset: 2px;
+}
+
+.pu-snackbar--tone-success {
+  border-inline-start: 0.25rem solid fn.sys-var(color, tertiary);
+}
+
+.pu-snackbar--tone-warning {
+  border-inline-start: 0.25rem solid fn.sys-var(color, warning);
+}
+
+.pu-snackbar--tone-error {
+  border-inline-start: 0.25rem solid fn.sys-var(color, error);
+}
+
+.pu-snackbar--tone-info {
+  border-inline-start: 0.25rem solid fn.sys-var(color, secondary);
+}
+
+@container pu-snackbar-host (max-width: 27.5rem) {
+  .pu-snackbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .pu-snackbar__action {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-inline-start: -0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-snackbar__action,
+  .pu-snackbar__close {
+    transition: none;
+  }
+}

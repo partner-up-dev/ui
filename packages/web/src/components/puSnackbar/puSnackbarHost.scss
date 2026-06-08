@@ -1,0 +1,94 @@
+@use "../../styles/functions" as fn;
+
+.pu-snackbar-host {
+  position: fixed;
+  z-index: 1100;
+  inset-inline: 0;
+  display: flex;
+  pointer-events: none;
+  container: pu-snackbar-host / inline-size;
+}
+
+.pu-snackbar-host__stack {
+  display: grid;
+  width: min(100% - 2rem, 36rem);
+  gap: 0.5rem;
+  pointer-events: auto;
+}
+
+.pu-snackbar-host--position-bottom,
+.pu-snackbar-host--position-bottom-start,
+.pu-snackbar-host--position-bottom-end {
+  bottom: calc(var(--pu-safe-bottom) + 1rem);
+  align-items: flex-end;
+}
+
+.pu-snackbar-host--position-top,
+.pu-snackbar-host--position-top-start,
+.pu-snackbar-host--position-top-end {
+  top: calc(var(--pu-safe-top) + 1rem);
+  align-items: flex-start;
+}
+
+.pu-snackbar-host--position-bottom,
+.pu-snackbar-host--position-top {
+  justify-content: center;
+}
+
+.pu-snackbar-host--position-bottom-start,
+.pu-snackbar-host--position-top-start {
+  justify-content: flex-start;
+  padding-inline-start: calc(var(--pu-safe-left) + 1rem);
+}
+
+.pu-snackbar-host--position-bottom-end,
+.pu-snackbar-host--position-top-end {
+  justify-content: flex-end;
+  padding-inline-end: calc(var(--pu-safe-right) + 1rem);
+}
+
+.pu-snackbar-host-enter-active,
+.pu-snackbar-host-leave-active,
+.pu-snackbar-host-move {
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.pu-snackbar-host-enter-from,
+.pu-snackbar-host-leave-to {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+
+.pu-snackbar-host-leave-active {
+  position: absolute;
+}
+
+@media (max-width: 37.5rem) {
+  .pu-snackbar-host {
+    padding-inline: calc(var(--pu-safe-left) + 0.5rem)
+      calc(var(--pu-safe-right) + 0.5rem);
+  }
+
+  .pu-snackbar-host__stack {
+    width: 100%;
+  }
+
+  .pu-snackbar-host--position-bottom-start,
+  .pu-snackbar-host--position-top-start,
+  .pu-snackbar-host--position-bottom-end,
+  .pu-snackbar-host--position-top-end {
+    justify-content: center;
+    padding-inline-start: calc(var(--pu-safe-left) + 0.5rem);
+    padding-inline-end: calc(var(--pu-safe-right) + 0.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-snackbar-host-enter-active,
+  .pu-snackbar-host-leave-active,
+  .pu-snackbar-host-move {
+    transition: none;
+  }
+}

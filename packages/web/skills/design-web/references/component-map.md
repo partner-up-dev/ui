@@ -130,6 +130,13 @@ files only after narrowing the candidate set.
   - Intent: modal dialog, blocking confirmation, focused overlay
   - Prefer: Use for blocking decisions, confirmations, and focused short workflows.
 
+- [PuSnackbar](references/components/PuSnackbar.md)
+  - Intent: snackbar, toast, transient feedback
+  - Prefer: Use for brief, non-blocking feedback that appears above the current page after an action.
+- [PuSnackbarHost](references/components/PuSnackbarHost.md)
+  - Intent: snackbar host, toast queue, notification stack
+  - Prefer: Use for application-managed snackbar queues with fixed positioning and max visible items.
+
 ## Layout
 
 - [PuPageScaffold](references/components/PuPageScaffold.md)

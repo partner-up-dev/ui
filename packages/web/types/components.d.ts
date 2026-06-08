@@ -36,6 +36,8 @@ declare module 'vue' {
     PuSegmented: typeof import('../src/components/puSegmented/puSegmented.vue')['default']
     PuSegmentedItem: typeof import('../src/components/puSegmentedItem/puSegmentedItem.vue')['default']
     PuSkeleton: typeof import('../src/components/puSkeleton/puSkeleton.vue')['default']
+    PuSnackbar: typeof import('../src/components/puSnackbar/puSnackbar.vue')['default']
+    PuSnackbarHost: typeof import('../src/components/puSnackbar/puSnackbarHost.vue')['default']
     PuTab: typeof import('../src/components/puTab/puTab.vue')['default']
     PuTabs: typeof import('../src/components/puTabs/puTabs.vue')['default']
     PuTag: typeof import('../src/components/puTag/puTag.vue')['default']

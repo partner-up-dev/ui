@@ -282,6 +282,27 @@
       "storyGroup": "overlay",
       "storyFile": "src/stories/overlay/PuModal.story.vue"
     },
+    "PuSnackbar": {
+      "category": "overlay",
+      "intent": ["snackbar", "toast", "transient feedback"],
+      "preferWhen": ["Use for brief, non-blocking feedback that appears above the current page after an action."],
+      "avoidWhen": ["Avoid for persistent local validation or contextual messages; use PuInlineNotice inside the relevant section."],
+      "composeWith": ["PuSnackbarHost", "PuButton"],
+      "apiCaveats": ["Use duration 0 for persistent story or test examples; positive durations auto-dismiss.", "Action clicks close the snackbar after emitting the action event."],
+      "accessibilityNotes": ["Warning and error tones use assertive live announcements; neutral, info, and success use polite announcements."],
+      "storyGroup": "overlay",
+      "storyFile": "src/stories/overlay/PuSnackbar.story.vue"
+    },
+    "PuSnackbarHost": {
+      "category": "overlay",
+      "intent": ["snackbar host", "toast queue", "notification stack"],
+      "preferWhen": ["Use for application-managed snackbar queues with fixed positioning and max visible items."],
+      "avoidWhen": ["Avoid for a single inline notification embedded in page content; use PuInlineNotice."],
+      "composeWith": ["PuSnackbar"],
+      "apiCaveats": ["Uses items and update:items for queue control; do not assume an imperative toast service is included."],
+      "storyGroup": "overlay",
+      "storyFile": "src/stories/overlay/PuSnackbar.story.vue"
+    },
     "PuAnnouncementBar": {
       "category": "display",
       "intent": ["announcement bar", "announcement strip", "rotating announcement"],

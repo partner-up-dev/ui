@@ -49,6 +49,10 @@
 - PuModal: Uses required open plus close event; do not assume v-model:open.
 - PuModal: Provide a useful title or aria label for dialog context.
 - PuSegmented: Use semantics="tabs" only when the items control associated tab panels.
+- PuSnackbar: Use duration 0 for persistent story or test examples; positive durations auto-dismiss.
+- PuSnackbar: Action clicks close the snackbar after emitting the action event.
+- PuSnackbar: Warning and error tones use assertive live announcements; neutral, info, and success use polite announcements.
+- PuSnackbarHost: Uses items and update:items for queue control; do not assume an imperative toast service is included.
 - PuTab: Current tab APIs use legacy size values in related tabs components.
 - PuTabs: Uses legacy size values Large, Medium, and Small.
 - PuTag: Uses legacy theme values Surface and SurfaceOutlined rather than canonical tone.
