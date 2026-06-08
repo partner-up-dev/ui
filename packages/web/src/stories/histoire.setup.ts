@@ -1,3 +1,4 @@
+import "virtual:uno.css";
 import "../styles/index.scss";
 import "./story.css";
 import { setTheme } from "../utils/tokens";

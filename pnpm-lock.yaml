@@ -50,6 +50,9 @@ importers:
       '@histoire/plugin-vue':
         specifier: 1.0.0-beta.1
         version: 1.0.0-beta.1(histoire@1.0.0-beta.1(@types/node@22.19.20)(sass-embedded@1.99.0)(sass@1.94.2)(vite@7.3.3(@types/node@22.19.20)(jiti@2.7.0)(sass-embedded@1.99.0)(sass@1.94.2)(yaml@2.8.3)))(vite@7.3.3(@types/node@22.19.20)(jiti@2.7.0)(sass-embedded@1.99.0)(sass@1.94.2)(yaml@2.8.3))(vue@3.5.34(typescript@5.9.3))
+      '@iconify-json/mdi':
+        specifier: ^1.2.3
+        version: 1.2.3
       '@tanstack/intent':
         specifier: ^0.0.41
         version: 0.0.41
@@ -584,6 +587,9 @@ packages:
 
   '@histoire/vendors@1.0.0-beta.1':
     resolution: {integrity: sha512-ahUCJ0DPsn3waULYfmz9bMNO/bg8PiCc+dDE/VmzaJyV2kvEjxD88rK9nwzI6MRs8Drqo6QqUXIr/4CQEaIouw==}
+
+  '@iconify-json/mdi@1.2.3':
+    resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3121,6 +3127,10 @@ snapshots:
       vite: 7.3.3(@types/node@22.19.20)(jiti@2.7.0)(sass-embedded@1.99.0)(sass@1.94.2)(yaml@2.8.3)
 
   '@histoire/vendors@1.0.0-beta.1': {}
+
+  '@iconify-json/mdi@1.2.3':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/types@2.0.0': {}
 

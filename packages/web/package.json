@@ -94,6 +94,7 @@
   "devDependencies": {
     "@histoire/controls": "1.0.0-beta.1",
     "@histoire/plugin-vue": "1.0.0-beta.1",
+    "@iconify-json/mdi": "^1.2.3",
     "@tanstack/intent": "^0.0.41",
     "@types/node": "^22.0.0",
     "@vitejs/plugin-vue": "^6.0.6",
