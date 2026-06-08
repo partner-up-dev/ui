@@ -13,6 +13,7 @@
   --pu-button-soft-color: #{fn.sys-var(color, on-primary-container)};
 
   position: relative;
+  isolation: isolate;
   box-sizing: border-box;
   min-width: 0;
   min-height: var(--pu-button-min-height);
@@ -29,14 +30,24 @@
     border-color 180ms ease,
     color 180ms ease,
     box-shadow 180ms ease,
-    transform 180ms ease,
-    opacity 180ms ease,
-    filter 180ms ease;
+    opacity 180ms ease;
 
   &:focus-visible {
     outline: 2px solid fn.sys-var(color, primary);
     outline-offset: 2px;
   }
+}
+
+.pu-button::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: currentColor;
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
 }
 
 .pu-button--block {
@@ -175,17 +186,31 @@
   color: fn.sys-var(color, on-error);
 }
 
-.pu-button--variant-ghost:hover:not(.is-disabled),
-.pu-button--variant-ghost:focus-visible:not(.is-disabled) {
-  background: fn.sys-var(color, surface-container-high);
+@media (hover: hover) {
+  .pu-button:hover:not(.is-disabled):not(.pu-button--variant-ghost)::before {
+    opacity: 0.08;
+  }
+
+  .pu-button--variant-ghost:hover:not(.is-disabled) .pu-button__content,
+  .pu-button--variant-ghost:hover:not(.is-disabled) .pu-button__leading,
+  .pu-button--variant-ghost:hover:not(.is-disabled) .pu-button__trailing {
+    opacity: 0.82;
+  }
 }
 
-.pu-button:hover:not(.is-disabled):not(.pu-button--variant-ghost) {
-  filter: brightness(0.98);
+.pu-button:focus-visible:not(.is-disabled)::before,
+.pu-button:active:not(.is-disabled):not(.pu-button--variant-ghost)::before {
+  opacity: 0.1;
 }
 
-.pu-button:active:not(.is-disabled) {
-  transform: scale(0.99);
+.pu-button--variant-ghost:active:not(.is-disabled)::before {
+  opacity: 0;
+}
+
+.pu-button--variant-ghost:active:not(.is-disabled) .pu-button__content,
+.pu-button--variant-ghost:active:not(.is-disabled) .pu-button__leading,
+.pu-button--variant-ghost:active:not(.is-disabled) .pu-button__trailing {
+  opacity: 0.6;
 }
 
 .pu-button.is-disabled {
@@ -195,16 +220,22 @@
 }
 
 .pu-button__content {
+  position: relative;
+  z-index: 1;
   min-width: 0;
+  transition: opacity 180ms ease;
 }
 
 .pu-button__leading,
 .pu-button__trailing,
 .pu-button__loading {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: opacity 180ms ease;
 }
 
 .pu-button__leading :deep([class^="i-"]),
@@ -225,6 +256,11 @@
 
 @media (prefers-reduced-motion: reduce) {
   .pu-button,
+  .pu-button::before,
+  .pu-button__content,
+  .pu-button__leading,
+  .pu-button__trailing,
+  .pu-button__loading,
   .pu-button__loading-icon {
     transition: none !important;
     animation: none !important;
