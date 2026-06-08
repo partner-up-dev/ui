@@ -38,7 +38,10 @@ packages/uniapp/
 ## Documentation Index
 
 - `README.md`: consumer install, style usage, token architecture, and theme notes.
+- `../../docs/30-unit-tdd/uniapp/README.md`: durable UniApp technical constraints.
+- `../../docs/20-product-tdd/cross-package-contracts.md`: web/UniApp alignment policy.
 - `CONTRIBUTING.md`: existing package-local setup and token contribution notes.
 - `CHANGELOG.md`: release history for `@partner-up-dev/design-uniapp`.
 - `../../README.md`: workspace package and publishing overview.
-- `../../CONTRIBUTING.md`: root commit, changeset, release, and verification policy.
+- `../../CONTRIBUTING.md`: root contribution entry.
+- `../../docs/40-deployment/release-runbook.md`: release, publish, republish, and rollback guidance.

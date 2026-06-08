@@ -29,7 +29,7 @@
   },
   "skillReferences": [
     {
-      "source": "docs/composition-principles.md",
+      "source": "../../docs/30-unit-tdd/web/composition-principles.md",
       "target": "references/composition-principles.md",
       "description": "durable package principles for component ownership, composition, tokens, and local CSS."
     }

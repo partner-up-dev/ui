@@ -1,11 +1,11 @@
-# Composition Principles
+# Web Composition Principles
 
-This document is the durable source for how `@partner-up-dev/design-web`
-components should be composed in both the design package and downstream
-application UI.
+This Unit TDD document is the durable source for how
+`@partner-up-dev/design-web` components should be composed in both the design
+package and downstream application UI.
 
-The generated Agent Skill may excerpt part of this file, but this file remains
-the source of truth.
+The generated Agent Skill excerpts this file directly through
+`packages/web/skill.seed.json`.
 
 <!-- agent-skill:start -->
 # Composition Principles

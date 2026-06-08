@@ -1,7 +1,8 @@
 # AGENTS.md of PartnerUp Design
 
 PartnerUp Design is a pnpm workspace for shared PartnerUp design-system packages.
-This file is the root operating map for agents. Package-local rules are additive.
+This file is the root SVC front door for agents. Package-local rules are
+additive and closest-to-target rules win for tactical execution.
 
 ## Repository Layout
 
@@ -24,6 +25,29 @@ This file is the root operating map for agents. Package-local rules are additive
 - Shared release and workspace behavior is owned by the repository root.
 - Avoid moving behavior between packages unless the change explicitly targets cross-package API alignment.
 
+## SVC Operating Model
+
+Classify each request before editing:
+
+- Intent: package or product behavior promise changes. This repo has no PRD
+  layer today; create one only when concrete product-intent pressure appears.
+- Constraint: technical boundaries, package topology, compatibility, release
+  surface, environment, or verification rules. Route to Product TDD or Unit TDD.
+- Reality: observed behavior disagrees with expected behavior. Gather evidence
+  first, then fix and add local tripwires when warranted.
+- Artifact: bounded deliverables such as task packets, generated references,
+  migration notes, or one-off analysis.
+
+Choose mode as the current posture, not the durable owner:
+
+- Explore: map unknowns and impact.
+- Solidify: turn findings into explicit claims or decisions.
+- Execute: implement a clear change with verification.
+- Diagnose: investigate mismatches evidence-first.
+
+For non-trivial work, open or update a task packet under `tasks/`. Keep task
+state volatile until it passes the promotion test.
+
 ## Development Workflow
 
 - Install from the root with `pnpm install`.
@@ -35,10 +59,13 @@ This file is the root operating map for agents. Package-local rules are additive
 
 ## Documentation Index
 
-- `README.md`: package list, registry setup, and release workflow summary.
-- `CONTRIBUTING.md`: commit policy, changeset policy, release policy, and verification expectations.
+- `README.md`: consumer-facing package list and registry setup.
+- `CONTRIBUTING.md`: concise contribution entry; durable release truth lives in `docs/40-deployment/`.
+- `docs/00-meta/`: SVC routing, mode dispatch, destination map, and implementation taste.
+- `docs/20-product-tdd/`: workspace topology, cross-package contracts, generated docs/skills, and release surface.
+- `docs/30-unit-tdd/`: package-level durable technical contracts.
+- `docs/40-deployment/`: publish workflow, release runbook, republish, and rollback guidance.
 - `packages/web/README.md`: consumer usage for `@partner-up-dev/design-web`.
-- `packages/web/docs/`: durable web package contracts and composition guidance.
 - `packages/web/skills/design-web/`: generated agent skill and component references for web package usage.
 - `packages/uniapp/README.md`: consumer usage for `@partner-up-dev/design-uniapp`.
 - `packages/uniapp/CONTRIBUTING.md`: legacy UniApp package contribution notes.
@@ -47,6 +74,13 @@ This file is the root operating map for agents. Package-local rules are additive
 ## Agent Operating Notes
 
 - Prefer reading the nearest `AGENTS.md` before changing a package subtree.
-- Keep root docs about workflow and ownership; keep package docs about local technical constraints.
+- Keep root SVC docs about workflow, durable ownership, cross-package contracts,
+  unit structure, and deployment truth.
+- Keep package README files consumer-facing.
+- Keep package-local AGENTS files about closest edit rules, local hazards, and
+  verification commands.
 - Keep volatile reasoning in `tasks/` until it is stable enough to promote into root or package documentation.
 - Verify user claims against repository state before changing release metadata.
+- Do not add a changeset for SVC documentation topology changes unless package
+  public API, package contents, runtime behavior, or consumer-facing package
+  documentation changed.

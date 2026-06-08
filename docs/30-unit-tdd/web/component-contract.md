@@ -1,6 +1,6 @@
 # Web Component Contract
 
-This document defines the default contract for public components in
+This Unit TDD document defines the default contract for public components in
 `@partner-up-dev/design-web`.
 
 ## Naming
@@ -255,8 +255,9 @@ Use existing global tokens:
 
 ## Composition Principles
 
-Follow `docs/composition-principles.md` as the durable source for ownership,
-composition, tokens, local CSS, and adaptive layout decisions.
+Follow `composition-principles.md` as the durable source for ownership,
+composition, tokens, local CSS, and adaptive layout decisions in this Unit TDD
+directory.
 
 For component authors, add query boundaries only where the component owns the
 measured layout region. Avoid arbitrary leaf-level containers.

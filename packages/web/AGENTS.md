@@ -8,7 +8,6 @@ Root workflow and release policy are owned by `../../AGENTS.md` and
 
 ```text
 packages/web/
-|-- docs/                 # Durable web component and composition contracts
 |-- scripts/              # Registry, story coverage, and skill generation tools
 |-- skills/design-web/    # Generated agent-facing usage skill
 |-- src/
@@ -43,10 +42,11 @@ packages/web/
 ## Documentation Index
 
 - `README.md`: consumer install and usage.
-- `docs/component-contract.md`: component contract guidance.
-- `docs/composition-principles.md`: composition guidance for web package consumers.
+- `../../docs/30-unit-tdd/web/component-contract.md`: durable component contract guidance.
+- `../../docs/30-unit-tdd/web/composition-principles.md`: durable composition guidance.
 - `skills/design-web/SKILL.md`: generated agent-facing web design-system skill.
 - `skills/design-web/references/component-map.md`: generated component reference index.
+- `../../docs/20-product-tdd/generated-docs-and-skills.md`: generated skill ownership and regeneration policy.
 - `../../tasks/agent-skill-generation-for-design-package/`: background and records for skill generation work.
 - `../../tasks/web-token-rem-rework/`: token and rem migration records.
 - `../../tasks/content-presentation-components/`: content component implementation records.

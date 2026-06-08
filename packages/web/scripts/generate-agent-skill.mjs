@@ -8,6 +8,7 @@ const SKILL_EXCERPT_END = "<!-- agent-skill:end -->";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(scriptDir, "..");
+const repoRoot = path.resolve(packageRoot, "../..");
 const seedPath = path.join(packageRoot, "skill.seed.json");
 const packageJsonPath = path.join(packageRoot, "package.json");
 const registryPath = path.join(packageRoot, "src", "component-registry.ts");
@@ -309,15 +310,15 @@ const extractTypes = (source) => {
   return [...new Set(names)].sort();
 };
 
-const assertRelativeInsidePackage = (relativePath, label) => {
+const assertRelativeInsideRepo = (relativePath, label) => {
   if (!relativePath || path.isAbsolute(relativePath)) {
-    throw new Error(`${label} must be a package-relative path.`);
+    throw new Error(`${label} must be a relative path.`);
   }
 
   const resolvedPath = path.resolve(packageRoot, relativePath);
-  const relativeFromRoot = path.relative(packageRoot, resolvedPath);
+  const relativeFromRoot = path.relative(repoRoot, resolvedPath);
   if (relativeFromRoot.startsWith("..") || path.isAbsolute(relativeFromRoot)) {
-    throw new Error(`${label} escapes the package root: ${relativePath}`);
+    throw new Error(`${label} escapes the repository root: ${relativePath}`);
   }
 
   return resolvedPath;
@@ -351,7 +352,7 @@ const extractSkillExcerpt = (source, sourcePath) => {
 const loadSkillReferences = async (seed) => {
   const references = [];
   for (const entry of seed.skillReferences || []) {
-    const sourcePath = assertRelativeInsidePackage(entry.source, "Skill reference source");
+    const sourcePath = assertRelativeInsideRepo(entry.source, "Skill reference source");
     const target = assertSkillReferenceTarget(entry.target);
     const source = await readText(sourcePath);
     references.push({

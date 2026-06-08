@@ -3,6 +3,16 @@
 This repository is mostly changed through small, reviewable package work. Release
 metadata should describe package behavior, not CI mechanics.
 
+Durable contributor and agent-facing technical truth is organized through SVC
+docs:
+
+- `docs/20-product-tdd/`: workspace topology, cross-package contracts, generated docs, and release surface.
+- `docs/30-unit-tdd/`: package-level technical contracts.
+- `docs/40-deployment/`: publish workflow, release runbook, republish, and rollback guidance.
+
+Keep README files consumer-facing and package-local AGENTS files focused on
+closest edit rules and hazards.
+
 ## Commit Policy
 
 - Use Conventional Commits for commits that may reach `main`.
@@ -24,6 +34,9 @@ metadata should describe package behavior, not CI mechanics.
 
 The repository uses Changesets and GitHub Actions to publish packages to GitHub
 Package Registry.
+
+The durable runbook lives in `docs/40-deployment/release-runbook.md`. This
+section is the concise entry point.
 
 - Package registry: `https://npm.pkg.github.com`
 - Package scope: `@partner-up-dev`

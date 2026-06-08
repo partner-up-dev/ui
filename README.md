@@ -11,6 +11,10 @@ This is a monorepo of partner-up's design (design system in code, common compone
 
 This repository uses [Changesets](https://github.com/changesets/changesets) to manage versioning and publishing packages to GitHub Package Registry.
 
+Contributor and agent-facing technical truth is organized through the SVC
+documentation layers under `docs/`. Start with `AGENTS.md` for routing, then
+use Product TDD, Unit TDD, and Deployment docs for durable technical decisions.
+
 ### Creating a Changeset
 
 When you make changes to a package, create a changeset to document the changes:
