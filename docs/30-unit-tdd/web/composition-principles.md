@@ -38,6 +38,9 @@ Use these principles when building application UI with
 - Do not promote one-off values into design tokens before repeated
   cross-component use proves the abstraction.
 - Do not use fluid CSS math as a substitute for semantic tokens.
+- Size iconfont glyphs with the em-based `pu-icon` mixin so icons scale with
+  surrounding text; the web icon scale is `small: 1.25em`, `medium: 1.5em`,
+  and `large: 2.5em`. Do not treat those values as rem tokens.
 
 ## Adaptive Layout
 

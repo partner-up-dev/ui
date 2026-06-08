@@ -26,18 +26,18 @@
   box-shadow: var(--sys-shadow-#{$level});
 }
 
-/* Iconfont mixin - keeps icon glyphs proportional to surrounding text */
+/* Em-based iconfont mixin - keeps icon glyphs proportional to surrounding text */
 @mixin pu-icon($size, $layout: false) {
   width: 1em;
   height: 1em;
   line-height: 1;
 
   @if $size == "small" or $size == small {
-    font-size: 1em;
+    font-size: 1.25em;
   } @else if $size == "large" or $size == large {
-    font-size: 1.35em;
+    font-size: 2.5em;
   } @else {
-    font-size: 1.15em;
+    font-size: 1.5em;
   }
   
   @if $layout == true {
