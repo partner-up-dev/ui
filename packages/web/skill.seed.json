@@ -76,7 +76,7 @@
       "intent": ["command button", "loading command", "icon button", "link-styled action", "feedback action"],
       "preferWhen": ["Use for user-triggered commands, form actions, compact icon commands, link-styled calls to action, and transient pending/success/error feedback actions."],
       "avoidWhen": ["Avoid for plain inline text links."],
-      "composeWith": ["PuPageHeader", "PuFormItem", "PuModal", "PuCard"],
+      "composeWith": ["PuPageHeader", "PuFormItem", "PuDialog", "PuModal", "PuCard"],
       "apiCaveats": ["Use the structured action prop with the shared PuAction type for native, href, or route targets; route actions render the consuming app's globally registered RouterLink.", "Use feedback for transient idle, pending, success, and error action states."],
       "accessibilityNotes": ["Icon-only buttons need an accessible label.", "Disabled link actions use aria-disabled and stop click navigation."],
       "storyGroup": "actions",
@@ -163,6 +163,17 @@
       "composeWith": ["PuDescriptionItem", "PuCard"],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuDescriptionList.story.vue"
+    },
+    "PuDialog": {
+      "category": "overlay",
+      "intent": ["dialog", "confirmation dialog", "short focused workflow", "blocking decision"],
+      "preferWhen": ["Use for confirmation flows, destructive decisions, and short modal workflows that benefit from built-in title, description, icon, and actions structure."],
+      "avoidWhen": ["Avoid for fully custom overlay shells; use PuModal when the consumer should own most of the interior structure.", "Avoid for secondary side-panel workflows; use PuDrawer."],
+      "composeWith": ["PuButton", "PuForm", "PuInlineNotice"],
+      "apiCaveats": ["Uses required open plus close, cancel, and confirm events; do not assume v-model:open.", "close emits a reason of overlay, escape, close, or cancel."],
+      "accessibilityNotes": ["Provide a useful title, title slot, or aria label for dialog context.", "Use the actions slot when custom commands are needed while preserving footer spacing."],
+      "storyGroup": "overlay",
+      "storyFile": "src/stories/overlay/PuDialog.story.vue"
     },
     "PuDrawer": {
       "category": "overlay",

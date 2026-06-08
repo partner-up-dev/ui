@@ -84,6 +84,7 @@ A task should happen in a modal dialog or side drawer.
 
 Use:
 
+- PuDialog
 - PuModal
 - PuDrawer
 - PuForm

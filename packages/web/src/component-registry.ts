@@ -17,6 +17,7 @@ import PuChip from './components/puChip/puChip.vue'
 import PuChipGroup from './components/puChipGroup/puChipGroup.vue'
 import PuDescriptionItem from './components/puDescriptionItem/puDescriptionItem.vue'
 import PuDescriptionList from './components/puDescriptionList/puDescriptionList.vue'
+import PuDialog from './components/puDialog/puDialog.vue'
 import PuDrawer from './components/puDrawer/puDrawer.vue'
 import PuEmptyState from './components/puEmptyState/puEmptyState.vue'
 import PuFilesUpload from './components/puFilesUpload/puFilesUpload.vue'
@@ -58,6 +59,7 @@ export {
   PuChipGroup,
   PuDescriptionItem,
   PuDescriptionList,
+  PuDialog,
   PuDrawer,
   PuEmptyState,
   PuFilesUpload,
@@ -102,6 +104,7 @@ const components: readonly ComponentEntry[] = [
   ['PuChipGroup', PuChipGroup],
   ['PuDescriptionItem', PuDescriptionItem],
   ['PuDescriptionList', PuDescriptionList],
+  ['PuDialog', PuDialog],
   ['PuDrawer', PuDrawer],
   ['PuEmptyState', PuEmptyState],
   ['PuFilesUpload', PuFilesUpload],

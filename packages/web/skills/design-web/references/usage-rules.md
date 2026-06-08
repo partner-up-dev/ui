@@ -17,7 +17,7 @@
 - Use `PuInlineNotice` for local contextual messages.
 - Use `PuAnnouncementBar` for page-level or rotating announcement strips.
 - Use `PuSkeleton` for loading placeholders and `PuEmptyState` for no-data states.
-- Use `PuModal` for blocking focused decisions and `PuDrawer` for side-panel workflows.
+- Use `PuDialog` for structured confirmations and short focused workflows, `PuModal` for lower-level custom modal shells, and `PuDrawer` for side-panel workflows.
 
 ## Implementation Principles
 
@@ -32,6 +32,10 @@
 - PuButton: Icon-only buttons need an accessible label.
 - PuButton: Disabled link actions use aria-disabled and stop click navigation.
 - PuCard: Supports tone and a compatibility theme prop; prefer tone in consumer code.
+- PuDialog: Uses required open plus close, cancel, and confirm events; do not assume v-model:open.
+- PuDialog: close emits a reason of overlay, escape, close, or cancel.
+- PuDialog: Provide a useful title, title slot, or aria label for dialog context.
+- PuDialog: Use the actions slot when custom commands are needed while preserving footer spacing.
 - PuDrawer: Uses visible and update:visible for control; do not assume open or v-model:open.
 - PuInput: Includes uni-app-compatible input props and legacy event names.
 - PuModal: Uses required open plus close event; do not assume v-model:open.

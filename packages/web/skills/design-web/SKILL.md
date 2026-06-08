@@ -30,7 +30,7 @@ when a task asks which PartnerUp design component to use.
 - Empty result: PuEmptyState
 - Grouped facts: PuDescriptionList, PuDescriptionItem
 - Local warning or status: PuInlineNotice
-- Dialog or side panel: PuModal or PuDrawer
+- Dialog or side panel: PuDialog, PuModal, or PuDrawer
 
 ## Import And Registration
 

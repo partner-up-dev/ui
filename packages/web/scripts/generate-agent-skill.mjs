@@ -547,7 +547,7 @@ const renderSkill = (model) => {
     ["Empty result", "PuEmptyState"],
     ["Grouped facts", "PuDescriptionList, PuDescriptionItem"],
     ["Local warning or status", "PuInlineNotice"],
-    ["Dialog or side panel", "PuModal or PuDrawer"],
+    ["Dialog or side panel", "PuDialog, PuModal, or PuDrawer"],
   ];
 
   return `---
@@ -680,7 +680,7 @@ const renderCompositionRecipes = (model) => {
     {
       title: "Focused Overlay Workflow",
       when: "A task should happen in a modal dialog or side drawer.",
-      use: ["PuModal", "PuDrawer", "PuForm", "PuButton", "PuInlineNotice"].filter(has),
+      use: ["PuDialog", "PuModal", "PuDrawer", "PuForm", "PuButton", "PuInlineNotice"].filter(has),
     },
   ];
 
@@ -727,7 +727,7 @@ const renderUsageRules = (model) => {
 - Use \`PuInlineNotice\` for local contextual messages.
 - Use \`PuAnnouncementBar\` for page-level or rotating announcement strips.
 - Use \`PuSkeleton\` for loading placeholders and \`PuEmptyState\` for no-data states.
-- Use \`PuModal\` for blocking focused decisions and \`PuDrawer\` for side-panel workflows.
+- Use \`PuDialog\` for structured confirmations and short focused workflows, \`PuModal\` for lower-level custom modal shells, and \`PuDrawer\` for side-panel workflows.
 
 ## Implementation Principles
 

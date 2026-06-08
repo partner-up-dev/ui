@@ -17,6 +17,7 @@ declare module 'vue' {
     PuChipGroup: typeof import('../src/components/puChipGroup/puChipGroup.vue')['default']
     PuDescriptionItem: typeof import('../src/components/puDescriptionItem/puDescriptionItem.vue')['default']
     PuDescriptionList: typeof import('../src/components/puDescriptionList/puDescriptionList.vue')['default']
+    PuDialog: typeof import('../src/components/puDialog/puDialog.vue')['default']
     PuDrawer: typeof import('../src/components/puDrawer/puDrawer.vue')['default']
     PuEmptyState: typeof import('../src/components/puEmptyState/puEmptyState.vue')['default']
     PuFilesUpload: typeof import('../src/components/puFilesUpload/puFilesUpload.vue')['default']

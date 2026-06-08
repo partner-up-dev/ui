@@ -120,6 +120,9 @@ files only after narrowing the candidate set.
 
 ## Overlay
 
+- [PuDialog](references/components/PuDialog.md)
+  - Intent: dialog, confirmation dialog, short focused workflow, blocking decision
+  - Prefer: Use for confirmation flows, destructive decisions, and short modal workflows that benefit from built-in title, description, icon, and actions structure.
 - [PuDrawer](references/components/PuDrawer.md)
   - Intent: drawer, side panel, non-blocking overlay
   - Prefer: Use for secondary workflows, filters, or details that slide over the page.
