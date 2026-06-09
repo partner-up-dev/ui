@@ -4,11 +4,80 @@
 .pu-form-item {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  gap: fn.sys-var(spacing, xsmall);
 }
 
-.pu-form-item__error {
+.pu-form-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  gap: fn.sys-var(spacing, small);
+}
+
+.pu-form-item__label {
+  display: inline-flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: calc(fn.sys-var(spacing, xsmall) / 2);
+  color: fn.sys-var(color, on-surface-variant);
+  @include pu-font(control);
+}
+
+.pu-form-item__required {
   color: fn.sys-var(color, error);
-  @include pu-font("caption");
-  margin-top: fn.sys-var(spacing, xsmall);
+}
+
+.pu-form-item__label-trailing {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.pu-form-item__control {
+  min-width: 0;
+}
+
+.pu-form-item__message {
+  margin: 0;
+  overflow-wrap: anywhere;
+  @include pu-font(support);
   line-height: 1.4;
+}
+
+.pu-form-item__message--hint {
+  color: fn.sys-var(color, on-surface-variant);
+}
+
+.pu-form-item__message--error {
+  color: fn.sys-var(color, error);
+}
+
+.pu-form-item--align-center {
+  align-items: center;
+  text-align: center;
+}
+
+.pu-form-item--align-center .pu-form-item__header {
+  justify-content: center;
+}
+
+.pu-form-item--align-center .pu-form-item__control {
+  width: 100%;
+}
+
+.pu-form-item--align-end {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.pu-form-item--align-end .pu-form-item__header {
+  justify-content: flex-end;
+}
+
+.pu-form-item.is-invalid .pu-form-item__label {
+  color: fn.sys-var(color, error);
 }

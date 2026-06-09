@@ -20,6 +20,7 @@ const formModel = reactive({
   title: "",
   host: "Lina Chen",
   notes: "",
+  plainField: "",
 });
 
 const schema = {
@@ -127,5 +128,74 @@ async function validateSubErrors(): Promise<void> {
         </PuCard>
       </div>
     </Variant>
+
+    <Variant title="Field Shell">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="neutral" variant="soft">
+          <div class="pu-story__stack">
+            <PuFormItem
+              label="Plain control"
+              for-id="plain-control"
+              hint="Use PuFormItem for labels, hints, and any custom control."
+              required
+            >
+              <input
+                id="plain-control"
+                v-model="formModel.plainField"
+                class="pu-form-story__native-control"
+                type="text"
+                placeholder="Native input"
+              />
+            </PuFormItem>
+
+            <PuFormItem
+              label="With trailing action"
+              hint="The trailing slot stays outside the control region."
+            >
+              <template #labelTrailing>
+                <PuButton
+                  size="sm"
+                  tone="neutral"
+                  variant="ghost"
+                >
+                  Clear
+                </PuButton>
+              </template>
+              <PuTextarea
+                model-value="A custom field shell can wrap package inputs too."
+                :height="72"
+              />
+            </PuFormItem>
+
+            <PuFormItem
+              label="Manual error"
+              error="This error can come from page-local validation."
+            >
+              <PuInput model-value="" placeholder="Manual error state" />
+            </PuFormItem>
+          </div>
+        </PuCard>
+      </div>
+    </Variant>
   </Story>
 </template>
+
+<style scoped>
+.pu-form-story__native-control {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--sys-color-outline-variant);
+  border-radius: 8px;
+  background: var(--sys-color-surface);
+  color: var(--sys-color-on-surface);
+  font: inherit;
+}
+
+.pu-form-story__native-control:focus-visible {
+  border-color: var(--sys-color-primary);
+  outline: 2px solid var(--sys-color-primary);
+  outline-offset: 2px;
+}
+</style>

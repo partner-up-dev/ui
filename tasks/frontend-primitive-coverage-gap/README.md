@@ -20,6 +20,8 @@ Component-level tone/variant/surfaceLevel migration implemented on 2026-06-08.
 PuCard, PuChipGroup, and PuImg enhancement slice implemented on 2026-06-08.
 PuTabs/PuTab API alignment implemented on 2026-06-08.
 PuDescriptionItem trailing action slot implemented on 2026-06-08.
+PuFormItem field-shell enhancement implemented on 2026-06-09.
+PuLoadingState implemented on 2026-06-09.
 ```
 
 Research inputs:

@@ -45,6 +45,7 @@ TextInput.vue -> PuInput
 TextareaInput.vue -> PuTextarea
 ToggleSwitch.vue -> PuToggleSwitch
 WheelPicker.vue -> PuWheelPicker
+LoadingIndicator.vue -> PuLoadingState
 SegmentedControl.vue -> PuSegmented / PuSegmentedItem
 Cell.vue -> PuCell
 Chip.vue -> PuChip
@@ -67,7 +68,6 @@ These primitives have no equivalent public Pu* component today:
 | `containers/ChoiceCard.vue` | Selectable button/router-link card with active and disabled states. |
 | `display/FitChipGroup.vue` | Single-line chip group that measures available width and renders only fully fitting chips. |
 | `overlay/ConfirmDialog.vue` | Standard confirm/cancel dialog composition on top of modal behavior. |
-| `feedback/LoadingIndicator.vue` | Region-level spinner/loading state with optional message. |
 | `feedback/ErrorToast.vue` | Toast/snackbar feedback with dismiss behavior. |
 | `identity/Avatar.vue` | Avatar image with fallback initial, shape, size, and optional border. |
 | `forms/ProductLocalDateCalendarPicker.vue` | Calendar/date picker mechanics. Current source is product-local and should be generalized before design-system work. |

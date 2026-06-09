@@ -28,6 +28,7 @@ import PuImg from './components/puImg/puImg.vue'
 import PuImgCropper from './components/puImgCropper/puImgCropper.vue'
 import PuInlineNotice from './components/puInlineNotice/puInlineNotice.vue'
 import PuInput from './components/puInput/puInput.vue'
+import PuLoadingState from './components/puLoadingState/puLoadingState.vue'
 import PuModal from './components/puModal/puModal.vue'
 import PuPageHeader from './components/puPageHeader/puPageHeader.vue'
 import PuPageScaffold from './components/puPageScaffold/puPageScaffold.vue'
@@ -73,6 +74,7 @@ export {
   PuImgCropper,
   PuInlineNotice,
   PuInput,
+  PuLoadingState,
   PuModal,
   PuPageHeader,
   PuPageScaffold,
@@ -121,6 +123,7 @@ const components: readonly ComponentEntry[] = [
   ['PuImgCropper', PuImgCropper],
   ['PuInlineNotice', PuInlineNotice],
   ['PuInput', PuInput],
+  ['PuLoadingState', PuLoadingState],
   ['PuModal', PuModal],
   ['PuPageHeader', PuPageHeader],
   ['PuPageScaffold', PuPageScaffold],

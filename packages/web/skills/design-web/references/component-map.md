@@ -28,8 +28,8 @@ files only after narrowing the candidate set.
   - Intent: form container, validated form
   - Prefer: Use as the structural container for grouped fields and submit actions.
 - [PuFormItem](references/components/PuFormItem.md)
-  - Intent: form field wrapper, field label, field validation
-  - Prefer: Use to connect labels, helper text, errors, and field controls.
+  - Intent: form field wrapper, field label, helper text, field validation, custom control wrapper
+  - Prefer: Use to connect labels, helper text, required markers, errors, and any field control including custom controls.
 - [PuImgCropper](references/components/PuImgCropper.md)
   - Intent: image cropper, avatar crop, image editing input
   - Prefer: Use when users need to crop or adjust an uploaded image.
@@ -96,6 +96,9 @@ files only after narrowing the candidate set.
 - [PuInlineNotice](references/components/PuInlineNotice.md)
   - Intent: inline notice, local alert, contextual message
   - Prefer: Use for local info, success, warning, or error messages inside a page section.
+- [PuLoadingState](references/components/PuLoadingState.md)
+  - Intent: loading state, region loading, page loading, visible loading message
+  - Prefer: Use for page or region loading states that need a visible spinner with optional title and message.
 - [PuPageHeader](references/components/PuPageHeader.md)
   - Intent: page header, page title, page actions, page metadata
   - Prefer: Use for page titles with optional subtitle, metadata, and actions.

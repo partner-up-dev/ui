@@ -28,6 +28,7 @@ declare module 'vue' {
     PuImgCropper: typeof import('../src/components/puImgCropper/puImgCropper.vue')['default']
     PuInlineNotice: typeof import('../src/components/puInlineNotice/puInlineNotice.vue')['default']
     PuInput: typeof import('../src/components/puInput/puInput.vue')['default']
+    PuLoadingState: typeof import('../src/components/puLoadingState/puLoadingState.vue')['default']
     PuModal: typeof import('../src/components/puModal/puModal.vue')['default']
     PuPageHeader: typeof import('../src/components/puPageHeader/puPageHeader.vue')['default']
     PuPageScaffold: typeof import('../src/components/puPageScaffold/puPageScaffold.vue')['default']

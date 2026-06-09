@@ -168,3 +168,34 @@ pnpm --filter @partner-up-dev/design-web run verify
   existing story build warning remains:
         Group layout not found for PuPageScaffold.story.vue
 ```
+
+## PuFormItem Field Shell And PuLoadingState
+
+Implemented on: 2026-06-09
+
+```
+PuFormItem
+- kept prop/includeSub validation behavior
+- added label, forId, hint, error, required, as, and align props
+- added label, labelTrailing, and control slots
+- explicit error text takes precedence over PuForm-injected errors
+- renders a reusable label/control/message field shell for custom controls
+
+PuLoadingState
+- added public display component for page and region loading states
+- composes PuSpinner instead of duplicating spinner mechanics
+- supports visible title/message content, compact mode, alignment, size,
+  surfaceLevel, and variant
+- uses status semantics and aria-busy while loading
+```
+
+Verification:
+
+```
+pnpm --filter @partner-up-dev/design-web run type-check
+  passed
+
+pnpm --filter @partner-up-dev/design-web run verify
+  passed
+  story coverage: 44/44 public components
+```

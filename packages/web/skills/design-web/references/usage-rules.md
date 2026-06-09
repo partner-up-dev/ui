@@ -64,10 +64,14 @@
 - PuDialog: Use the actions slot when custom commands are needed while preserving footer spacing.
 - PuDrawer: Uses visible and update:visible for control; do not assume open or v-model:open.
 - PuEmptyState: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
+- PuFormItem: Explicit error text takes precedence over errors injected by PuForm prop matching.
+- PuFormItem: Use the labelTrailing slot for field-level secondary affordances and the control slot when the default slot is not specific enough.
 - PuImg: Use shape from the shared PuShape vocabulary instead of local radius values.
 - PuImg: Use the fallback slot for custom fallback rendering; fallbackInitial and name cover simple initial fallback.
 - PuImg: Provide alt text for meaningful images; fallback content derives an accessible label from alt or name when available.
 - PuInput: Includes uni-app-compatible input props and legacy event names.
+- PuLoadingState: The default surface is plain for page-level use; set surfaceLevel and variant when the loading state should be framed as a section.
+- PuLoadingState: Uses status semantics and aria-busy while busy; provide message, title, or label so the loading state has useful accessible text.
 - PuModal: Uses required open plus close event; do not assume v-model:open.
 - PuModal: Provide a useful title or aria label for dialog context.
 - PuPageHeader: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.

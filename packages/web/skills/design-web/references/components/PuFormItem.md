@@ -5,11 +5,13 @@
 
 - form field wrapper
 - field label
+- helper text
 - field validation
+- custom control wrapper
 
 ## Prefer When
 
-- Use to connect labels, helper text, errors, and field controls.
+- Use to connect labels, helper text, required markers, errors, and any field control including custom controls.
 
 ## Avoid When
 
@@ -23,12 +25,22 @@ import { PuFormItem } from '@partner-up-dev/design-web'
 
 ## Props
 
+- `as`
 - `prop`
 - `includeSub`
+- `label`
+- `forId`
+- `hint`
+- `error`
+- `required`
+- `align`
 
 ## Slots
 
 - `default`
+- `control`
+- `label`
+- `labelTrailing`
 
 ## Events
 
@@ -48,6 +60,7 @@ Story: `src/stories/forms/PuForm.story.vue`
 
 - Validation
 - Sub Errors
+- Field Shell
 
 ## Types
 
@@ -55,7 +68,8 @@ Story: `src/stories/forms/PuForm.story.vue`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Explicit error text takes precedence over errors injected by PuForm prop matching.
+- Use the labelTrailing slot for field-level secondary affordances and the control slot when the default slot is not specific enough.
 
 ## Source Evidence
 

@@ -1,0 +1,113 @@
+@use "../../styles/mixins" as *;
+
+.pu-loading-state {
+  min-width: 0;
+  color: var(--sys-color-on-surface);
+  container: pu-loading-state / inline-size;
+}
+
+.pu-loading-state__layout {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: var(--sys-spacing-large);
+  border: 1px solid transparent;
+  border-radius: var(--sys-radius-medium);
+  gap: var(--sys-spacing-medium);
+}
+
+.pu-loading-state--align-center .pu-loading-state__layout {
+  align-items: center;
+  text-align: center;
+}
+
+.pu-loading-state--align-start .pu-loading-state__layout {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.pu-loading-state--variant-plain .pu-loading-state__layout,
+.pu-loading-state--surface-level-plain .pu-loading-state__layout {
+  background: transparent;
+}
+
+.pu-loading-state--surface-level-surface.pu-loading-state--variant-soft
+  .pu-loading-state__layout,
+.pu-loading-state--surface-level-section.pu-loading-state--variant-soft
+  .pu-loading-state__layout {
+  background: var(--sys-color-surface-container);
+}
+
+.pu-loading-state--surface-level-inset-high.pu-loading-state--variant-soft
+  .pu-loading-state__layout {
+  background: var(--sys-color-surface-container-high);
+}
+
+.pu-loading-state--variant-outline .pu-loading-state__layout {
+  border-color: var(--sys-color-outline-variant);
+  background: transparent;
+}
+
+.pu-loading-state--variant-solid .pu-loading-state__layout {
+  background: var(--sys-color-surface-container-high);
+}
+
+.pu-loading-state__spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sys-color-primary);
+}
+
+.pu-loading-state__content {
+  display: flex;
+  flex-direction: column;
+  max-width: 52ch;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-loading-state__title {
+  margin: 0;
+  color: var(--sys-color-on-surface);
+  @include pu-font(section);
+}
+
+.pu-loading-state__message {
+  margin: 0;
+  color: var(--sys-color-on-surface-variant);
+  overflow-wrap: anywhere;
+  @include pu-font(body);
+}
+
+.pu-loading-state__sr-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pu-loading-state.is-compact .pu-loading-state__layout {
+  padding: var(--sys-spacing-medium);
+  gap: var(--sys-spacing-small);
+}
+
+.pu-loading-state.is-compact .pu-loading-state__title {
+  @include pu-font(control);
+}
+
+.pu-loading-state.is-compact .pu-loading-state__message {
+  @include pu-font(support);
+}
+
+@container pu-loading-state (max-width: 39.9375rem) {
+  .pu-loading-state__layout {
+    padding: var(--sys-spacing-medium);
+  }
+}
