@@ -1,112 +1,107 @@
+import type { PropType } from "vue";
 import {
-  makeArrayProp,
-  makeBooleanProp,
-  makeNumberProp,
-  makeStringProp,
-} from "../../utils/props";
+  puAligns,
+  puFieldVariants,
+  puSizes,
+  puTones,
+  type PuAlign,
+  type PuFieldVariant,
+  type PuSize,
+  type PuTone,
+} from "../../types";
+import { makeBooleanProp, makeNumberProp, makeStringProp } from "../../utils/props";
 
-// ==================== 组件相关类型定义 ====================
+export type PuInputClearTrigger = "focus" | "always";
 
-export type InputClearTrigger = "focus" | "always";
+export const puInputTypes = [
+  "text",
+  "url",
+  "email",
+  "tel",
+  "search",
+  "number",
+  "password",
+] as const;
 
-export type InputType =
-  | "text"
-  | "number"
-  | "digit"
-  | "idcard"
-  | "safe-password"
-  | "nickname"
-  | "tel";
+export type PuInputType = (typeof puInputTypes)[number];
 
-export type InputConfirmType = "send" | "search" | "next" | "go" | "done";
+export const puInputModes = [
+  "none",
+  "text",
+  "decimal",
+  "numeric",
+  "tel",
+  "search",
+  "email",
+  "url",
+] as const;
 
-export interface FormItemRule {
-  required?: boolean;
-  message?: string;
-  validator?: (value: any) => boolean | Promise<boolean>;
-}
+export type PuInputMode = (typeof puInputModes)[number];
 
-// ==================== 组件 Props 定义 ====================
+export type PuInputSize = PuSize;
+export type PuInputVariant = PuFieldVariant;
+export type PuInputTone = PuTone;
+export type PuInputAlign = PuAlign;
 
 export const puInputProps = {
-  // v-model
   modelValue: makeStringProp(""),
-
-  // 自定义样式类
-  customInputClass: makeStringProp(""),
-  customLabelClass: makeStringProp(""),
-
-  // 原生属性
+  id: makeStringProp<string | undefined>(undefined),
+  name: makeStringProp<string | undefined>(undefined),
+  type: {
+    type: String as PropType<PuInputType>,
+    default: "text",
+    validator: (value: string) => puInputTypes.includes(value as PuInputType),
+  },
+  inputmode: {
+    type: String as PropType<PuInputMode | undefined>,
+    default: undefined,
+    validator: (value: string | undefined) =>
+      value === undefined || puInputModes.includes(value as PuInputMode),
+  },
+  autocomplete: makeStringProp<string | undefined>(undefined),
   placeholder: makeStringProp(""),
-  placeholderStyle: makeStringProp(""),
-  placeholderClass: makeStringProp(""),
-  cursorSpacing: makeNumberProp(0),
-  adjustPosition: makeBooleanProp(true),
-  cursor: makeNumberProp(-1),
-  selectionStart: makeNumberProp(-1),
-  selectionEnd: makeNumberProp(-1),
-  confirmType: makeStringProp<InputConfirmType>("done"),
-  confirmHold: makeBooleanProp(false),
-  holdKeyboard: makeBooleanProp(false),
-  focus: makeBooleanProp(false),
-  alwaysEmbed: makeBooleanProp(false),
-
-  // Input 类型
-  type: makeStringProp<InputType>("text"),
-  password: makeBooleanProp(false),
   disabled: makeBooleanProp(false),
   readonly: makeBooleanProp(false),
   maxlength: makeNumberProp(-1),
-
-  // 标签
-  label: makeStringProp(""),
-  labelWidth: makeStringProp(""),
-
-  // 图标
+  invalid: makeBooleanProp(false),
+  align: {
+    type: String as PropType<PuInputAlign>,
+    default: "start",
+    validator: (value: string) => puAligns.includes(value as PuInputAlign),
+  },
+  size: {
+    type: String as PropType<PuInputSize>,
+    default: "md",
+    validator: (value: string) => puSizes.includes(value as PuInputSize),
+  },
+  variant: {
+    type: String as PropType<PuInputVariant>,
+    default: "outline",
+    validator: (value: string) => puFieldVariants.includes(value as PuInputVariant),
+  },
+  tone: {
+    type: String as PropType<PuInputTone>,
+    default: "neutral",
+    validator: (value: string) => puTones.includes(value as PuInputTone),
+  },
   prefixIcon: makeStringProp(""),
   suffixIcon: makeStringProp(""),
-
-  // 显示相关
   showPassword: makeBooleanProp(false),
-  showWordLimit: makeBooleanProp(false),
+  showCount: makeBooleanProp(false),
   clearable: makeBooleanProp(false),
-  clearTrigger: makeStringProp<InputClearTrigger>("focus"),
-
-  // 样式
-  height: makeNumberProp(28),
-  center: makeBooleanProp(false),
-  alignRight: makeBooleanProp(false),
-  noBorder: makeBooleanProp(false),
-
-  // 验证
-  required: makeBooleanProp(false),
-  rules: makeArrayProp<FormItemRule>([]),
-  prop: makeStringProp(""),
-  error: makeBooleanProp(false),
-  errorMessage: makeStringProp(""),
-
-  // 清空时聚焦
-  focusWhenClear: makeBooleanProp(true),
-
-  // 必填标记位置
-  markerSide: makeStringProp<"before" | "after">("before"),
+  clearTrigger: makeStringProp<PuInputClearTrigger>("focus"),
 };
 
 export type PuInputProps = typeof puInputProps;
 
-// ==================== 组件 Emits 定义 ====================
-
 export const puInputEmits = {
-  "update:modelValue": (value: string | number) => true,
-  input: (detail: { value: string | number }) => true,
-  focus: (detail: { value: string | number; height: number }) => true,
-  blur: (detail: { value: string | number; cursor: number }) => true,
+  "update:modelValue": (_value: string) => true,
+  focus: (_event: FocusEvent) => true,
+  blur: (_event: FocusEvent) => true,
   clear: () => true,
-  confirm: (detail: { value: string | number }) => true,
-  keyboardheightchange: (detail: { height: number; duration: number }) => true,
-  clickPrefixIcon: () => true,
-  clickSuffixIcon: () => true,
-  click: () => true,
+  clickPrefixIcon: (_event: MouseEvent) => true,
+  clickSuffixIcon: (_event: MouseEvent) => true,
+  click: (_event: MouseEvent) => true,
 };
 
 export type PuInputEmits = typeof puInputEmits;

@@ -65,7 +65,7 @@ published package exposes its built style entry and Sass source entry.
 - `references/component-map.md`: intent-to-component index.
 - `references/composition-recipes.md`: common page and workflow combinations.
 - `references/composition-principles.md`: durable package principles for component ownership, composition, tokens, and local CSS.
-- `references/variant-vocabulary.md`: durable package vocabulary for tone, status tone, control variants, container variants, surface levels, and shapes.
+- `references/variant-vocabulary.md`: durable package vocabulary for tone, status tone, control variants, container variants, field variants, surface levels, and shapes.
 - `references/usage-rules.md`: cross-component consumer rules and caveats.
 
 ## Avoid

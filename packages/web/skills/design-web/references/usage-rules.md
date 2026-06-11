@@ -28,10 +28,10 @@
 
 ## Variant Vocabulary
 
-- Use `references/variant-vocabulary.md` as the durable source for tone, status tone, control variant, container variant, surface level, and shape choices.
+- Use `references/variant-vocabulary.md` as the durable source for tone, status tone, control variant, container variant, field variant, surface level, and shape choices.
 - Use `tone` for semantic color intent: neutral, primary, secondary, tertiary, or danger.
 - Use status tone for feedback state: info, success, warning, or error.
-- Use `variant` for visual treatment such as solid, soft, outline, ghost, or dashed.
+- Use `variant` according to component family: controls use solid, soft, outline, ghost, or dashed; containers use plain, soft, outline, or solid; field controls use line, borderless, or outline.
 - Use `surfaceLevel` only for neutral page or content depth.
 - Do not treat outline, ghost, dashed, soft, or surface as tones.
 
@@ -69,7 +69,9 @@
 - PuImg: Use shape from the shared PuShape vocabulary instead of local radius values.
 - PuImg: Use the fallback slot for custom fallback rendering; fallbackInitial and name cover simple initial fallback.
 - PuImg: Provide alt text for meaningful images; fallback content derives an accessible label from alt or name when available.
-- PuInput: Includes uni-app-compatible input props and legacy event names.
+- PuInput: Use PuFormItem for labels, hints, and error messages.
+- PuInput: Use size sm, md, or lg to map the control to caption, control, or body typography.
+- PuInput: Use variant line, borderless, or outline to choose the field shell.
 - PuLoadingState: The default surface is plain for page-level use; set surfaceLevel and variant when the loading state should be framed as a section.
 - PuLoadingState: Uses status semantics and aria-busy while busy; provide message, title, or label so the loading state has useful accessible text.
 - PuModal: Uses required open plus close event; do not assume v-model:open.

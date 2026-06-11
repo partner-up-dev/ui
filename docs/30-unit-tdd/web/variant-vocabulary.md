@@ -14,6 +14,8 @@ This document is the durable vocabulary source for public visual API names in
   `ghost`, or `dashed`.
 - `variant` on containers is visual treatment: `plain`, `soft`, `outline`, or
   `solid`.
+- `variant` on field controls is field shell treatment: `line`, `borderless`,
+  or `outline`.
 - `surfaceLevel` is neutral page/content depth: `plain`, `surface`, `section`,
   or `inset-high`.
 - `shape` is bounded geometry: `rect`, `pill`, or `circle`.
@@ -30,6 +32,9 @@ This document is the durable vocabulary source for public visual API names in
 - Surface levels are neutral. When a component supports `tone="primary"` or
   `tone="secondary"`, do not rely on `surfaceLevel` to recolor it; use
   container/control `variant` for treatment and `tone` for semantic emphasis.
+- Field variants are not container variants. Do not use `soft` to mean
+  borderless field treatment; use `variant="borderless"` for a field without a
+  visible shell.
 - `shape="pill"` is a capsule-like radius that preserves natural component
   width. `shape="circle"` is for square icon/avatar surfaces that intentionally
   become round.

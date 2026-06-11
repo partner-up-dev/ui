@@ -2,188 +2,217 @@
 @use "../../styles/mixins" as *;
 
 .pu-input {
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-  text-align: left;
+  --pu-input-min-height: 2.5rem;
+  --pu-input-padding-block: #{fn.sys-var(spacing, small)};
+  --pu-input-padding-inline: #{fn.sys-var(spacing, small)};
+  --pu-input-border-color: #{fn.sys-var(color, outline)};
+  --pu-input-focus-color: #{fn.sys-var(color, primary)};
 
-  &::after {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: fn.sys-var(color, outline-variant);
-    transform: scaleY(0.5);
-    transition: background-color 0.2s ease-in-out;
-  }
-
-  &.is-not-empty {
-    &:not(.is-disabled) {
-      &::after {
-        background-color: fn.sys-var(color, outline);
-      }
-    }
-  }
-
-  &.is-cell {
-    padding: fn.sys-var(spacing, medium);
-    display: flex;
-  }
-
-  &.is-center {
-    .pu-input__label {
-      align-items: center;
-    }
-  }
-
-  &.is-error {
-    &::after {
-      background-color: fn.sys-var(color, error);
-    }
-
-    .pu-input__inner {
-      color: fn.sys-var(color, error);
-    }
-  }
-
-  &.is-disabled {
-    opacity: fn.sys-var(opacity, disabled);
-
-    .pu-input__inner {
-      color: fn.sys-var(color, on-surface-variant);
-      background: transparent;
-    }
-  }
-
-  &.is-no-border {
-    &::after {
-      display: none;
-    }
-  }
-}
-
-.pu-input__label {
-  position: relative;
   display: flex;
   box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--pu-input-min-height);
+  align-items: center;
+  gap: fn.sys-var(spacing, small);
+  padding: var(--pu-input-padding-block) var(--pu-input-padding-inline);
+  border: 1px solid var(--pu-input-border-color);
+  border-radius: fn.sys-var(radius, xsmall);
+  background: transparent;
   color: fn.sys-var(color, on-surface);
-  @include pu-font("control");
-  flex-shrink: 0;
-  margin-right: fn.sys-var(spacing, medium);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease;
 }
 
-.pu-input__label-inner {
-  display: flex;
-  align-items: center;
+.pu-input--size-sm {
+  @include pu-font(caption);
+
+  --pu-input-min-height: 1.75rem;
+  --pu-input-padding-block: #{fn.sys-var(spacing, xsmall)};
+  --pu-input-padding-inline: #{fn.sys-var(spacing, small)};
 }
 
-.pu-input__required {
-  color: fn.sys-var(color, error);
-  margin-left: 2px;
-  font-size: 14px;
+.pu-input--size-md {
+  @include pu-font(control);
 
-  &--left {
-    margin-right: 2px;
-    margin-left: 0;
+  --pu-input-min-height: 2.5rem;
+}
+
+.pu-input--size-lg {
+  @include pu-font(body);
+
+  --pu-input-min-height: 3rem;
+  --pu-input-padding-block: #{fn.sys-var(spacing, small)};
+  --pu-input-padding-inline: #{fn.sys-var(spacing, medium)};
+}
+
+.pu-input--tone-neutral {
+  --pu-input-border-color: #{fn.sys-var(color, outline)};
+  --pu-input-focus-color: #{fn.sys-var(color, primary)};
+}
+
+.pu-input--tone-primary {
+  --pu-input-border-color: #{fn.sys-var(color, primary)};
+  --pu-input-focus-color: #{fn.sys-var(color, primary)};
+}
+
+.pu-input--tone-secondary {
+  --pu-input-border-color: #{fn.sys-var(color, secondary)};
+  --pu-input-focus-color: #{fn.sys-var(color, secondary)};
+}
+
+.pu-input--tone-tertiary {
+  --pu-input-border-color: #{fn.sys-var(color, tertiary)};
+  --pu-input-focus-color: #{fn.sys-var(color, tertiary)};
+}
+
+.pu-input--tone-danger {
+  --pu-input-border-color: #{fn.sys-var(color, error)};
+  --pu-input-focus-color: #{fn.sys-var(color, error)};
+}
+
+.pu-input--variant-line {
+  --pu-input-border-color: #{fn.sys-var(color, outline-variant)};
+
+  border-color: transparent;
+  border-bottom-color: var(--pu-input-border-color);
+  border-radius: 0;
+}
+
+.pu-input--variant-borderless {
+  border-color: transparent;
+}
+
+.pu-input--variant-outline {
+  border-color: var(--pu-input-border-color);
+}
+
+.pu-input.is-focused {
+  border-color: var(--pu-input-focus-color);
+  outline: 2px solid var(--pu-input-focus-color);
+  outline-offset: -1px;
+}
+
+.pu-input--variant-line.is-focused {
+  border-color: transparent;
+  border-bottom-color: var(--pu-input-focus-color);
+  outline: none;
+}
+
+.pu-input.is-invalid {
+  --pu-input-border-color: #{fn.sys-var(color, error)};
+  --pu-input-focus-color: #{fn.sys-var(color, error)};
+
+  border-color: var(--pu-input-border-color);
+}
+
+.pu-input--variant-line.is-invalid {
+  border-color: transparent;
+  border-bottom-color: var(--pu-input-border-color);
+}
+
+.pu-input.is-disabled {
+  opacity: fn.sys-var(opacity, disabled);
+  cursor: not-allowed;
+}
+
+.pu-input.is-readonly:not(.is-disabled) {
+  color: fn.sys-var(color, on-surface-variant);
+}
+
+.pu-input--align-start .pu-input__control {
+  text-align: left;
+}
+
+.pu-input--align-center .pu-input__control {
+  text-align: center;
+}
+
+.pu-input--align-end .pu-input__control {
+  text-align: right;
+}
+
+.pu-input__control {
+  min-width: 0;
+  flex: 1 1 auto;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  padding: 0;
+
+  &::placeholder {
+    color: fn.sys-var(color, on-surface-variant);
+    opacity: 0.6;
   }
-}
 
-.pu-input__body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.pu-input__value {
-  position: relative;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, small);
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .pu-input__prefix,
 .pu-input__suffix {
-  display: flex;
+  display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  flex-shrink: 0;
-}
-
-.pu-input__prefix {
-  margin-right: fn.sys-var(spacing, small);
+  min-width: 0;
 }
 
 .pu-input__suffix {
-  margin-left: fn.sys-var(spacing, small);
   gap: fn.sys-var(spacing, small);
 }
 
-.pu-input__icon {
-  @include pu-icon("medium");
-  color: fn.sys-var(color, on-surface-variant);
-  cursor: pointer;
-  transition: color 0.2s;
-
-  &:active {
-    color: fn.sys-var(color, on-surface);
-  }
-}
-
+.pu-input__icon,
 .pu-input__clear {
-  @include pu-icon("medium");
+  @include pu-icon(small);
+
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
   color: fn.sys-var(color, on-surface-variant);
   cursor: pointer;
+  font: inherit;
+  padding: 0;
+  transition: color 180ms ease;
 
-  &:active {
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
     color: fn.sys-var(color, on-surface);
   }
-}
 
-.pu-input__inner {
-  flex: 1;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: fn.sys-var(color, on-surface);
-  padding: 0;
-  height: var(--pu-input-height);
-  width: 100%;
-  box-sizing: border-box;
-  @include pu-font("control");
-
-  &::placeholder {
-    color: fn.sys-var(color, on-surface-variant);
-  }
-
-  &--prefix {
-    padding-left: 0;
-  }
-
-  &.is-align-right {
-    text-align: right;
+  &:disabled {
+    cursor: not-allowed;
   }
 }
 
 .pu-input__count {
-  display: flex;
+  @include pu-font(caption);
+
+  display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  white-space: nowrap;
   color: fn.sys-var(color, on-surface-variant);
-  @include pu-font("caption");
+  white-space: nowrap;
 }
 
-.pu-input__count-current {
-  color: fn.sys-var(color, on-surface);
-
-  &.is-error {
-    color: fn.sys-var(color, error);
-  }
-}
-
-.pu-input__error-message {
+.pu-input__count .is-over-limit {
   color: fn.sys-var(color, error);
-  @include pu-font("caption");
-  margin-top: fn.sys-var(spacing, xsmall);
-  line-height: 1.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-input,
+  .pu-input__icon,
+  .pu-input__clear {
+    transition: none !important;
+  }
 }

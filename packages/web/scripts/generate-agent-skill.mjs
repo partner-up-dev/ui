@@ -832,10 +832,10 @@ ${variantReference ? `- Read \`${variantReference.target}\` before choosing tone
 
 ## Variant Vocabulary
 
-${variantReference ? `- Use \`${variantReference.target}\` as the durable source for tone, status tone, control variant, container variant, surface level, and shape choices.` : "- Follow package vocabulary docs before adding or choosing visual API values."}
+${variantReference ? `- Use \`${variantReference.target}\` as the durable source for tone, status tone, control variant, container variant, field variant, surface level, and shape choices.` : "- Follow package vocabulary docs before adding or choosing visual API values."}
 - Use \`tone\` for semantic color intent: neutral, primary, secondary, tertiary, or danger.
 - Use status tone for feedback state: info, success, warning, or error.
-- Use \`variant\` for visual treatment such as solid, soft, outline, ghost, or dashed.
+- Use \`variant\` according to component family: controls use solid, soft, outline, ghost, or dashed; containers use plain, soft, outline, or solid; field controls use line, borderless, or outline.
 - Use \`surfaceLevel\` only for neutral page or content depth.
 - Do not treat outline, ghost, dashed, soft, or surface as tones.
 

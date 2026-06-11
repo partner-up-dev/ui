@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { logEvent } from "histoire/client";
-import PuInput from "../../components/puInput/puInput.vue";
 import PuCard from "../../components/puCard/puCard.vue";
+import PuFormItem from "../../components/puFormItem/puFormItem.vue";
+import PuInput from "../../components/puInput/puInput.vue";
 
 const name = ref("Lina Chen");
 const search = ref("");
 const password = ref("partnerup");
-const notesCode = ref("WLK-2026");
+const invitationCode = ref("WLK-2026");
 
 function logInput(event: string, payload: unknown): void {
   logEvent(event, payload);
@@ -19,17 +20,38 @@ function logInput(event: string, payload: unknown): void {
     <Variant title="Controlled">
       <div class="pu-story pu-story--narrow">
         <div class="pu-story__stack">
-          <PuInput
-            v-model="name"
-            label="Name"
-            placeholder="Organizer name"
-            clearable
-            clear-trigger="always"
-            @input="logInput('input', $event)"
-            @clear="logInput('clear', null)"
-          />
+          <PuFormItem label="Name" for-id="pu-input-story-name">
+            <PuInput
+              id="pu-input-story-name"
+              v-model="name"
+              placeholder="Organizer name"
+              clearable
+              clear-trigger="always"
+              @clear="logInput('clear', null)"
+            />
+          </PuFormItem>
           <p class="pu-story__text">Value: {{ name }}</p>
         </div>
+      </div>
+    </Variant>
+
+    <Variant title="Sizes">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="neutral" variant="outline">
+          <PuInput size="sm" model-value="Caption scale" />
+          <PuInput size="md" model-value="Control scale" />
+          <PuInput size="lg" model-value="Body scale" />
+        </PuCard>
+      </div>
+    </Variant>
+
+    <Variant title="Field Variants">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="neutral" variant="soft">
+          <PuInput variant="outline" model-value="Outline shell" />
+          <PuInput variant="line" model-value="Line shell" />
+          <PuInput variant="borderless" model-value="Borderless shell" />
+        </PuCard>
       </div>
     </Variant>
 
@@ -38,20 +60,23 @@ function logInput(event: string, payload: unknown): void {
         <PuCard tone="neutral" variant="outline">
           <PuInput
             v-model="search"
+            type="search"
             placeholder="Search members"
             prefix-icon="i-mdi-magnify"
             suffix-icon="i-mdi-tune"
             clearable
             clear-trigger="always"
-            @click-prefix-icon="logInput('clickPrefixIcon', null)"
-            @click-suffix-icon="logInput('clickSuffixIcon', null)"
+            @click-prefix-icon="logInput('clickPrefixIcon', $event.type)"
+            @click-suffix-icon="logInput('clickSuffixIcon', $event.type)"
           />
           <PuInput
-            v-model="notesCode"
-            label="Code"
-            label-width="5rem"
-            align-right
-          />
+            v-model="invitationCode"
+            align="end"
+          >
+            <template #prefix>
+              <span class="pu-input-story__affix">Code</span>
+            </template>
+          </PuInput>
         </PuCard>
       </div>
     </Variant>
@@ -61,36 +86,39 @@ function logInput(event: string, payload: unknown): void {
         <PuCard tone="neutral" variant="soft">
           <PuInput
             v-model="password"
-            label="Password"
+            type="password"
             show-password
             :maxlength="16"
-            show-word-limit
+            show-count
           />
           <PuInput
             model-value="Published"
-            label="Status"
             readonly
           />
         </PuCard>
       </div>
     </Variant>
 
-    <Variant title="Validation States">
+    <Variant title="States">
       <div class="pu-story pu-story--narrow">
         <PuCard tone="neutral" variant="soft" padding="sm">
-          <PuInput
-            model-value=""
+          <PuFormItem
             label="Event title"
-            placeholder="Required"
+            error="Event title is required."
             required
-            error
-            error-message="Event title is required."
-          />
-          <PuInput
-            model-value="Locked field"
-            label="Disabled"
-            disabled
-          />
+          >
+            <PuInput
+              model-value=""
+              placeholder="Required"
+              invalid
+            />
+          </PuFormItem>
+          <PuFormItem label="Disabled">
+            <PuInput
+              model-value="Locked field"
+              disabled
+            />
+          </PuFormItem>
         </PuCard>
       </div>
     </Variant>
@@ -99,9 +127,6 @@ function logInput(event: string, payload: unknown): void {
       <div class="pu-story pu-story--narrow">
         <PuCard tone="neutral" variant="outline">
           <PuInput model-value="Hangzhou" placeholder="City">
-            <template #label>
-              <span class="pu-input-story__label">Custom city</span>
-            </template>
             <template #prefix>
               <span class="i-mdi-map-marker-outline pu-input-story__icon" />
             </template>
@@ -116,14 +141,13 @@ function logInput(event: string, payload: unknown): void {
 </template>
 
 <style scoped>
-.pu-input-story__label {
-  color: var(--sys-color-primary);
-  font-weight: 700;
+.pu-input-story__affix {
+  color: var(--sys-color-on-surface-variant);
 }
 
 .pu-input-story__icon {
   color: var(--sys-color-on-surface-variant);
-  font-size: 20px;
+  font-size: 1.25em;
   line-height: 1;
 }
 </style>

@@ -69,19 +69,16 @@ async function validateSubErrors(): Promise<void> {
       <div class="pu-story pu-story--narrow">
         <PuCard tone="neutral" variant="soft">
           <PuForm ref="formRef" :schema="schema">
-            <PuFormItem prop="title">
+            <PuFormItem prop="title" label="Title" required>
               <PuInput
                 v-model="formModel.title"
-                label="Title"
                 placeholder="Required"
-                required
               />
             </PuFormItem>
 
-            <PuFormItem prop="host">
+            <PuFormItem prop="host" label="Host">
               <PuInput
                 v-model="formModel.host"
-                label="Host"
                 placeholder="Organizer"
               />
             </PuFormItem>
@@ -107,10 +104,9 @@ async function validateSubErrors(): Promise<void> {
       <div class="pu-story pu-story--narrow">
         <PuCard tone="neutral" variant="outline">
           <PuForm ref="subErrorFormRef" :schema="subErrorSchema">
-            <PuFormItem prop="location" include-sub>
+            <PuFormItem prop="location" label="Location" include-sub>
               <PuInput
                 model-value=""
-                label="Location"
                 placeholder="City and address"
               />
             </PuFormItem>
@@ -171,7 +167,7 @@ async function validateSubErrors(): Promise<void> {
               label="Manual error"
               error="This error can come from page-local validation."
             >
-              <PuInput model-value="" placeholder="Manual error state" />
+              <PuInput model-value="" placeholder="Manual error state" invalid />
             </PuFormItem>
           </div>
         </PuCard>
@@ -198,4 +194,5 @@ async function validateSubErrors(): Promise<void> {
   outline: 2px solid var(--sys-color-primary);
   outline-offset: 2px;
 }
+
 </style>

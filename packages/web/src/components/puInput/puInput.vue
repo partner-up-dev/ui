@@ -1,132 +1,83 @@
 <template>
-  <div :style="rootStyle" :class="rootClass" @click="handleClick">
-    <!-- Label -->
-    <div v-if="label || $slots.label" :class="labelClass" :style="labelStyle">
-      <span
-        v-if="isRequired && markerSide === 'before'"
-        class="pu-input__required pu-input__required--left"
-      >
-        *
-      </span>
-
-      <div v-if="prefixIcon || $slots.prefix" class="pu-input__prefix">
-        <span
-          v-if="prefixIcon && !$slots.prefix"
-          :class="[prefixIcon, 'pu-input__icon']"
-          @click="onClickPrefixIcon"
-        />
-        <slot v-else name="prefix" />
-      </div>
-
-      <div class="pu-input__label-inner">
-        <span v-if="label && !$slots.label">{{ label }}</span>
-        <slot v-else-if="$slots.label" name="label" />
-      </div>
-
-      <span
-        v-if="isRequired && markerSide === 'after'"
-        class="pu-input__required"
-      >
-        *
-      </span>
+  <div :class="rootClass" @click="handleClick">
+    <div v-if="prefixIcon || $slots.prefix" class="pu-input__prefix">
+      <button
+        v-if="prefixIcon && !$slots.prefix"
+        type="button"
+        :class="[prefixIcon, 'pu-input__icon']"
+        :disabled="disabled"
+        @mousedown.prevent
+        @click.stop="handlePrefixClick"
+      />
+      <slot v-else name="prefix" />
     </div>
 
-    <!-- Body -->
-    <div class="pu-input__body">
-      <div class="pu-input__value">
-        <!-- Prefix icon (without label) -->
-        <div
-          v-if="(prefixIcon || $slots.prefix) && !label"
-          class="pu-input__prefix"
-        >
-          <span
-            v-if="prefixIcon && !$slots.prefix"
-            :class="[prefixIcon, 'pu-input__icon']"
-            @click="onClickPrefixIcon"
-          />
-          <slot v-else name="prefix" />
-        </div>
+    <input
+      ref="inputRef"
+      class="pu-input__control"
+      :id="id"
+      :name="name"
+      :type="nativeInputType"
+      :inputmode="resolvedInputMode"
+      :autocomplete="autocomplete"
+      :value="inputValue"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :readonly="readonly"
+      :maxlength="nativeMaxlength"
+      :aria-invalid="invalid || undefined"
+      @input="handleInput"
+      @focus="handleFocus"
+      @blur="handleBlur"
+    />
 
-        <!-- Input -->
-        <input
-          ref="inputRef"
-          :class="inputClass"
-          :type="nativeInputType"
-          :inputmode="inputMode"
-          v-model="inputValue"
-          :placeholder="placeholder"
-          :disabled="disabled"
-          :readonly="readonly"
-          :maxlength="nativeMaxlength"
-          :style="placeholderStyle"
-          :selection-start="selectionStart"
-          :selection-end="selectionEnd"
-          @input="handleInput"
-          @focus="handleFocus"
-          @blur="handleBlur"
-          @keydown.enter="handleConfirm"
-        />
+    <div
+      v-if="
+        showClear ||
+        showPassword ||
+        showCharacterCount ||
+        suffixIcon ||
+        $slots.suffix
+      "
+      class="pu-input__suffix"
+    >
+      <button
+        v-if="showClear"
+        type="button"
+        class="i-mdi-close-circle pu-input__clear"
+        :disabled="disabled"
+        @mousedown.prevent
+        @click.stop="handleClear"
+      />
 
-        <!-- Suffix -->
-        <div
-          v-if="
-            showClear ||
-            showPassword ||
-            showWordCount ||
-            suffixIcon ||
-            $slots.suffix
-          "
-          class="pu-input__suffix"
-        >
-          <!-- Clear button -->
-          <button
-            v-if="showClear"
-            type="button"
-            class="i-mdi-close-circle pu-input__clear"
-            @click="handleClear"
-          />
+      <button
+        v-if="showPassword"
+        type="button"
+        :class="[
+          isPasswordVisible ? 'i-mdi-eye' : 'i-mdi-eye-off',
+          'pu-input__icon',
+        ]"
+        :disabled="disabled"
+        @mousedown.prevent
+        @click.stop="togglePasswordVisibility"
+      />
 
-          <!-- Password toggle -->
-          <button
-            v-if="showPassword"
-            type="button"
-            :class="[
-              isPwdVisible ? 'i-mdi-eye' : 'i-mdi-eye-off',
-              'pu-input__icon',
-            ]"
-            @click="togglePwdVisible"
-          />
+      <span v-if="showCharacterCount" class="pu-input__count">
+        <span :class="{ 'is-over-limit': isOverLimit }">
+          {{ inputValue.length }}
+        </span>
+        /{{ maxlength }}
+      </span>
 
-          <!-- Word count -->
-          <div v-if="showWordCount" class="pu-input__count">
-            <span
-              :class="[
-                inputValue && String(inputValue).length > 0
-                  ? 'pu-input__count-current'
-                  : '',
-                String(inputValue).length > maxlength ? 'is-error' : '',
-              ]"
-            >
-              {{ String(inputValue).length }}
-            </span>
-            /{{ maxlength }}
-          </div>
-
-          <!-- Suffix icon -->
-          <button
-            v-if="suffixIcon && !$slots.suffix"
-            type="button"
-            :class="[suffixIcon, 'pu-input__icon']"
-            @click="onClickSuffixIcon"
-          />
-          <slot v-else name="suffix" />
-        </div>
-      </div>
-
-      <!-- Error message -->
-      <div v-if="displayErrorMessage" class="pu-input__error-message">
-        {{ displayErrorMessage }}
-      </div>
+      <button
+        v-if="suffixIcon && !$slots.suffix"
+        type="button"
+        :class="[suffixIcon, 'pu-input__icon']"
+        :disabled="disabled"
+        @mousedown.prevent
+        @click.stop="handleSuffixClick"
+      />
+      <slot v-else name="suffix" />
     </div>
   </div>
 </template>
@@ -138,219 +89,151 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, nextTick, ref, watch, useSlots } from "vue";
-import { puInputProps, puInputEmits } from "./puInput";
+import { computed, ref, watch } from "vue";
+import { puInputEmits, puInputProps } from "./puInput";
 
 const props = defineProps(puInputProps);
 const emit = defineEmits(puInputEmits);
-const slots = useSlots();
 
-// ==================== State ====================
-
-const inputValue = ref<string | number>(props.modelValue);
 const inputRef = ref<HTMLInputElement>();
-const isPwdVisible = ref(false);
-const focused = ref(props.focus);
-const focusing = ref(false);
-const clearing = ref(false);
-
-// ==================== Computed ====================
-
-const isRequired = computed(() => {
-  return props.required || props.rules.some((rule) => rule.required);
-});
-
-const showClear = computed(() => {
-  const { disabled, readonly, clearable, clearTrigger } = props;
-  if (!clearable || disabled || readonly || !inputValue.value) {
-    return false;
-  }
-  return (
-    clearTrigger === "always" || (clearTrigger === "focus" && focusing.value)
-  );
-});
-
-const showWordCount = computed(() => {
-  const { disabled, readonly, maxlength, showWordLimit } = props;
-  return Boolean(!disabled && !readonly && maxlength > -1 && showWordLimit);
-});
-
-const displayErrorMessage = computed(() => {
-  return props.errorMessage || "";
-});
-
-const rootStyle = computed(() => {
-  const base: Record<string, string> = {};
-  base["--pu-input-height"] = `${props.height}px`;
-  return base;
-});
-
-const rootClass = computed(() => {
-  return [
-    "pu-input",
-    props.label || slots.label ? "is-cell" : "",
-    props.center ? "is-center" : "",
-    props.error ? "is-error" : "",
-    props.disabled ? "is-disabled" : "",
-    inputValue.value && String(inputValue.value).length > 0 ? "is-not-empty" : "",
-    props.noBorder ? "is-no-border" : "",
-  ].join(" ");
-});
-
-const labelClass = computed(() => {
-  return `pu-input__label ${props.customLabelClass}`;
-});
-
-const inputClass = computed(() => {
-  return [
-    "pu-input__inner",
-    props.prefixIcon ? "pu-input__inner--prefix" : "",
-    showWordCount.value ? "pu-input__inner--count" : "",
-    props.alignRight ? "is-align-right" : "",
-    props.customInputClass,
-  ].join(" ");
-});
+const inputValue = ref(formatValue(props.modelValue));
+const isFocused = ref(false);
+const isPasswordVisible = ref(false);
 
 const nativeInputType = computed(() => {
-  if (props.showPassword) return isPwdVisible.value ? "text" : "password";
-  if (props.password || props.type === "safe-password") return "password";
-  if (props.type === "number") return "number";
-  if (props.type === "tel") return "tel";
-  return "text";
+  if (props.showPassword || props.type === "password") {
+    return isPasswordVisible.value ? "text" : "password";
+  }
+
+  return props.type;
 });
 
-const inputMode = computed(() => {
-  if (props.type === "digit") return "decimal";
-  if (props.type === "number") return "numeric";
-  if (props.type === "tel") return "tel";
+const resolvedInputMode = computed(() => {
+  if (props.inputmode) {
+    return props.inputmode;
+  }
+
+  if (props.type === "number") {
+    return "numeric";
+  }
+
+  if (props.type === "tel") {
+    return "tel";
+  }
+
+  if (props.type === "email") {
+    return "email";
+  }
+
+  if (props.type === "url") {
+    return "url";
+  }
+
+  if (props.type === "search") {
+    return "search";
+  }
+
   return undefined;
 });
 
-const nativeMaxlength = computed(() => (props.maxlength > -1 ? props.maxlength : undefined));
+const nativeMaxlength = computed(() =>
+  props.maxlength > -1 ? props.maxlength : undefined,
+);
 
-const labelStyle = computed(() => {
-  return props.labelWidth
-    ? `min-width: ${props.labelWidth}; max-width: ${props.labelWidth}`
-    : "";
+const showClear = computed(() => {
+  if (!props.clearable || props.disabled || props.readonly || !inputValue.value) {
+    return false;
+  }
+
+  return props.clearTrigger === "always" || isFocused.value;
 });
 
-// ==================== Methods ====================
+const showCharacterCount = computed(
+  () =>
+    props.showCount &&
+    !props.disabled &&
+    !props.readonly &&
+    props.maxlength > -1,
+);
 
-function formatValue(value: string | number) {
-  const { maxlength } = props;
-  if (maxlength !== -1 && String(value).length > maxlength) {
-    return value.toString().slice(0, maxlength);
+const isOverLimit = computed(
+  () => props.maxlength > -1 && inputValue.value.length > props.maxlength,
+);
+
+const rootClass = computed(() => [
+  "pu-input",
+  `pu-input--size-${props.size}`,
+  `pu-input--variant-${props.variant}`,
+  `pu-input--tone-${props.tone}`,
+  `pu-input--align-${props.align}`,
+  {
+    "is-disabled": props.disabled,
+    "is-readonly": props.readonly,
+    "is-focused": isFocused.value,
+    "is-invalid": props.invalid,
+    "is-not-empty": inputValue.value.length > 0,
+  },
+]);
+
+function formatValue(value: string): string {
+  if (props.maxlength !== -1 && value.length > props.maxlength) {
+    return value.slice(0, props.maxlength);
   }
+
   return value;
 }
 
-function togglePwdVisible() {
-  isPwdVisible.value = !isPwdVisible.value;
-}
+function handleInput(event: Event) {
+  const target = event.target as HTMLInputElement | null;
+  const value = formatValue(target?.value ?? "");
 
-async function handleClear(event?: MouseEvent) {
-  event?.stopPropagation?.();
-  focusing.value = false;
-  inputValue.value = "";
-
-  if (props.focusWhenClear) {
-    clearing.value = true;
-    focused.value = false;
-  }
-
-  await new Promise((resolve) => setTimeout(resolve, 20));
-
-  if (props.focusWhenClear) {
-    focused.value = true;
-    focusing.value = true;
-    await nextTick();
-    inputRef.value?.focus();
-  }
-
-  emit("update:modelValue", inputValue.value);
-  emit("clear");
-}
-
-async function handleBlur(event: any) {
-  await new Promise((resolve) => setTimeout(resolve, 150));
-
-  if (clearing.value) {
-    clearing.value = false;
-    return;
-  }
-
-  focusing.value = false;
-  emit("blur", {
-    value: inputValue.value,
-    cursor: event.target?.selectionStart || 0,
-  });
-}
-
-function handleFocus(event: any) {
-  focusing.value = true;
-  emit("focus", {
-    value: inputValue.value,
-    height: 0,
-  });
-}
-
-function handleInput(event: any) {
-  const value = event.target?.value || "";
   inputValue.value = value;
   emit("update:modelValue", value);
-  emit("input", { value });
 }
 
-function handleConfirm(event?: any) {
-  emit("confirm", {
-    value: event?.target?.value || inputValue.value,
-  });
+function handleFocus(event: FocusEvent) {
+  isFocused.value = true;
+  emit("focus", event);
 }
 
-function handleKeyboardHeightChange(event: any) {
-  emit("keyboardheightchange", {
-    height: event.detail?.height || 0,
-    duration: event.detail?.duration || 0,
-  });
+function handleBlur(event: FocusEvent) {
+  isFocused.value = false;
+  emit("blur", event);
 }
 
-function onClickPrefixIcon() {
-  emit("clickPrefixIcon");
+function handleClear() {
+  inputValue.value = "";
+  emit("update:modelValue", "");
+  emit("clear");
+  inputRef.value?.focus();
 }
 
-function onClickSuffixIcon() {
-  emit("clickSuffixIcon");
+function togglePasswordVisibility() {
+  isPasswordVisible.value = !isPasswordVisible.value;
 }
 
-function handleClick() {
-  emit("click");
+function handlePrefixClick(event: MouseEvent) {
+  emit("clickPrefixIcon", event);
 }
 
-// ==================== Watchers ====================
+function handleSuffixClick(event: MouseEvent) {
+  emit("clickSuffixIcon", event);
+}
+
+function handleClick(event: MouseEvent) {
+  emit("click", event);
+  inputRef.value?.focus();
+}
 
 watch(
   () => props.modelValue,
-  (newVal) => {
-    if (newVal !== inputValue.value) {
-      inputValue.value = formatValue(newVal);
+  (value) => {
+    const nextValue = formatValue(value);
+    if (nextValue !== inputValue.value) {
+      inputValue.value = nextValue;
     }
-  }
+  },
 );
-
-watch(
-  () => props.focus,
-  (newVal) => {
-    focused.value = newVal;
-    if (newVal) {
-      nextTick(() => inputRef.value?.focus());
-    } else {
-      inputRef.value?.blur();
-    }
-  }
-);
-
-// Initialize
-inputValue.value = formatValue(props.modelValue);
 </script>
 
 <style lang="scss" scoped src="./puInput.scss"></style>

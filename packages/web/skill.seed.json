@@ -36,7 +36,7 @@
     {
       "source": "../../docs/30-unit-tdd/web/variant-vocabulary.md",
       "target": "references/variant-vocabulary.md",
-      "description": "durable package vocabulary for tone, status tone, control variants, container variants, surface levels, and shapes."
+      "description": "durable package vocabulary for tone, status tone, control variants, container variants, field variants, surface levels, and shapes."
     }
   ],
   "components": {
@@ -287,10 +287,10 @@
     "PuInput": {
       "category": "forms",
       "intent": ["text input", "single-line field", "search input"],
-      "preferWhen": ["Use for single-line text or numeric input with package styling and events."],
+      "preferWhen": ["Use for single-line text or numeric input with package field-control styling."],
       "avoidWhen": ["Avoid for multi-line text; use PuTextarea."],
       "composeWith": ["PuFormItem", "PuForm"],
-      "apiCaveats": ["Includes uni-app-compatible input props and legacy event names."],
+      "apiCaveats": ["Use PuFormItem for labels, hints, and error messages.", "Use size sm, md, or lg to map the control to caption, control, or body typography.", "Use variant line, borderless, or outline to choose the field shell."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuInput.story.vue"
     },

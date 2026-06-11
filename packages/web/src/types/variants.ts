@@ -91,6 +91,17 @@ export const puControlVariants = [
  */
 export type PuControlVariant = (typeof puControlVariants)[number];
 
+export const puFieldVariants = ["line", "borderless", "outline"] as const;
+
+/**
+ * Visual treatment for form field controls.
+ *
+ * Field variant answers "how is this input shell drawn?". It is separate from
+ * container and action variants because field controls have a distinct baseline:
+ * underline-only, no visible frame, or a bounded outline shell.
+ */
+export type PuFieldVariant = (typeof puFieldVariants)[number];
+
 export const puExtendedSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 
 export type PuExtendedSize = (typeof puExtendedSizes)[number];
@@ -133,6 +144,7 @@ export type PuVariantValue =
   | PuSize
   | PuShape
   | PuControlVariant
+  | PuFieldVariant
   | PuContainerVariant
   | PuSurfaceLevel
   | PuExtendedSize

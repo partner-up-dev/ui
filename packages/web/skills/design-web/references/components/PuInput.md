@@ -9,7 +9,7 @@
 
 ## Prefer When
 
-- Use for single-line text or numeric input with package styling and events.
+- Use for single-line text or numeric input with package field-control styling.
 
 ## Avoid When
 
@@ -24,61 +24,38 @@ import { PuInput } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `customInputClass`
-- `customLabelClass`
-- `placeholder`
-- `placeholderStyle`
-- `placeholderClass`
-- `cursorSpacing`
-- `adjustPosition`
-- `cursor`
-- `selectionStart`
-- `selectionEnd`
-- `confirmType`
-- `confirmHold`
-- `holdKeyboard`
-- `focus`
-- `alwaysEmbed`
+- `id`
+- `name`
 - `type`
-- `password`
+- `inputmode`
+- `autocomplete`
+- `placeholder`
 - `disabled`
 - `readonly`
 - `maxlength`
-- `label`
-- `labelWidth`
+- `invalid`
+- `align`
+- `size`
+- `variant`
+- `tone`
 - `prefixIcon`
 - `suffixIcon`
 - `showPassword`
-- `showWordLimit`
+- `showCount`
 - `clearable`
 - `clearTrigger`
-- `height`
-- `center`
-- `alignRight`
-- `noBorder`
-- `required`
-- `rules`
-- `prop`
-- `error`
-- `errorMessage`
-- `focusWhenClear`
-- `markerSide`
 
 ## Slots
 
-- `label`
 - `prefix`
 - `suffix`
 
 ## Events
 
 - `update:modelValue`
-- `input`
 - `focus`
 - `blur`
 - `clear`
-- `confirm`
-- `keyboardheightchange`
 - `clickPrefixIcon`
 - `clickSuffixIcon`
 - `click`
@@ -93,23 +70,30 @@ import { PuInput } from '@partner-up-dev/design-web'
 Story: `src/stories/forms/PuInput.story.vue`
 
 - Controlled
+- Sizes
+- Field Variants
 - Icons And Alignment
 - Password And Count
-- Validation States
+- States
 - Slots
 
 ## Types
 
-- `FormItemRule`
-- `InputClearTrigger`
-- `InputConfirmType`
-- `InputType`
+- `PuInputAlign`
+- `PuInputClearTrigger`
 - `PuInputEmits`
+- `PuInputMode`
 - `PuInputProps`
+- `PuInputSize`
+- `PuInputTone`
+- `PuInputType`
+- `PuInputVariant`
 
 ## Caveats
 
-- Includes uni-app-compatible input props and legacy event names.
+- Use PuFormItem for labels, hints, and error messages.
+- Use size sm, md, or lg to map the control to caption, control, or body typography.
+- Use variant line, borderless, or outline to choose the field shell.
 
 ## Source Evidence
 
