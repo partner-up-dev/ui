@@ -1,50 +1,53 @@
 import type { PropType } from "vue";
 import {
-  puContainerVariants,
-  type PuContainerVariant,
+  puFieldVariants,
+  puSizes,
+  puTones,
+  type PuFieldVariant,
+  type PuSize,
+  type PuTone,
 } from "../../types";
-import {
-  baseProps,
-  makeBooleanProp,
-  makeNumberProp,
-  makeStringProp,
-  numericProp,
-} from "../../utils/props";
+import { makeBooleanProp, makeNumberProp, makeStringProp } from "../../utils/props";
 
-export type PuTextareaVariant = PuContainerVariant;
+export type PuTextareaSize = PuSize;
+export type PuTextareaVariant = PuFieldVariant;
+export type PuTextareaTone = PuTone;
 
 export const puTextareaProps = {
-  ...baseProps,
   modelValue: makeStringProp(""),
-  placeholder: makeStringProp("请输入..."),
-  maxlength: { type: numericProp as PropType<number | string>, default: -1 },
+  id: makeStringProp<string | undefined>(undefined),
+  name: makeStringProp<string | undefined>(undefined),
+  placeholder: makeStringProp(""),
+  maxlength: makeNumberProp(-1),
   showCount: makeBooleanProp(false),
   autoHeight: makeBooleanProp(false),
   disabled: makeBooleanProp(false),
   readonly: makeBooleanProp(false),
-  focus: makeBooleanProp(false),
-  confirmType: makeStringProp<"send" | "search" | "next" | "go" | "done">("done"),
-  showConfirmBar: makeBooleanProp(true),
-  holdKeyboard: makeBooleanProp(false),
-  cursorSpacing: makeNumberProp(16),
-  adjustPosition: makeBooleanProp(true),
-  fixed: makeBooleanProp(false),
-  disableDefaultPadding: makeBooleanProp(false),
-  height: makeNumberProp(80),
-  focusHeight: { type: Number as PropType<number | undefined>, default: undefined },
+  invalid: makeBooleanProp(false),
+  size: {
+    type: String as PropType<PuTextareaSize>,
+    default: "md",
+    validator: (value: string) => puSizes.includes(value as PuTextareaSize),
+  },
   variant: {
     type: String as PropType<PuTextareaVariant>,
-    default: "soft",
+    default: "borderless",
     validator: (value: string) =>
-      puContainerVariants.includes(value as PuTextareaVariant),
+      puFieldVariants.includes(value as PuTextareaVariant),
+  },
+  tone: {
+    type: String as PropType<PuTextareaTone>,
+    default: "neutral",
+    validator: (value: string) => puTones.includes(value as PuTextareaTone),
   },
 };
 
+export type PuTextareaProps = typeof puTextareaProps;
+
 export const puTextareaEmits = {
-  "update:modelValue": (value: string) => true,
-  input: (value: string) => true,
-  focus: (e: any) => true,
-  blur: (e: any) => true,
-  confirm: (e: any) => true,
-  linechange: (e: any) => true,
+  "update:modelValue": (_value: string) => true,
+  focus: (_event: FocusEvent) => true,
+  blur: (_event: FocusEvent) => true,
 };
+
+export type PuTextareaEmits = typeof puTextareaEmits;

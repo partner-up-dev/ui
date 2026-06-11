@@ -1,17 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { logEvent } from "histoire/client";
 import PuCard from "../../components/puCard/puCard.vue";
+import PuFormItem from "../../components/puFormItem/puFormItem.vue";
 import PuTextarea from "../../components/puTextarea/puTextarea.vue";
 
 const description = ref(
   "A relaxed evening walk around West Lake with light conversation.",
 );
 const autoText = ref("Bring a light jacket.\nMeet near the north entrance.");
-
-function handleLineChange(payload: unknown): void {
-  logEvent("linechange", payload);
-}
 </script>
 
 <template>
@@ -19,14 +15,64 @@ function handleLineChange(payload: unknown): void {
     <Variant title="Controlled">
       <div class="pu-story pu-story--narrow">
         <div class="pu-story__stack">
-          <PuTextarea
-            v-model="description"
-            placeholder="Describe the event"
-            :maxlength="120"
-            show-count
-          />
+          <PuFormItem label="Description" for-id="pu-textarea-story-description">
+            <PuTextarea
+              id="pu-textarea-story-description"
+              v-model="description"
+              placeholder="Describe the event"
+              :maxlength="120"
+              show-count
+            />
+          </PuFormItem>
           <p class="pu-story__text">Length: {{ description.length }}</p>
         </div>
+      </div>
+    </Variant>
+
+    <Variant title="Sizes">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="neutral" variant="outline">
+          <PuTextarea size="sm" model-value="Caption scale textarea." />
+          <PuTextarea size="md" model-value="Control scale textarea." />
+          <PuTextarea size="lg" model-value="Body scale textarea." />
+        </PuCard>
+      </div>
+    </Variant>
+
+    <Variant title="Field Variants">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="neutral" variant="soft">
+          <PuTextarea variant="outline" model-value="Outline shell" />
+          <PuTextarea variant="line" model-value="Line shell" />
+          <PuTextarea variant="borderless" model-value="Borderless shell" />
+        </PuCard>
+      </div>
+    </Variant>
+
+    <Variant title="Tones">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="neutral" variant="outline">
+          <PuTextarea
+            tone="primary"
+            variant="outline"
+            model-value="Primary focus border"
+          />
+          <PuTextarea
+            tone="secondary"
+            variant="outline"
+            model-value="Secondary focus border"
+          />
+          <PuTextarea
+            tone="tertiary"
+            variant="outline"
+            model-value="Tertiary focus border"
+          />
+          <PuTextarea
+            tone="danger"
+            variant="outline"
+            model-value="Danger focus border"
+          />
+        </PuCard>
       </div>
     </Variant>
 
@@ -35,38 +81,25 @@ function handleLineChange(payload: unknown): void {
         <PuTextarea
           v-model="autoText"
           auto-height
-          :height="64"
           :maxlength="180"
           show-count
-          @linechange="handleLineChange"
         />
       </div>
     </Variant>
 
-    <Variant title="Themes">
-      <div class="pu-story">
-        <div class="pu-story__grid">
-          <PuCard tone="neutral" variant="outline">
-            <p class="pu-story__label">soft</p>
-            <PuTextarea
-              model-value="Container tone gives the field a filled surface."
-              variant="soft"
-            />
-          </PuCard>
-          <PuCard tone="neutral" variant="outline">
-            <p class="pu-story__label">plain</p>
-            <PuTextarea
-              model-value="Surface tone reads like an inline field."
-              variant="plain"
-            />
-          </PuCard>
-        </div>
-      </div>
-    </Variant>
-
-    <Variant title="Readonly Disabled">
+    <Variant title="States">
       <div class="pu-story pu-story--narrow">
         <PuCard tone="neutral" variant="soft" padding="sm">
+          <PuFormItem
+            label="Operational notes"
+            error="Notes need at least 12 characters."
+          >
+            <PuTextarea
+              model-value=""
+              placeholder="Required notes"
+              invalid
+            />
+          </PuFormItem>
           <PuTextarea model-value="Readonly notes remain selectable." readonly />
           <PuTextarea model-value="Disabled notes are unavailable." disabled />
         </PuCard>

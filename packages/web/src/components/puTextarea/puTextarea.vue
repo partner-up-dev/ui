@@ -1,38 +1,30 @@
 <template>
   <div
-    class="pu-textarea"
-    :class="{
-      'is-disabled': disabled,
-      'is-readonly': readonly,
-      'is-focused': isFocused,
-      [`pu-textarea--variant-${variant}`]: true,
-    }"
-    :style="[rootStyle, props.customStyle]"
+    :class="rootClass"
+    @click="handleClick"
   >
-    <div class="field">
-      <textarea
-        ref="textareaRef"
-        class="inner"
-        :class="{
-          focused: isFocused,
-        }"
-        :value="textValue"
-        :placeholder="placeholder"
-        :maxlength="normalizedMaxlength"
-        :disabled="disabled"
-        :readonly="readonly"
-        :rows="1"
-        @focus="onFocus"
-        @blur="onBlur"
-        @input="onInput"
-        @keydown.enter="onConfirm"
-      />
+    <textarea
+      ref="textareaRef"
+      class="pu-textarea__control"
+      :id="id"
+      :name="name"
+      :value="textareaValue"
+      :placeholder="placeholder"
+      :maxlength="nativeMaxlength"
+      :disabled="disabled"
+      :readonly="readonly"
+      :aria-invalid="invalid || undefined"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      @input="handleInput"
+    />
 
-      <!-- 计数器 -->
-      <div v-if="showCount && normalizedMaxlength > -1" class="count">
-        <span>{{ countText }}</span>
-      </div>
-    </div>
+    <span v-if="showCharacterCount" class="pu-textarea__count">
+      <span :class="{ 'is-over-limit': isOverLimit }">
+        {{ textareaValue.length }}
+      </span>
+      /{{ maxlength }}
+    </span>
   </div>
 </template>
 
@@ -43,56 +35,79 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, nextTick, ref, watch } from "vue";
+import { computed, nextTick, onMounted, ref, watch } from "vue";
 import { puTextareaProps, puTextareaEmits } from "./puTextarea";
 
 const props = defineProps(puTextareaProps);
 const emit = defineEmits(puTextareaEmits);
 
 const isFocused = ref(false);
-const textValue = ref<string>(props.modelValue);
+const textareaValue = ref(formatValue(props.modelValue));
 const textareaRef = ref<HTMLTextAreaElement>();
 
-watch(() => props.modelValue, (newVal) => {
-  textValue.value = newVal;
-  nextTick(syncAutoHeight);
-});
-
-const normalizedMaxlength = computed(() => {
-  const n = Number(props.maxlength);
-  return Number.isNaN(n) ? -1 : n;
-});
-
-const countText = computed(
-  () => `${textValue.value.length}/${normalizedMaxlength.value}`
+const nativeMaxlength = computed(() =>
+  props.maxlength > -1 ? props.maxlength : undefined,
 );
 
-const rootStyle = computed(() => {
-  const base: Record<string, string> = {};
-  base["--pu-textarea-min-height"] = `${props.height}px`;
-  base["--pu-textarea-min-height-focus"] = `${
-    props.focusHeight ?? props.height
-  }px`;
-  return base;
-});
+const showCharacterCount = computed(
+  () => props.showCount && props.maxlength > -1,
+);
 
-function onFocus(e: any) {
+const isOverLimit = computed(
+  () => props.maxlength > -1 && textareaValue.value.length > props.maxlength,
+);
+
+const rootClass = computed(() => [
+  "pu-textarea",
+  `pu-textarea--size-${props.size}`,
+  `pu-textarea--variant-${props.variant}`,
+  `pu-textarea--tone-${props.tone}`,
+  {
+    "is-disabled": props.disabled,
+    "is-readonly": props.readonly,
+    "is-focused": isFocused.value,
+    "is-invalid": props.invalid,
+    "has-count": showCharacterCount.value,
+    "has-auto-height": props.autoHeight,
+    "is-not-empty": textareaValue.value.length > 0,
+  },
+]);
+
+function formatValue(value: string): string {
+  if (props.maxlength !== -1 && value.length > props.maxlength) {
+    return value.slice(0, props.maxlength);
+  }
+
+  return value;
+}
+
+function handleFocus(event: FocusEvent) {
   isFocused.value = true;
-  emit("focus", e);
+  emit("focus", event);
 }
-function onBlur(e: any) {
+
+function handleBlur(event: FocusEvent) {
   isFocused.value = false;
-  emit("blur", e);
+  emit("blur", event);
 }
-function onInput(e: any) {
-  const v = (e?.detail?.value ?? e?.target?.value ?? "") as string;
-  textValue.value = v;
+
+function handleInput(event: Event) {
+  const target = event.target as HTMLTextAreaElement | null;
+  const value = formatValue(target?.value ?? "");
+
+  if (target && target.value !== value) {
+    target.value = value;
+  }
+
+  textareaValue.value = value;
   syncAutoHeight();
-  emit("update:modelValue", v);
-  emit("input", v);
+  emit("update:modelValue", value);
 }
-function onConfirm(e: any) {
-  emit("confirm", e);
+
+function handleClick() {
+  if (!props.disabled) {
+    textareaRef.value?.focus();
+  }
 }
 
 function syncAutoHeight() {
@@ -100,21 +115,31 @@ function syncAutoHeight() {
   const target = textareaRef.value;
   target.style.height = "auto";
   target.style.height = `${target.scrollHeight}px`;
-  emit("linechange", {
-    height: target.scrollHeight,
-    heightRpx: target.scrollHeight,
-    lineCount: textValue.value.split("\n").length,
-  });
 }
 
 watch(
-  () => props.focus,
-  (newVal) => {
-    if (newVal) nextTick(() => textareaRef.value?.focus());
-    else textareaRef.value?.blur();
+  () => [props.modelValue, props.maxlength] as const,
+  ([value]) => {
+    const nextValue = formatValue(value);
+    if (nextValue !== textareaValue.value) {
+      textareaValue.value = nextValue;
+    }
+    nextTick(syncAutoHeight);
   },
-  { immediate: true }
 );
+
+watch(
+  () => props.autoHeight,
+  (autoHeight) => {
+    if (autoHeight) {
+      nextTick(syncAutoHeight);
+    } else if (textareaRef.value) {
+      textareaRef.value.style.height = "";
+    }
+  },
+);
+
+onMounted(() => nextTick(syncAutoHeight));
 </script>
 
 <style lang="scss" scoped src="./puTextarea.scss"></style>

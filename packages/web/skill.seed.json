@@ -445,10 +445,10 @@
     "PuTextarea": {
       "category": "forms",
       "intent": ["textarea", "multi-line field", "long text input"],
-      "preferWhen": ["Use for multi-line text entry."],
+      "preferWhen": ["Use for multi-line text entry with package field-control styling."],
       "avoidWhen": ["Avoid for single-line fields; use PuInput."],
       "composeWith": ["PuFormItem", "PuForm"],
-      "apiCaveats": ["Use variant for field treatment such as soft, plain, outline, or solid."],
+      "apiCaveats": ["Use PuFormItem for labels, hints, and error messages.", "Use size sm, md, or lg to map the control to caption, control, or body typography.", "Use variant line, borderless, or outline to choose the field shell.", "Focused border color follows tone; invalid overrides tone with the error color."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuTextarea.story.vue"
     },

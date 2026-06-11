@@ -93,7 +93,10 @@
 - PuTabs: Disabled tabs are skipped by keyboard navigation.
 - PuTabs: ArrowLeft, ArrowRight, Home, and End move between enabled tabs.
 - PuTag: Use tone for semantic/status color, variant for tag treatment, shape for rect or pill geometry, and size xs, sm, or md.
-- PuTextarea: Use variant for field treatment such as soft, plain, outline, or solid.
+- PuTextarea: Use PuFormItem for labels, hints, and error messages.
+- PuTextarea: Use size sm, md, or lg to map the control to caption, control, or body typography.
+- PuTextarea: Use variant line, borderless, or outline to choose the field shell.
+- PuTextarea: Focused border color follows tone; invalid overrides tone with the error color.
 - PuWheelPicker: Use tone for semantic highlight color and variant for picker surface treatment.
 
 ## Anti-patterns

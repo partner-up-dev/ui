@@ -2,89 +2,175 @@
 @use "../../styles/mixins" as *;
 
 .pu-textarea {
-  display: flex;
-  flex-direction: column;
-  gap: fn.sys-var(spacing, xsmall);
-  background-color: var(--pu-textarea-bg-color, fn.sys-var(color, surface-container));
-  box-sizing: border-box;
-  transition: border 0.2s;
-  border: 1px solid transparent;
+  --pu-textarea-min-height: 5rem;
+  --pu-textarea-padding-block: #{fn.sys-var(spacing, small)};
+  --pu-textarea-padding-inline: #{fn.sys-var(spacing, small)};
+  --pu-textarea-border-color: #{fn.sys-var(color, outline-variant)};
+  --pu-textarea-focus-color: #{fn.sys-var(color, primary)};
 
-  &.is-disabled {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--pu-textarea-min-height);
+  padding: var(--pu-textarea-padding-block) var(--pu-textarea-padding-inline);
+  border: 1px solid transparent;
+  background-color: fn.sys-var(color, surface-container);
+  color: fn.sys-var(color, on-surface);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+.pu-textarea--size-sm {
+  @include pu-font(caption);
+
+  --pu-textarea-min-height: 4rem;
+  --pu-textarea-padding-block: #{fn.sys-var(spacing, xsmall)};
+  --pu-textarea-padding-inline: #{fn.sys-var(spacing, small)};
+}
+
+.pu-textarea--size-md {
+  @include pu-font(control);
+
+  --pu-textarea-min-height: 5rem;
+}
+
+.pu-textarea--size-lg {
+  @include pu-font(body);
+
+  --pu-textarea-min-height: 6rem;
+  --pu-textarea-padding-block: #{fn.sys-var(spacing, small)};
+  --pu-textarea-padding-inline: #{fn.sys-var(spacing, medium)};
+}
+
+.pu-textarea--tone-neutral {
+  --pu-textarea-border-color: #{fn.sys-var(color, outline-variant)};
+  --pu-textarea-focus-color: #{fn.sys-var(color, primary)};
+}
+
+.pu-textarea--tone-primary {
+  --pu-textarea-border-color: #{fn.sys-var(color, primary)};
+  --pu-textarea-focus-color: #{fn.sys-var(color, primary)};
+}
+
+.pu-textarea--tone-secondary {
+  --pu-textarea-border-color: #{fn.sys-var(color, secondary)};
+  --pu-textarea-focus-color: #{fn.sys-var(color, secondary)};
+}
+
+.pu-textarea--tone-tertiary {
+  --pu-textarea-border-color: #{fn.sys-var(color, tertiary)};
+  --pu-textarea-focus-color: #{fn.sys-var(color, tertiary)};
+}
+
+.pu-textarea--tone-danger {
+  --pu-textarea-border-color: #{fn.sys-var(color, error)};
+  --pu-textarea-focus-color: #{fn.sys-var(color, error)};
+}
+
+.pu-textarea--variant-line {
+  border-color: transparent;
+  border-bottom-color: fn.sys-var(color, outline-variant);
+  background-color: fn.sys-var(color, surface);
+}
+
+.pu-textarea--variant-borderless {
+  border-color: transparent;
+  background-color: fn.sys-var(color, surface-container);
+}
+
+.pu-textarea--variant-outline {
+  border-color: var(--pu-textarea-border-color);
+  background-color: fn.sys-var(color, surface);
+}
+
+.pu-textarea.is-focused {
+  border-color: var(--pu-textarea-focus-color);
+}
+
+.pu-textarea--variant-line.is-focused {
+  border-color: transparent;
+  border-bottom-color: var(--pu-textarea-focus-color);
+}
+
+.pu-textarea.is-invalid {
+  --pu-textarea-border-color: #{fn.sys-var(color, error)};
+  --pu-textarea-focus-color: #{fn.sys-var(color, error)};
+
+  border-color: var(--pu-textarea-border-color);
+}
+
+.pu-textarea--variant-line.is-invalid {
+  border-color: transparent;
+  border-bottom-color: var(--pu-textarea-border-color);
+}
+
+.pu-textarea.is-disabled {
+  opacity: fn.sys-var(opacity, disabled);
+  cursor: not-allowed;
+}
+
+.pu-textarea.is-readonly:not(.is-disabled) {
+  color: fn.sys-var(color, on-surface-variant);
+}
+
+.pu-textarea__control {
+  min-width: 0;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: calc(
+    var(--pu-textarea-min-height) - var(--pu-textarea-padding-block) -
+      var(--pu-textarea-padding-block)
+  );
+  padding: 0;
+  border: 0;
+  outline: 0;
+  resize: vertical;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+
+  &::placeholder {
+    color: fn.sys-var(color, on-surface-variant);
     opacity: 0.6;
   }
 
-  &.is-focused {
-    border: 1px solid fn.sys-var(color, primary);
+  &:disabled {
+    cursor: not-allowed;
   }
+}
 
-  &--variant-soft {
-    background-color: fn.sys-var(color, surface-container);
-    border: 1px solid transparent;
+.pu-textarea.has-count .pu-textarea__control {
+  padding-bottom: 1.5rem;
+}
 
-    &.is-focused {
-      border: 1px solid fn.sys-var(color, primary);
-    }
-  }
+.pu-textarea.has-auto-height .pu-textarea__control {
+  overflow: hidden;
+  resize: none;
+}
 
-  &--variant-plain {
-    background-color: fn.sys-var(color, surface);
-    border: 1px solid transparent;
+.pu-textarea__count {
+  @include pu-font(caption);
 
-    &.is-focused {
-      border-bottom: 1px solid fn.sys-var(color, outline);
-    }
-  }
+  position: absolute;
+  right: var(--pu-textarea-padding-inline);
+  bottom: var(--pu-textarea-padding-block);
+  color: fn.sys-var(color, on-surface-variant);
+  pointer-events: none;
+  white-space: nowrap;
+}
 
-  &--variant-outline {
-    background-color: fn.sys-var(color, surface);
-    border: 1px solid fn.sys-var(color, outline-variant);
+.pu-textarea__count .is-over-limit {
+  color: fn.sys-var(color, error);
+}
 
-    &.is-focused {
-      border: 1px solid fn.sys-var(color, primary);
-    }
-  }
-
-  &--variant-solid {
-    background-color: fn.sys-var(color, surface-container-high);
-    border: 1px solid transparent;
-
-    &.is-focused {
-      border: 1px solid fn.sys-var(color, primary);
-    }
-  }
-
-  .label {
-    color: fn.sys-var(color, on-surface-variant);
-    @include pu-font(control);
-  }
-
-  .field {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .inner {
-    color: fn.sys-var(color, on-surface);
-    @include pu-font("control");
-    padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, small);
-    background-color: transparent;
-    box-sizing: border-box;
-    height: var(--pu-textarea-min-height);
-    width: 100%;
-    transition: height 0.2s;
-
-    &.focused {
-      height: var(--pu-textarea-min-height-focus);
-    }
-  }
-
-  .count {
-    position: absolute;
-    bottom: fn.sys-var(spacing, xsmall);
-    right: fn.sys-var(spacing, small);
-    color: fn.sys-var(color, on-surface-variant);
-    @include pu-font("caption");
+@media (prefers-reduced-motion: reduce) {
+  .pu-textarea {
+    transition: none !important;
   }
 }

@@ -41,7 +41,7 @@ files only after narrowing the candidate set.
   - Prefer: Use for selecting from option lists when a picker interaction is desired.
 - [PuTextarea](references/components/PuTextarea.md)
   - Intent: textarea, multi-line field, long text input
-  - Prefer: Use for multi-line text entry.
+  - Prefer: Use for multi-line text entry with package field-control styling.
 - [PuToggleSwitch](references/components/PuToggleSwitch.md)
   - Intent: toggle switch, boolean setting, on off control
   - Prefer: Use for immediate boolean settings or preferences.

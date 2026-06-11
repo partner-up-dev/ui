@@ -87,7 +87,6 @@ async function validateSubErrors(): Promise<void> {
               <PuTextarea
                 v-model="formModel.notes"
                 placeholder="Add operational notes"
-                :height="72"
               />
             </PuFormItem>
           </PuForm>
@@ -159,7 +158,6 @@ async function validateSubErrors(): Promise<void> {
               </template>
               <PuTextarea
                 model-value="A custom field shell can wrap package inputs too."
-                :height="72"
               />
             </PuFormItem>
 

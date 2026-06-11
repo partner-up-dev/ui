@@ -9,7 +9,7 @@
 
 ## Prefer When
 
-- Use for multi-line text entry.
+- Use for multi-line text entry with package field-control styling.
 
 ## Avoid When
 
@@ -23,25 +23,19 @@ import { PuTextarea } from '@partner-up-dev/design-web'
 
 ## Props
 
-- `...baseProps`
 - `modelValue`
+- `id`
+- `name`
 - `placeholder`
 - `maxlength`
 - `showCount`
 - `autoHeight`
 - `disabled`
 - `readonly`
-- `focus`
-- `confirmType`
-- `showConfirmBar`
-- `holdKeyboard`
-- `cursorSpacing`
-- `adjustPosition`
-- `fixed`
-- `disableDefaultPadding`
-- `height`
-- `focusHeight`
+- `invalid`
+- `size`
 - `variant`
+- `tone`
 
 ## Slots
 
@@ -50,11 +44,8 @@ import { PuTextarea } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
-- `input`
 - `focus`
 - `blur`
-- `confirm`
-- `linechange`
 
 ## Composition
 
@@ -66,17 +57,26 @@ import { PuTextarea } from '@partner-up-dev/design-web'
 Story: `src/stories/forms/PuTextarea.story.vue`
 
 - Controlled
+- Sizes
+- Field Variants
+- Tones
 - Auto Height
-- Themes
-- Readonly Disabled
+- States
 
 ## Types
 
+- `PuTextareaEmits`
+- `PuTextareaProps`
+- `PuTextareaSize`
+- `PuTextareaTone`
 - `PuTextareaVariant`
 
 ## Caveats
 
-- Use variant for field treatment such as soft, plain, outline, or solid.
+- Use PuFormItem for labels, hints, and error messages.
+- Use size sm, md, or lg to map the control to caption, control, or body typography.
+- Use variant line, borderless, or outline to choose the field shell.
+- Focused border color follows tone; invalid overrides tone with the error color.
 
 ## Source Evidence
 
