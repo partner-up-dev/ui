@@ -63,6 +63,8 @@
 - PuDialog: Provide a useful title, title slot, or aria label for dialog context.
 - PuDialog: Use the actions slot when custom commands are needed while preserving footer spacing.
 - PuDrawer: Uses visible and update:visible for control; do not assume open or v-model:open.
+- PuDrawer: Use header, title, close, default, and footer slots for composed drawer interiors; fullCustom is only for whole-interior escape hatches.
+- PuDrawer: Use contentPadding=false when the slotted body owns its own edge-to-edge spacing.
 - PuEmptyState: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuFormItem: Explicit error text takes precedence over errors injected by PuForm prop matching.
 - PuFormItem: Use the labelTrailing slot for field-level secondary affordances and the control slot when the default slot is not specific enough.
@@ -77,6 +79,7 @@
 - PuModal: Uses required open plus close event; do not assume v-model:open.
 - PuModal: Provide a useful title or aria label for dialog context.
 - PuPageHeader: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
+- PuPicker: The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer.
 - PuSegmented: Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed.
 - PuSegmented: Use semantics="tabs" only when the items control associated tab panels.
 - PuSnackbar: Use duration 0 for persistent story or test examples; positive durations auto-dismiss.

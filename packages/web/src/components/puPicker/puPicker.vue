@@ -9,6 +9,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
+import PuDrawer from "../puDrawer/puDrawer.vue";
 import {
   puPickerProps,
   puPickerEmits,
@@ -282,43 +283,49 @@ defineExpose({
       <slot />
     </div>
 
-    <Teleport to="body">
-      <div v-if="isOpen" class="pu-picker__overlay" @click.self="onPickerCancel">
-        <div class="pu-picker__panel" role="dialog" aria-modal="true">
-          <div class="pu-picker__toolbar">
-            <button type="button" class="pu-picker__action" @click="onPickerCancel">
-              取消
-            </button>
-            <button type="button" class="pu-picker__action is-primary" @click="confirmDraft">
-              确定
-            </button>
-          </div>
+    <PuDrawer
+      v-model:visible="isOpen"
+      :aria-label="props.label || 'Picker'"
+      height="auto"
+      max-width="32rem"
+      :show-close="false"
+      :content-padding="false"
+      @close="onPickerCancel"
+    >
+      <template #header>
+        <div class="pu-picker__toolbar">
+          <button type="button" class="pu-picker__action" @click="onPickerCancel">
+            取消
+          </button>
+          <button type="button" class="pu-picker__action is-primary" @click="confirmDraft">
+            确定
+          </button>
+        </div>
+      </template>
 
-          <div class="pu-picker__columns">
-            <div
-              v-for="(column, columnIndex) in formattedColumns"
-              :key="columnIndex"
-              class="pu-picker__column"
-              role="listbox"
-            >
-              <button
-                v-for="(item, optionIndex) in column"
-                :key="String(item[props.valueKey])"
-                type="button"
-                class="pu-picker__option"
-                :class="{ 'is-selected': draftIndex[columnIndex] === optionIndex }"
-                :disabled="item.disabled"
-                role="option"
-                :aria-selected="draftIndex[columnIndex] === optionIndex"
-                @click="selectOption(columnIndex, optionIndex)"
-              >
-                {{ item[props.labelKey] }}
-              </button>
-            </div>
-          </div>
+      <div class="pu-picker__columns">
+        <div
+          v-for="(column, columnIndex) in formattedColumns"
+          :key="columnIndex"
+          class="pu-picker__column"
+          role="listbox"
+        >
+          <button
+            v-for="(item, optionIndex) in column"
+            :key="String(item[props.valueKey])"
+            type="button"
+            class="pu-picker__option"
+            :class="{ 'is-selected': draftIndex[columnIndex] === optionIndex }"
+            :disabled="item.disabled"
+            role="option"
+            :aria-selected="draftIndex[columnIndex] === optionIndex"
+            @click="selectOption(columnIndex, optionIndex)"
+          >
+            {{ item[props.labelKey] }}
+          </button>
         </div>
       </div>
-    </Teleport>
+    </PuDrawer>
   </div>
 </template>
 

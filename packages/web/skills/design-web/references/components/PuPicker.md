@@ -62,6 +62,7 @@ import { PuPicker } from '@partner-up-dev/design-web'
 
 - PuFormItem
 - PuForm
+- PuDrawer
 
 ## Story Variants
 
@@ -85,7 +86,7 @@ Story: `src/stories/forms/PuPicker.story.vue`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer.
 
 ## Source Evidence
 

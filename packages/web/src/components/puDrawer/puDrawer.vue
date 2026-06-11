@@ -1,40 +1,58 @@
 <template>
-  <div
-    v-show="visible"
-    class="pu-drawer-scrim"
-    @click="handleClose"
-  ></div>
-  <div
-    :id="drawerId"
-    ref="drawerRef"
-    class="pu-drawer"
-    :style="{ bottom: computedBottom, height: props.height }"
-    :role="visible ? 'dialog' : undefined"
-    :aria-modal="visible ? 'true' : undefined"
-    :aria-labelledby="drawerLabelledBy"
-    :aria-label="drawerAriaLabel"
-    :aria-hidden="visible ? undefined : 'true'"
-    :inert="visible ? undefined : true"
-    tabindex="-1"
-  >
-    <slot name="full" />
-    <div class="default" v-if="!props.fullCustom">
-      <div class="drawer-header">
-        <span :id="titleId" class="drawer-title">{{ props.title }}</span>
-        <button
-          type="button"
-          class="drawer-close"
-          :aria-label="props.closeLabel"
-          @click="handleClose"
+  <Teleport :to="props.teleportTo">
+    <div
+      v-show="visible"
+      class="pu-drawer-scrim"
+      :style="{ zIndex: scrimZIndex }"
+      @click="handleOverlayClick"
+    ></div>
+    <div
+      :id="drawerId"
+      ref="drawerRef"
+      class="pu-drawer"
+      :style="drawerStyle"
+      :role="visible ? 'dialog' : undefined"
+      :aria-modal="visible ? 'true' : undefined"
+      :aria-labelledby="drawerLabelledBy"
+      :aria-label="drawerAriaLabel"
+      :aria-hidden="visible ? undefined : 'true'"
+      :inert="visible ? undefined : true"
+      tabindex="-1"
+    >
+      <slot v-if="props.fullCustom" name="full" />
+      <div v-else class="pu-drawer__shell">
+        <slot name="header" :close="handleCloseButton">
+          <div v-if="hasHeader" class="drawer-header">
+            <slot name="title">
+              <span v-if="props.title" :id="titleId" class="drawer-title">
+                {{ props.title }}
+              </span>
+            </slot>
+            <slot name="close" :close="handleCloseButton">
+              <button
+                v-if="props.showClose"
+                type="button"
+                class="drawer-close"
+                :aria-label="props.closeLabel"
+                @click="handleCloseButton"
+              >
+                <span class="i-mdi-close" aria-hidden="true"></span>
+              </button>
+            </slot>
+          </div>
+        </slot>
+        <div
+          class="drawer-content"
+          :class="{ 'drawer-content--unpadded': !props.contentPadding }"
         >
-          <span class="i-mdi-close" aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="drawer-content">
-        <slot />
+          <slot />
+        </div>
+        <div v-if="$slots.footer" class="drawer-footer">
+          <slot name="footer" />
+        </div>
       </div>
     </div>
-  </div>
+  </Teleport>
 </template>
 
 <script lang="ts">
@@ -46,7 +64,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import type { CSSProperties } from "vue";
+import { computed, ref, useSlots, watch } from "vue";
 import {
   useBodyScrollLock,
   useEscapeKey,
@@ -54,10 +73,11 @@ import {
   useFocusTrap,
   usePuId,
 } from "../../composables";
-import { puDrawerProps, puDrawerEmits } from "./puDrawer";
+import { puDrawerProps, puDrawerEmits, type PuDrawerCloseReason } from "./puDrawer";
 
 const props = defineProps(puDrawerProps);
 const emit = defineEmits(puDrawerEmits);
+const slots = useSlots();
 
 const visible = ref(props.visible);
 const drawerRef = ref<HTMLElement | null>(null);
@@ -69,10 +89,26 @@ watch(() => props.visible, (newVal) => {
   visible.value = newVal;
 });
 
-const computedBottom = computed(() => (visible.value ? "0" : `-${props.height}`));
+const scrimZIndex = computed(() => Number(props.zIndex));
+
+const drawerStyle = computed<CSSProperties>(() => ({
+  bottom: "0",
+  height: props.height,
+  maxWidth: props.maxWidth,
+  transform: visible.value
+    ? "translate3d(-50%, 0, 0)"
+    : "translate3d(-50%, 100%, 0)",
+  zIndex: scrimZIndex.value + 1,
+}));
+
+const hasHeader = computed(() =>
+  Boolean(props.title || props.showClose || slots.title || slots.close),
+);
 
 const drawerLabelledBy = computed(() =>
-  props.title && !props.fullCustom ? titleId.value : undefined,
+  props.title && !props.fullCustom && !slots.header && !slots.title
+    ? titleId.value
+    : undefined,
 );
 
 const drawerAriaLabel = computed(() =>
@@ -82,21 +118,31 @@ const drawerAriaLabel = computed(() =>
 useBodyScrollLock(() => visible.value && props.lockScroll, {
   reserveScrollbarGap: true,
 });
-useEscapeKey(() => visible.value && props.closeOnEscape, handleClose, {
+useEscapeKey(() => visible.value && props.closeOnEscape, () => requestClose("escape"), {
   preventDefault: true,
   stopPropagation: true,
 });
 useFocusReturn(() => visible.value);
 useFocusTrap(drawerRef, () => visible.value, { initialFocus: "container" });
 
-function handleClose() {
+function requestClose(reason: PuDrawerCloseReason) {
   if (!visible.value) {
     return;
   }
 
   visible.value = false;
   emit("update:visible", false);
-  emit("close");
+  emit("close", { reason });
+}
+
+function handleOverlayClick() {
+  if (props.closeOnOverlay) {
+    requestClose("overlay");
+  }
+}
+
+function handleCloseButton() {
+  requestClose("close-button");
 }
 </script>
 

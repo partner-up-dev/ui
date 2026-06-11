@@ -29,14 +29,24 @@ import { PuDrawer } from '@partner-up-dev/design-web'
 - `closeLabel`
 - `visible`
 - `height`
+- `maxWidth`
+- `teleportTo`
 - `fullCustom`
+- `showClose`
+- `contentPadding`
+- `closeOnOverlay`
 - `lockScroll`
 - `closeOnEscape`
+- `zIndex`
 
 ## Slots
 
 - `default`
+- `close`
+- `footer`
 - `full`
+- `header`
+- `title`
 
 ## Events
 
@@ -48,6 +58,7 @@ import { PuDrawer } from '@partner-up-dev/design-web'
 - PuButton
 - PuForm
 - PuCellGroup
+- PuPicker
 
 ## Story Variants
 
@@ -55,15 +66,18 @@ Story: `src/stories/overlay/PuDrawer.story.vue`
 
 - Controlled
 - Open State
-- Full Custom
+- Custom Slots
 
 ## Types
 
-- No exported TypeScript types extracted.
+- `PuDrawerCloseEvent`
+- `PuDrawerCloseReason`
 
 ## Caveats
 
 - Uses visible and update:visible for control; do not assume open or v-model:open.
+- Use header, title, close, default, and footer slots for composed drawer interiors; fullCustom is only for whole-interior escape hatches.
+- Use contentPadding=false when the slotted body owns its own edge-to-edge spacing.
 
 ## Source Evidence
 

@@ -121,26 +121,6 @@
   }
 }
 
-.pu-picker__overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.36);
-}
-
-.pu-picker__panel {
-  width: min(100%, 32rem);
-  max-height: min(72vh, 32rem);
-  overflow: hidden;
-  border-radius: fn.sys-var(radius, large) fn.sys-var(radius, large) 0 0;
-  background: fn.sys-var(color, surface);
-  color: fn.sys-var(color, on-surface);
-  box-shadow: fn.sys-var(shadow, 8);
-}
-
 .pu-picker__toolbar {
   display: flex;
   align-items: center;
@@ -166,13 +146,13 @@
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: minmax(0, 1fr);
-  max-height: 20rem;
+  max-height: min(72vh, 24rem);
   overflow: hidden;
 }
 
 .pu-picker__column {
   min-width: 0;
-  max-height: 20rem;
+  max-height: min(72vh, 24rem);
   overflow-y: auto;
   border-right: 1px solid fn.sys-var(color, outline-variant);
 

@@ -192,8 +192,8 @@
       "intent": ["drawer", "side panel", "non-blocking overlay"],
       "preferWhen": ["Use for secondary workflows, filters, or details that slide over the page."],
       "avoidWhen": ["Avoid for blocking confirmation; use PuModal."],
-      "composeWith": ["PuButton", "PuForm", "PuCellGroup"],
-      "apiCaveats": ["Uses visible and update:visible for control; do not assume open or v-model:open."],
+      "composeWith": ["PuButton", "PuForm", "PuCellGroup", "PuPicker"],
+      "apiCaveats": ["Uses visible and update:visible for control; do not assume open or v-model:open.", "Use header, title, close, default, and footer slots for composed drawer interiors; fullCustom is only for whole-interior escape hatches.", "Use contentPadding=false when the slotted body owns its own edge-to-edge spacing."],
       "storyGroup": "overlay",
       "storyFile": "src/stories/overlay/PuDrawer.story.vue"
     },
@@ -359,7 +359,8 @@
       "intent": ["picker", "select field", "option selection"],
       "preferWhen": ["Use for selecting from option lists when a picker interaction is desired."],
       "avoidWhen": ["Avoid for section navigation; use PuTabs."],
-      "composeWith": ["PuFormItem", "PuForm"],
+      "composeWith": ["PuFormItem", "PuForm", "PuDrawer"],
+      "apiCaveats": ["The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuPicker.story.vue"
     },

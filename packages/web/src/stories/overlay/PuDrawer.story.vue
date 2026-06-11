@@ -8,7 +8,7 @@ import PuCard from "../../components/puCard/puCard.vue";
 
 const controlledVisible = ref(false);
 const compactVisible = ref(true);
-const customVisible = ref(false);
+const customSlotsVisible = ref(false);
 
 function handleClose(name: string): void {
   logEvent("close", name);
@@ -83,52 +83,66 @@ function handleClose(name: string): void {
       </div>
     </Variant>
 
-    <Variant title="Full Custom">
+    <Variant title="Custom Slots">
       <div class="pu-story pu-story--narrow">
         <PuCard tone="neutral" variant="outline">
-          <p class="pu-story__label">Custom drawer body</p>
+          <p class="pu-story__label">Composed drawer shell</p>
           <p class="pu-story__text">
-            fullCustom hands the whole drawer interior to the consumer.
+            Named slots customize the header and footer while Drawer keeps the
+            overlay behavior.
           </p>
           <PuButton
             tone="neutral"
             variant="outline"
-            @click="customVisible = true"
+            @click="customSlotsVisible = true"
           >
-            Open custom drawer
+            Open composed drawer
           </PuButton>
         </PuCard>
 
         <PuDrawer
-          v-model:visible="customVisible"
-          aria-label="Custom event drawer"
+          v-model:visible="customSlotsVisible"
+          aria-label="Event drawer"
           height="52vh"
-          full-custom
-          @close="handleClose('custom')"
+          max-width="34rem"
+          @close="handleClose('custom-slots')"
         >
-          <template #full>
-            <div class="pu-drawer-story__custom">
-              <div class="pu-drawer-story__custom-header">
-                <div>
-                  <p class="pu-story__label">Event summary</p>
-                  <h3 class="pu-drawer-story__title">
-                    West Lake evening walk
-                  </h3>
-                </div>
-                <button
-                  type="button"
-                  class="pu-drawer-story__icon-button"
-                  aria-label="Close custom drawer"
-                  @click="customVisible = false"
-                >
-                  <span class="i-mdi-close" aria-hidden="true" />
-                </button>
+          <template #header>
+            <div class="pu-drawer-story__custom-header">
+              <div>
+                <p class="pu-story__label">Event summary</p>
+                <h3 class="pu-drawer-story__title">
+                  West Lake evening walk
+                </h3>
               </div>
-              <p class="pu-story__text">
-                Meet guests at the north entrance and keep the first stop clear
-                for check-in.
-              </p>
-              <PuButton @click="customVisible = false">
+              <button
+                type="button"
+                class="pu-drawer-story__icon-button"
+                aria-label="Close custom drawer"
+                @click="customSlotsVisible = false"
+              >
+                <span class="i-mdi-close" aria-hidden="true" />
+              </button>
+            </div>
+          </template>
+
+          <p class="pu-story__text">
+            Meet guests at the north entrance and keep the first stop clear for
+            check-in.
+          </p>
+          <PuCell title="Host" value="Lina Chen" border />
+          <PuCell title="Arrival" value="18:45" />
+
+          <template #footer>
+            <div class="pu-drawer-story__footer">
+              <PuButton
+                tone="neutral"
+                variant="soft"
+                @click="customSlotsVisible = false"
+              >
+                Later
+              </PuButton>
+              <PuButton @click="customSlotsVisible = false">
                 Done
               </PuButton>
             </div>
@@ -153,20 +167,19 @@ function handleClose(name: string): void {
   padding: 16px 0;
 }
 
-.pu-drawer-story__custom {
-  display: grid;
-  gap: 16px;
-  min-height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  background: var(--sys-color-surface);
-}
-
 .pu-drawer-story__custom-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--sys-color-outline-variant);
+}
+
+.pu-drawer-story__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 .pu-drawer-story__title {
