@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- 40b1617: Add PuLoadingState for page and region loading states with a visible spinner,
+  message content, surface treatments, and status semantics.
+
+### Patch Changes
+
+- 3e286eb: Enhance PuDrawer with named composition slots and use it as the web PuPicker
+  overlay shell.
+- 40b1617: Enhance PuFormItem with field labels, required markers, helper text, manual
+  error text, label trailing content, and custom control wrapping.
+- fca3bba: Refresh PuInput as a web-only field control with field variants, semantic sizes,
+  and an outline shell aligned with the frontend input visual direction.
+- 3417fb4: Refresh PuTextarea as a web-only field control with normalized size, variant,
+  and tone props, and make focused border color follow tone.
+
 ## 0.2.1
 
 ### Patch Changes
