@@ -458,6 +458,7 @@
       "preferWhen": ["Use for immediate boolean settings or preferences."],
       "avoidWhen": ["Avoid for multi-select choices; use PuCheckboxGroup."],
       "composeWith": ["PuCell", "PuFormItem"],
+      "apiCaveats": ["Use size sm, md, or lg to map the switch label to caption, control, or body typography."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuToggleSwitch.story.vue"
     },

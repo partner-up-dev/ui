@@ -26,6 +26,7 @@ import { PuToggleSwitch } from '@partner-up-dev/design-web'
 - `modelValue`
 - `label`
 - `disabled`
+- `size`
 
 ## Slots
 
@@ -47,15 +48,18 @@ Story: `src/stories/forms/PuToggleSwitch.story.vue`
 
 - Controlled
 - On State
+- Sizes
 - Disabled
 
 ## Types
 
-- No exported TypeScript types extracted.
+- `PuToggleSwitchEmits`
+- `PuToggleSwitchProps`
+- `PuToggleSwitchSize`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use size sm, md, or lg to map the switch label to caption, control, or body typography.
 
 ## Source Evidence
 

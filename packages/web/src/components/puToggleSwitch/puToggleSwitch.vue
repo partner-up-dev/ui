@@ -1,10 +1,7 @@
 <template>
   <button
     class="pu-toggle-switch"
-    :class="{
-      'is-checked': props.modelValue,
-      'is-disabled': props.disabled,
-    }"
+    :class="rootClasses"
     type="button"
     role="switch"
     :aria-checked="props.modelValue"
@@ -30,10 +27,25 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { computed } from "vue";
+import { puSizes, type PuSize } from "../../types";
+import {
+  createPuModifierClass,
+  createPuStateClass,
+  normalizePuVariant,
+} from "../../utils";
 import { puToggleSwitchEmits, puToggleSwitchProps } from "./puToggleSwitch";
 
 const props = defineProps(puToggleSwitchProps);
 const emit = defineEmits(puToggleSwitchEmits);
+
+const size = computed<PuSize>(() => normalizePuVariant(puSizes, props.size, "md"));
+
+const rootClasses = computed(() => [
+  createPuModifierClass("pu-toggle-switch", "size", size.value),
+  createPuStateClass("checked", props.modelValue),
+  createPuStateClass("disabled", props.disabled),
+]);
 
 function handleClick() {
   if (props.disabled) {
@@ -47,4 +59,3 @@ function handleClick() {
 </script>
 
 <style lang="scss" scoped src="./puToggleSwitch.scss"></style>
-

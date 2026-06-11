@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1
+
+### Patch Changes
+
+- Add PuToggleSwitch size support with sm, md, and lg values mapped to caption,
+  control, and body typography.
+
 ## 0.2.0
 
 ### Minor Changes

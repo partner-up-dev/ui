@@ -36,6 +36,28 @@ function handleChange(value: boolean): void {
       </div>
     </Variant>
 
+    <Variant title="Sizes">
+      <div class="pu-story pu-story--narrow">
+        <div class="pu-story__stack">
+          <PuToggleSwitch
+            :model-value="false"
+            label="Caption setting"
+            size="sm"
+          />
+          <PuToggleSwitch
+            :model-value="true"
+            label="Control setting"
+            size="md"
+          />
+          <PuToggleSwitch
+            :model-value="false"
+            label="Body setting"
+            size="lg"
+          />
+        </div>
+      </div>
+    </Variant>
+
     <Variant title="Disabled">
       <div class="pu-story pu-story--narrow">
         <div class="pu-story__stack">

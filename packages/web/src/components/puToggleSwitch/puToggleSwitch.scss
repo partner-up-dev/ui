@@ -30,9 +30,38 @@
   cursor: not-allowed;
 }
 
+.pu-toggle-switch--size-sm {
+  @include pu-font(caption);
+
+  --pu-toggle-switch-track-width: 2.5rem;
+  --pu-toggle-switch-track-height: 1.5rem;
+  --pu-toggle-switch-track-padding: 0.1875rem;
+  --pu-toggle-switch-thumb-size: 1.125rem;
+  --pu-toggle-switch-thumb-offset: 1rem;
+}
+
+.pu-toggle-switch--size-md {
+  @include pu-font(control);
+
+  --pu-toggle-switch-track-width: 3rem;
+  --pu-toggle-switch-track-height: 1.75rem;
+  --pu-toggle-switch-track-padding: 0.2rem;
+  --pu-toggle-switch-thumb-size: 1.35rem;
+  --pu-toggle-switch-thumb-offset: 1.2rem;
+}
+
+.pu-toggle-switch--size-lg {
+  @include pu-font(body);
+
+  --pu-toggle-switch-track-width: 3.5rem;
+  --pu-toggle-switch-track-height: 2rem;
+  --pu-toggle-switch-track-padding: 0.25rem;
+  --pu-toggle-switch-thumb-size: 1.5rem;
+  --pu-toggle-switch-thumb-offset: 1.5rem;
+}
+
 .pu-toggle-switch__label {
   min-width: 0;
-  @include pu-font(control);
 }
 
 .pu-toggle-switch__track {
@@ -73,4 +102,3 @@
     transition: none !important;
   }
 }
-
