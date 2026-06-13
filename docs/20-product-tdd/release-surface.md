@@ -19,14 +19,16 @@ Published surface:
 ```text
 dist
 skills
-src/components
 src/styles
 src/utils
 types
 ```
 
-Public exports include the package root, styles, component source paths, utils,
-UnoCSS preset, and component types as declared in `packages/web/package.json`.
+Public exports include the package root, styles, utility source paths, UnoCSS
+preset, and component global types as declared in `packages/web/package.json`.
+Public component values and component-specific TypeScript helper types are
+imported from the package root. The web package does not expose
+`src/components/*` or `./components/*` as downstream consumer API.
 
 ## UniApp Package
 

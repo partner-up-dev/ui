@@ -1,6 +1,6 @@
 {
   "name": "@partner-up-dev/design-web",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "PartnerUp Design System for Web",
   "type": "module",
   "main": "./dist/index.js",
@@ -32,7 +32,6 @@
       "sass": "./src/styles/*",
       "default": "./src/styles/*"
     },
-    "./components/*": "./src/components/*",
     "./utils/*": "./src/utils/*",
     "./uno": {
       "import": "./src/styles/unocss-preset.ts"
@@ -49,7 +48,6 @@
   "files": [
     "dist",
     "skills",
-    "src/components",
     "src/styles",
     "src/utils",
     "types"
@@ -63,13 +61,14 @@
     "skill:generate:check": "node scripts/generate-agent-skill.mjs --check",
     "skill:validate": "intent validate",
     "skill:stale": "intent stale",
+    "check:packed-types": "node scripts/check-packed-consumer-types.mjs",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:coverage": "node scripts/check-story-coverage.mjs",
     "type-check": "pnpm run generate:check && pnpm run skill:generate:check && vue-tsc --noEmit",
     "clean": "rimraf dist",
     "build": "pnpm run generate && pnpm run clean && vite build && vue-tsc -p tsconfig.build.json --declaration --emitDeclarationOnly",
-    "verify": "pnpm run type-check && pnpm run skill:validate && pnpm run build && pnpm run story:coverage && pnpm run story:build"
+    "verify": "pnpm run type-check && pnpm run skill:validate && pnpm run build && pnpm run check:packed-types && pnpm run story:coverage && pnpm run story:build"
   },
   "keywords": [
     "partnerup",

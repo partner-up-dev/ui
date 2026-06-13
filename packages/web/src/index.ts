@@ -6,15 +6,14 @@
 import type { App } from 'vue'
 
 import './styles/index.scss'
+import components from './component-registry'
+import { version } from './version'
 
 export * from './utils'
 export * from './types'
 export * from './composables'
 export * from './component-registry'
-export type * from '../types/components'
-import components from './component-registry'
-
-export const version = '0.1.0'
+export { version } from './version'
 
 export function install(app: App): void {
   components.forEach(([name, component]) => {

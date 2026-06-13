@@ -5,7 +5,8 @@
     "emitDeclarationOnly": true,
     "declaration": true,
     "declarationMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "types": []
   },
-  "exclude": ["src/stories/**"]
+  "exclude": ["src/stories/**", "types/**"]
 }

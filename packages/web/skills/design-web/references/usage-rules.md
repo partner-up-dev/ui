@@ -3,9 +3,12 @@
 
 ## Public API
 
-- Import components from `@partner-up-dev/design-web` unless the consuming project has an explicit local alias.
+- Import component values from `@partner-up-dev/design-web` unless the consuming project has an explicit local alias.
+- Import shared and component-specific TypeScript helper types from `@partner-up-dev/design-web`.
 - Use props, slots, and events listed in component references.
 - Use package styles through the published style or Sass entry configured by the consuming app.
+- Rely on the package root type entry for Vue `GlobalComponents` declarations when using plugin/global registration.
+- Do not import from `@partner-up-dev/design-web/components/*`, `@partner-up-dev/design-web/src/*`, generated registry internals, or raw implementation files.
 
 ## Selection
 
@@ -24,6 +27,7 @@
 - Prefer package-owned composition before app-level markup or wrapper CSS.
 - Use local CSS mechanisms for component-specific behavior instead of promoting one-off values into tokens.
 - Read `references/composition-principles.md` before making structure, styling, or responsive implementation decisions.
+- Read `references/type-support.md` before choosing imports, TypeScript helper types, or global component declaration setup.
 - Read `references/variant-vocabulary.md` before choosing tone, status tone, variant, surface level, or shape props.
 
 ## Variant Vocabulary

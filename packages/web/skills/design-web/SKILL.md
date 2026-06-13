@@ -18,9 +18,10 @@ when a task asks which PartnerUp design component to use.
 2. Read `references/component-map.md` for candidate components.
 3. For page-level UI, read `references/composition-recipes.md`.
 4. For structure, styling, or responsive decisions, read `references/composition-principles.md`.
-5. For tone, status, variant, surface, or shape choices, read `references/variant-vocabulary.md`.
-6. Read only the selected files under `references/components/`.
-7. Implement with public package APIs from the selected component references.
+5. For imports, TypeScript helper types, or global component declarations, read `references/type-support.md`.
+6. For tone, status, variant, surface, or shape choices, read `references/variant-vocabulary.md`.
+7. Read only the selected files under `references/components/`.
+8. Implement with public package APIs from the selected component references.
 
 ## Component Selection
 
@@ -52,11 +53,22 @@ app.use(PartnerUpDesignWeb)
 Load the package stylesheet according to the consuming app's build setup. The
 published package exposes its built style entry and Sass source entry.
 
+Use component helper types from the package root:
+
+```ts
+import type { PuButtonFeedback } from '@partner-up-dev/design-web'
+```
+
+The package root type entry provides Vue `GlobalComponents` declarations for
+public `Pu*` components. Do not import raw component source subpaths for type
+support.
+
 ## Rules
 
 - Prefer package components over custom markup when the UI intent matches.
 - Use actual package APIs from component references; do not assume generic UI-library prop names.
 - For page-level UI, choose a composition recipe before selecting isolated components.
+- Import component values and TypeScript helper types from `@partner-up-dev/design-web`.
 - Preserve package-specific caveats such as legacy `theme` values.
 - Do not use implementation files under `src/components/*` as downstream consumer API.
 
@@ -65,6 +77,7 @@ published package exposes its built style entry and Sass source entry.
 - `references/component-map.md`: intent-to-component index.
 - `references/composition-recipes.md`: common page and workflow combinations.
 - `references/composition-principles.md`: durable package principles for component ownership, composition, tokens, and local CSS.
+- `references/type-support.md`: durable package rules for public imports, TypeScript helper types, and Vue global component declarations.
 - `references/variant-vocabulary.md`: durable package vocabulary for tone, status tone, control variants, container variants, field variants, surface levels, and shapes.
 - `references/usage-rules.md`: cross-component consumer rules and caveats.
 

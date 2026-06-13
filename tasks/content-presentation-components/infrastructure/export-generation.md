@@ -5,6 +5,9 @@ Status:
 ```
 Investigated after commit 297fbc4.
 Implemented in current working tree.
+Follow-up package type-surface repair is tracked in
+tasks/web-package-type-surface/ after consumer evidence from the published
+@partner-up-dev/design-web@0.3.0 package.
 ```
 
 ## Implementation Record
@@ -349,6 +352,16 @@ Short-term:
 ```
 Keep this export unchanged.
 Generated registry solves main entry and global component types.
+```
+
+2026-06-12 follow-up:
+
+```
+This short-term decision is no longer sufficient. Published package evidence
+shows ./components/* -> ./src/components/* creates broken consumer type
+resolution because the source dependency closure is not published and global
+component declarations reference raw src/*.vue paths. Promote the deferred
+subpath export work through tasks/web-package-type-surface/.
 ```
 
 Later:

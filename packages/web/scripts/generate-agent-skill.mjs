@@ -625,10 +625,35 @@ const sentence = (items) => (items.length > 0 ? items.join(", ") : "None extract
 const componentFileName = (componentName) => `references/components/${componentName}.md`;
 
 const renderSkill = (model) => {
-  const firstSkillReference = model.skillReferences[0];
+  const compositionReference =
+    model.skillReferences.find((reference) => reference.target === "references/composition-principles.md") ||
+    model.skillReferences[0];
+  const typeReference = model.skillReferences.find(
+    (reference) => reference.target === "references/type-support.md",
+  );
   const variantReference = model.skillReferences.find(
     (reference) => reference.target === "references/variant-vocabulary.md",
   );
+  const firstSteps = [
+    "Identify the UI intent.",
+    "Read `references/component-map.md` for candidate components.",
+    "For page-level UI, read `references/composition-recipes.md`.",
+  ];
+
+  if (compositionReference) {
+    firstSteps.push(`For structure, styling, or responsive decisions, read \`${compositionReference.target}\`.`);
+  } else {
+    firstSteps.push("Apply the package usage rules before writing custom UI.");
+  }
+  if (typeReference) {
+    firstSteps.push(`For imports, TypeScript helper types, or global component declarations, read \`${typeReference.target}\`.`);
+  }
+  if (variantReference) {
+    firstSteps.push(`For tone, status, variant, surface, or shape choices, read \`${variantReference.target}\`.`);
+  }
+  firstSteps.push("Read only the selected files under `references/components/`.");
+  firstSteps.push("Implement with public package APIs from the selected component references.");
+
   const featured = [
     ["Page title with actions", "PuPageHeader"],
     ["Command or icon command", "PuButton"],
@@ -656,13 +681,7 @@ when a task asks which PartnerUp design component to use.
 
 ## First Steps
 
-1. Identify the UI intent.
-2. Read \`references/component-map.md\` for candidate components.
-3. For page-level UI, read \`references/composition-recipes.md\`.
-4. ${firstSkillReference ? `For structure, styling, or responsive decisions, read \`${firstSkillReference.target}\`.` : "Apply the package usage rules before writing custom UI."}
-${variantReference ? `5. For tone, status, variant, surface, or shape choices, read \`${variantReference.target}\`.` : ""}
-${variantReference ? "6" : "5"}. Read only the selected files under \`references/components/\`.
-${variantReference ? "7" : "6"}. Implement with public package APIs from the selected component references.
+${firstSteps.map((step, index) => `${index + 1}. ${step}`).join("\n")}
 
 ## Component Selection
 
@@ -687,11 +706,22 @@ app.use(PartnerUpDesignWeb)
 Load the package stylesheet according to the consuming app's build setup. The
 published package exposes its built style entry and Sass source entry.
 
+Use component helper types from the package root:
+
+\`\`\`ts
+import type { PuButtonFeedback } from '${model.packageName}'
+\`\`\`
+
+The package root type entry provides Vue \`GlobalComponents\` declarations for
+public \`Pu*\` components. Do not import raw component source subpaths for type
+support.
+
 ## Rules
 
 - Prefer package components over custom markup when the UI intent matches.
 - Use actual package APIs from component references; do not assume generic UI-library prop names.
 - For page-level UI, choose a composition recipe before selecting isolated components.
+- Import component values and TypeScript helper types from \`${model.packageName}\`.
 - Preserve package-specific caveats such as legacy \`theme\` values.
 - Do not use implementation files under \`src/components/*\` as downstream consumer API.
 
@@ -794,7 +824,12 @@ ${list(recipe.use)}
 };
 
 const renderUsageRules = (model) => {
-  const firstSkillReference = model.skillReferences[0];
+  const compositionReference =
+    model.skillReferences.find((reference) => reference.target === "references/composition-principles.md") ||
+    model.skillReferences[0];
+  const typeReference = model.skillReferences.find(
+    (reference) => reference.target === "references/type-support.md",
+  );
   const variantReference = model.skillReferences.find(
     (reference) => reference.target === "references/variant-vocabulary.md",
   );
@@ -807,9 +842,12 @@ const renderUsageRules = (model) => {
 
 ## Public API
 
-- Import components from \`${model.packageName}\` unless the consuming project has an explicit local alias.
+- Import component values from \`${model.packageName}\` unless the consuming project has an explicit local alias.
+- Import shared and component-specific TypeScript helper types from \`${model.packageName}\`.
 - Use props, slots, and events listed in component references.
 - Use package styles through the published style or Sass entry configured by the consuming app.
+- Rely on the package root type entry for Vue \`GlobalComponents\` declarations when using plugin/global registration.
+- Do not import from \`${model.packageName}/components/*\`, \`${model.packageName}/src/*\`, generated registry internals, or raw implementation files.
 
 ## Selection
 
@@ -827,7 +865,8 @@ const renderUsageRules = (model) => {
 
 - Prefer package-owned composition before app-level markup or wrapper CSS.
 - Use local CSS mechanisms for component-specific behavior instead of promoting one-off values into tokens.
-${firstSkillReference ? `- Read \`${firstSkillReference.target}\` before making structure, styling, or responsive implementation decisions.` : "- Follow package docs before making structure, styling, or responsive implementation decisions."}
+${compositionReference ? `- Read \`${compositionReference.target}\` before making structure, styling, or responsive implementation decisions.` : "- Follow package docs before making structure, styling, or responsive implementation decisions."}
+${typeReference ? `- Read \`${typeReference.target}\` before choosing imports, TypeScript helper types, or global component declaration setup.` : ""}
 ${variantReference ? `- Read \`${variantReference.target}\` before choosing tone, status tone, variant, surface level, or shape props.` : ""}
 
 ## Variant Vocabulary

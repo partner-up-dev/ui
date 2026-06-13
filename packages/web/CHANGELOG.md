@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- Fix the web package type surface by exporting component helper types from the
+  package root, declaring global components through public root exports, removing
+  raw component source subpath exports from the published package, and documenting
+  the supported TypeScript import boundary in the generated design-web skill.
+
 ## 0.3.0
 
 ### Minor Changes

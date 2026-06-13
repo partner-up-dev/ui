@@ -94,6 +94,100 @@ export {
   PuWheelPicker
 }
 
+export type * from './components/puAccordion/puAccordion'
+export type * from './components/puAccordion/puAccordionItem'
+export type * from './components/puAnnouncementBar/puAnnouncementBar'
+export type * from './components/puBentoGrid/puBentoGrid'
+export type * from './components/puBentoItem/puBentoItem'
+export type * from './components/puButton/puButton'
+export type * from './components/puCard/puCard'
+export type * from './components/puCell/puCell'
+export type * from './components/puCellGroup/puCellGroup'
+export type * from './components/puCheckbox/puCheckbox'
+export type * from './components/puCheckboxGroup/puCheckboxGroup'
+export type * from './components/puChip/puChip'
+export type * from './components/puChipGroup/puChipGroup'
+export type * from './components/puDescriptionItem/puDescriptionItem'
+export type * from './components/puDescriptionList/puDescriptionList'
+export type * from './components/puDialog/puDialog'
+export type * from './components/puDrawer/puDrawer'
+export type * from './components/puEmptyState/puEmptyState'
+export type * from './components/puFilesUpload/puFilesUpload'
+export type * from './components/puFileUpload/puFileUpload'
+export type * from './components/puForm/puForm'
+export type * from './components/puFormItem/puFormItem'
+export type * from './components/puImg/puImg'
+export type * from './components/puImgCropper/puImgCropper'
+export type * from './components/puInlineNotice/puInlineNotice'
+export type * from './components/puInput/puInput'
+export type * from './components/puLoadingState/puLoadingState'
+export type * from './components/puModal/puModal'
+export type * from './components/puPageHeader/puPageHeader'
+export type * from './components/puPageScaffold/puPageScaffold'
+export type * from './components/puPicker/puPicker'
+export type * from './components/puScrollView/puScrollView'
+export type * from './components/puSegmented/puSegmented'
+export type * from './components/puSegmentedItem/puSegmentedItem'
+export type * from './components/puSkeleton/puSkeleton'
+export type * from './components/puSnackbar/puSnackbar'
+export type * from './components/puSnackbar/puSnackbarHost'
+export type * from './components/puSpinner/puSpinner'
+export type * from './components/puTab/puTab'
+export type * from './components/puTabs/puTabs'
+export type * from './components/puTag/puTag'
+export type * from './components/puTextarea/puTextarea'
+export type * from './components/puToggleSwitch/puToggleSwitch'
+export type * from './components/puWheelPicker/puWheelPicker'
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    PuAccordion: typeof PuAccordion
+    PuAccordionItem: typeof PuAccordionItem
+    PuAnnouncementBar: typeof PuAnnouncementBar
+    PuBentoGrid: typeof PuBentoGrid
+    PuBentoItem: typeof PuBentoItem
+    PuButton: typeof PuButton
+    PuCard: typeof PuCard
+    PuCell: typeof PuCell
+    PuCellGroup: typeof PuCellGroup
+    PuCheckbox: typeof PuCheckbox
+    PuCheckboxGroup: typeof PuCheckboxGroup
+    PuChip: typeof PuChip
+    PuChipGroup: typeof PuChipGroup
+    PuDescriptionItem: typeof PuDescriptionItem
+    PuDescriptionList: typeof PuDescriptionList
+    PuDialog: typeof PuDialog
+    PuDrawer: typeof PuDrawer
+    PuEmptyState: typeof PuEmptyState
+    PuFilesUpload: typeof PuFilesUpload
+    PuFileUpload: typeof PuFileUpload
+    PuForm: typeof PuForm
+    PuFormItem: typeof PuFormItem
+    PuImg: typeof PuImg
+    PuImgCropper: typeof PuImgCropper
+    PuInlineNotice: typeof PuInlineNotice
+    PuInput: typeof PuInput
+    PuLoadingState: typeof PuLoadingState
+    PuModal: typeof PuModal
+    PuPageHeader: typeof PuPageHeader
+    PuPageScaffold: typeof PuPageScaffold
+    PuPicker: typeof PuPicker
+    PuScrollView: typeof PuScrollView
+    PuSegmented: typeof PuSegmented
+    PuSegmentedItem: typeof PuSegmentedItem
+    PuSkeleton: typeof PuSkeleton
+    PuSnackbar: typeof PuSnackbar
+    PuSnackbarHost: typeof PuSnackbarHost
+    PuSpinner: typeof PuSpinner
+    PuTab: typeof PuTab
+    PuTabs: typeof PuTabs
+    PuTag: typeof PuTag
+    PuTextarea: typeof PuTextarea
+    PuToggleSwitch: typeof PuToggleSwitch
+    PuWheelPicker: typeof PuWheelPicker
+  }
+}
+
 type ComponentEntry = readonly [name: string, component: Component]
 
 const components: readonly ComponentEntry[] = [
