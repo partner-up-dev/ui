@@ -35,13 +35,19 @@ files only after narrowing the candidate set.
   - Prefer: Use when users need to crop or adjust an uploaded image.
 - [PuInput](references/components/PuInput.md)
   - Intent: text input, single-line field, search input
-  - Prefer: Use for single-line text or numeric input with package field-control styling.
+  - Prefer: Use for single-line string-backed text, search, URL, email, telephone, or date/time input with package field-control styling.
 - [PuMultiStopToggle](references/components/PuMultiStopToggle.md)
   - Intent: multi-stop toggle, multi-position switch, compact mode toggle, discrete slider
   - Prefer: Use for a compact single-value control with a small ordered set of stops where the current label is shown elsewhere.
+- [PuNumberInput](references/components/PuNumberInput.md)
+  - Intent: number input, numeric field, nullable numeric model
+  - Prefer: Use for numeric application state that should bind as number | null.
 - [PuPicker](references/components/PuPicker.md)
   - Intent: picker, select field, option selection
   - Prefer: Use for selecting from option lists when a picker interaction is desired.
+- [PuSelect](references/components/PuSelect.md)
+  - Intent: select field, single selection, native option selection
+  - Prefer: Use for web-native one-of-many selection in product forms, settings, filters, or admin editors.
 - [PuTextarea](references/components/PuTextarea.md)
   - Intent: textarea, multi-line field, long text input
   - Prefer: Use for multi-line text entry with package field-control styling.

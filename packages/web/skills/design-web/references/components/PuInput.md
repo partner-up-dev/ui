@@ -9,11 +9,12 @@
 
 ## Prefer When
 
-- Use for single-line text or numeric input with package field-control styling.
+- Use for single-line string-backed text, search, URL, email, telephone, or date/time input with package field-control styling.
 
 ## Avoid When
 
 - Avoid for multi-line text; use PuTextarea.
+- Avoid for numeric application state; use PuNumberInput for number | null models.
 
 ## Import
 
@@ -95,6 +96,7 @@ Story: `src/stories/forms/PuInput.story.vue`
 - Use PuFormItem for labels, hints, and error messages.
 - Use size sm, md, or lg to map the control to caption, control, or body typography.
 - Use variant line, borderless, or outline to choose the field shell.
+- PuInput remains string-backed even when nativeType is number; use PuNumberInput for numeric app state.
 
 ## Source Evidence
 

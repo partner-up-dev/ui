@@ -292,12 +292,22 @@
     "PuInput": {
       "category": "forms",
       "intent": ["text input", "single-line field", "search input"],
-      "preferWhen": ["Use for single-line text or numeric input with package field-control styling."],
-      "avoidWhen": ["Avoid for multi-line text; use PuTextarea."],
+      "preferWhen": ["Use for single-line string-backed text, search, URL, email, telephone, or date/time input with package field-control styling."],
+      "avoidWhen": ["Avoid for multi-line text; use PuTextarea.", "Avoid for numeric application state; use PuNumberInput for number | null models."],
       "composeWith": ["PuFormItem", "PuForm"],
-      "apiCaveats": ["Use PuFormItem for labels, hints, and error messages.", "Use size sm, md, or lg to map the control to caption, control, or body typography.", "Use variant line, borderless, or outline to choose the field shell."],
+      "apiCaveats": ["Use PuFormItem for labels, hints, and error messages.", "Use size sm, md, or lg to map the control to caption, control, or body typography.", "Use variant line, borderless, or outline to choose the field shell.", "PuInput remains string-backed even when nativeType is number; use PuNumberInput for numeric app state."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuInput.story.vue"
+    },
+    "PuNumberInput": {
+      "category": "forms",
+      "intent": ["number input", "numeric field", "nullable numeric model"],
+      "preferWhen": ["Use for numeric application state that should bind as number | null."],
+      "avoidWhen": ["Avoid for string-backed numeric text that must preserve formatting exactly; use PuInput only when a string model is intentional."],
+      "composeWith": ["PuFormItem", "PuForm"],
+      "apiCaveats": ["Empty input emits null.", "Valid numeric input emits number values.", "Invalid intermediate text is held locally and does not emit a misleading number.", "Use min, max, and step for native numeric constraints."],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuNumberInput.story.vue"
     },
     "PuModal": {
       "category": "overlay",
@@ -407,6 +417,16 @@
       "composeWith": ["PuSegmented"],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuSegmented.story.vue"
+    },
+    "PuSelect": {
+      "category": "forms",
+      "intent": ["select field", "single selection", "native option selection"],
+      "preferWhen": ["Use for web-native one-of-many selection in product forms, settings, filters, or admin editors."],
+      "avoidWhen": ["Avoid for picker or drawer-style selection; use PuPicker when that interaction is desired.", "Avoid for free text with suggestions; use PuInput list forwarding or a future autocomplete capability."],
+      "composeWith": ["PuFormItem", "PuForm"],
+      "apiCaveats": ["Values are string | number | null.", "Use placeholder plus clearable when null should remain selectable.", "Use size sm, md, or lg for control scale; there is no density prop in the first API.", "Multi-select, option groups, async loading, and custom option rendering are deferred."],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuSelect.story.vue"
     },
     "PuSkeleton": {
       "category": "display",

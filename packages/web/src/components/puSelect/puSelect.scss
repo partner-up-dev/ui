@@ -1,0 +1,168 @@
+@use "../../styles/functions" as fn;
+@use "../../styles/mixins" as *;
+
+.pu-select {
+  --pu-select-min-height: 2.5rem;
+  --pu-select-padding-block: #{fn.sys-var(spacing, small)};
+  --pu-select-padding-inline: #{fn.sys-var(spacing, small)};
+  --pu-select-border-color: #{fn.sys-var(color, outline)};
+  --pu-select-focus-color: #{fn.sys-var(color, primary)};
+
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--pu-select-min-height);
+  align-items: center;
+  padding: var(--pu-select-padding-block) var(--pu-select-padding-inline);
+  border: 1px solid var(--pu-select-border-color);
+  border-radius: fn.sys-var(radius, xsmall);
+  background: transparent;
+  color: fn.sys-var(color, on-surface);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+.pu-select--size-sm {
+  @include pu-font(caption);
+
+  --pu-select-min-height: 1.75rem;
+  --pu-select-padding-block: #{fn.sys-var(spacing, xsmall)};
+  --pu-select-padding-inline: #{fn.sys-var(spacing, small)};
+}
+
+.pu-select--size-md {
+  @include pu-font(control);
+
+  --pu-select-min-height: 2.5rem;
+}
+
+.pu-select--size-lg {
+  @include pu-font(body);
+
+  --pu-select-min-height: 3rem;
+  --pu-select-padding-block: #{fn.sys-var(spacing, small)};
+  --pu-select-padding-inline: #{fn.sys-var(spacing, medium)};
+}
+
+.pu-select--tone-neutral {
+  --pu-select-border-color: #{fn.sys-var(color, outline)};
+  --pu-select-focus-color: #{fn.sys-var(color, primary)};
+}
+
+.pu-select--tone-primary {
+  --pu-select-border-color: #{fn.sys-var(color, primary)};
+  --pu-select-focus-color: #{fn.sys-var(color, primary)};
+}
+
+.pu-select--tone-secondary {
+  --pu-select-border-color: #{fn.sys-var(color, secondary)};
+  --pu-select-focus-color: #{fn.sys-var(color, secondary)};
+}
+
+.pu-select--tone-tertiary {
+  --pu-select-border-color: #{fn.sys-var(color, tertiary)};
+  --pu-select-focus-color: #{fn.sys-var(color, tertiary)};
+}
+
+.pu-select--tone-danger {
+  --pu-select-border-color: #{fn.sys-var(color, error)};
+  --pu-select-focus-color: #{fn.sys-var(color, error)};
+}
+
+.pu-select--variant-line {
+  --pu-select-border-color: #{fn.sys-var(color, outline-variant)};
+
+  border-color: transparent;
+  border-bottom-color: var(--pu-select-border-color);
+  border-radius: 0;
+}
+
+.pu-select--variant-borderless {
+  border-color: transparent;
+}
+
+.pu-select--variant-outline {
+  border-color: var(--pu-select-border-color);
+}
+
+.pu-select.is-focused {
+  border-color: var(--pu-select-focus-color);
+  outline: 2px solid var(--pu-select-focus-color);
+  outline-offset: -1px;
+}
+
+.pu-select--variant-line.is-focused {
+  border-color: transparent;
+  border-bottom-color: var(--pu-select-focus-color);
+  outline: none;
+}
+
+.pu-select.is-invalid {
+  --pu-select-border-color: #{fn.sys-var(color, error)};
+  --pu-select-focus-color: #{fn.sys-var(color, error)};
+
+  border-color: var(--pu-select-border-color);
+}
+
+.pu-select--variant-line.is-invalid {
+  border-color: transparent;
+  border-bottom-color: var(--pu-select-border-color);
+}
+
+.pu-select.is-disabled {
+  opacity: fn.sys-var(opacity, disabled);
+  cursor: not-allowed;
+}
+
+.pu-select.is-readonly:not(.is-disabled) {
+  color: fn.sys-var(color, on-surface-variant);
+}
+
+.pu-select.is-empty {
+  color: fn.sys-var(color, on-surface-variant);
+}
+
+.pu-select__control {
+  min-width: 0;
+  flex: 1 1 auto;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: inherit;
+  padding: 0 calc(1.5em + #{fn.sys-var(spacing, xsmall)}) 0 0;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.pu-select.is-readonly .pu-select__control {
+  cursor: default;
+}
+
+.pu-select__chevron {
+  @include pu-icon(small);
+
+  position: absolute;
+  inset-inline-end: var(--pu-select-padding-inline);
+  color: fn.sys-var(color, on-surface-variant);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-select {
+    transition: none !important;
+  }
+}
+

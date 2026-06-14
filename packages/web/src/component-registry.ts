@@ -31,12 +31,14 @@ import PuInput from './components/puInput/puInput.vue'
 import PuLoadingState from './components/puLoadingState/puLoadingState.vue'
 import PuModal from './components/puModal/puModal.vue'
 import PuMultiStopToggle from './components/puMultiStopToggle/puMultiStopToggle.vue'
+import PuNumberInput from './components/puNumberInput/puNumberInput.vue'
 import PuPageHeader from './components/puPageHeader/puPageHeader.vue'
 import PuPageScaffold from './components/puPageScaffold/puPageScaffold.vue'
 import PuPicker from './components/puPicker/puPicker.vue'
 import PuScrollView from './components/puScrollView/puScrollView.vue'
 import PuSegmented from './components/puSegmented/puSegmented.vue'
 import PuSegmentedItem from './components/puSegmentedItem/puSegmentedItem.vue'
+import PuSelect from './components/puSelect/puSelect.vue'
 import PuSkeleton from './components/puSkeleton/puSkeleton.vue'
 import PuSnackbar from './components/puSnackbar/puSnackbar.vue'
 import PuSnackbarHost from './components/puSnackbar/puSnackbarHost.vue'
@@ -78,12 +80,14 @@ export {
   PuLoadingState,
   PuModal,
   PuMultiStopToggle,
+  PuNumberInput,
   PuPageHeader,
   PuPageScaffold,
   PuPicker,
   PuScrollView,
   PuSegmented,
   PuSegmentedItem,
+  PuSelect,
   PuSkeleton,
   PuSnackbar,
   PuSnackbarHost,
@@ -125,12 +129,14 @@ export type * from './components/puInput/puInput'
 export type * from './components/puLoadingState/puLoadingState'
 export type * from './components/puModal/puModal'
 export type * from './components/puMultiStopToggle/puMultiStopToggle'
+export type * from './components/puNumberInput/puNumberInput'
 export type * from './components/puPageHeader/puPageHeader'
 export type * from './components/puPageScaffold/puPageScaffold'
 export type * from './components/puPicker/puPicker'
 export type * from './components/puScrollView/puScrollView'
 export type * from './components/puSegmented/puSegmented'
 export type * from './components/puSegmentedItem/puSegmentedItem'
+export type * from './components/puSelect/puSelect'
 export type * from './components/puSkeleton/puSkeleton'
 export type * from './components/puSnackbar/puSnackbar'
 export type * from './components/puSnackbar/puSnackbarHost'
@@ -173,12 +179,14 @@ declare module 'vue' {
     PuLoadingState: typeof PuLoadingState
     PuModal: typeof PuModal
     PuMultiStopToggle: typeof PuMultiStopToggle
+    PuNumberInput: typeof PuNumberInput
     PuPageHeader: typeof PuPageHeader
     PuPageScaffold: typeof PuPageScaffold
     PuPicker: typeof PuPicker
     PuScrollView: typeof PuScrollView
     PuSegmented: typeof PuSegmented
     PuSegmentedItem: typeof PuSegmentedItem
+    PuSelect: typeof PuSelect
     PuSkeleton: typeof PuSkeleton
     PuSnackbar: typeof PuSnackbar
     PuSnackbarHost: typeof PuSnackbarHost
@@ -224,12 +232,14 @@ const components: readonly ComponentEntry[] = [
   ['PuLoadingState', PuLoadingState],
   ['PuModal', PuModal],
   ['PuMultiStopToggle', PuMultiStopToggle],
+  ['PuNumberInput', PuNumberInput],
   ['PuPageHeader', PuPageHeader],
   ['PuPageScaffold', PuPageScaffold],
   ['PuPicker', PuPicker],
   ['PuScrollView', PuScrollView],
   ['PuSegmented', PuSegmented],
   ['PuSegmentedItem', PuSegmentedItem],
+  ['PuSelect', PuSelect],
   ['PuSkeleton', PuSkeleton],
   ['PuSnackbar', PuSnackbar],
   ['PuSnackbarHost', PuSnackbarHost],

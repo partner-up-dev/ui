@@ -78,6 +78,7 @@
 - PuInput: Use PuFormItem for labels, hints, and error messages.
 - PuInput: Use size sm, md, or lg to map the control to caption, control, or body typography.
 - PuInput: Use variant line, borderless, or outline to choose the field shell.
+- PuInput: PuInput remains string-backed even when nativeType is number; use PuNumberInput for numeric app state.
 - PuLoadingState: The default surface is plain for page-level use; set surfaceLevel and variant when the loading state should be framed as a section.
 - PuLoadingState: Uses status semantics and aria-busy while busy; provide message, title, or label so the loading state has useful accessible text.
 - PuModal: Uses required open plus close event; do not assume v-model:open.
@@ -86,12 +87,20 @@
 - PuMultiStopToggle: Click, Enter, and Space advance using a bounce direction; arrow keys move linearly between stops.
 - PuMultiStopToggle: Provide ariaLabel or ariaLabelledby because the visual control only renders the rail and thumb.
 - PuMultiStopToggle: The root uses slider semantics with aria-valuemin, aria-valuemax, aria-valuenow, and aria-valuetext.
+- PuNumberInput: Empty input emits null.
+- PuNumberInput: Valid numeric input emits number values.
+- PuNumberInput: Invalid intermediate text is held locally and does not emit a misleading number.
+- PuNumberInput: Use min, max, and step for native numeric constraints.
 - PuPageHeader: Use layout inline when actions must stay in the title row; use layout stack when actions should occupy their own row.
 - PuPageHeader: PuPageHeader does not infer action placement from container width.
 - PuPageHeader: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuPicker: The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer.
 - PuSegmented: Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed.
 - PuSegmented: Use semantics="tabs" only when the items control associated tab panels.
+- PuSelect: Values are string | number | null.
+- PuSelect: Use placeholder plus clearable when null should remain selectable.
+- PuSelect: Use size sm, md, or lg for control scale; there is no density prop in the first API.
+- PuSelect: Multi-select, option groups, async loading, and custom option rendering are deferred.
 - PuSnackbar: Use duration 0 for persistent story or test examples; positive durations auto-dismiss.
 - PuSnackbar: Action clicks close the snackbar after emitting the action event.
 - PuSnackbar: Warning and error tones use assertive live announcements; neutral, info, and success use polite announcements.
