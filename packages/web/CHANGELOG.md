@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.1
+
+### Patch Changes
+
+- 480179e: Rename `PuInput`'s native HTML input type prop to `nativeType`, add date and time native input types, and emit `submit` from `PuForm`.
+- 1ea7cd5: Add `PuMultiStopToggle` as a compact multi-stop selection control.
+
 ## 0.4.0
 
 ### Minor Changes
