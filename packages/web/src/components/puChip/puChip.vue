@@ -59,7 +59,14 @@ import {
   createPuStateClass,
   normalizePuVariant,
 } from "../../utils";
-import { puChipEmits, puChipProps, puChipTones, type PuChipSize } from "./puChip";
+import {
+  puChipEmits,
+  puChipProps,
+  puChipShapes,
+  puChipTones,
+  type PuChipShape,
+  type PuChipSize,
+} from "./puChip";
 
 const props = defineProps(puChipProps);
 const emit = defineEmits(puChipEmits);
@@ -71,6 +78,9 @@ const variant = computed(() =>
   normalizePuVariant(puControlVariants, props.variant, "soft"),
 );
 const size = computed<PuChipSize>(() => normalizePuVariant(puSizes, props.size, "md"));
+const shape = computed<PuChipShape>(() =>
+  normalizePuVariant(puChipShapes, props.shape, "rect"),
+);
 
 const hasPrefix = computed(() => Boolean(slots.prefix) || Boolean(props.prefixIcon));
 const hasSuffix = computed(() => Boolean(slots.suffix) || Boolean(props.suffixIcon));
@@ -91,6 +101,7 @@ const rootClasses = computed(() => [
   createPuModifierClass("pu-chip", "tone", tone.value),
   createPuModifierClass("pu-chip", "variant", variant.value),
   createPuModifierClass("pu-chip", "size", size.value),
+  createPuModifierClass("pu-chip", "shape", shape.value),
   createPuStateClass("selected", props.selected),
   createPuStateClass("disabled", props.disabled),
   createPuStateClass("removable", props.removable),

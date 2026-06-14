@@ -147,7 +147,7 @@
       "preferWhen": ["Use for compact labels, filters, selected values, or removable tokens."],
       "avoidWhen": ["Avoid as a primary command button."],
       "composeWith": ["PuChipGroup", "PuCard", "PuPageHeader"],
-      "apiCaveats": ["Use tone for semantic/status color and variant for chip treatment such as soft, outline, solid, ghost, or dashed."],
+      "apiCaveats": ["Use tone for semantic/status color, variant for chip treatment such as soft, outline, solid, ghost, or dashed, and shape for rect or pill geometry. The default shape is rect."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuChip.story.vue"
     },
@@ -160,6 +160,16 @@
       "apiCaveats": ["fit mode measures rendered element children and hides overflow items; keep slot content element-based and avoid relying on hidden chip count."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuChip.story.vue"
+    },
+    "PuChipInput": {
+      "category": "forms",
+      "intent": ["chip input", "tag entry field", "editable token collection"],
+      "preferWhen": ["Use for collecting a string array as removable chips with draft text entry."],
+      "avoidWhen": ["Avoid for passive status labels; use PuTag.", "Avoid for a single text value; use PuInput."],
+      "composeWith": ["PuFormItem", "PuChip", "PuChipGroup"],
+      "apiCaveats": ["Values are string arrays.", "Press Enter or a configured separator to commit draft text.", "Backspace removes the previous chip when draft text is empty.", "Use shape rect or pill to match chip geometry; default is rect.", "Suggestions and custom option listbox behavior are deferred."],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuChipInput.story.vue"
     },
     "PuDescriptionItem": {
       "category": "display",

@@ -14,7 +14,7 @@
   max-width: 100%;
   min-width: 0;
   border: 1px solid transparent;
-  border-radius: var(--sys-radius-pill);
+  border-radius: var(--sys-radius-small);
   font: inherit;
   text-decoration: none;
   vertical-align: middle;
@@ -81,6 +81,14 @@ button.pu-chip {
   padding: 0 var(--sys-spacing-medium);
   gap: var(--sys-spacing-small);
   @include pu-font(control);
+}
+
+.pu-chip--shape-rect {
+  border-radius: var(--sys-radius-small);
+}
+
+.pu-chip--shape-pill {
+  border-radius: var(--sys-radius-pill);
 }
 
 .pu-chip--tone-neutral {

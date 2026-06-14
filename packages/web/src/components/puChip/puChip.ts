@@ -5,6 +5,7 @@ import {
   puStatusTones,
   puTones,
   type PuControlVariant,
+  type PuShape,
   type PuSize,
   type PuStatusTone,
   type PuTone,
@@ -12,10 +13,12 @@ import {
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
 export const puChipTones = [...puTones, ...puStatusTones] as const;
+export const puChipShapes = ["rect", "pill"] as const;
 
 export type PuChipTone = PuTone | PuStatusTone;
 export type PuChipVariant = PuControlVariant;
 export type PuChipSize = PuSize;
+export type PuChipShape = Exclude<PuShape, "circle">;
 export type PuChipType = "button" | "submit" | "reset";
 
 export const puChipProps = {
@@ -40,6 +43,11 @@ export const puChipProps = {
     type: String as PropType<PuChipSize>,
     default: "md",
     validator: (value: string) => puSizes.includes(value as PuSize),
+  },
+  shape: {
+    type: String as PropType<PuChipShape>,
+    default: "rect",
+    validator: (value: string) => puChipShapes.includes(value as PuChipShape),
   },
   selected: makeBooleanProp(false),
   disabled: makeBooleanProp(false),

@@ -15,6 +15,7 @@ declare module 'vue' {
     PuCheckboxGroup: typeof import('@partner-up-dev/design-web')['PuCheckboxGroup']
     PuChip: typeof import('@partner-up-dev/design-web')['PuChip']
     PuChipGroup: typeof import('@partner-up-dev/design-web')['PuChipGroup']
+    PuChipInput: typeof import('@partner-up-dev/design-web')['PuChipInput']
     PuDescriptionItem: typeof import('@partner-up-dev/design-web')['PuDescriptionItem']
     PuDescriptionList: typeof import('@partner-up-dev/design-web')['PuDescriptionList']
     PuDialog: typeof import('@partner-up-dev/design-web')['PuDialog']

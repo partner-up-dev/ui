@@ -30,6 +30,7 @@ import { PuChip } from '@partner-up-dev/design-web'
 - `tone`
 - `variant`
 - `size`
+- `shape`
 - `selected`
 - `disabled`
 - `removable`
@@ -63,12 +64,14 @@ Story: `src/stories/display/PuChip.story.vue`
 - Tones
 - Variants
 - Sizes
+- Shapes
 - Group Layout
 - Fit To Width
 - Slots And Actions
 
 ## Types
 
+- `PuChipShape`
 - `PuChipSize`
 - `PuChipTone`
 - `PuChipType`
@@ -76,7 +79,7 @@ Story: `src/stories/display/PuChip.story.vue`
 
 ## Caveats
 
-- Use tone for semantic/status color and variant for chip treatment such as soft, outline, solid, ghost, or dashed.
+- Use tone for semantic/status color, variant for chip treatment such as soft, outline, solid, ghost, or dashed, and shape for rect or pill geometry. The default shape is rect.
 
 ## Source Evidence
 

@@ -1,0 +1,199 @@
+@use "../../styles/functions" as fn;
+@use "../../styles/mixins" as *;
+
+.pu-chip-input {
+  --pu-chip-input-min-height: 2.5rem;
+  --pu-chip-input-padding-block: #{fn.sys-var(spacing, xsmall)};
+  --pu-chip-input-padding-inline: #{fn.sys-var(spacing, small)};
+  --pu-chip-input-border-color: #{fn.sys-var(color, outline)};
+  --pu-chip-input-focus-color: #{fn.sys-var(color, primary)};
+
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--pu-chip-input-min-height);
+  align-items: center;
+  gap: fn.sys-var(spacing, small);
+  padding: var(--pu-chip-input-padding-block) var(--pu-chip-input-padding-inline);
+  border: 1px solid var(--pu-chip-input-border-color);
+  border-radius: fn.sys-var(radius, xsmall);
+  background: transparent;
+  color: fn.sys-var(color, on-surface);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+.pu-chip-input--size-sm {
+  @include pu-font(caption);
+
+  --pu-chip-input-min-height: 1.75rem;
+  --pu-chip-input-padding-block: #{fn.sys-var(spacing, xsmall)};
+  --pu-chip-input-padding-inline: #{fn.sys-var(spacing, small)};
+}
+
+.pu-chip-input--size-md {
+  @include pu-font(control);
+
+  --pu-chip-input-min-height: 2.5rem;
+}
+
+.pu-chip-input--size-lg {
+  @include pu-font(body);
+
+  --pu-chip-input-min-height: 3rem;
+  --pu-chip-input-padding-block: #{fn.sys-var(spacing, small)};
+  --pu-chip-input-padding-inline: #{fn.sys-var(spacing, medium)};
+}
+
+.pu-chip-input--tone-neutral {
+  --pu-chip-input-border-color: #{fn.sys-var(color, outline)};
+  --pu-chip-input-focus-color: #{fn.sys-var(color, primary)};
+}
+
+.pu-chip-input--tone-primary {
+  --pu-chip-input-border-color: #{fn.sys-var(color, primary)};
+  --pu-chip-input-focus-color: #{fn.sys-var(color, primary)};
+}
+
+.pu-chip-input--tone-secondary {
+  --pu-chip-input-border-color: #{fn.sys-var(color, secondary)};
+  --pu-chip-input-focus-color: #{fn.sys-var(color, secondary)};
+}
+
+.pu-chip-input--tone-tertiary {
+  --pu-chip-input-border-color: #{fn.sys-var(color, tertiary)};
+  --pu-chip-input-focus-color: #{fn.sys-var(color, tertiary)};
+}
+
+.pu-chip-input--tone-danger {
+  --pu-chip-input-border-color: #{fn.sys-var(color, error)};
+  --pu-chip-input-focus-color: #{fn.sys-var(color, error)};
+}
+
+.pu-chip-input--variant-line {
+  --pu-chip-input-border-color: #{fn.sys-var(color, outline-variant)};
+
+  border-color: transparent;
+  border-bottom-color: var(--pu-chip-input-border-color);
+  border-radius: 0;
+}
+
+.pu-chip-input--variant-borderless {
+  border-color: transparent;
+}
+
+.pu-chip-input--variant-outline {
+  border-color: var(--pu-chip-input-border-color);
+}
+
+.pu-chip-input.is-focused {
+  border-color: var(--pu-chip-input-focus-color);
+  outline: 2px solid var(--pu-chip-input-focus-color);
+  outline-offset: -1px;
+}
+
+.pu-chip-input--variant-line.is-focused {
+  border-color: transparent;
+  border-bottom-color: var(--pu-chip-input-focus-color);
+  outline: none;
+}
+
+.pu-chip-input.is-invalid {
+  --pu-chip-input-border-color: #{fn.sys-var(color, error)};
+  --pu-chip-input-focus-color: #{fn.sys-var(color, error)};
+
+  border-color: var(--pu-chip-input-border-color);
+}
+
+.pu-chip-input--variant-line.is-invalid {
+  border-color: transparent;
+  border-bottom-color: var(--pu-chip-input-border-color);
+}
+
+.pu-chip-input.is-disabled {
+  opacity: fn.sys-var(opacity, disabled);
+  cursor: not-allowed;
+}
+
+.pu-chip-input.is-readonly:not(.is-disabled) {
+  color: fn.sys-var(color, on-surface-variant);
+}
+
+.pu-chip-input__content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.pu-chip-input__prefix,
+.pu-chip-input__suffix {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-width: 0;
+}
+
+.pu-chip-input__suffix {
+  gap: fn.sys-var(spacing, small);
+}
+
+.pu-chip-input__control {
+  min-width: 8ch;
+  flex: 1 1 8ch;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  padding: 0;
+
+  &::placeholder {
+    color: fn.sys-var(color, on-surface-variant);
+    opacity: 0.6;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:read-only {
+    cursor: default;
+  }
+}
+
+.pu-chip-input__clear {
+  @include pu-icon(small);
+
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: fn.sys-var(color, on-surface-variant);
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  transition: color 180ms ease;
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    color: fn.sys-var(color, on-surface);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-chip-input,
+  .pu-chip-input__clear {
+    transition: none !important;
+  }
+}

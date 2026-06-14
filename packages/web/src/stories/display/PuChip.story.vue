@@ -72,6 +72,17 @@ const variants = ["soft", "outline", "solid", "ghost", "dashed"] as const;
       </div>
     </Variant>
 
+    <Variant title="Shapes">
+      <div class="pu-story">
+        <PuChipGroup>
+          <PuChip label="Default rect" />
+          <PuChip label="Pill" shape="pill" />
+          <PuChip label="Selected rect" selected tone="primary" />
+          <PuChip label="Removable pill" shape="pill" removable />
+        </PuChipGroup>
+      </div>
+    </Variant>
+
     <Variant title="Group Layout">
       <div class="pu-story pu-story--narrow">
         <PuChipGroup align="center" gap="xs">
