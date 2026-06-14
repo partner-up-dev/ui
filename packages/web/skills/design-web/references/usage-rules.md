@@ -82,6 +82,10 @@
 - PuLoadingState: Uses status semantics and aria-busy while busy; provide message, title, or label so the loading state has useful accessible text.
 - PuModal: Uses required open plus close event; do not assume v-model:open.
 - PuModal: Provide a useful title or aria label for dialog context.
+- PuMultiStopToggle: Options provide accessible value text but are not rendered as visible labels.
+- PuMultiStopToggle: Click, Enter, and Space advance using a bounce direction; arrow keys move linearly between stops.
+- PuMultiStopToggle: Provide ariaLabel or ariaLabelledby because the visual control only renders the rail and thumb.
+- PuMultiStopToggle: The root uses slider semantics with aria-valuemin, aria-valuemax, aria-valuenow, and aria-valuetext.
 - PuPageHeader: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuPicker: The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer.
 - PuSegmented: Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed.

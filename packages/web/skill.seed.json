@@ -310,6 +310,17 @@
       "storyGroup": "overlay",
       "storyFile": "src/stories/overlay/PuModal.story.vue"
     },
+    "PuMultiStopToggle": {
+      "category": "forms",
+      "intent": ["multi-stop toggle", "multi-position switch", "compact mode toggle", "discrete slider"],
+      "preferWhen": ["Use for a compact single-value control with a small ordered set of stops where the current label is shown elsewhere."],
+      "avoidWhen": ["Avoid for boolean settings; use PuToggleSwitch.", "Avoid when all options need visible labels for comparison; use PuSegmented."],
+      "composeWith": ["PuFormItem", "PuCell"],
+      "apiCaveats": ["Options provide accessible value text but are not rendered as visible labels.", "Click, Enter, and Space advance using a bounce direction; arrow keys move linearly between stops."],
+      "accessibilityNotes": ["Provide ariaLabel or ariaLabelledby because the visual control only renders the rail and thumb.", "The root uses slider semantics with aria-valuemin, aria-valuemax, aria-valuenow, and aria-valuetext."],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuMultiStopToggle.story.vue"
+    },
     "PuSnackbar": {
       "category": "overlay",
       "intent": ["snackbar", "toast", "transient feedback"],

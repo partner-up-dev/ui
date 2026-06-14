@@ -30,6 +30,7 @@ import PuInlineNotice from './components/puInlineNotice/puInlineNotice.vue'
 import PuInput from './components/puInput/puInput.vue'
 import PuLoadingState from './components/puLoadingState/puLoadingState.vue'
 import PuModal from './components/puModal/puModal.vue'
+import PuMultiStopToggle from './components/puMultiStopToggle/puMultiStopToggle.vue'
 import PuPageHeader from './components/puPageHeader/puPageHeader.vue'
 import PuPageScaffold from './components/puPageScaffold/puPageScaffold.vue'
 import PuPicker from './components/puPicker/puPicker.vue'
@@ -76,6 +77,7 @@ export {
   PuInput,
   PuLoadingState,
   PuModal,
+  PuMultiStopToggle,
   PuPageHeader,
   PuPageScaffold,
   PuPicker,
@@ -122,6 +124,7 @@ export type * from './components/puInlineNotice/puInlineNotice'
 export type * from './components/puInput/puInput'
 export type * from './components/puLoadingState/puLoadingState'
 export type * from './components/puModal/puModal'
+export type * from './components/puMultiStopToggle/puMultiStopToggle'
 export type * from './components/puPageHeader/puPageHeader'
 export type * from './components/puPageScaffold/puPageScaffold'
 export type * from './components/puPicker/puPicker'
@@ -169,6 +172,7 @@ declare module 'vue' {
     PuInput: typeof PuInput
     PuLoadingState: typeof PuLoadingState
     PuModal: typeof PuModal
+    PuMultiStopToggle: typeof PuMultiStopToggle
     PuPageHeader: typeof PuPageHeader
     PuPageScaffold: typeof PuPageScaffold
     PuPicker: typeof PuPicker
@@ -219,6 +223,7 @@ const components: readonly ComponentEntry[] = [
   ['PuInput', PuInput],
   ['PuLoadingState', PuLoadingState],
   ['PuModal', PuModal],
+  ['PuMultiStopToggle', PuMultiStopToggle],
   ['PuPageHeader', PuPageHeader],
   ['PuPageScaffold', PuPageScaffold],
   ['PuPicker', PuPicker],

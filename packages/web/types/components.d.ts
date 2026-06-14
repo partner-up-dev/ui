@@ -30,6 +30,7 @@ declare module 'vue' {
     PuInput: typeof import('@partner-up-dev/design-web')['PuInput']
     PuLoadingState: typeof import('@partner-up-dev/design-web')['PuLoadingState']
     PuModal: typeof import('@partner-up-dev/design-web')['PuModal']
+    PuMultiStopToggle: typeof import('@partner-up-dev/design-web')['PuMultiStopToggle']
     PuPageHeader: typeof import('@partner-up-dev/design-web')['PuPageHeader']
     PuPageScaffold: typeof import('@partner-up-dev/design-web')['PuPageScaffold']
     PuPicker: typeof import('@partner-up-dev/design-web')['PuPicker']

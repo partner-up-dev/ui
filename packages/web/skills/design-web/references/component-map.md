@@ -36,6 +36,9 @@ files only after narrowing the candidate set.
 - [PuInput](references/components/PuInput.md)
   - Intent: text input, single-line field, search input
   - Prefer: Use for single-line text or numeric input with package field-control styling.
+- [PuMultiStopToggle](references/components/PuMultiStopToggle.md)
+  - Intent: multi-stop toggle, multi-position switch, compact mode toggle, discrete slider
+  - Prefer: Use for a compact single-value control with a small ordered set of stops where the current label is shown elsewhere.
 - [PuPicker](references/components/PuPicker.md)
   - Intent: picker, select field, option selection
   - Prefer: Use for selecting from option lists when a picker interaction is desired.
