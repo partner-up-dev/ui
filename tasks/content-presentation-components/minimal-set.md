@@ -82,8 +82,10 @@ subtitle?: string
 showBack?: boolean = false
 backLabel?: string
 titleAs?: "h1" | "h2" | "h3" | "h4"
+layout?: "inline" | "stack"
 density?: "compact" | "comfortable"
-tone?: "plain" | "surface" | "section" | "inset-high" | "outline"
+surfaceLevel?: "plain" | "surface" | "section" | "inset-high"
+variant?: "plain" | "soft" | "outline" | "solid"
 bordered?: boolean
 
 emits:
@@ -92,6 +94,14 @@ back()
 slots:
 actions
 meta
+```
+
+Layout:
+
+```
+inline keeps back, copy, and actions in one row.
+stack gives actions an explicit second row.
+The component does not infer action placement from container width.
 ```
 
 Implementation note:

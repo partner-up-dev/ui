@@ -32,8 +32,10 @@ Confirmed decisions:
    A narrow embedded scaffold should behave like a narrow page even inside a
    wide browser viewport.
 
-5. Use PuPageHeader as the first nested consumer. It owns header wrapping and
-   action placement, so it should respond to its own available inline size.
+5. Superseded on 2026-06-14 for PuPageHeader action placement: header actions
+   now use explicit `layout="inline" | "stack"` instead of inferring placement
+   from available inline size. PageScaffold container queries remain valid for
+   scaffold-owned geometry.
 
 6. Expand the pattern only where the component owns the responsive layout
    decision. Keep prefers-reduced-motion and true viewport/device behavior as
@@ -52,9 +54,7 @@ packages/web/src/components/puPageScaffold/puPageScaffold.scss
   - changes aside collapse from viewport media query to `@container pu-page`
 
 packages/web/src/components/puPageHeader/puPageHeader.scss
-  - adds named inline-size container `pu-page-header`
-  - changes header wrapping from viewport media query to
-    `@container pu-page-header`
+  - superseded on 2026-06-14 by explicit PuPageHeader layout API
 
 packages/web/src/stories/layout/PuPageScaffold.story.vue
   - adds a Narrow Container variant to prove scaffold behavior responds to

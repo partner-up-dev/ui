@@ -103,12 +103,9 @@ component.pu-page-header
 
 ```ts
 type PuPageHeaderDensity = "compact" | "comfortable";
-type PuPageHeaderTone =
-  | "plain"
-  | "surface"
-  | "section"
-  | "inset-high"
-  | "outline";
+type PuPageHeaderLayout = "inline" | "stack";
+type PuPageHeaderSurfaceLevel = "plain" | "surface" | "section" | "inset-high";
+type PuPageHeaderVariant = "plain" | "soft" | "outline" | "solid";
 type PuPageHeaderTitleAs = "h1" | "h2" | "h3" | "h4";
 
 props = {
@@ -118,8 +115,10 @@ props = {
   titleAs?: PuPageHeaderTitleAs;       // default "h1"
   showBack?: boolean;                  // default false
   backLabel?: string;                  // default "Back"
+  layout?: PuPageHeaderLayout;         // default "inline"
   density?: PuPageHeaderDensity;       // default "comfortable"
-  tone?: PuPageHeaderTone;             // default "plain"
+  surfaceLevel?: PuPageHeaderSurfaceLevel; // default "plain"
+  variant?: PuPageHeaderVariant;       // default "plain"
   bordered?: boolean;                  // default false
 }
 ```
@@ -163,6 +162,19 @@ Story variants:
 ```
 Basic
 Back And Actions
+Stack Layout
 Meta
 Surface Compact
+```
+
+## Layout Contract
+
+```
+inline
+  back, title copy, and actions share one main row.
+  Actions do not wrap onto a second row based on container width.
+
+stack
+  back and title copy share the first row.
+  Actions occupy an explicit second row.
 ```

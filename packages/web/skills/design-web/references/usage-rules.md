@@ -86,6 +86,8 @@
 - PuMultiStopToggle: Click, Enter, and Space advance using a bounce direction; arrow keys move linearly between stops.
 - PuMultiStopToggle: Provide ariaLabel or ariaLabelledby because the visual control only renders the rail and thumb.
 - PuMultiStopToggle: The root uses slider semantics with aria-valuemin, aria-valuemax, aria-valuenow, and aria-valuetext.
+- PuPageHeader: Use layout inline when actions must stay in the title row; use layout stack when actions should occupy their own row.
+- PuPageHeader: PuPageHeader does not infer action placement from container width.
 - PuPageHeader: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuPicker: The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer.
 - PuSegmented: Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed.

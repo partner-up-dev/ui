@@ -79,8 +79,10 @@ import {
 } from "../../utils";
 import {
   puPageHeaderEmits,
+  puPageHeaderLayouts,
   puPageHeaderProps,
   puPageHeaderTitleTags,
+  type PuPageHeaderLayout,
   type PuPageHeaderTitleAs,
 } from "./puPageHeader";
 
@@ -91,6 +93,9 @@ const slots = useSlots();
 const baseId = usePuId("pu-page-header");
 const titleId = computed(() => `${baseId.value}-title`);
 
+const layout = computed<PuPageHeaderLayout>(() =>
+  normalizePuVariant(puPageHeaderLayouts, props.layout, "inline"),
+);
 const density = computed<PuDensity>(() =>
   normalizePuVariant(puDensities, props.density, "comfortable"),
 );
@@ -111,6 +116,7 @@ const hasSubtitle = computed(
 const hasCopy = computed(() => hasTitle.value || hasSubtitle.value);
 
 const rootClasses = computed(() => [
+  createPuModifierClass("pu-page-header", "layout", layout.value),
   createPuModifierClass("pu-page-header", "density", density.value),
   createPuModifierClass("pu-page-header", "surface-level", surfaceLevel.value),
   createPuModifierClass("pu-page-header", "variant", variant.value),

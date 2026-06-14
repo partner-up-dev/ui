@@ -5,13 +5,16 @@ import {
   puSurfaceLevels,
   type PuContainerVariant,
   type PuDensity,
+  type PuLayout,
   type PuSurfaceLevel,
 } from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
 export const puPageHeaderTitleTags = ["h1", "h2", "h3", "h4"] as const;
+export const puPageHeaderLayouts = ["inline", "stack"] as const satisfies readonly PuLayout[];
 
 export type PuPageHeaderDensity = PuDensity;
+export type PuPageHeaderLayout = (typeof puPageHeaderLayouts)[number];
 export type PuPageHeaderSurfaceLevel = PuSurfaceLevel;
 export type PuPageHeaderVariant = PuContainerVariant;
 export type PuPageHeaderTitleAs = (typeof puPageHeaderTitleTags)[number];
@@ -28,6 +31,12 @@ export const puPageHeaderProps = {
   },
   showBack: makeBooleanProp(false),
   backLabel: makeStringProp("Back"),
+  layout: {
+    type: String as PropType<PuPageHeaderLayout>,
+    default: "inline",
+    validator: (value: string) =>
+      puPageHeaderLayouts.includes(value as PuPageHeaderLayout),
+  },
   density: {
     type: String as PropType<PuPageHeaderDensity>,
     default: "comfortable",

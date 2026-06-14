@@ -50,8 +50,11 @@ Use these principles when building application UI with
   or device class.
 - Use `clamp()`, `cqw`, `vw`, and related fluid CSS for component-local
   continuous scaling, not for discrete layout ownership.
-- Prefer discrete container query states for stacking, aside collapse, and
-  action wrapping.
+- Prefer discrete container query states for parent-owned geometry such as
+  scaffold aside collapse or list grid collapse.
+- Prefer explicit component layout props for product-owned structure such as
+  page-header action placement. Do not infer header action wrapping from
+  container width.
 
 ## Consumer Boundary
 

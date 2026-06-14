@@ -40,6 +40,25 @@ const backCount = ref(0);
       </div>
     </Variant>
 
+    <Variant title="Stack Layout">
+      <div class="pu-story pu-story--narrow">
+        <PuPageHeader
+          title="Publishing queue"
+          subtitle="Use stacked layout when actions should have their own row."
+          layout="stack"
+          show-back
+          back-label="Back to review"
+          @back="backCount += 1"
+        >
+          <template #actions>
+            <PuButton tone="neutral" variant="outline">Preview</PuButton>
+            <PuButton tone="neutral" variant="ghost">Save draft</PuButton>
+            <PuButton>Publish</PuButton>
+          </template>
+        </PuPageHeader>
+      </div>
+    </Variant>
+
     <Variant title="Meta">
       <div class="pu-story">
         <PuPageHeader title="Member profile" subtitle="Identity and trust signals.">

@@ -224,7 +224,7 @@ PuChip          covers PuChipGroup through one parent story
 PuDescriptionList covers PuDescriptionItem through one parent story
 PuEmptyState    4 variants
 PuInlineNotice  4 variants
-PuPageHeader    4 variants
+PuPageHeader    5 variants
 PuSegmented     covers PuSegmentedItem through one parent story
 PuSkeleton      8 variants
 PuToggleSwitch 3 variants

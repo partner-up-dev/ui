@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.2
+
+### Patch Changes
+
+- Add explicit `PuPageHeader` inline and stack layouts for action placement.
+
 ## 0.4.1
 
 ### Patch Changes
