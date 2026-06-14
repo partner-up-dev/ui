@@ -31,7 +31,7 @@ export const puTextareaProps = {
   },
   variant: {
     type: String as PropType<PuTextareaVariant>,
-    default: "borderless",
+    default: "outline",
     validator: (value: string) =>
       puFieldVariants.includes(value as PuTextareaVariant),
   },
