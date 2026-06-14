@@ -57,7 +57,6 @@ const rootClass = computed(() => {
   if (props.size) classes.push(`is-${props.size}`);
   if (props.alignRight) classes.push("is-align-right");
   if (props.error) classes.push("is-error");
-  if (props.customClass) classes.push(props.customClass);
   return classes.join(" ");
 });
 
@@ -228,7 +227,7 @@ defineExpose({
 </script>
 
 <template>
-  <div :class="rootClass" :style="props.customStyle">
+  <div :class="rootClass">
     <button
       v-if="!$slots.default"
       type="button"

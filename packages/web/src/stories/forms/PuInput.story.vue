@@ -11,6 +11,7 @@ const password = ref("partnerup");
 const invitationCode = ref("WLK-2026");
 const startsAt = ref("2026-06-14T09:30");
 const eventDate = ref("2026-06-14");
+const suggestedCity = ref("");
 
 function logInput(event: string, payload: unknown): void {
   logEvent(event, payload);
@@ -99,6 +100,28 @@ function logInput(event: string, payload: unknown): void {
               v-model="eventDate"
               native-type="date"
             />
+          </PuFormItem>
+        </PuCard>
+      </div>
+    </Variant>
+
+    <Variant title="Datalist">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="neutral" variant="outline">
+          <PuFormItem label="City" for-id="pu-input-story-city">
+            <PuInput
+              id="pu-input-story-city"
+              v-model="suggestedCity"
+              list="pu-input-story-city-options"
+              placeholder="Type or choose a city"
+              @change="logInput('change', suggestedCity)"
+            />
+            <datalist id="pu-input-story-city-options">
+              <option value="Hangzhou" />
+              <option value="Shanghai" />
+              <option value="Shenzhen" />
+              <option value="Chengdu" />
+            </datalist>
           </PuFormItem>
         </PuCard>
       </div>

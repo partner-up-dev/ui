@@ -70,12 +70,18 @@
 - PuDrawer: Use header, title, close, default, and footer slots for composed drawer interiors; fullCustom is only for whole-interior escape hatches.
 - PuDrawer: Use contentPadding=false when the slotted body owns its own edge-to-edge spacing.
 - PuEmptyState: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
+- PuForm: Native form attributes such as id, name, autocomplete, novalidate, action, and method fall through to the underlying form element.
+- PuForm: PuForm prevents default native navigation and emits the native SubmitEvent; call validate() inside submit handlers when validation is needed.
+- PuForm: External submit buttons can target a PuForm by passing the native form attribute with the form id.
 - PuFormItem: Explicit error text takes precedence over errors injected by PuForm prop matching.
 - PuFormItem: Use the labelTrailing slot for field-level secondary affordances and the control slot when the default slot is not specific enough.
 - PuImg: Use shape from the shared PuShape vocabulary instead of local radius values.
 - PuImg: Use the fallback slot for custom fallback rendering; fallbackInitial and name cover simple initial fallback.
 - PuImg: Provide alt text for meaningful images; fallback content derives an accessible label from alt or name when available.
 - PuInput: Use PuFormItem for labels, hints, and error messages.
+- PuInput: Native input attributes such as id, name, autocomplete, list, form, and aria-* pass through to the underlying input; class and style apply to the component root.
+- PuInput: Use list with a native datalist for free-text suggestions; use PuSelect only for fixed one-of-many choices.
+- PuInput: Use update:modelValue as the live dirty hook and change for browser committed-value semantics.
 - PuInput: Use size sm, md, or lg to map the control to caption, control, or body typography.
 - PuInput: Use variant line, borderless, or outline to choose the field shell.
 - PuInput: PuInput remains string-backed even when nativeType is number; use PuNumberInput for numeric app state.
@@ -91,6 +97,7 @@
 - PuNumberInput: Valid numeric input emits number values.
 - PuNumberInput: Invalid intermediate text is held locally and does not emit a misleading number.
 - PuNumberInput: Use min, max, and step for native numeric constraints.
+- PuNumberInput: Native input attributes such as id, name, autocomplete, form, and aria-* pass through to the underlying input; class and style apply to the component root.
 - PuPageHeader: Use layout inline when actions must stay in the title row; use layout stack when actions should occupy their own row.
 - PuPageHeader: PuPageHeader does not infer action placement from container width.
 - PuPageHeader: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
@@ -99,6 +106,7 @@
 - PuSegmented: Use semantics="tabs" only when the items control associated tab panels.
 - PuSelect: Values are string | number | null.
 - PuSelect: Use placeholder plus clearable when null should remain selectable.
+- PuSelect: Native select attributes such as id, name, form, and aria-* pass through to the underlying select; class and style apply to the component root.
 - PuSelect: Use size sm, md, or lg for control scale; there is no density prop in the first API.
 - PuSelect: Multi-select, option groups, async loading, and custom option rendering are deferred.
 - PuSnackbar: Use duration 0 for persistent story or test examples; positive durations auto-dismiss.
@@ -116,6 +124,10 @@
 - PuTabs: ArrowLeft, ArrowRight, Home, and End move between enabled tabs.
 - PuTag: Use tone for semantic/status color, variant for tag treatment, shape for rect or pill geometry, and size xs, sm, or md.
 - PuTextarea: Use PuFormItem for labels, hints, and error messages.
+- PuTextarea: Native textarea attributes such as id, name, rows, form, and aria-* pass through to the underlying textarea; class and style apply to the component root.
+- PuTextarea: Use rows for native low-risk sizing; autoHeight grows to content and disables manual resize while active.
+- PuTextarea: Default manual resize is vertical.
+- PuTextarea: Use update:modelValue as the live dirty hook and change for browser committed-value semantics.
 - PuTextarea: Use size sm, md, or lg to map the control to caption, control, or body typography.
 - PuTextarea: Use variant line, borderless, or outline to choose the field shell.
 - PuTextarea: Focused border color follows tone; invalid overrides tone with the error color.

@@ -1,4 +1,4 @@
-import { baseProps, makeStringProp } from "../../utils/props";
+import { makeStringProp } from "../../utils/props";
 import type { PropType } from "vue";
 
 // ==================== 组件相关类型定义 ====================
@@ -39,8 +39,6 @@ export const puScrollViewProps = {
     type: Function as PropType<() => Promise<void>>,
     required: false,
   },
-
-  ...baseProps,
 };
 
 // ==================== 组件 Emits 定义 ====================

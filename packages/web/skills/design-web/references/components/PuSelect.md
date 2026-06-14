@@ -26,8 +26,6 @@ import { PuSelect } from '@partner-up-dev/design-web'
 
 - `modelValue`
 - `options`
-- `id`
-- `name`
 - `placeholder`
 - `disabled`
 - `readonly`
@@ -76,6 +74,7 @@ Story: `src/stories/forms/PuSelect.story.vue`
 
 - Values are string | number | null.
 - Use placeholder plus clearable when null should remain selectable.
+- Native select attributes such as id, name, form, and aria-* pass through to the underlying select; class and style apply to the component root.
 - Use size sm, md, or lg for control scale; there is no density prop in the first API.
 - Multi-select, option groups, async loading, and custom option rendering are deferred.
 

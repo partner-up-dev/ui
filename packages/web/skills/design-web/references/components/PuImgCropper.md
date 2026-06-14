@@ -39,7 +39,6 @@ import { PuImgCropper } from '@partner-up-dev/design-web'
 - `showGrid`
 - `disabled`
 - `canvasId`
-- `...baseProps`
 
 ## Slots
 

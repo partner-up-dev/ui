@@ -6,7 +6,7 @@ import type {
   PuStatusTone,
   PuTone,
 } from "../../types";
-import { baseProps, makeStringProp } from "../../utils/props";
+import { makeStringProp } from "../../utils/props";
 
 export type PuTagTone = PuTone | PuStatusTone;
 export type PuTagVariant = PuContainerVariant;
@@ -14,7 +14,6 @@ export type PuTagShape = Exclude<PuShape, "circle">;
 export type PuTagSize = Extract<PuExtendedSize, "xs" | "sm" | "md">;
 
 export const puTagProps = {
-  ...baseProps,
   text: makeStringProp<string>(""),
   tone: makeStringProp<PuTagTone>("neutral"),
   variant: makeStringProp<PuTagVariant>("outline"),

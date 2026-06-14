@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { logEvent } from "histoire/client";
 import PuCard from "../../components/puCard/puCard.vue";
 import PuFormItem from "../../components/puFormItem/puFormItem.vue";
 import PuTextarea from "../../components/puTextarea/puTextarea.vue";
@@ -8,6 +9,14 @@ const description = ref(
   "A relaxed evening walk around West Lake with light conversation.",
 );
 const autoText = ref("Bring a light jacket.\nMeet near the north entrance.");
+const rowsText = ref("Meet at the north gate.\nBring ticket QR codes.");
+
+function logTextareaChange(value: string, event: Event): void {
+  logEvent("change", {
+    value,
+    eventType: event.type,
+  });
+}
 </script>
 
 <template>
@@ -84,6 +93,22 @@ const autoText = ref("Bring a light jacket.\nMeet near the north entrance.");
           :maxlength="180"
           show-count
         />
+      </div>
+    </Variant>
+
+    <Variant title="Rows And Change">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="neutral" variant="outline">
+          <PuFormItem label="Brief" for-id="pu-textarea-story-brief">
+            <PuTextarea
+              id="pu-textarea-story-brief"
+              v-model="rowsText"
+              rows="3"
+              placeholder="Short operational brief"
+              @change="logTextareaChange"
+            />
+          </PuFormItem>
+        </PuCard>
       </div>
     </Variant>
 

@@ -89,17 +89,3 @@ export function makeObjectProp<T>() {
     default: () => ({})
   }
 }
-
-/**
- * Base props for components with custom styling
- */
-export const baseProps = {
-  /**
-   * 自定义根节点样式
-   */
-  customStyle: makeStringProp(''),
-  /**
-   * 自定义根节点样式类
-   */
-  customClass: makeStringProp('')
-}

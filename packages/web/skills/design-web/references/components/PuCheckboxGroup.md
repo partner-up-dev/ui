@@ -22,7 +22,6 @@ import { PuCheckboxGroup } from '@partner-up-dev/design-web'
 
 ## Props
 
-- `...baseProps`
 - `modelValue`
 - `shape`
 - `checkedColor`

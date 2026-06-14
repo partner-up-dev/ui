@@ -31,14 +31,6 @@ export const puAccordionItemProps = {
    * 自定义折叠栏内容容器样式
    */
   customBodyStyle: makeStringProp(""),
-  /**
-   * 自定义根节点样式类
-   */
-  customClass: makeStringProp(""),
-  /**
-   * 自定义根节点样式
-   */
-  customStyle: makeStringProp(""),
 };
 
 export type PuAccordionItemProps = ExtractPropTypes<typeof puAccordionItemProps>;

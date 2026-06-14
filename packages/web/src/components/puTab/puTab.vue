@@ -1,5 +1,5 @@
 <template>
-  <div :class="rootClasses" :style="props.customStyle">
+  <div :class="rootClasses">
     <slot>
       <span class="pu-tab__text">{{ props.label }}</span>
     </slot>
@@ -39,7 +39,6 @@ const rootClasses = computed(() => {
   classes.push(createPuModifierClass("pu-tab", "size", size.value) ?? "");
   classes.push(createPuStateClass("active", props.active) ?? "");
   classes.push(createPuStateClass("disabled", props.disabled) ?? "");
-  if (props.customClass) classes.push(props.customClass);
   return classes.filter(Boolean);
 });
 </script>

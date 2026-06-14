@@ -1,7 +1,6 @@
 <template>
   <div
-    :class="`pu-checkbox-group ${shape === 'button' && inline ? 'is-button' : ''} ${customClass}`"
-    :style="customStyle"
+    :class="`pu-checkbox-group ${shape === 'button' && inline ? 'is-button' : ''}`"
     role="group"
   >
     <slot />

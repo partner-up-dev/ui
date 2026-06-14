@@ -72,8 +72,9 @@ Likely files:
 
 Required behavior:
 
-- Add or document public `PuForm` props for `id`, `name`, `autocomplete`,
-  `novalidate`, `action`, and `method`.
+- Document that native form attrs such as `id`, `name`, `autocomplete`,
+  `novalidate`, `action`, and `method` fall through to the underlying `<form>`.
+- Do not add manual pass-through props for native form attrs in the web package.
 - State clearly that `PuForm` prevents default native navigation and emits the
   native `SubmitEvent`.
 - Show external submit through a button with native `form="<id>"`.

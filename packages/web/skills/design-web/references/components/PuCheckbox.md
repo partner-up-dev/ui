@@ -23,7 +23,6 @@ import { PuCheckbox } from '@partner-up-dev/design-web'
 
 ## Props
 
-- `...baseProps`
 - `customLabelClass`
 - `customShapeClass`
 - `type`

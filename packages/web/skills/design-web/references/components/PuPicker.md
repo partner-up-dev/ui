@@ -40,8 +40,6 @@ import { PuPicker } from '@partner-up-dev/design-web'
 - `beforeConfirm`
 - `displayFormat`
 - `columnChange`
-- `customClass`
-- `customStyle`
 - `customLabelClass`
 - `customValueClass`
 - `markerSide`

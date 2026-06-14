@@ -139,12 +139,6 @@ export const puPickerProps = {
   /** 列变更回调（仅多列选择器） */
   columnChange: Function as PropType<PickerColumnChange>,
 
-  /** 自定义根节点样式类 */
-  customClass: makeStringProp(""),
-
-  /** 自定义根节点样式 */
-  customStyle: makeStringProp(""),
-
   /** 自定义 label 样式类 */
   customLabelClass: makeStringProp(""),
 

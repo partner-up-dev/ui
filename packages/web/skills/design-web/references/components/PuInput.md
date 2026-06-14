@@ -25,11 +25,8 @@ import { PuInput } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `id`
-- `name`
 - `nativeType`
 - `inputmode`
-- `autocomplete`
 - `placeholder`
 - `disabled`
 - `readonly`
@@ -54,6 +51,7 @@ import { PuInput } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
+- `change`
 - `focus`
 - `blur`
 - `clear`
@@ -75,6 +73,7 @@ Story: `src/stories/forms/PuInput.story.vue`
 - Field Variants
 - Icons And Alignment
 - Native Types
+- Datalist
 - Password And Count
 - States
 - Slots
@@ -94,6 +93,9 @@ Story: `src/stories/forms/PuInput.story.vue`
 ## Caveats
 
 - Use PuFormItem for labels, hints, and error messages.
+- Native input attributes such as id, name, autocomplete, list, form, and aria-* pass through to the underlying input; class and style apply to the component root.
+- Use list with a native datalist for free-text suggestions; use PuSelect only for fixed one-of-many choices.
+- Use update:modelValue as the live dirty hook and change for browser committed-value semantics.
 - Use size sm, md, or lg to map the control to caption, control, or body typography.
 - Use variant line, borderless, or outline to choose the field shell.
 - PuInput remains string-backed even when nativeType is number; use PuNumberInput for numeric app state.

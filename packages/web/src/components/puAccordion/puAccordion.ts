@@ -52,14 +52,6 @@ export const puAccordionProps = {
    */
   lineNum: makeNumberProp(2),
   /**
-   * 自定义根节点样式类
-   */
-  customClass: makeStringProp(""),
-  /**
-   * 自定义根节点样式
-   */
-  customStyle: makeStringProp(""),
-  /**
    * 查看更多模式下的插槽外部自定义样式
    */
   customMoreSlotClass: makeStringProp(""),

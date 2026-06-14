@@ -24,8 +24,6 @@ import { PuTextarea } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `id`
-- `name`
 - `placeholder`
 - `maxlength`
 - `showCount`
@@ -44,6 +42,7 @@ import { PuTextarea } from '@partner-up-dev/design-web'
 ## Events
 
 - `update:modelValue`
+- `change`
 - `focus`
 - `blur`
 
@@ -61,6 +60,7 @@ Story: `src/stories/forms/PuTextarea.story.vue`
 - Field Variants
 - Tones
 - Auto Height
+- Rows And Change
 - States
 
 ## Types
@@ -74,6 +74,10 @@ Story: `src/stories/forms/PuTextarea.story.vue`
 ## Caveats
 
 - Use PuFormItem for labels, hints, and error messages.
+- Native textarea attributes such as id, name, rows, form, and aria-* pass through to the underlying textarea; class and style apply to the component root.
+- Use rows for native low-risk sizing; autoHeight grows to content and disables manual resize while active.
+- Default manual resize is vertical.
+- Use update:modelValue as the live dirty hook and change for browser committed-value semantics.
 - Use size sm, md, or lg to map the control to caption, control, or body typography.
 - Use variant line, borderless, or outline to choose the field shell.
 - Focused border color follows tone; invalid overrides tone with the error color.

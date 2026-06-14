@@ -28,8 +28,6 @@ import { PuAccordionItem } from '@partner-up-dev/design-web'
 - `beforeExpand`
 - `customBodyClass`
 - `customBodyStyle`
-- `customClass`
-- `customStyle`
 
 ## Slots
 

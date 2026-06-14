@@ -26,7 +26,6 @@ const computedFadePosition = computed(() => {
 
 const scrollViewClasses = computed(() => [
   "pu-scroll-view",
-  props.customClass,
   computedFadePosition.value ? `fade-${computedFadePosition.value}` : "",
   isHorizontal.value ? "pu-scroll-view--horizontal" : "",
 ]);
@@ -39,7 +38,6 @@ const handleScroll = (event: Event) => {
 <template>
   <div
     :class="scrollViewClasses"
-    :style="props.customStyle"
     @scroll="handleScroll"
   >
     <slot />

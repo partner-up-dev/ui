@@ -29,8 +29,6 @@ export const puSelectProps = {
     type: Array as PropType<PuSelectOption[]>,
     default: () => [],
   },
-  id: makeStringProp<string | undefined>(undefined),
-  name: makeStringProp<string | undefined>(undefined),
   placeholder: makeStringProp<string | undefined>(undefined),
   disabled: makeBooleanProp(false),
   readonly: makeBooleanProp(false),
@@ -68,4 +66,3 @@ export const puSelectEmits = {
 };
 
 export type PuSelectEmits = typeof puSelectEmits;
-

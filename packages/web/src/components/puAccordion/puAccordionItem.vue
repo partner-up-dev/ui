@@ -1,7 +1,6 @@
 <template>
   <div
-    :class="`pu-accordion-item ${disabled ? 'is-disabled' : ''} ${customClass}`"
-    :style="customStyle"
+    :class="`pu-accordion-item ${disabled ? 'is-disabled' : ''}`"
   >
     <button
       :id="triggerId"

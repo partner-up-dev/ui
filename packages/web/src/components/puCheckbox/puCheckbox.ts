@@ -1,11 +1,10 @@
 import type { ComponentPublicInstance, ExtractPropTypes, PropType } from 'vue'
-import { baseProps, makeStringProp } from '../../utils/props'
+import { makeStringProp } from '../../utils/props'
 
 export type PuCheckShape = 'circle' | 'square' | 'button'
 export type PuCheckboxType = 'Default' | 'Bar'
 
 export const puCheckboxProps = {
-  ...baseProps,
   /** 自定义 label 区域类名 */
   customLabelClass: makeStringProp(''),
   /** 自定义 shape 区域类名 */

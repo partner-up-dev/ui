@@ -1,5 +1,5 @@
 <template>
-  <span :class="rootClasses" :style="props.customStyle">
+  <span :class="rootClasses">
     <span class="text">{{ props.text }}</span>
   </span>
 </template>
@@ -24,7 +24,6 @@ const rootClasses = computed(() => {
   classes.push(`pu-tag--variant-${props.variant}`);
   classes.push(`pu-tag--shape-${props.shape}`);
   classes.push(`pu-tag--size-${props.size}`);
-  if (props.customClass) classes.push(props.customClass);
   return classes;
 });
 </script>

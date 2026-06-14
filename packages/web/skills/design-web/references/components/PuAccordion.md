@@ -28,8 +28,6 @@ import { PuAccordion } from '@partner-up-dev/design-web'
 - `viewmore`
 - `useMoreSlot`
 - `lineNum`
-- `customClass`
-- `customStyle`
 - `customMoreSlotClass`
 
 ## Slots

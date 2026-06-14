@@ -22,6 +22,10 @@ const formModel = reactive({
   notes: "",
   plainField: "",
 });
+const nativeFormModel = reactive({
+  title: "West Lake walk",
+  owner: "Lina Chen",
+});
 
 const schema = {
   async validate() {
@@ -63,6 +67,19 @@ async function submitForm(event: SubmitEvent): Promise<void> {
 async function validateSubErrors(): Promise<void> {
   const result = await subErrorFormRef.value?.validate();
   logEvent("validateSubErrors", result);
+}
+
+function submitNativeForm(event: SubmitEvent): void {
+  const form = event.currentTarget as HTMLFormElement | null;
+  const submitter = event.submitter as HTMLElement | null;
+
+  logEvent("nativeSubmit", {
+    eventType: event.type,
+    formId: form?.id,
+    action: form?.getAttribute("action"),
+    method: form?.getAttribute("method"),
+    submitterText: submitter?.textContent?.trim(),
+  });
 }
 </script>
 
@@ -121,6 +138,47 @@ async function validateSubErrors(): Promise<void> {
               @click="validateSubErrors"
             >
               Validate
+            </PuButton>
+          </div>
+        </PuCard>
+      </div>
+    </Variant>
+
+    <Variant title="Native Contract">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="neutral" variant="outline">
+          <PuForm
+            id="pu-form-story-native"
+            name="event-editor"
+            action="/events"
+            method="post"
+            autocomplete="on"
+            novalidate
+            @submit="submitNativeForm"
+          >
+            <PuFormItem label="Title" for-id="pu-form-story-native-title">
+              <PuInput
+                id="pu-form-story-native-title"
+                v-model="nativeFormModel.title"
+                name="title"
+                autocomplete="off"
+              />
+            </PuFormItem>
+            <PuFormItem label="Owner" for-id="pu-form-story-native-owner">
+              <PuInput
+                id="pu-form-story-native-owner"
+                v-model="nativeFormModel.owner"
+                name="owner"
+                autocomplete="name"
+              />
+            </PuFormItem>
+          </PuForm>
+          <div class="pu-story__row">
+            <PuButton
+              :action="{ native: 'submit' }"
+              form="pu-form-story-native"
+            >
+              External submit
             </PuButton>
           </div>
         </PuCard>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="rootClass" @click="handleClick">
+  <div v-bind="rootAttrs" :class="rootClass" @click="handleClick">
     <div v-if="prefixIcon || $slots.prefix" class="pu-input__prefix">
       <button
         v-if="prefixIcon && !$slots.prefix"
@@ -14,19 +14,18 @@
 
     <input
       ref="inputRef"
+      v-bind="controlAttrs"
       class="pu-input__control"
-      :id="id"
-      :name="name"
       :type="nativeInputType"
       :inputmode="resolvedInputMode"
-      :autocomplete="autocomplete"
       :value="inputValue"
       :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
       :maxlength="nativeMaxlength"
-      :aria-invalid="invalid || undefined"
+      :aria-invalid="nativeAriaInvalid"
       @input="handleInput"
+      @change="handleChange"
       @focus="handleFocus"
       @blur="handleBlur"
     />
@@ -85,15 +84,19 @@
 <script lang="ts">
 export default {
   name: "PuInput",
+  inheritAttrs: false,
 };
 </script>
 
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import { puInputEmits, puInputProps } from "./puInput";
+import { useNativeControlAttrs } from "../_utils/nativeAttrs";
+import type { PuNativeAriaInvalidValue } from "../_utils/nativeAttrs";
 
 const props = defineProps(puInputProps);
 const emit = defineEmits(puInputEmits);
+const { rootAttrs, controlAttrs } = useNativeControlAttrs();
 
 const inputRef = ref<HTMLInputElement>();
 const inputValue = ref(formatValue(props.modelValue));
@@ -138,6 +141,12 @@ const resolvedInputMode = computed(() => {
 
 const nativeMaxlength = computed(() =>
   props.maxlength > -1 ? props.maxlength : undefined,
+);
+
+const nativeAriaInvalid = computed<PuNativeAriaInvalidValue>(() =>
+  props.invalid
+    ? "true"
+    : (controlAttrs.value["aria-invalid"] as PuNativeAriaInvalidValue),
 );
 
 const showClear = computed(() => {
@@ -189,6 +198,10 @@ function handleInput(event: Event) {
 
   inputValue.value = value;
   emit("update:modelValue", value);
+}
+
+function handleChange(event: Event) {
+  emit("change", inputValue.value, event);
 }
 
 function handleFocus(event: FocusEvent) {

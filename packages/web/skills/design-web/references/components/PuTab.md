@@ -22,7 +22,6 @@ import { PuTab } from '@partner-up-dev/design-web'
 
 ## Props
 
-- `...baseProps`
 - `label`
 - `active`
 - `disabled`

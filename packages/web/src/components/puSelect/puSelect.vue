@@ -1,19 +1,17 @@
 <template>
   <div
+    v-bind="rootAttrs"
     class="pu-select"
-    :class="[rootClass, attrs.class]"
-    :style="attrs.style"
+    :class="rootClass"
   >
     <select
       ref="selectRef"
       v-bind="controlAttrs"
       class="pu-select__control"
-      :id="id"
-      :name="name"
       :value="selectedNativeValue"
       :disabled="disabled"
-      :aria-invalid="invalid || undefined"
-      :aria-readonly="readonly || undefined"
+      :aria-invalid="nativeAriaInvalid"
+      :aria-readonly="nativeAriaReadonly"
       @focus="handleFocus"
       @blur="handleBlur"
       @change="handleChange"
@@ -58,21 +56,33 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, useAttrs } from "vue";
+import { computed, ref } from "vue";
 import { puSelectEmits, puSelectProps } from "./puSelect";
 import type { PuSelectOption, PuSelectValue } from "./puSelect";
+import { useNativeControlAttrs } from "../_utils/nativeAttrs";
+import type {
+  PuNativeAriaBooleanishValue,
+  PuNativeAriaInvalidValue,
+} from "../_utils/nativeAttrs";
 
 const props = defineProps(puSelectProps);
 const emit = defineEmits(puSelectEmits);
-const attrs = useAttrs();
+const { rootAttrs, controlAttrs } = useNativeControlAttrs();
 
 const selectRef = ref<HTMLSelectElement>();
 const isFocused = ref(false);
 
-const controlAttrs = computed(() => {
-  const { class: _class, style: _style, ...rest } = attrs;
-  return rest;
-});
+const nativeAriaInvalid = computed<PuNativeAriaInvalidValue>(() =>
+  props.invalid
+    ? "true"
+    : (controlAttrs.value["aria-invalid"] as PuNativeAriaInvalidValue),
+);
+
+const nativeAriaReadonly = computed<PuNativeAriaBooleanishValue>(() =>
+  props.readonly
+    ? "true"
+    : (controlAttrs.value["aria-readonly"] as PuNativeAriaBooleanishValue),
+);
 
 const selectedOptionIndex = computed(() =>
   props.options.findIndex((option) => valuesEqual(option.value, props.modelValue)),

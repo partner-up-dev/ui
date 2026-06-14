@@ -283,13 +283,12 @@ defineExpose({
     ref="rootRef"
     class="pu-img-cropper"
     :class="[
-      props.customClass,
       {
         'pu-img-cropper--round': props.shape === 'round',
         'pu-img-cropper--disabled': props.disabled,
       },
     ]"
-    :style="[rootStyle, props.customStyle]"
+    :style="rootStyle"
   >
     <div
       class="pu-img-cropper__stage"

@@ -1,22 +1,23 @@
 <template>
   <div
+    v-bind="rootAttrs"
     :class="rootClass"
     @click="handleClick"
   >
     <textarea
       ref="textareaRef"
+      v-bind="controlAttrs"
       class="pu-textarea__control"
-      :id="id"
-      :name="name"
       :value="textareaValue"
       :placeholder="placeholder"
       :maxlength="nativeMaxlength"
       :disabled="disabled"
       :readonly="readonly"
-      :aria-invalid="invalid || undefined"
+      :aria-invalid="nativeAriaInvalid"
       @focus="handleFocus"
       @blur="handleBlur"
       @input="handleInput"
+      @change="handleChange"
     />
 
     <span v-if="showCharacterCount" class="pu-textarea__count">
@@ -31,15 +32,19 @@
 <script lang="ts">
 export default {
   name: "PuTextarea",
+  inheritAttrs: false,
 };
 </script>
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from "vue";
 import { puTextareaProps, puTextareaEmits } from "./puTextarea";
+import { useNativeControlAttrs } from "../_utils/nativeAttrs";
+import type { PuNativeAriaInvalidValue } from "../_utils/nativeAttrs";
 
 const props = defineProps(puTextareaProps);
 const emit = defineEmits(puTextareaEmits);
+const { rootAttrs, controlAttrs } = useNativeControlAttrs();
 
 const isFocused = ref(false);
 const textareaValue = ref(formatValue(props.modelValue));
@@ -47,6 +52,12 @@ const textareaRef = ref<HTMLTextAreaElement>();
 
 const nativeMaxlength = computed(() =>
   props.maxlength > -1 ? props.maxlength : undefined,
+);
+
+const nativeAriaInvalid = computed<PuNativeAriaInvalidValue>(() =>
+  props.invalid
+    ? "true"
+    : (controlAttrs.value["aria-invalid"] as PuNativeAriaInvalidValue),
 );
 
 const showCharacterCount = computed(
@@ -102,6 +113,10 @@ function handleInput(event: Event) {
   textareaValue.value = value;
   syncAutoHeight();
   emit("update:modelValue", value);
+}
+
+function handleChange(event: Event) {
+  emit("change", textareaValue.value, event);
 }
 
 function handleClick() {

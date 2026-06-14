@@ -9,9 +9,7 @@
       ${isDisabled ? 'is-disabled' : ''}
       ${sizeClass}
       ${typeClass}
-      ${customClass}
     `"
-    :style="rootStyle"
     :disabled="isDisabled"
     :aria-checked="isChecked"
     role="checkbox"
@@ -136,11 +134,6 @@ const shapeClass = computed(() =>
 const typeClass = computed(() =>
   props.type ? `is-${props.type.toLowerCase()}` : ""
 );
-
-const rootStyle = computed(() => {
-  if (props.type !== "Bar") return props.customStyle;
-  return props.customStyle;
-});
 
 function toggle() {
   if (isDisabled.value) return;

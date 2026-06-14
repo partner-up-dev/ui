@@ -1,13 +1,12 @@
 import type { ExtractPropTypes, PropType } from "vue";
 import { puSizes, type PuSize } from "../../types";
-import { baseProps, makeBooleanProp, makeStringProp } from "../../utils/props";
+import { makeBooleanProp, makeStringProp } from "../../utils/props";
 import { puTabsVariants, type PuTabsVariant } from "../puTabs/puTabs";
 
 export type PuTabVariant = PuTabsVariant;
 
 // ==================== 组件 Props 定义 ====================
 export const puTabProps = {
-  ...baseProps,
   label: makeStringProp<string | undefined>(undefined),
   active: makeBooleanProp(false),
   disabled: makeBooleanProp(false),

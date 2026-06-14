@@ -1,4 +1,4 @@
-import { baseProps, makeBooleanProp, makeNumberProp, makeStringProp } from "../../utils/props";
+import { makeBooleanProp, makeNumberProp, makeStringProp } from "../../utils/props";
 import type { PropType } from "vue";
 
 // ==================== 组件相关类型定义 ====================
@@ -134,8 +134,6 @@ export const puImgCropperProps = {
    * Canvas ID（小程序专用，需要保证唯一性）
    */
   canvasId: makeStringProp("pu-img-cropper-canvas"),
-
-  ...baseProps,
 } as const;
 
 // ==================== 组件 Emits 定义 ====================

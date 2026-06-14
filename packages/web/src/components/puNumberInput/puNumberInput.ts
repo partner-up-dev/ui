@@ -24,10 +24,7 @@ export const puNumberInputProps = {
     type: Number as PropType<PuNumberInputValue>,
     default: null,
   },
-  id: makeStringProp<string | undefined>(undefined),
-  name: makeStringProp<string | undefined>(undefined),
   placeholder: makeStringProp(""),
-  autocomplete: makeStringProp<string | undefined>(undefined),
   inputmode: {
     type: String as PropType<PuInputMode | undefined>,
     default: undefined,
@@ -86,4 +83,3 @@ export const puNumberInputEmits = {
 };
 
 export type PuNumberInputEmits = typeof puNumberInputEmits;
-

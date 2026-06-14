@@ -24,10 +24,7 @@ import { PuNumberInput } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `id`
-- `name`
 - `placeholder`
-- `autocomplete`
 - `inputmode`
 - `min`
 - `max`
@@ -84,6 +81,7 @@ Story: `src/stories/forms/PuNumberInput.story.vue`
 - Valid numeric input emits number values.
 - Invalid intermediate text is held locally and does not emit a misleading number.
 - Use min, max, and step for native numeric constraints.
+- Native input attributes such as id, name, autocomplete, form, and aria-* pass through to the underlying input; class and style apply to the component root.
 
 ## Source Evidence
 

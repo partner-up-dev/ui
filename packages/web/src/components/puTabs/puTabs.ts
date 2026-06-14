@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, PropType } from "vue";
 import { puSizes, type PuSize } from "../../types";
-import { baseProps, makeArrayProp } from "../../utils/props";
+import { makeArrayProp } from "../../utils/props";
 
 export type PuTabValue = string | number;
 export type PuTabsVariant = "line" | "pill";
@@ -37,7 +37,6 @@ export const puTabsProps = {
     default: "md",
     validator: (value: string) => puSizes.includes(value as PuSize),
   },
-  ...baseProps,
 } as const;
 
 export type PuTabsProps = ExtractPropTypes<typeof puTabsProps>;

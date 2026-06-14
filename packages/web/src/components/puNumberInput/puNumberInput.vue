@@ -1,19 +1,16 @@
 <template>
   <div
+    v-bind="rootAttrs"
     class="pu-number-input"
-    :class="[rootClass, attrs.class]"
-    :style="attrs.style"
+    :class="rootClass"
     @click="handleRootClick"
   >
     <input
       ref="inputRef"
       v-bind="controlAttrs"
       class="pu-number-input__control"
-      :id="id"
-      :name="name"
       type="number"
       :inputmode="inputmode"
-      :autocomplete="autocomplete"
       :value="textValue"
       :placeholder="placeholder"
       :min="min"
@@ -21,7 +18,7 @@
       :step="step"
       :disabled="disabled"
       :readonly="readonly"
-      :aria-invalid="invalid || undefined"
+      :aria-invalid="nativeAriaInvalid"
       @input="handleInput"
       @change="handleChange"
       @focus="handleFocus"
@@ -48,23 +45,20 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, useAttrs, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { puNumberInputEmits, puNumberInputProps } from "./puNumberInput";
 import type { PuNumberInputValue } from "./puNumberInput";
+import { useNativeControlAttrs } from "../_utils/nativeAttrs";
+import type { PuNativeAriaInvalidValue } from "../_utils/nativeAttrs";
 
 const props = defineProps(puNumberInputProps);
 const emit = defineEmits(puNumberInputEmits);
-const attrs = useAttrs();
+const { rootAttrs, controlAttrs } = useNativeControlAttrs();
 
 const inputRef = ref<HTMLInputElement>();
 const textValue = ref(formatValue(props.modelValue));
 const isFocused = ref(false);
 const lastAcceptedValue = ref<PuNumberInputValue>(props.modelValue);
-
-const controlAttrs = computed(() => {
-  const { class: _class, style: _style, ...rest } = attrs;
-  return rest;
-});
 
 const showClear = computed(
   () =>
@@ -72,6 +66,12 @@ const showClear = computed(
     !props.disabled &&
     !props.readonly &&
     textValue.value.length > 0,
+);
+
+const nativeAriaInvalid = computed<PuNativeAriaInvalidValue>(() =>
+  props.invalid
+    ? "true"
+    : (controlAttrs.value["aria-invalid"] as PuNativeAriaInvalidValue),
 );
 
 const rootClass = computed(() => [

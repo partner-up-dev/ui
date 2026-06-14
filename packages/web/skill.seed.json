@@ -236,6 +236,7 @@
       "preferWhen": ["Use as the structural container for grouped fields and submit actions."],
       "avoidWhen": ["Avoid for read-only metadata; use PuDescriptionList."],
       "composeWith": ["PuFormItem", "PuInput", "PuTextarea", "PuCheckbox", "PuFileUpload", "PuFilesUpload"],
+      "apiCaveats": ["Native form attributes such as id, name, autocomplete, novalidate, action, and method fall through to the underlying form element.", "PuForm prevents default native navigation and emits the native SubmitEvent; call validate() inside submit handlers when validation is needed.", "External submit buttons can target a PuForm by passing the native form attribute with the form id."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuForm.story.vue"
     },
@@ -295,7 +296,7 @@
       "preferWhen": ["Use for single-line string-backed text, search, URL, email, telephone, or date/time input with package field-control styling."],
       "avoidWhen": ["Avoid for multi-line text; use PuTextarea.", "Avoid for numeric application state; use PuNumberInput for number | null models."],
       "composeWith": ["PuFormItem", "PuForm"],
-      "apiCaveats": ["Use PuFormItem for labels, hints, and error messages.", "Use size sm, md, or lg to map the control to caption, control, or body typography.", "Use variant line, borderless, or outline to choose the field shell.", "PuInput remains string-backed even when nativeType is number; use PuNumberInput for numeric app state."],
+      "apiCaveats": ["Use PuFormItem for labels, hints, and error messages.", "Native input attributes such as id, name, autocomplete, list, form, and aria-* pass through to the underlying input; class and style apply to the component root.", "Use list with a native datalist for free-text suggestions; use PuSelect only for fixed one-of-many choices.", "Use update:modelValue as the live dirty hook and change for browser committed-value semantics.", "Use size sm, md, or lg to map the control to caption, control, or body typography.", "Use variant line, borderless, or outline to choose the field shell.", "PuInput remains string-backed even when nativeType is number; use PuNumberInput for numeric app state."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuInput.story.vue"
     },
@@ -305,7 +306,7 @@
       "preferWhen": ["Use for numeric application state that should bind as number | null."],
       "avoidWhen": ["Avoid for string-backed numeric text that must preserve formatting exactly; use PuInput only when a string model is intentional."],
       "composeWith": ["PuFormItem", "PuForm"],
-      "apiCaveats": ["Empty input emits null.", "Valid numeric input emits number values.", "Invalid intermediate text is held locally and does not emit a misleading number.", "Use min, max, and step for native numeric constraints."],
+      "apiCaveats": ["Empty input emits null.", "Valid numeric input emits number values.", "Invalid intermediate text is held locally and does not emit a misleading number.", "Use min, max, and step for native numeric constraints.", "Native input attributes such as id, name, autocomplete, form, and aria-* pass through to the underlying input; class and style apply to the component root."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuNumberInput.story.vue"
     },
@@ -424,7 +425,7 @@
       "preferWhen": ["Use for web-native one-of-many selection in product forms, settings, filters, or admin editors."],
       "avoidWhen": ["Avoid for picker or drawer-style selection; use PuPicker when that interaction is desired.", "Avoid for free text with suggestions; use PuInput list forwarding or a future autocomplete capability."],
       "composeWith": ["PuFormItem", "PuForm"],
-      "apiCaveats": ["Values are string | number | null.", "Use placeholder plus clearable when null should remain selectable.", "Use size sm, md, or lg for control scale; there is no density prop in the first API.", "Multi-select, option groups, async loading, and custom option rendering are deferred."],
+      "apiCaveats": ["Values are string | number | null.", "Use placeholder plus clearable when null should remain selectable.", "Native select attributes such as id, name, form, and aria-* pass through to the underlying select; class and style apply to the component root.", "Use size sm, md, or lg for control scale; there is no density prop in the first API.", "Multi-select, option groups, async loading, and custom option rendering are deferred."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuSelect.story.vue"
     },
@@ -485,7 +486,7 @@
       "preferWhen": ["Use for multi-line text entry with package field-control styling."],
       "avoidWhen": ["Avoid for single-line fields; use PuInput."],
       "composeWith": ["PuFormItem", "PuForm"],
-      "apiCaveats": ["Use PuFormItem for labels, hints, and error messages.", "Use size sm, md, or lg to map the control to caption, control, or body typography.", "Use variant line, borderless, or outline to choose the field shell.", "Focused border color follows tone; invalid overrides tone with the error color."],
+      "apiCaveats": ["Use PuFormItem for labels, hints, and error messages.", "Native textarea attributes such as id, name, rows, form, and aria-* pass through to the underlying textarea; class and style apply to the component root.", "Use rows for native low-risk sizing; autoHeight grows to content and disables manual resize while active.", "Default manual resize is vertical.", "Use update:modelValue as the live dirty hook and change for browser committed-value semantics.", "Use size sm, md, or lg to map the control to caption, control, or body typography.", "Use variant line, borderless, or outline to choose the field shell.", "Focused border color follows tone; invalid overrides tone with the error color."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuTextarea.story.vue"
     },

@@ -2,7 +2,8 @@
 
 ## Status
 
-Implemented for the first `PuNumberInput` and `PuSelect` slice.
+Implemented for the first `PuNumberInput` and `PuSelect` slice. Follow-up
+native form slices are implemented and pending final broad verification.
 
 Accepted inputs:
 
@@ -32,8 +33,6 @@ type PuSelectTone = PuTone;
 Shared props:
 
 ```ts
-id?: string;
-name?: string;
 disabled?: boolean;
 readonly?: boolean;
 invalid?: boolean;
@@ -46,8 +45,12 @@ Shared composition rules:
 
 - Labels, hints, required markers, and visible errors stay in `PuFormItem`.
 - Controls expose native focus targets.
-- `class` and `style` apply to the component root; other undeclared attrs,
-  including `aria-*`, pass through to the native control.
+- `class` and `style` apply to the component root.
+- Web components should not expose UniApp-style `customClass` or `customStyle`
+  root styling props. Use Vue's standard `class` / `style` fallthrough instead.
+- Native control attrs that do not affect component-owned state, such as `id`,
+  `name`, `autocomplete`, `list`, `rows`, `form`, and `aria-*`, pass through to
+  the native control.
 - Controls emit `focus` and `blur` with native focus events.
 - Controls emit `update:modelValue` for controlled state.
 - Controls emit `change` for committed value changes.
@@ -81,10 +84,7 @@ export const puNumberInputProps = {
     type: Number as PropType<PuNumberInputValue>,
     default: null,
   },
-  id: makeStringProp<string | undefined>(undefined),
-  name: makeStringProp<string | undefined>(undefined),
   placeholder: makeStringProp(""),
-  autocomplete: makeStringProp<string | undefined>(undefined),
   inputmode: {
     type: String as PropType<PuInputMode | undefined>,
     default: undefined,
@@ -219,8 +219,6 @@ export const puSelectProps = {
     type: Array as PropType<PuSelectOption[]>,
     default: () => [],
   },
-  id: makeStringProp<string | undefined>(undefined),
-  name: makeStringProp<string | undefined>(undefined),
   placeholder: makeStringProp<string | undefined>(undefined),
   disabled: makeBooleanProp(false),
   readonly: makeBooleanProp(false),
@@ -281,7 +279,10 @@ export const puSelectEmits = {
 
 - Prefer a native `<select>` root inside the package field shell.
 - Preserve native keyboard and screen-reader behavior.
-- Forward `id`, `name`, `disabled`, focus, blur, and native form participation.
+- Forward native control attrs through Vue fallthrough, including `id`, `name`,
+  `form`, and `aria-*`.
+- Component-owned state such as `disabled`, `readonly`, and `invalid` stays
+  explicit because it affects styling and interaction semantics.
 - Do not implement custom listbox behavior in the first API unless native
   select proves insufficient.
 
@@ -296,3 +297,39 @@ export const puSelectEmits = {
 - `size` variants.
 - Field variants and invalid state.
 - `PuFormItem` composition.
+
+## PuInput Datalist
+
+Use `PuInput` plus native `list` and sibling `<datalist>` for free-text
+suggestions.
+
+Rules:
+
+- The model remains `string`.
+- `list` passes through to the underlying input.
+- The datalist keeps free text valid; it must not be treated as a fixed picker.
+- Use `PuSelect` when the value must be constrained to a finite option set.
+
+## PuTextarea Rows And Change
+
+Use native `rows` as a pass-through textarea attr for low-risk sizing.
+
+Rules:
+
+- `autoHeight` grows to content and disables manual resize while active.
+- Default manual resize remains vertical.
+- `update:modelValue` is the live dirty hook.
+- `change(value, event)` is the committed-value hook.
+
+## PuForm Native Contract
+
+`PuForm` is a native `<form>` wrapper.
+
+Rules:
+
+- Native form attrs such as `id`, `name`, `autocomplete`, `novalidate`,
+  `action`, and `method` fall through to the underlying `<form>`.
+- Submit prevents default native navigation and emits the native `SubmitEvent`.
+- App code should call `validate()` inside submit handlers when validation is
+  wanted.
+- External submit buttons can target `PuForm` with native `form="<id>"`.

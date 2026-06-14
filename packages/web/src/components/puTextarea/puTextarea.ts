@@ -15,8 +15,6 @@ export type PuTextareaTone = PuTone;
 
 export const puTextareaProps = {
   modelValue: makeStringProp(""),
-  id: makeStringProp<string | undefined>(undefined),
-  name: makeStringProp<string | undefined>(undefined),
   placeholder: makeStringProp(""),
   maxlength: makeNumberProp(-1),
   showCount: makeBooleanProp(false),
@@ -46,6 +44,7 @@ export type PuTextareaProps = typeof puTextareaProps;
 
 export const puTextareaEmits = {
   "update:modelValue": (_value: string) => true,
+  change: (_value: string, _event: Event) => true,
   focus: (_event: FocusEvent) => true,
   blur: (_event: FocusEvent) => true,
 };

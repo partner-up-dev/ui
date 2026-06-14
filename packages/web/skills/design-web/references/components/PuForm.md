@@ -48,6 +48,7 @@ Story: `src/stories/forms/PuForm.story.vue`
 
 - Validation
 - Sub Errors
+- Native Contract
 - Field Shell
 
 ## Types
@@ -58,7 +59,9 @@ Story: `src/stories/forms/PuForm.story.vue`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Native form attributes such as id, name, autocomplete, novalidate, action, and method fall through to the underlying form element.
+- PuForm prevents default native navigation and emits the native SubmitEvent; call validate() inside submit handlers when validation is needed.
+- External submit buttons can target a PuForm by passing the native form attribute with the form id.
 
 ## Source Evidence
 

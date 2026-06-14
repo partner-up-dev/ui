@@ -1,7 +1,6 @@
 <template>
   <div
-    :class="`pu-accordion ${viewmore ? 'is-viewmore' : ''} ${customClass}`"
-    :style="customStyle"
+    :class="`pu-accordion ${viewmore ? 'is-viewmore' : ''}`"
   >
     <!-- 普通或手风琴模式 -->
     <template v-if="!viewmore">

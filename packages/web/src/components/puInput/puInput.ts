@@ -50,8 +50,6 @@ export type PuInputAlign = PuAlign;
 
 export const puInputProps = {
   modelValue: makeStringProp(""),
-  id: makeStringProp<string | undefined>(undefined),
-  name: makeStringProp<string | undefined>(undefined),
   nativeType: {
     type: String as PropType<PuInputNativeType>,
     default: "text",
@@ -64,7 +62,6 @@ export const puInputProps = {
     validator: (value: string | undefined) =>
       value === undefined || puInputModes.includes(value as PuInputMode),
   },
-  autocomplete: makeStringProp<string | undefined>(undefined),
   placeholder: makeStringProp(""),
   disabled: makeBooleanProp(false),
   readonly: makeBooleanProp(false),
@@ -102,6 +99,7 @@ export type PuInputProps = typeof puInputProps;
 
 export const puInputEmits = {
   "update:modelValue": (_value: string) => true,
+  change: (_value: string, _event: Event) => true,
   focus: (_event: FocusEvent) => true,
   blur: (_event: FocusEvent) => true,
   clear: () => true,

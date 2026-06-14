@@ -23,7 +23,6 @@ import { PuTag } from '@partner-up-dev/design-web'
 
 ## Props
 
-- `...baseProps`
 - `text`
 - `tone`
 - `variant`

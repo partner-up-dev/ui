@@ -1,5 +1,5 @@
 <template>
-  <div :class="rootClasses" :style="props.customStyle">
+  <div :class="rootClasses">
     <div class="pu-tabs__list" role="tablist">
       <button
         v-for="(tab, index) in props.tabs"
@@ -79,7 +79,6 @@ const rootClasses = computed(() => {
     createPuModifierClass("pu-tabs", "variant", variant.value),
     createPuModifierClass("pu-tabs", "size", size.value),
   ];
-  if (props.customClass) classes.push(props.customClass);
   return classes.filter(Boolean);
 });
 

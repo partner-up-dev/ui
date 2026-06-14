@@ -60,6 +60,7 @@ Story: `src/stories/forms/PuForm.story.vue`
 
 - Validation
 - Sub Errors
+- Native Contract
 - Field Shell
 
 ## Types

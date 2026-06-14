@@ -28,7 +28,6 @@ import { PuTabs } from '@partner-up-dev/design-web'
 - `modelValue`
 - `variant`
 - `size`
-- `...baseProps`
 
 ## Slots
 
