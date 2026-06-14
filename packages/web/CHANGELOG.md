@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.3
+
+### Patch Changes
+
+- 2f1645f: Add `PuNumberInput` for nullable numeric models and `PuSelect` for web-native single selection.
+- 12a4d0a: Add `PuChipInput` for editable chip collections and default `PuChip` geometry to rectangular chips.
+- f9afabe: Default `PuTextarea` to the outlined field shell so it matches `PuInput` with a visible border.
+- 5396821: Forward native form-control attributes to underlying controls, document PuForm native submit behavior, add PuInput datalist guidance, and add committed change events for PuInput and PuTextarea.
+- 5396821: Remove UniApp-style `customClass` and `customStyle` root styling props from web components; use standard Vue `class` and `style` fallthrough on component roots instead.
+
 ## 0.4.2
 
 ### Patch Changes
