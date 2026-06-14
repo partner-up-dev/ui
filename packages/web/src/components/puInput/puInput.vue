@@ -101,11 +101,11 @@ const isFocused = ref(false);
 const isPasswordVisible = ref(false);
 
 const nativeInputType = computed(() => {
-  if (props.showPassword || props.type === "password") {
+  if (props.showPassword || props.nativeType === "password") {
     return isPasswordVisible.value ? "text" : "password";
   }
 
-  return props.type;
+  return props.nativeType;
 });
 
 const resolvedInputMode = computed(() => {
@@ -113,23 +113,23 @@ const resolvedInputMode = computed(() => {
     return props.inputmode;
   }
 
-  if (props.type === "number") {
+  if (props.nativeType === "number") {
     return "numeric";
   }
 
-  if (props.type === "tel") {
+  if (props.nativeType === "tel") {
     return "tel";
   }
 
-  if (props.type === "email") {
+  if (props.nativeType === "email") {
     return "email";
   }
 
-  if (props.type === "url") {
+  if (props.nativeType === "url") {
     return "url";
   }
 
-  if (props.type === "search") {
+  if (props.nativeType === "search") {
     return "search";
   }
 

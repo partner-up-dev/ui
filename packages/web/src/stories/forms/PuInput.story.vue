@@ -9,6 +9,8 @@ const name = ref("Lina Chen");
 const search = ref("");
 const password = ref("partnerup");
 const invitationCode = ref("WLK-2026");
+const startsAt = ref("2026-06-14T09:30");
+const eventDate = ref("2026-06-14");
 
 function logInput(event: string, payload: unknown): void {
   logEvent(event, payload);
@@ -60,7 +62,7 @@ function logInput(event: string, payload: unknown): void {
         <PuCard tone="neutral" variant="outline">
           <PuInput
             v-model="search"
-            type="search"
+            native-type="search"
             placeholder="Search members"
             prefix-icon="i-mdi-magnify"
             suffix-icon="i-mdi-tune"
@@ -81,12 +83,33 @@ function logInput(event: string, payload: unknown): void {
       </div>
     </Variant>
 
+    <Variant title="Native Types">
+      <div class="pu-story pu-story--narrow">
+        <PuCard tone="neutral" variant="outline">
+          <PuFormItem label="Start time" for-id="pu-input-story-starts-at">
+            <PuInput
+              id="pu-input-story-starts-at"
+              v-model="startsAt"
+              native-type="datetime-local"
+            />
+          </PuFormItem>
+          <PuFormItem label="Event date" for-id="pu-input-story-event-date">
+            <PuInput
+              id="pu-input-story-event-date"
+              v-model="eventDate"
+              native-type="date"
+            />
+          </PuFormItem>
+        </PuCard>
+      </div>
+    </Variant>
+
     <Variant title="Password And Count">
       <div class="pu-story pu-story--narrow">
         <PuCard tone="neutral" variant="soft">
           <PuInput
             v-model="password"
-            type="password"
+            native-type="password"
             show-password
             :maxlength="16"
             show-count

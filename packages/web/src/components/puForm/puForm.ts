@@ -42,4 +42,6 @@ export const puFormProps = {
 };
 
 // ==================== 组件 Emits 定义 ====================
-export const puFormEmits = {};
+export const puFormEmits = {
+  submit: (_event: SubmitEvent) => true,
+};

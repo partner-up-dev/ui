@@ -13,7 +13,7 @@ import { makeBooleanProp, makeNumberProp, makeStringProp } from "../../utils/pro
 
 export type PuInputClearTrigger = "focus" | "always";
 
-export const puInputTypes = [
+export const puInputNativeTypes = [
   "text",
   "url",
   "email",
@@ -21,9 +21,14 @@ export const puInputTypes = [
   "search",
   "number",
   "password",
+  "date",
+  "time",
+  "datetime-local",
+  "month",
+  "week",
 ] as const;
 
-export type PuInputType = (typeof puInputTypes)[number];
+export type PuInputNativeType = (typeof puInputNativeTypes)[number];
 
 export const puInputModes = [
   "none",
@@ -47,10 +52,11 @@ export const puInputProps = {
   modelValue: makeStringProp(""),
   id: makeStringProp<string | undefined>(undefined),
   name: makeStringProp<string | undefined>(undefined),
-  type: {
-    type: String as PropType<PuInputType>,
+  nativeType: {
+    type: String as PropType<PuInputNativeType>,
     default: "text",
-    validator: (value: string) => puInputTypes.includes(value as PuInputType),
+    validator: (value: string) =>
+      puInputNativeTypes.includes(value as PuInputNativeType),
   },
   inputmode: {
     type: String as PropType<PuInputMode | undefined>,

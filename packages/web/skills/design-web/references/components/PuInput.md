@@ -26,7 +26,7 @@ import { PuInput } from '@partner-up-dev/design-web'
 - `modelValue`
 - `id`
 - `name`
-- `type`
+- `nativeType`
 - `inputmode`
 - `autocomplete`
 - `placeholder`
@@ -73,6 +73,7 @@ Story: `src/stories/forms/PuInput.story.vue`
 - Sizes
 - Field Variants
 - Icons And Alignment
+- Native Types
 - Password And Count
 - States
 - Slots
@@ -83,10 +84,10 @@ Story: `src/stories/forms/PuInput.story.vue`
 - `PuInputClearTrigger`
 - `PuInputEmits`
 - `PuInputMode`
+- `PuInputNativeType`
 - `PuInputProps`
 - `PuInputSize`
 - `PuInputTone`
-- `PuInputType`
 - `PuInputVariant`
 
 ## Caveats

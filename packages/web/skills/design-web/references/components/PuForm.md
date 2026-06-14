@@ -31,7 +31,7 @@ import { PuForm } from '@partner-up-dev/design-web'
 
 ## Events
 
-- No emitted events extracted.
+- `submit`
 
 ## Composition
 

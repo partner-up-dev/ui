@@ -10,7 +10,7 @@ import type { FormValidationResult, FormErrorState } from "./puForm";
 import { ref, provide, computed } from "vue";
 
 const props = defineProps(puFormProps);
-defineEmits(puFormEmits);
+const emit = defineEmits(puFormEmits);
 
 // Reactive error state
 const formErrors = ref<Record<string, string>>({});
@@ -66,6 +66,11 @@ function validate<T = any>(): Promise<FormValidationResult<T>> {
   });
 }
 
+function handleSubmit(event: SubmitEvent) {
+  event.preventDefault();
+  emit("submit", event);
+}
+
 // Expose validate method
 defineExpose({
   validate,
@@ -73,9 +78,9 @@ defineExpose({
 </script>
 
 <template>
-  <div class="pu-form">
+  <form class="pu-form" @submit="handleSubmit">
     <slot></slot>
-  </div>
+  </form>
 </template>
 
 <style lang="scss" scoped src="./puForm.scss"></style>

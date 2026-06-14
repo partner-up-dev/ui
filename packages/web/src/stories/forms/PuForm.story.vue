@@ -52,9 +52,12 @@ const subErrorSchema = {
   },
 };
 
-async function validateForm(): Promise<void> {
+async function submitForm(event: SubmitEvent): Promise<void> {
   const result = await formRef.value?.validate();
-  logEvent("validate", result);
+  logEvent("submit", {
+    eventType: event.type,
+    result,
+  });
 }
 
 async function validateSubErrors(): Promise<void> {
@@ -68,7 +71,7 @@ async function validateSubErrors(): Promise<void> {
     <Variant title="Validation">
       <div class="pu-story pu-story--narrow">
         <PuCard tone="neutral" variant="soft">
-          <PuForm ref="formRef" :schema="schema">
+          <PuForm ref="formRef" :schema="schema" @submit="submitForm">
             <PuFormItem prop="title" label="Title" required>
               <PuInput
                 v-model="formModel.title"
@@ -89,12 +92,12 @@ async function validateSubErrors(): Promise<void> {
                 placeholder="Add operational notes"
               />
             </PuFormItem>
-          </PuForm>
 
-          <div class="pu-story__row">
-            <p class="pu-story__text">Validation errors appear below fields.</p>
-            <PuButton @click="validateForm">Validate</PuButton>
-          </div>
+            <div class="pu-story__row">
+              <p class="pu-story__text">Submit emits before page-level validation runs.</p>
+              <PuButton :action="{ native: 'submit' }">Submit</PuButton>
+            </div>
+          </PuForm>
         </PuCard>
       </div>
     </Variant>
