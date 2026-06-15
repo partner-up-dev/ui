@@ -22,6 +22,7 @@
           :disabled="Boolean(tab.disabled)"
           :variant="variant"
           :size="size"
+          :state="tab.state"
         />
       </button>
     </div>

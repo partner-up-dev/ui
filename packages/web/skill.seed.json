@@ -475,7 +475,7 @@
       "preferWhen": ["Use inside PuTabs when individual tab components are required."],
       "avoidWhen": ["Avoid standalone usage."],
       "composeWith": ["PuTabs"],
-      "apiCaveats": ["Use the shared PuSize vocabulary for sizing.", "Use variant line or pill to match the parent PuTabs presentation."],
+      "apiCaveats": ["Use the shared PuSize vocabulary for sizing.", "Use variant line or pill to match the parent PuTabs presentation.", "Use state dashed for pill tabs that represent expired or visually reduced options."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuTabs.story.vue"
     },
@@ -485,7 +485,7 @@
       "preferWhen": ["Use for switching between related sections where tab semantics are expected, including pill-styled horizontal tab bars."],
       "avoidWhen": ["Avoid for picker-style option selection; use PuPicker or PuWheelPicker."],
       "composeWith": ["PuTab"],
-      "apiCaveats": ["Use value-based tabs with value and label fields; do not use index-only model values.", "Use the shared PuSize vocabulary for sizing.", "Use the append slot for trailing controls that are not part of the tablist."],
+      "apiCaveats": ["Use value-based tabs with value and label fields; do not use index-only model values.", "Use the shared PuSize vocabulary for sizing.", "Use variant pill for transparent inactive tabs with primary-filled active state.", "Use tabs[].state = \"dashed\" for expired or visually reduced pill tabs.", "Use the append slot for trailing controls that are not part of the tablist."],
       "accessibilityNotes": ["Disabled tabs are skipped by keyboard navigation.", "ArrowLeft, ArrowRight, Home, and End move between enabled tabs."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuTabs.story.vue"

@@ -27,6 +27,7 @@ import { PuTab } from '@partner-up-dev/design-web'
 - `disabled`
 - `showDot`
 - `variant`
+- `state`
 - `size`
 
 ## Slots
@@ -61,6 +62,7 @@ Story: `src/stories/display/PuTabs.story.vue`
 
 - Use the shared PuSize vocabulary for sizing.
 - Use variant line or pill to match the parent PuTabs presentation.
+- Use state dashed for pill tabs that represent expired or visually reduced options.
 
 ## Source Evidence
 

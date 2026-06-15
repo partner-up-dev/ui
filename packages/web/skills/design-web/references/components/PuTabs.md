@@ -56,6 +56,7 @@ Story: `src/stories/display/PuTabs.story.vue`
 ## Types
 
 - `PuTabItem`
+- `PuTabState`
 - `PuTabValue`
 - `PuTabsChangePayload`
 - `PuTabsProps`
@@ -65,6 +66,8 @@ Story: `src/stories/display/PuTabs.story.vue`
 
 - Use value-based tabs with value and label fields; do not use index-only model values.
 - Use the shared PuSize vocabulary for sizing.
+- Use variant pill for transparent inactive tabs with primary-filled active state.
+- Use tabs[].state = "dashed" for expired or visually reduced pill tabs.
 - Use the append slot for trailing controls that are not part of the tablist.
 - Disabled tabs are skipped by keyboard navigation.
 - ArrowLeft, ArrowRight, Home, and End move between enabled tabs.

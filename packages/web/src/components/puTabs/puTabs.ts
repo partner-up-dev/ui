@@ -4,12 +4,14 @@ import { makeArrayProp } from "../../utils/props";
 
 export type PuTabValue = string | number;
 export type PuTabsVariant = "line" | "pill";
+export type PuTabState = "default" | "dashed";
 
 export type PuTabItem = {
   value: PuTabValue;
   label: string;
   showDot?: boolean;
   disabled?: boolean;
+  state?: PuTabState;
 };
 
 export type PuTabsChangePayload = {
@@ -19,6 +21,7 @@ export type PuTabsChangePayload = {
 };
 
 export const puTabsVariants = ["line", "pill"] as const;
+export const puTabStates = ["default", "dashed"] as const;
 
 // ==================== 组件 Props 定义 ====================
 export const puTabsProps = {

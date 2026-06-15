@@ -15,7 +15,8 @@
     background-color 160ms ease,
     border-color 160ms ease,
     color 160ms ease,
-    opacity 160ms ease;
+    opacity 160ms ease,
+    transform 160ms ease;
 }
 
 .pu-tab__text {
@@ -67,12 +68,18 @@
 }
 
 .pu-tab--variant-pill {
-  min-height: var(--pu-tab-pill-height, 34px);
-  padding: 0 var(--pu-tab-pill-padding-inline, 14px);
-  border: 1px solid fn.sys-var(color, outline-variant);
+  --pu-tab-pill-height: calc(
+    #{fn.sys-var(spacing, large)} + #{fn.sys-var(spacing, small)} + #{fn.sys-var(spacing, xsmall)}
+  );
+  --pu-tab-pill-padding-block: #{fn.sys-var(spacing, small)};
+  --pu-tab-pill-padding-inline: #{fn.sys-var(spacing, medium)};
+
+  min-height: var(--pu-tab-pill-height);
+  padding: var(--pu-tab-pill-padding-block) var(--pu-tab-pill-padding-inline);
+  border: 1px solid fn.sys-var(color, outline);
   border-radius: fn.sys-var(radius, pill);
-  background: fn.sys-var(color, surface);
-  color: fn.sys-var(color, on-surface-variant);
+  background: transparent;
+  color: fn.sys-var(color, on-surface);
 }
 
 .pu-tab--variant-pill .pu-tab__dot {
@@ -82,18 +89,28 @@
 
 .pu-tab--variant-pill.is-active {
   border-color: fn.sys-var(color, primary);
-  background: fn.sys-var(color, primary-container);
-  color: fn.sys-var(color, on-primary-container);
+  background: fn.sys-var(color, primary);
+  color: fn.sys-var(color, on-primary);
+}
+
+.pu-tab--variant-pill.pu-tab--state-dashed {
+  border-style: dashed;
+  opacity: fn.sys-var(opacity, invalid);
 }
 
 .pu-tab--variant-pill.pu-tab--size-sm {
-  --pu-tab-pill-height: 30px;
-  --pu-tab-pill-padding-inline: 12px;
+  --pu-tab-pill-height: calc(
+    #{fn.sys-var(spacing, large)} + #{fn.sys-var(spacing, xsmall)}
+  );
+  --pu-tab-pill-padding-block: #{fn.sys-var(spacing, xsmall)};
+  --pu-tab-pill-padding-inline: #{fn.sys-var(spacing, small)};
 }
 
 .pu-tab--variant-pill.pu-tab--size-lg {
-  --pu-tab-pill-height: 40px;
-  --pu-tab-pill-padding-inline: 18px;
+  --pu-tab-pill-height: calc(
+    #{fn.sys-var(spacing, large)} + #{fn.sys-var(spacing, medium)}
+  );
+  --pu-tab-pill-padding-inline: #{fn.sys-var(spacing, large)};
 }
 
 .pu-tab.is-disabled {

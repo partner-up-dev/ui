@@ -16,6 +16,7 @@ import type {
 
 const currentTab = ref("overview");
 const statusTab = ref("review");
+const dateTab = ref("saturday");
 const scrollTab = ref("permissions");
 const keyboardTab = ref("details");
 
@@ -30,6 +31,13 @@ const statusTabs: PuTabItem[] = [
   { value: "draft", label: "Draft" },
   { value: "review", label: "Review", showDot: true },
   { value: "published", label: "Published" },
+];
+
+const dateTabs: PuTabItem[] = [
+  { value: "thursday", label: "Thu 12", state: "dashed" },
+  { value: "friday", label: "Fri 13", state: "dashed" },
+  { value: "saturday", label: "Sat 14" },
+  { value: "sunday", label: "Sun 15" },
 ];
 
 const scrollTabs: PuTabItem[] = [
@@ -107,20 +115,17 @@ function handleChange(payload: PuTabsChangePayload): void {
 
     <Variant title="Pill Tab Bar">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="neutral" variant="soft">
-          <PuTabs
-            v-model="statusTab"
-            :tabs="statusTabs"
-            variant="pill"
-            size="sm"
-          >
-            <template #append>
-              <PuButton size="sm" variant="ghost" tone="neutral">
-                Add
-              </PuButton>
-            </template>
-          </PuTabs>
-        </PuCard>
+        <PuTabs
+          v-model="dateTab"
+          :tabs="dateTabs"
+          variant="pill"
+        >
+          <template #append>
+            <PuButton size="sm" variant="ghost" tone="neutral">
+              Add
+            </PuButton>
+          </template>
+        </PuTabs>
       </div>
     </Variant>
 
@@ -173,9 +178,9 @@ function handleChange(payload: PuTabsChangePayload): void {
                 active
               />
               <PuTab
-                label="Attention"
+                label="Dashed"
                 :variant="variant"
-                show-dot
+                state="dashed"
               />
               <PuTab
                 :variant="variant"

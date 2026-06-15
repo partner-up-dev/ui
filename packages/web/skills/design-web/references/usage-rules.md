@@ -129,8 +129,11 @@
 - PuSpinner: Pass label when the spinner itself should announce loading; omit label when another region or control already exposes busy status.
 - PuTab: Use the shared PuSize vocabulary for sizing.
 - PuTab: Use variant line or pill to match the parent PuTabs presentation.
+- PuTab: Use state dashed for pill tabs that represent expired or visually reduced options.
 - PuTabs: Use value-based tabs with value and label fields; do not use index-only model values.
 - PuTabs: Use the shared PuSize vocabulary for sizing.
+- PuTabs: Use variant pill for transparent inactive tabs with primary-filled active state.
+- PuTabs: Use tabs[].state = "dashed" for expired or visually reduced pill tabs.
 - PuTabs: Use the append slot for trailing controls that are not part of the tablist.
 - PuTabs: Disabled tabs are skipped by keyboard navigation.
 - PuTabs: ArrowLeft, ArrowRight, Home, and End move between enabled tabs.

@@ -1,7 +1,12 @@
 import type { ExtractPropTypes, PropType } from "vue";
 import { puSizes, type PuSize } from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
-import { puTabsVariants, type PuTabsVariant } from "../puTabs/puTabs";
+import {
+  puTabStates,
+  puTabsVariants,
+  type PuTabState,
+  type PuTabsVariant,
+} from "../puTabs/puTabs";
 
 export type PuTabVariant = PuTabsVariant;
 
@@ -15,6 +20,11 @@ export const puTabProps = {
     type: String as PropType<PuTabVariant>,
     default: "line",
     validator: (value: string) => puTabsVariants.includes(value as PuTabsVariant),
+  },
+  state: {
+    type: String as PropType<PuTabState>,
+    default: "default",
+    validator: (value: string) => puTabStates.includes(value as PuTabState),
   },
   size: {
     type: String as PropType<PuSize>,

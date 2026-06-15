@@ -60,3 +60,17 @@
 .pu-tabs--variant-pill .pu-tabs__list {
   gap: fn.sys-var(spacing, small);
 }
+
+.pu-tabs--variant-pill .pu-tabs__item:focus-visible {
+  border-radius: fn.sys-var(radius, pill);
+}
+
+.pu-tabs--variant-pill
+  .pu-tabs__item:not(:disabled):hover
+  .pu-tab--variant-pill:not(.is-active) {
+  background: fn.sys-var(color, surface-container-high);
+}
+
+.pu-tabs--variant-pill .pu-tabs__item:not(:disabled):active .pu-tab--variant-pill {
+  transform: scale(0.99);
+}
