@@ -1,6 +1,6 @@
 {
   "name": "@partner-up-dev/design-web",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "PartnerUp Design System for Web",
   "type": "module",
   "main": "./dist/index.js",
