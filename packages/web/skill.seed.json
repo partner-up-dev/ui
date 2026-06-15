@@ -163,13 +163,23 @@
     },
     "PuChipInput": {
       "category": "forms",
-      "intent": ["chip input", "tag entry field", "editable token collection"],
-      "preferWhen": ["Use for collecting a string array as removable chips with draft text entry."],
-      "avoidWhen": ["Avoid for passive status labels; use PuTag.", "Avoid for a single text value; use PuInput."],
+      "intent": ["editable chip", "single chip input", "inline token editing"],
+      "preferWhen": ["Use for editing one chip value with chip geometry, commit/cancel, and optional remove."],
+      "avoidWhen": ["Avoid for chip collections with draft entry; use PuChipsEditor.", "Avoid for passive status labels; use PuTag."],
       "composeWith": ["PuFormItem", "PuChip", "PuChipGroup"],
-      "apiCaveats": ["Values are string arrays.", "Press Enter or a configured separator to commit draft text.", "Backspace removes the previous chip when draft text is empty.", "Use shape rect or pill to match chip geometry; default is rect.", "Suggestions and custom option listbox behavior are deferred."],
+      "apiCaveats": ["Values are strings.", "Enter emits commit; Escape restores the value captured when focus started.", "Remove clears the value and emits remove.", "Use PuChipsEditor for string arrays, draft entry, separators, and native repeated hidden inputs.", "With surface-backed neutral variants, focused active border uses primary without changing the component tone.", "Use shape rect or pill to match chip geometry; default is rect."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuChipInput.story.vue"
+    },
+    "PuChipsEditor": {
+      "category": "forms",
+      "intent": ["chips editor", "tag entry field", "editable token collection"],
+      "preferWhen": ["Use for collecting a string array as removable chips with draft text entry."],
+      "avoidWhen": ["Avoid for editing one chip value; use PuChipInput.", "Avoid for passive status labels; use PuTag."],
+      "composeWith": ["PuFormItem", "PuChip", "PuChipGroup", "PuChipInput"],
+      "apiCaveats": ["Values are string arrays.", "Press Enter or a configured separator to commit draft text.", "Backspace removes the previous chip when draft text is empty.", "With the default neutral tone and outline variant, focused active border uses primary without changing the component tone.", "Use shape rect or pill to match chip geometry; default is rect.", "Suggestions and custom option listbox behavior are deferred."],
+      "storyGroup": "forms",
+      "storyFile": "src/stories/forms/PuChipsEditor.story.vue"
     },
     "PuDescriptionItem": {
       "category": "display",

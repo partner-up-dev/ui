@@ -2,14 +2,14 @@
 import { ref } from "vue";
 import { logEvent } from "histoire/client";
 import PuCard from "../../components/puCard/puCard.vue";
+import PuChipGroup from "../../components/puChipGroup/puChipGroup.vue";
 import PuChipInput from "../../components/puChipInput/puChipInput.vue";
 import PuFormItem from "../../components/puFormItem/puFormItem.vue";
 
-const topics = ref(["Community", "Weekend"]);
-const draft = ref("");
-const skills = ref(["Vue", "Design system"]);
-const limited = ref(["Founder", "Mentor"]);
-const states = ref(["Published"]);
+const location = ref("Hangzhou");
+const role = ref("Host");
+const stage = ref("Draft");
+const invalid = ref("Needs review");
 
 function logChipInput(event: string, payload: unknown): void {
   logEvent(event, payload);
@@ -18,115 +18,84 @@ function logChipInput(event: string, payload: unknown): void {
 
 <template>
   <Story title="PuChipInput" group="forms">
-    <Variant title="Controlled">
-      <div class="pu-story pu-story--narrow">
-        <div class="pu-story__stack">
-          <PuFormItem
-            label="Topics"
-            for-id="pu-chip-input-story-topics"
-            hint="Press Enter or comma to add a chip."
-          >
-            <PuChipInput
-              id="pu-chip-input-story-topics"
-              v-model="topics"
-              v-model:draft-value="draft"
-              name="topics"
-              placeholder="Add topic"
-              clearable
-              @add="logChipInput('add', $event)"
-              @remove="logChipInput('remove', $event)"
-              @clear="logChipInput('clear', null)"
-            />
-          </PuFormItem>
-          <p class="pu-story__text">Value: {{ topics.join(", ") || "empty" }}</p>
-          <p class="pu-story__text">Draft: {{ draft || "empty" }}</p>
-        </div>
+    <Variant title="Editable Chip">
+      <div class="pu-story">
+        <PuFormItem
+          label="Editable attribute"
+          for-id="pu-chip-input-story-location"
+          hint="Enter commits the chip value; Escape restores the value from focus start."
+        >
+          <PuChipInput
+            id="pu-chip-input-story-location"
+            v-model="location"
+            name="location"
+            placeholder="Attribute"
+            select-on-focus
+            @commit="logChipInput('commit', $event)"
+            @cancel="logChipInput('cancel', $event)"
+            @remove="logChipInput('remove', $event)"
+          />
+        </PuFormItem>
+        <p class="pu-story__text">Value: {{ location || "empty" }}</p>
       </div>
     </Variant>
 
-    <Variant title="Separators And Blur">
+    <Variant title="Group Editing">
+      <div class="pu-story">
+        <PuChipGroup gap="xs">
+          <PuChipInput v-model="location" prefix-icon="i-mdi-map-marker" />
+          <PuChipInput v-model="role" tone="secondary" variant="outline" />
+          <PuChipInput v-model="stage" tone="warning" shape="pill" />
+        </PuChipGroup>
+      </div>
+    </Variant>
+
+    <Variant title="Commit On Blur">
       <div class="pu-story pu-story--narrow">
         <PuCard tone="neutral" variant="outline">
-          <PuFormItem label="Skills">
-            <PuChipInput
-              v-model="skills"
-              placeholder="Type Vue;Design"
-              :separators="[',', ';']"
-              add-on-blur
-              shape="pill"
-            />
-          </PuFormItem>
-        </PuCard>
-      </div>
-    </Variant>
-
-    <Variant title="Limit And Variants">
-      <div class="pu-story pu-story--narrow">
-        <PuCard tone="neutral" variant="soft">
           <PuChipInput
-            v-model="limited"
-            :max="3"
-            placeholder="Only one more"
-            size="sm"
-          />
-          <PuChipInput
-            :model-value="['Operations', 'Host']"
-            variant="line"
-            tone="secondary"
-            shape="pill"
-          />
-          <PuChipInput
-            :model-value="['Borderless']"
-            variant="borderless"
+            v-model="role"
+            commit-on-blur
+            placeholder="Role"
+            suffix-icon="i-mdi-pencil"
+            @commit="logChipInput('commit-on-blur', $event)"
           />
         </PuCard>
       </div>
     </Variant>
 
     <Variant title="States">
-      <div class="pu-story pu-story--narrow">
-        <PuCard tone="neutral" variant="soft" padding="sm">
-          <PuFormItem
-            label="Required labels"
-            error="Add at least two labels."
-            required
-          >
-            <PuChipInput
-              :model-value="['Draft']"
-              placeholder="Add label"
-              invalid
-            />
-          </PuFormItem>
-          <PuChipInput v-model="states" readonly />
-          <PuChipInput :model-value="['Locked']" disabled />
-        </PuCard>
+      <div class="pu-story">
+        <PuChipGroup gap="sm">
+          <PuChipInput v-model="invalid" invalid />
+          <PuChipInput model-value="Readonly" readonly />
+          <PuChipInput model-value="Locked" disabled />
+          <PuChipInput model-value="Fixed" :removable="false" />
+        </PuChipGroup>
       </div>
     </Variant>
 
     <Variant title="Slots">
-      <div class="pu-story pu-story--narrow">
-        <PuCard tone="neutral" variant="outline">
-          <PuChipInput
-            :model-value="['Hangzhou', 'Offline']"
-            placeholder="Add attribute"
-          >
-            <template #prefix>
-              <span class="i-mdi-tag-outline pu-chip-input-story__icon" />
-            </template>
-            <template #suffix>
-              <span class="pu-story__badge">2 tags</span>
-            </template>
-          </PuChipInput>
-        </PuCard>
+      <div class="pu-story">
+        <PuChipInput v-model="stage" shape="pill" variant="outline">
+          <template #prefix>
+            <span class="i-mdi-circle-medium" />
+          </template>
+          <template #suffix>
+            <span class="pu-chip-input-story__suffix">editable</span>
+          </template>
+          <template #remove-icon>
+            <span class="i-mdi-close-circle-outline" />
+          </template>
+        </PuChipInput>
       </div>
     </Variant>
   </Story>
 </template>
 
 <style scoped>
-.pu-chip-input-story__icon {
-  color: var(--sys-color-on-surface-variant);
-  font-size: 1.25em;
-  line-height: 1;
+.pu-chip-input-story__suffix {
+  font-size: 0.85em;
+  opacity: 0.72;
 }
 </style>

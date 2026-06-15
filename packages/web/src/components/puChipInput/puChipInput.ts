@@ -1,41 +1,28 @@
 import type { PropType } from "vue";
-import {
-  puFieldVariants,
-  puSizes,
-  puTones,
-  type PuFieldVariant,
-  type PuSize,
-  type PuTone,
-} from "../../types";
+import { puControlVariants, puSizes, type PuControlVariant } from "../../types";
 import { makeBooleanProp, makeNumberProp, makeStringProp } from "../../utils/props";
-import { puChipShapes, type PuChipShape } from "../puChip/puChip";
+import {
+  puChipShapes,
+  puChipTones,
+  type PuChipShape,
+  type PuChipSize,
+  type PuChipTone,
+} from "../puChip/puChip";
 
-export type PuChipInputValue = string[];
-export type PuChipInputSize = PuSize;
-export type PuChipInputVariant = PuFieldVariant;
-export type PuChipInputTone = PuTone;
+export type PuChipInputValue = string;
+export type PuChipInputSize = PuChipSize;
+export type PuChipInputTone = PuChipTone;
+export type PuChipInputVariant = PuControlVariant;
 export type PuChipInputShape = PuChipShape;
-export type PuChipInputChangeSource =
-  | "keyboard"
-  | "separator"
-  | "blur"
-  | "remove"
-  | "clear";
+export type PuChipInputCommitSource = "keyboard" | "blur";
 
-export interface PuChipInputChangeContext {
+export interface PuChipInputCommitContext {
   event: Event;
-  source: PuChipInputChangeSource;
+  source: PuChipInputCommitSource;
 }
 
 export const puChipInputProps = {
-  modelValue: {
-    type: Array as PropType<PuChipInputValue>,
-    default: () => [],
-  },
-  draftValue: {
-    type: String as PropType<string | undefined>,
-    default: undefined,
-  },
+  modelValue: makeStringProp(""),
   placeholder: makeStringProp(""),
   disabled: makeBooleanProp(false),
   readonly: makeBooleanProp(false),
@@ -45,53 +32,45 @@ export const puChipInputProps = {
     default: "md",
     validator: (value: string) => puSizes.includes(value as PuChipInputSize),
   },
-  variant: {
-    type: String as PropType<PuChipInputVariant>,
-    default: "outline",
-    validator: (value: string) =>
-      puFieldVariants.includes(value as PuChipInputVariant),
-  },
   tone: {
     type: String as PropType<PuChipInputTone>,
     default: "neutral",
-    validator: (value: string) => puTones.includes(value as PuChipInputTone),
+    validator: (value: string) => puChipTones.includes(value as PuChipInputTone),
+  },
+  variant: {
+    type: String as PropType<PuChipInputVariant>,
+    default: "soft",
+    validator: (value: string) =>
+      puControlVariants.includes(value as PuChipInputVariant),
   },
   shape: {
     type: String as PropType<PuChipInputShape>,
     default: "rect",
     validator: (value: string) => puChipShapes.includes(value as PuChipInputShape),
   },
-  max: makeNumberProp(-1),
-  allowDuplicates: makeBooleanProp(false),
-  separators: {
-    type: Array as PropType<string[]>,
-    default: () => [","],
-    validator: (value: string[]) =>
-      value.every((separator) => separator.length > 0),
-  },
-  addOnBlur: makeBooleanProp(false),
-  clearable: makeBooleanProp(false),
+  removable: makeBooleanProp(true),
   removeLabel: makeStringProp("Remove chip"),
+  maxlength: makeNumberProp(-1),
+  commitOnBlur: makeBooleanProp(false),
+  selectOnFocus: makeBooleanProp(false),
+  prefixIcon: makeStringProp<string | undefined>(undefined),
+  suffixIcon: makeStringProp<string | undefined>(undefined),
 };
 
 export type PuChipInputProps = typeof puChipInputProps;
 
 export const puChipInputEmits = {
   "update:modelValue": (_value: PuChipInputValue) => true,
-  "update:draftValue": (_value: string) => true,
   change: (_value: PuChipInputValue, _event: Event) => true,
-  add: (
-    _value: string,
-    _context: PuChipInputChangeContext,
+  commit: (
+    _value: PuChipInputValue,
+    _context: PuChipInputCommitContext,
   ) => true,
-  remove: (
-    _value: string,
-    _index: number,
-    _context: PuChipInputChangeContext,
-  ) => true,
-  clear: (_event: Event) => true,
+  cancel: (_value: PuChipInputValue, _event: KeyboardEvent) => true,
+  remove: (_value: PuChipInputValue, _event: MouseEvent) => true,
   focus: (_event: FocusEvent) => true,
   blur: (_event: FocusEvent) => true,
+  click: (_event: MouseEvent) => true,
 };
 
 export type PuChipInputEmits = typeof puChipInputEmits;

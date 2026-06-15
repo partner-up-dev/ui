@@ -1,78 +1,54 @@
 <template>
-  <div
+  <PuChip
     v-bind="rootAttrs"
     class="pu-chip-input"
     :class="rootClass"
+    as="span"
+    :tone="props.tone"
+    :variant="props.variant"
+    :size="props.size"
+    :shape="props.shape"
+    :disabled="props.disabled"
+    :removable="showRemove"
+    :remove-label="props.removeLabel"
     @click="handleRootClick"
+    @remove="handleRemove"
   >
-    <div v-if="$slots.prefix" class="pu-chip-input__prefix">
-      <slot name="prefix" />
-    </div>
-
-    <PuChipGroup class="pu-chip-input__content" gap="xs">
-      <template v-for="(value, index) in props.modelValue" :key="`${value}-${index}`">
-        <slot
-          name="chip"
-          :value="value"
-          :index="index"
-          :remove="(event: MouseEvent) => removeValue(index, event, 'remove')"
-        >
-          <PuChip
-            class="pu-chip-input__chip"
-            :label="value"
-            :tone="props.tone"
-            variant="soft"
-            :size="props.size"
-            :shape="props.shape"
-            :removable="!props.readonly"
-            :disabled="props.disabled"
-            :remove-label="getRemoveLabel(value)"
-            @remove="removeValue(index, $event, 'remove')"
-          />
-        </slot>
-      </template>
-
-      <input
-        ref="inputRef"
-        v-bind="inputAttrs"
-        class="pu-chip-input__control"
-        type="text"
-        :value="draftText"
-        :placeholder="visiblePlaceholder"
-        :disabled="props.disabled"
-        :readonly="props.readonly"
-        :aria-invalid="nativeAriaInvalid"
-        @compositionstart="handleCompositionStart"
-        @compositionend="handleCompositionEnd"
-        @input="handleInput"
-        @keydown="handleKeydown"
-        @focus="handleFocus"
-        @blur="handleBlur"
-      />
-    </PuChipGroup>
-
-    <div v-if="showClear || $slots.suffix" class="pu-chip-input__suffix">
-      <button
-        v-if="showClear"
-        type="button"
-        class="i-mdi-close-circle pu-chip-input__clear"
-        :disabled="props.disabled"
-        aria-label="Clear chips"
-        @mousedown.prevent
-        @click.stop="handleClear"
-      />
-      <slot name="suffix" />
-    </div>
+    <template v-if="hasPrefix" #prefix>
+      <slot name="prefix">
+        <span v-if="props.prefixIcon" :class="props.prefixIcon" />
+      </slot>
+    </template>
 
     <input
-      v-for="(value, index) in hiddenValues"
-      :key="`${nativeName}-${index}`"
-      type="hidden"
-      :name="nativeName"
-      :form="nativeForm"
-      :value="value"
+      ref="inputRef"
+      v-bind="controlAttrs"
+      class="pu-chip-input__control"
+      type="text"
+      :value="inputValue"
+      :placeholder="props.placeholder"
+      :disabled="props.disabled"
+      :readonly="props.readonly"
+      :maxlength="nativeMaxlength"
+      :aria-invalid="nativeAriaInvalid"
+      :style="controlStyle"
+      @input="handleInput"
+      @change="handleChange"
+      @keydown="handleKeydown"
+      @focus="handleFocus"
+      @blur="handleBlur"
     />
-  </div>
+
+    <template v-if="hasSuffix" #suffix>
+      <slot name="suffix">
+        <span v-if="props.suffixIcon" :class="props.suffixIcon" />
+      </slot>
+    </template>
+
+    <template v-if="$slots['remove-icon']" #remove-icon>
+      <slot name="remove-icon" />
+    </template>
+  </PuChip>
 </template>
 
 <script lang="ts">
@@ -83,44 +59,36 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { computed, nextTick, ref, useSlots, watch } from "vue";
 import { useNativeControlAttrs } from "../_utils/nativeAttrs";
 import type { PuNativeAriaInvalidValue } from "../_utils/nativeAttrs";
 import PuChip from "../puChip/puChip.vue";
-import PuChipGroup from "../puChipGroup/puChipGroup.vue";
 import {
   puChipInputEmits,
   puChipInputProps,
-  type PuChipInputChangeContext,
-  type PuChipInputChangeSource,
-  type PuChipInputValue,
+  type PuChipInputCommitSource,
 } from "./puChipInput";
 
 const props = defineProps(puChipInputProps);
 const emit = defineEmits(puChipInputEmits);
+const slots = useSlots();
 const { rootAttrs, controlAttrs } = useNativeControlAttrs();
 
 const inputRef = ref<HTMLInputElement>();
-const draftText = ref(props.draftValue ?? "");
+const inputValue = ref(formatValue(props.modelValue));
+const editStartValue = ref(inputValue.value);
 const isFocused = ref(false);
-const isComposing = ref(false);
 
-const inputAttrs = computed(() => {
-  const { name: _name, ...rest } = controlAttrs.value;
-  return rest;
-});
+const hasPrefix = computed(() => Boolean(slots.prefix) || Boolean(props.prefixIcon));
+const hasSuffix = computed(() => Boolean(slots.suffix) || Boolean(props.suffixIcon));
+const hasValue = computed(() => inputValue.value.length > 0);
+const showRemove = computed(
+  () => props.removable && !props.disabled && !props.readonly,
+);
 
-const nativeName = computed(() => {
-  const name = controlAttrs.value.name;
-  return typeof name === "string" ? name : undefined;
-});
-
-const nativeForm = computed(() => {
-  const form = controlAttrs.value.form;
-  return typeof form === "string" ? form : undefined;
-});
-
-const hiddenValues = computed(() => (nativeName.value ? props.modelValue : []));
+const nativeMaxlength = computed(() =>
+  props.maxlength > -1 ? props.maxlength : undefined,
+);
 
 const nativeAriaInvalid = computed<PuNativeAriaInvalidValue>(() =>
   props.invalid
@@ -128,281 +96,139 @@ const nativeAriaInvalid = computed<PuNativeAriaInvalidValue>(() =>
     : (controlAttrs.value["aria-invalid"] as PuNativeAriaInvalidValue),
 );
 
-const isDraftControlled = computed(() => props.draftValue !== undefined);
-
-const hasValue = computed(
-  () => props.modelValue.length > 0 || draftText.value.length > 0,
-);
-
-const showClear = computed(
-  () =>
-    props.clearable &&
-    !props.disabled &&
-    !props.readonly &&
-    hasValue.value,
-);
-
-const visiblePlaceholder = computed(() =>
-  props.modelValue.length === 0 ? props.placeholder : undefined,
-);
-
-const rootClass = computed(() => [
-  `pu-chip-input--size-${props.size}`,
-  `pu-chip-input--variant-${props.variant}`,
-  `pu-chip-input--tone-${props.tone}`,
-  `pu-chip-input--shape-${props.shape}`,
-  {
-    "is-disabled": props.disabled,
-    "is-readonly": props.readonly,
-    "is-focused": isFocused.value,
-    "is-invalid": props.invalid,
-    "is-not-empty": hasValue.value,
-  },
-]);
-
-function setDraftValue(value: string): void {
-  if (!isDraftControlled.value) {
-    draftText.value = value;
-  }
-
-  emit("update:draftValue", value);
-}
-
-function normalizeValue(value: string): string {
-  return value.trim();
-}
-
-function splitBySeparators(value: string): { entries: string[]; remainder: string } {
-  const separators = props.separators.filter(Boolean);
-  if (separators.length === 0) {
-    return { entries: [], remainder: value };
-  }
-
-  const entries: string[] = [];
-  let buffer = "";
-  let index = 0;
-
-  while (index < value.length) {
-    const separator = separators.find((item) => value.startsWith(item, index));
-    if (separator) {
-      entries.push(buffer);
-      buffer = "";
-      index += separator.length;
-      continue;
-    }
-
-    buffer += value[index];
-    index += 1;
-  }
+const controlStyle = computed(() => {
+  const visibleText = inputValue.value || props.placeholder;
+  const width = Math.min(Math.max(visibleText.length + 1, 2), 32);
 
   return {
-    entries,
-    remainder: buffer,
+    inlineSize: `${width}ch`,
   };
-}
+});
 
-function collectAdditions(values: string[]): string[] {
-  const additions: string[] = [];
-  const seen = new Set(props.modelValue);
-  const capacity =
-    props.max >= 0
-      ? Math.max(props.max - props.modelValue.length, 0)
-      : Number.POSITIVE_INFINITY;
+const rootClass = computed(() => ({
+  "is-focused": isFocused.value,
+  "is-readonly": props.readonly,
+  "is-invalid": props.invalid,
+  "is-not-empty": hasValue.value,
+}));
 
-  for (const rawValue of values) {
-    if (additions.length >= capacity) {
-      break;
-    }
-
-    const value = normalizeValue(rawValue);
-    if (!value) {
-      continue;
-    }
-
-    if (!props.allowDuplicates && seen.has(value)) {
-      continue;
-    }
-
-    additions.push(value);
-    if (!props.allowDuplicates) {
-      seen.add(value);
-    }
+function formatValue(value: string): string {
+  if (props.maxlength > -1 && value.length > props.maxlength) {
+    return value.slice(0, props.maxlength);
   }
 
-  return additions;
+  return value;
 }
 
-function emitValue(nextValue: PuChipInputValue, event: Event): void {
-  emit("update:modelValue", nextValue);
-  emit("change", nextValue, event);
+function setValue(value: string): string {
+  const nextValue = formatValue(value);
+
+  if (nextValue !== inputValue.value) {
+    inputValue.value = nextValue;
+    emit("update:modelValue", nextValue);
+  }
+
+  return nextValue;
 }
 
-function addValues(
-  rawValues: string[],
-  event: Event,
-  source: PuChipInputChangeSource,
-): string[] {
+function commitValue(event: Event, source: PuChipInputCommitSource): void {
   if (props.disabled || props.readonly) {
-    return [];
-  }
-
-  const additions = collectAdditions(rawValues);
-  if (additions.length === 0) {
-    return additions;
-  }
-
-  const nextValue = [...props.modelValue, ...additions];
-  const context: PuChipInputChangeContext = { event, source };
-
-  emitValue(nextValue, event);
-  additions.forEach((value) => {
-    emit("add", value, context);
-  });
-
-  return additions;
-}
-
-function commitDraft(event: Event, source: PuChipInputChangeSource): boolean {
-  const value = draftText.value;
-  const additions = addValues([value], event, source);
-
-  if (additions.length > 0 || normalizeValue(value).length === 0) {
-    setDraftValue("");
-    return additions.length > 0;
-  }
-
-  return false;
-}
-
-function removeValue(
-  index: number,
-  event: Event,
-  source: PuChipInputChangeSource,
-): void {
-  if (props.disabled || props.readonly) {
-    event.preventDefault();
     return;
   }
 
-  const value = props.modelValue[index];
-  if (value === undefined) {
-    return;
+  emit("commit", inputValue.value, { event, source });
+}
+
+function focusInput(): void {
+  if (!props.disabled) {
+    inputRef.value?.focus();
   }
-
-  const nextValue = props.modelValue.filter((_, itemIndex) => itemIndex !== index);
-  const context: PuChipInputChangeContext = { event, source };
-
-  emitValue(nextValue, event);
-  emit("remove", value, index, context);
 }
 
 function handleInput(event: Event): void {
-  const target = event.target as HTMLInputElement | null;
-  const value = target?.value ?? "";
-
   if (props.disabled || props.readonly) {
     return;
   }
 
-  if (isComposing.value) {
-    setDraftValue(value);
-    return;
-  }
+  const target = event.target as HTMLInputElement | null;
+  setValue(target?.value ?? "");
+}
 
-  const { entries, remainder } = splitBySeparators(value);
-  if (entries.length === 0) {
-    setDraftValue(value);
-    return;
-  }
-
-  addValues(entries, event, "separator");
-  setDraftValue(remainder);
+function handleChange(event: Event): void {
+  emit("change", inputValue.value, event);
 }
 
 function handleKeydown(event: KeyboardEvent): void {
-  if (props.disabled || props.readonly || isComposing.value || event.isComposing) {
+  if (props.disabled || props.readonly) {
     return;
   }
 
   if (event.key === "Enter") {
-    if (draftText.value.length > 0) {
-      event.preventDefault();
-      commitDraft(event, "keyboard");
-    }
-    return;
-  }
-
-  if (event.key === "Backspace" && draftText.value.length === 0) {
-    const lastIndex = props.modelValue.length - 1;
-    if (lastIndex >= 0) {
-      event.preventDefault();
-      removeValue(lastIndex, event, "remove");
-    }
-    return;
-  }
-
-  if (event.key === "Escape" && draftText.value.length > 0) {
     event.preventDefault();
-    setDraftValue("");
+    commitValue(event, "keyboard");
+    return;
   }
-}
 
-function handleCompositionStart(): void {
-  isComposing.value = true;
-}
-
-function handleCompositionEnd(event: CompositionEvent): void {
-  isComposing.value = false;
-  handleInput(event);
+  if (event.key === "Escape" && !props.readonly) {
+    event.preventDefault();
+    const restoredValue = setValue(editStartValue.value);
+    emit("cancel", restoredValue, event);
+  }
 }
 
 function handleFocus(event: FocusEvent): void {
   isFocused.value = true;
+  editStartValue.value = inputValue.value;
+
+  if (props.selectOnFocus) {
+    void nextTick(() => inputRef.value?.select());
+  }
+
   emit("focus", event);
 }
 
 function handleBlur(event: FocusEvent): void {
   isFocused.value = false;
 
-  if (props.addOnBlur && draftText.value.length > 0) {
-    commitDraft(event, "blur");
+  if (props.commitOnBlur && !props.readonly) {
+    commitValue(event, "blur");
   }
 
   emit("blur", event);
 }
 
-function handleClear(event: MouseEvent): void {
+function handleRootClick(event: MouseEvent): void {
+  emit("click", event);
+  focusInput();
+}
+
+function handleRemove(event: MouseEvent): void {
   if (props.disabled || props.readonly) {
     event.preventDefault();
     return;
   }
 
-  setDraftValue("");
-  if (props.modelValue.length > 0) {
-    emitValue([], event);
-  }
-  emit("clear", event);
-  inputRef.value?.focus();
-}
-
-function handleRootClick(): void {
-  if (!props.disabled) {
-    inputRef.value?.focus();
-  }
-}
-
-function getRemoveLabel(value: string): string {
-  return `${props.removeLabel}: ${value}`;
+  const removedValue = inputValue.value;
+  setValue("");
+  emit("change", "", event);
+  emit("remove", removedValue, event);
 }
 
 watch(
-  () => props.draftValue,
+  () => props.modelValue,
   (value) => {
-    if (value !== undefined && value !== draftText.value) {
-      draftText.value = value;
+    const nextValue = formatValue(value);
+    if (nextValue !== inputValue.value) {
+      inputValue.value = nextValue;
     }
   },
 );
+
+defineExpose({
+  focus: focusInput,
+  blur: () => inputRef.value?.blur(),
+  select: () => inputRef.value?.select(),
+});
 </script>
 
 <style lang="scss" scoped src="./puChipInput.scss"></style>

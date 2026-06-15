@@ -3,18 +3,18 @@
 
 ## Intent
 
-- chip input
-- tag entry field
-- editable token collection
+- editable chip
+- single chip input
+- inline token editing
 
 ## Prefer When
 
-- Use for collecting a string array as removable chips with draft text entry.
+- Use for editing one chip value with chip geometry, commit/cancel, and optional remove.
 
 ## Avoid When
 
+- Avoid for chip collections with draft entry; use PuChipsEditor.
 - Avoid for passive status labels; use PuTag.
-- Avoid for a single text value; use PuInput.
 
 ## Import
 
@@ -25,38 +25,38 @@ import { PuChipInput } from '@partner-up-dev/design-web'
 ## Props
 
 - `modelValue`
-- `draftValue`
 - `placeholder`
 - `disabled`
 - `readonly`
 - `invalid`
 - `size`
-- `variant`
 - `tone`
+- `variant`
 - `shape`
-- `max`
-- `allowDuplicates`
-- `separators`
-- `addOnBlur`
-- `clearable`
+- `removable`
 - `removeLabel`
+- `maxlength`
+- `commitOnBlur`
+- `selectOnFocus`
+- `prefixIcon`
+- `suffixIcon`
 
 ## Slots
 
-- `chip`
 - `prefix`
+- `remove-icon`
 - `suffix`
 
 ## Events
 
 - `update:modelValue`
-- `update:draftValue`
 - `change`
-- `add`
+- `commit`
+- `cancel`
 - `remove`
-- `clear`
 - `focus`
 - `blur`
+- `click`
 
 ## Composition
 
@@ -68,16 +68,16 @@ import { PuChipInput } from '@partner-up-dev/design-web'
 
 Story: `src/stories/forms/PuChipInput.story.vue`
 
-- Controlled
-- Separators And Blur
-- Limit And Variants
+- Editable Chip
+- Group Editing
+- Commit On Blur
 - States
 - Slots
 
 ## Types
 
-- `PuChipInputChangeContext`
-- `PuChipInputChangeSource`
+- `PuChipInputCommitContext`
+- `PuChipInputCommitSource`
 - `PuChipInputEmits`
 - `PuChipInputProps`
 - `PuChipInputShape`
@@ -88,11 +88,12 @@ Story: `src/stories/forms/PuChipInput.story.vue`
 
 ## Caveats
 
-- Values are string arrays.
-- Press Enter or a configured separator to commit draft text.
-- Backspace removes the previous chip when draft text is empty.
+- Values are strings.
+- Enter emits commit; Escape restores the value captured when focus started.
+- Remove clears the value and emits remove.
+- Use PuChipsEditor for string arrays, draft entry, separators, and native repeated hidden inputs.
+- With surface-backed neutral variants, focused active border uses primary without changing the component tone.
 - Use shape rect or pill to match chip geometry; default is rect.
-- Suggestions and custom option listbox behavior are deferred.
 
 ## Source Evidence
 

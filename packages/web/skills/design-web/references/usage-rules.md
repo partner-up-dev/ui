@@ -56,11 +56,18 @@
 - PuCellGroup: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuChip: Use tone for semantic/status color, variant for chip treatment such as soft, outline, solid, ghost, or dashed, and shape for rect or pill geometry. The default shape is rect.
 - PuChipGroup: fit mode measures rendered element children and hides overflow items; keep slot content element-based and avoid relying on hidden chip count.
-- PuChipInput: Values are string arrays.
-- PuChipInput: Press Enter or a configured separator to commit draft text.
-- PuChipInput: Backspace removes the previous chip when draft text is empty.
+- PuChipInput: Values are strings.
+- PuChipInput: Enter emits commit; Escape restores the value captured when focus started.
+- PuChipInput: Remove clears the value and emits remove.
+- PuChipInput: Use PuChipsEditor for string arrays, draft entry, separators, and native repeated hidden inputs.
+- PuChipInput: With surface-backed neutral variants, focused active border uses primary without changing the component tone.
 - PuChipInput: Use shape rect or pill to match chip geometry; default is rect.
-- PuChipInput: Suggestions and custom option listbox behavior are deferred.
+- PuChipsEditor: Values are string arrays.
+- PuChipsEditor: Press Enter or a configured separator to commit draft text.
+- PuChipsEditor: Backspace removes the previous chip when draft text is empty.
+- PuChipsEditor: With the default neutral tone and outline variant, focused active border uses primary without changing the component tone.
+- PuChipsEditor: Use shape rect or pill to match chip geometry; default is rect.
+- PuChipsEditor: Suggestions and custom option listbox behavior are deferred.
 - PuDescriptionItem: PuDescriptionItem normalizes the parent list layout into only two internal layouts: stack for stack lists, and inline for inline or grid lists.
 - PuDescriptionItem: In stack item layout, suffix and action render in the label row even when no label text is present; in inline item layout, suffix or action is the definition value itself, not content appended after value.
 - PuDescriptionItem: Inline item layout keeps internal label/value columns across viewport changes; only the parent description-list grid may collapse its item columns.

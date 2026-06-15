@@ -19,7 +19,10 @@ files only after narrowing the candidate set.
   - Intent: checkbox group, multi-select field
   - Prefer: Use when multiple checkbox options share one value array or field label.
 - [PuChipInput](references/components/PuChipInput.md)
-  - Intent: chip input, tag entry field, editable token collection
+  - Intent: editable chip, single chip input, inline token editing
+  - Prefer: Use for editing one chip value with chip geometry, commit/cancel, and optional remove.
+- [PuChipsEditor](references/components/PuChipsEditor.md)
+  - Intent: chips editor, tag entry field, editable token collection
   - Prefer: Use for collecting a string array as removable chips with draft text entry.
 - [PuFilesUpload](references/components/PuFilesUpload.md)
   - Intent: multiple file upload, file collection, drag and drop upload, URL file entry

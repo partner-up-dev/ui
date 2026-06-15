@@ -16,6 +16,7 @@ import PuCheckboxGroup from './components/puCheckboxGroup/puCheckboxGroup.vue'
 import PuChip from './components/puChip/puChip.vue'
 import PuChipGroup from './components/puChipGroup/puChipGroup.vue'
 import PuChipInput from './components/puChipInput/puChipInput.vue'
+import PuChipsEditor from './components/puChipsEditor/puChipsEditor.vue'
 import PuDescriptionItem from './components/puDescriptionItem/puDescriptionItem.vue'
 import PuDescriptionList from './components/puDescriptionList/puDescriptionList.vue'
 import PuDialog from './components/puDialog/puDialog.vue'
@@ -66,6 +67,7 @@ export {
   PuChip,
   PuChipGroup,
   PuChipInput,
+  PuChipsEditor,
   PuDescriptionItem,
   PuDescriptionList,
   PuDialog,
@@ -116,6 +118,7 @@ export type * from './components/puCheckboxGroup/puCheckboxGroup'
 export type * from './components/puChip/puChip'
 export type * from './components/puChipGroup/puChipGroup'
 export type * from './components/puChipInput/puChipInput'
+export type * from './components/puChipsEditor/puChipsEditor'
 export type * from './components/puDescriptionItem/puDescriptionItem'
 export type * from './components/puDescriptionList/puDescriptionList'
 export type * from './components/puDialog/puDialog'
@@ -167,6 +170,7 @@ declare module 'vue' {
     PuChip: typeof PuChip
     PuChipGroup: typeof PuChipGroup
     PuChipInput: typeof PuChipInput
+    PuChipsEditor: typeof PuChipsEditor
     PuDescriptionItem: typeof PuDescriptionItem
     PuDescriptionList: typeof PuDescriptionList
     PuDialog: typeof PuDialog
@@ -221,6 +225,7 @@ const components: readonly ComponentEntry[] = [
   ['PuChip', PuChip],
   ['PuChipGroup', PuChipGroup],
   ['PuChipInput', PuChipInput],
+  ['PuChipsEditor', PuChipsEditor],
   ['PuDescriptionItem', PuDescriptionItem],
   ['PuDescriptionList', PuDescriptionList],
   ['PuDialog', PuDialog],
