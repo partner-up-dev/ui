@@ -63,6 +63,7 @@
     "skill:stale": "intent stale",
     "check:packed-types": "node scripts/check-packed-consumer-types.mjs",
     "story:dev": "histoire dev",
+    "story:dev:portless": "node ../../scripts/portless.mjs --name design-web.partner-up -- node scripts/histoire-dev-portless.mjs",
     "story:build": "histoire build",
     "story:coverage": "node scripts/check-story-coverage.mjs",
     "type-check": "pnpm run generate:check && pnpm run skill:generate:check && vue-tsc --noEmit",

@@ -4,6 +4,11 @@
 	"private": true,
 	"description": "PartnerUp Design System Monorepo",
 	"scripts": {
+		"dev:ensure": "node ./scripts/ensure-dev-servers.mjs",
+		"dev:ensure:lan": "node ./scripts/ensure-dev-servers.mjs --lan",
+		"dev:portless": "node ./scripts/portless.mjs",
+		"dev:portless:web": "node ./scripts/portless.mjs --name design-web.partner-up -- pnpm --filter @partner-up-dev/design-web exec node scripts/histoire-dev-portless.mjs",
+		"dev:portless:web:lan": "node ./scripts/portless.mjs --lan --name design-web.partner-up -- pnpm --filter @partner-up-dev/design-web exec node scripts/histoire-dev-portless.mjs",
 		"build": "pnpm -r run --if-present build",
 		"changeset": "changeset",
 		"version": "changeset version",
