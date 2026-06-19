@@ -18,6 +18,8 @@ component-related TypeScript types in downstream Vue apps.
   `import { PuButton } from '@partner-up-dev/design-web'`.
 - Import shared and component-specific TypeScript types from the package root:
   `import type { PuButtonFeedback, PuAction } from '@partner-up-dev/design-web'`.
+- Import the UnoCSS preset and safelist constants from
+  `@partner-up-dev/design-web/uno`.
 - Do not import from `@partner-up-dev/design-web/components/*`,
   `@partner-up-dev/design-web/src/*`, generated registry internals, or raw
   implementation files.
@@ -38,6 +40,16 @@ component-related TypeScript types in downstream Vue apps.
   the package.
 - Treat styles and Sass as styling entries only; do not use them to reach
   component implementation files.
+
+## UnoCSS
+
+- Use `partnerUpDesignPreset()` from `@partner-up-dev/design-web/uno` when the
+  consuming app uses UnoCSS.
+- The preset includes the package-owned safelist for built-in component
+  `i-mdi-*` icons; consumers that cannot use the preset may merge
+  `partnerUpDesignSafelist` manually.
+- Keep consumer-provided icon classes, such as `PuInput` prefix or suffix icon
+  values, in the consuming app's own UnoCSS scan scope or safelist.
 <!-- agent-skill:end -->
 
 ## Maintainer Notes

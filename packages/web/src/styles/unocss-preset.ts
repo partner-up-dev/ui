@@ -119,8 +119,31 @@ const marginPropertyMap: Record<string, string[]> = {
   lb: ["margin-left", "margin-bottom"],
 };
 
+export const partnerUpDesignSafelist = [
+  "i-mdi-alert-circle-outline",
+  "i-mdi-alert-outline",
+  "i-mdi-arrow-left",
+  "i-mdi-check-bold",
+  "i-mdi-check-circle-outline",
+  "i-mdi-chevron-down",
+  "i-mdi-chevron-right",
+  "i-mdi-close",
+  "i-mdi-close-circle",
+  "i-mdi-eye",
+  "i-mdi-eye-off",
+  "i-mdi-file-multiple-outline",
+  "i-mdi-file-outline",
+  "i-mdi-information-outline",
+  "i-mdi-link-variant",
+  "i-mdi-loading",
+  "i-mdi-tray-arrow-up",
+] as const;
+
+export const partnerUpDesignIconSafelist = partnerUpDesignSafelist;
+
 export default definePreset(() => ({
   name: "partner-up-design",
+  safelist: [...partnerUpDesignSafelist],
   theme: {
     colors,
     spacing,

@@ -137,3 +137,39 @@ http://localhost:6006/__sandbox.html?storyId=src-stories-display-pudescriptionli
 +-- i-mdi-chevron-right and i-mdi-content-copy had non-none mask-image
 +-- screenshot confirmed both icons visible
 ```
+
+## Consumer Package Safelist Follow-up
+
+Date: 2026-06-19
+
+Observed mismatch:
+
+```text
+Histoire:
+- PuPageHeader default back icon span measured 18x18
+- computed mask-image was non-none
+- stylesheet contained .i-mdi-arrow-left
+
+Consumer app /pr/34:
+- PuPageHeader back button existed
+- default back icon span measured 0x0
+- computed mask-image was none
+- stylesheet contained no .i-mdi-arrow-left rule
+```
+
+Root cause:
+
+The published design package uses package-owned `i-mdi-*` classes inside
+component defaults. Downstream UnoCSS can generate icon CSS only for classes it
+matches through its scan graph or safelist. A consumer can have `presetIcons()`
+configured and still miss an icon class that appears only inside the installed
+design package runtime output.
+
+Fix direction:
+
+- Export package-owned icon safelist constants from `@partner-up-dev/design-web/uno`.
+- Include that safelist in the default PartnerUp design UnoCSS preset so
+  consumers that already call `partnerUpDesignPreset()` get built-in component
+  icon CSS automatically.
+- Keep consumer-provided icon class props outside the package safelist; those
+  remain the consuming app's scan or safelist responsibility.

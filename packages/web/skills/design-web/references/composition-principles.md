@@ -53,3 +53,6 @@ Use these principles when building application UI with
 - Use public props, slots, events, and exported types from component references.
 - Do not depend on `src/components/*`, generated registry internals, or story
   implementation details.
+- When using UnoCSS, use the package `./uno` preset or safelist export for
+  package-owned built-in icons instead of duplicating design package internal
+  `i-mdi-*` class names in app code.

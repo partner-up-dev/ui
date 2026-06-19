@@ -26,5 +26,21 @@ or `@partner-up-dev/design-web/src/*`; those paths are not consumer API.
 ## UnoCSS
 
 ```ts
+import { defineConfig, presetIcons } from 'unocss'
 import partnerUpDesignPreset from '@partner-up-dev/design-web/uno'
+
+export default defineConfig({
+  presets: [
+    partnerUpDesignPreset(),
+    presetIcons(),
+  ],
+})
+```
+
+`partnerUpDesignPreset()` includes the package-owned icon safelist used by
+default component UI. Consumers that compose a custom UnoCSS config without the
+preset can merge `partnerUpDesignSafelist` manually.
+
+```ts
+import { partnerUpDesignSafelist } from '@partner-up-dev/design-web/uno'
 ```

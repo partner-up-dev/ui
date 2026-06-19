@@ -34,6 +34,7 @@
     },
     "./utils/*": "./src/utils/*",
     "./uno": {
+      "types": "./dist/styles/unocss-preset.d.ts",
       "import": "./src/styles/unocss-preset.ts"
     },
     "./types": {
