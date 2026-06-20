@@ -1,0 +1,90 @@
+@use "../../styles/mixins" as *;
+
+.pu-float-panel {
+  --pu-float-panel-height: 0px;
+  --pu-float-panel-handle-height: 2rem;
+  --pu-float-panel-handle-width: 2.75rem;
+  --pu-float-panel-handle-bar-height: 0.35rem;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: var(--pu-float-panel-height);
+  min-height: var(--pu-float-panel-handle-height);
+  overflow: hidden;
+  border-top-left-radius: var(--sys-radius-medium);
+  border-top-right-radius: var(--sys-radius-medium);
+  background: var(--sys-color-surface);
+  box-shadow: var(--sys-shadow-8);
+  color: var(--sys-color-on-surface);
+}
+
+.pu-float-panel--position-fixed {
+  position: fixed;
+}
+
+.pu-float-panel.is-snapping {
+  transition: height 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.pu-float-panel.is-disabled {
+  opacity: var(--sys-opacity-disabled);
+}
+
+.pu-float-panel__handle {
+  display: flex;
+  flex: 0 0 var(--pu-float-panel-handle-height);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 0;
+  background: transparent;
+  color: var(--sys-color-on-surface-variant);
+  cursor: grab;
+  outline: none;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.pu-float-panel.is-dragging .pu-float-panel__handle {
+  cursor: grabbing;
+}
+
+.pu-float-panel.is-disabled .pu-float-panel__handle,
+.pu-float-panel__handle[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.pu-float-panel__handle-bar {
+  display: block;
+  width: var(--pu-float-panel-handle-width);
+  height: var(--pu-float-panel-handle-bar-height);
+  border-radius: var(--sys-radius-pill);
+  background: var(--sys-color-outline);
+}
+
+.pu-float-panel__content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 0 var(--sys-spacing-medium) calc(var(--sys-spacing-medium) + var(--pu-safe-bottom));
+  -webkit-overflow-scrolling: touch;
+}
+
+.pu-float-panel__content--unpadded {
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-float-panel.is-snapping {
+    transition: none !important;
+  }
+}

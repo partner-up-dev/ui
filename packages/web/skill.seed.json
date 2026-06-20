@@ -256,6 +256,17 @@
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuFilesUpload.story.vue"
     },
+    "PuFloatPanel": {
+      "category": "overlay",
+      "intent": ["floating panel", "bottom attached panel", "draggable bottom panel", "snap panel"],
+      "preferWhen": ["Use for persistent bottom panels whose height is changed by dragging a top handle and snapping between discrete stops."],
+      "avoidWhen": ["Avoid for modal or overlay workflows that need a scrim, focus trap, Escape close, or body scroll lock; use PuDrawer or PuModal instead."],
+      "composeWith": ["PuCell", "PuButton", "PuScrollView"],
+      "apiCaveats": ["Uses modelValue and stops with numeric pixel heights; stop height is the whole panel height including the handle.", "The panel has no mask, no Teleport, and no body scroll lock.", "The content area scrolls independently; only the top handle starts dragging."],
+      "accessibilityNotes": ["Provide ariaLabel or ariaLabelledby for the handle slider.", "ArrowUp and ArrowDown move between stops; Home and End jump to the lowest and highest stops."],
+      "storyGroup": "overlay",
+      "storyFile": "src/stories/overlay/PuFloatPanel.story.vue"
+    },
     "PuForm": {
       "category": "forms",
       "intent": ["form container", "validated form"],

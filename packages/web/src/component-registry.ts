@@ -24,6 +24,7 @@ import PuDrawer from './components/puDrawer/puDrawer.vue'
 import PuEmptyState from './components/puEmptyState/puEmptyState.vue'
 import PuFilesUpload from './components/puFilesUpload/puFilesUpload.vue'
 import PuFileUpload from './components/puFileUpload/puFileUpload.vue'
+import PuFloatPanel from './components/puFloatPanel/puFloatPanel.vue'
 import PuForm from './components/puForm/puForm.vue'
 import PuFormItem from './components/puFormItem/puFormItem.vue'
 import PuImg from './components/puImg/puImg.vue'
@@ -75,6 +76,7 @@ export {
   PuEmptyState,
   PuFilesUpload,
   PuFileUpload,
+  PuFloatPanel,
   PuForm,
   PuFormItem,
   PuImg,
@@ -126,6 +128,7 @@ export type * from './components/puDrawer/puDrawer'
 export type * from './components/puEmptyState/puEmptyState'
 export type * from './components/puFilesUpload/puFilesUpload'
 export type * from './components/puFileUpload/puFileUpload'
+export type * from './components/puFloatPanel/puFloatPanel'
 export type * from './components/puForm/puForm'
 export type * from './components/puFormItem/puFormItem'
 export type * from './components/puImg/puImg'
@@ -178,6 +181,7 @@ declare module 'vue' {
     PuEmptyState: typeof PuEmptyState
     PuFilesUpload: typeof PuFilesUpload
     PuFileUpload: typeof PuFileUpload
+    PuFloatPanel: typeof PuFloatPanel
     PuForm: typeof PuForm
     PuFormItem: typeof PuFormItem
     PuImg: typeof PuImg
@@ -233,6 +237,7 @@ const components: readonly ComponentEntry[] = [
   ['PuEmptyState', PuEmptyState],
   ['PuFilesUpload', PuFilesUpload],
   ['PuFileUpload', PuFileUpload],
+  ['PuFloatPanel', PuFloatPanel],
   ['PuForm', PuForm],
   ['PuFormItem', PuFormItem],
   ['PuImg', PuImg],

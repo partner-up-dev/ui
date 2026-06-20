@@ -129,6 +129,9 @@ files only after narrowing the candidate set.
 - [PuDrawer](references/components/PuDrawer.md)
   - Intent: drawer, side panel, non-blocking overlay
   - Prefer: Use for secondary workflows, filters, or details that slide over the page.
+- [PuFloatPanel](references/components/PuFloatPanel.md)
+  - Intent: floating panel, bottom attached panel, draggable bottom panel, snap panel
+  - Prefer: Use for persistent bottom panels whose height is changed by dragging a top handle and snapping between discrete stops.
 - [PuModal](references/components/PuModal.md)
   - Intent: modal dialog, blocking confirmation, focused overlay
   - Prefer: Use for blocking decisions, confirmations, and focused short workflows.

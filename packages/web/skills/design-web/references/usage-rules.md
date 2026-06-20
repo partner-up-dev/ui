@@ -85,6 +85,11 @@
 - PuDrawer: Use header, title, close, default, and footer slots for composed drawer interiors; fullCustom is only for whole-interior escape hatches.
 - PuDrawer: Use contentPadding=false when the slotted body owns its own edge-to-edge spacing.
 - PuEmptyState: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
+- PuFloatPanel: Uses modelValue and stops with numeric pixel heights; stop height is the whole panel height including the handle.
+- PuFloatPanel: The panel has no mask, no Teleport, and no body scroll lock.
+- PuFloatPanel: The content area scrolls independently; only the top handle starts dragging.
+- PuFloatPanel: Provide ariaLabel or ariaLabelledby for the handle slider.
+- PuFloatPanel: ArrowUp and ArrowDown move between stops; Home and End jump to the lowest and highest stops.
 - PuForm: Native form attributes such as id, name, autocomplete, novalidate, action, and method fall through to the underlying form element.
 - PuForm: PuForm prevents default native navigation and emits the native SubmitEvent; call validate() inside submit handlers when validation is needed.
 - PuForm: External submit buttons can target a PuForm by passing the native form attribute with the form id.

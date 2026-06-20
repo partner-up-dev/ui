@@ -24,6 +24,7 @@ declare module 'vue' {
     PuEmptyState: typeof import('@partner-up-dev/design-web')['PuEmptyState']
     PuFilesUpload: typeof import('@partner-up-dev/design-web')['PuFilesUpload']
     PuFileUpload: typeof import('@partner-up-dev/design-web')['PuFileUpload']
+    PuFloatPanel: typeof import('@partner-up-dev/design-web')['PuFloatPanel']
     PuForm: typeof import('@partner-up-dev/design-web')['PuForm']
     PuFormItem: typeof import('@partner-up-dev/design-web')['PuFormItem']
     PuImg: typeof import('@partner-up-dev/design-web')['PuImg']
