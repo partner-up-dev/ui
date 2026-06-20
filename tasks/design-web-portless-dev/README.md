@@ -15,14 +15,20 @@ portless naming scheme.
   not silently change the expected `.localhost` route.
 - Root scripts own ensure behavior so agents can start or reuse the dev server
   without memorizing package-local commands.
+- `pnpm dev:ensure --foreground` keeps the same route contract while attaching
+  Histoire output to the current terminal for human/VS Code workflows. It prints
+  `DEV_ENSURE_FOREGROUND_READY` after HTTP readiness so VS Code background task
+  problem matchers can release `preLaunchTask` while Histoire keeps running.
 
 ## Verification
 
 - Passed: syntax-check new Node scripts.
-- Blocked locally: `pnpm dev:ensure` requests
-  `https://design-web.partner-up.localhost`, but the currently running root
-  portless proxy is still in LAN mode and rejects non-LAN startup until it is
-  restarted outside LAN mode.
 - Passed: `pnpm dev:ensure:lan` reports
   `https://design-web.partner-up.local` ready.
 - Passed: `curl -k -I https://design-web.partner-up.local/` returns HTTP 200.
+- Passed: `pnpm dev:ensure --lan --ip 172.29.144.156 --foreground` keeps
+  Histoire output attached, prints `DEV_ENSURE_FOREGROUND_READY`, and serves
+  `https://design-web.partner-up.local/`.
+- Passed: default headless
+  `pnpm dev:ensure --lan --ip 172.29.144.156 --timeout-seconds=120 --poll-interval-seconds=2`
+  exits after readiness.

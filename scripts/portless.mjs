@@ -134,6 +134,18 @@ const child = spawn("portless", process.argv.slice(2), {
   stdio: "inherit",
 });
 
+const forwardSignal = (signal) => {
+  if (child.exitCode === null && child.signalCode === null) {
+    child.kill(signal);
+  }
+};
+
+const forwardSigint = () => forwardSignal("SIGINT");
+const forwardSigterm = () => forwardSignal("SIGTERM");
+
+process.once("SIGINT", forwardSigint);
+process.once("SIGTERM", forwardSigterm);
+
 child.on("error", (error) => {
   if (error.code === "ENOENT") {
     console.error(
@@ -147,6 +159,9 @@ child.on("error", (error) => {
 });
 
 child.on("exit", (code, signal) => {
+  process.off("SIGINT", forwardSigint);
+  process.off("SIGTERM", forwardSigterm);
+
   if (signal) {
     console.error(`portless exited after receiving signal ${signal}`);
     process.exit(1);
