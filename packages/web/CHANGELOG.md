@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.5
+
+### Patch Changes
+
+- 543bffd: Ensure PuDialog keeps panel-owned spacing when the default header is followed directly by the default footer.
+- 6e5cbed: Align web component default geometry with the rectangular style foundation and publish the style guidance into the generated design-web agent skill.
+- c612cf5: Export PartnerUp design UnoCSS safelist constants and include the package-owned built-in icon safelist in the default design preset.
+- 0d68c6b: Simplify PuPageHeader by replacing density and surfaceLevel with the shared size vocabulary, preserving container variants and improving story coverage.
+- ee9b461: Add shared PuSpacing-based padding controls to page, card, cell, and description item components.
+
 ## 0.4.4
 
 ### Patch Changes
