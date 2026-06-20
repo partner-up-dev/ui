@@ -70,6 +70,7 @@ Story: `src/stories/display/PuCard.story.vue`
 
 - Regions
 - Themes
+- Padding
 - Collapsible
 - Controlled Expansion
 - Action Cards
@@ -86,6 +87,7 @@ Story: `src/stories/display/PuCard.story.vue`
 
 - Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.
 - Use tone for semantic emphasis and variant for container treatment such as soft, outline, plain, or solid.
+- Use padding with the shared PuSpacing vocabulary when card insets need to differ from the default.
 - Use selectable for button-like choice cards without a navigation target.
 - Use keepContentMounted only when collapsed content owns local state that must survive collapse.
 - Interactive cards must not contain nested interactive controls.

@@ -123,6 +123,10 @@
   --pu-card-padding: 0;
 }
 
+.pu-card--padding-xs {
+  --pu-card-padding: var(--sys-spacing-xsmall);
+}
+
 .pu-card--padding-sm {
   --pu-card-padding: var(--sys-spacing-small);
 }

@@ -79,6 +79,7 @@ const rootClass = computed(() => [
   `pu-page-scaffold--width-${props.width}`,
   `pu-page-scaffold--content-${props.contentPlacement}`,
   `pu-page-scaffold--footer-${resolvedFooterPlacement.value}`,
+  `pu-page-scaffold--padding-${props.padding}`,
   {
     "pu-page-scaffold--sticky-aside": props.stickyAside && hasAsideLayout.value,
   },

@@ -28,6 +28,7 @@ import { PuCell } from '@partner-up-dev/design-web'
 - `border`
 - `title`
 - `value`
+- `padding`
 - `suffixIcon`
 
 ## Slots
@@ -53,16 +54,18 @@ Story: `src/stories/display/PuCell.story.vue`
 - Basic
 - Slots
 - Long Content
+- Padding
 - Button Root
 
 ## Types
 
+- `PuCellPadding`
 - `PuCellType`
 - `PuCellValue`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use padding with the shared PuSpacing vocabulary for row inset control; min-height remains a separate row rhythm decision.
 
 ## Source Evidence
 

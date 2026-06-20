@@ -64,6 +64,7 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 - Grid
 - Narrow Container
 - Slots And Empty
+- Item Padding
 - Trailing Actions
 - Stack Affordances
 

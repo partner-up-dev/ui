@@ -6,6 +6,7 @@ import PuTag from "../../components/puTag/puTag.vue";
 
 const expanded = ref(true);
 const resetKey = ref(0);
+const spacings = ["none", "xs", "sm", "md", "lg"] as const;
 
 const tones = [
   {
@@ -86,6 +87,26 @@ const tones = [
               <h3 class="pu-card-story__title">{{ item.title }}</h3>
             </template>
             <p class="pu-story__text">{{ item.description }}</p>
+          </PuCard>
+        </div>
+      </div>
+    </Variant>
+
+    <Variant title="Padding">
+      <div class="pu-story">
+        <div class="pu-card-story__grid">
+          <PuCard
+            v-for="padding in spacings"
+            :key="padding"
+            :padding="padding"
+            tone="neutral"
+            variant="outline"
+            :title="`Padding ${padding}`"
+          >
+            <p class="pu-story__text">
+              Shared spacing values can tune card insets without changing
+              container treatment.
+            </p>
           </PuCard>
         </div>
       </div>

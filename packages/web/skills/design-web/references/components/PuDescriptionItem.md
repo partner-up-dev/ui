@@ -27,6 +27,7 @@ import { PuDescriptionItem } from '@partner-up-dev/design-web'
 - `value`
 - `hint`
 - `span`
+- `padding`
 - `valueAlign`
 - `emptyText`
 
@@ -57,11 +58,13 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 - Grid
 - Narrow Container
 - Slots And Empty
+- Item Padding
 - Trailing Actions
 - Stack Affordances
 
 ## Types
 
+- `PuDescriptionItemPadding`
 - `PuDescriptionItemSpan`
 - `PuDescriptionItemValue`
 - `PuDescriptionItemValueAlign`
@@ -72,6 +75,7 @@ Story: `src/stories/display/PuDescriptionList.story.vue`
 - In stack item layout, suffix and action render in the label row even when no label text is present; in inline item layout, suffix or action is the definition value itself, not content appended after value.
 - Inline item layout keeps internal label/value columns across viewport changes; only the parent description-list grid may collapse its item columns.
 - Inline item layout defaults to start-aligned labels and end-aligned values; use valueAlign only when a value needs a different alignment.
+- Use padding only when an individual item should override the parent list density.
 - Use suffix for non-interactive value content such as badges or status markers; use the action slot when the value itself is an interactive affordance.
 
 ## Source Evidence

@@ -5,11 +5,12 @@ import type {
   PuExpandablePolicy,
   PuExpansionResetKey,
   PuGap,
+  PuSpacing,
   PuTone,
 } from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
-export type PuCardPadding = "none" | "sm" | "md" | "lg";
+export type PuCardPadding = PuSpacing;
 export type PuCardTone = PuTone;
 export type PuCardVariant = PuContainerVariant;
 

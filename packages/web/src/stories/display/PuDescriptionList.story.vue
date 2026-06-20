@@ -11,6 +11,7 @@ const eventFacts = [
   ["Capacity", "12 / 20"],
   ["Host", "PartnerUp Hangzhou"],
 ] as const;
+const spacings = ["none", "xs", "sm", "md", "lg"] as const;
 </script>
 
 <template>
@@ -115,6 +116,26 @@ const eventFacts = [
           <template #footer>
             Last refreshed from the canonical story fixture.
           </template>
+        </PuDescriptionList>
+      </div>
+    </Variant>
+
+    <Variant title="Item Padding">
+      <div class="pu-story pu-story--narrow">
+        <PuDescriptionList
+          title="Spacing scale"
+          layout="inline"
+          density="comfortable"
+          surface-level="surface"
+          variant="outline"
+        >
+          <PuDescriptionItem
+            v-for="padding in spacings"
+            :key="padding"
+            :padding="padding"
+            :label="`Padding ${padding}`"
+            value="Override"
+          />
         </PuDescriptionList>
       </div>
     </Variant>

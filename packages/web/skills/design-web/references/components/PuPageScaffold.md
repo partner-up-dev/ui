@@ -30,6 +30,7 @@ import { PuPageScaffold } from '@partner-up-dev/design-web'
 - `width`
 - `contentPlacement`
 - `footerPlacement`
+- `padding`
 - `stickyAside`
 
 ## Slots
@@ -56,6 +57,7 @@ Story: `src/stories/layout/PuPageScaffold.story.vue`
 
 - Document
 - Centered Screen
+- No Padding
 - Aside Layout
 - Narrow Container
 - Footer Reveal
@@ -65,12 +67,13 @@ Story: `src/stories/layout/PuPageScaffold.story.vue`
 - `PuPageScaffoldContentPlacement`
 - `PuPageScaffoldFooterPlacement`
 - `PuPageScaffoldLayout`
+- `PuPageScaffoldPadding`
 - `PuPageScaffoldViewport`
 - `PuPageScaffoldWidth`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use padding with the shared PuSpacing vocabulary for scaffold-owned page inset control; padding none removes design padding and safe-area inset.
 
 ## Source Evidence
 

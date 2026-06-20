@@ -118,7 +118,17 @@ export const puLayouts = ["stack", "inline", "grid"] as const;
 
 export type PuLayout = (typeof puLayouts)[number];
 
-export const puGaps = ["none", "xs", "sm", "md", "lg"] as const;
+export const puSpacings = ["none", "xs", "sm", "md", "lg"] as const;
+
+/**
+ * Shared spacing scale for component-owned layout properties.
+ *
+ * Use concrete prop names such as `padding` or `gap`; `PuSpacing` only names
+ * the scale values those props share.
+ */
+export type PuSpacing = (typeof puSpacings)[number];
+
+export const puGaps = puSpacings;
 
 export type PuGap = (typeof puGaps)[number];
 
@@ -151,6 +161,7 @@ export type PuVariantValue =
   | PuDensity
   | PuAlign
   | PuLayout
+  | PuSpacing
   | PuGap
   | PuBreakpoint
   | PuOrientation;

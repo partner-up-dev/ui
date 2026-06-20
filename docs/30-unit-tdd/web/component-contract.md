@@ -64,6 +64,9 @@ size:
 extended size:
   xs | sm | md | lg | xl
 
+spacing:
+  none | xs | sm | md | lg
+
 density:
   compact | comfortable
 
@@ -114,6 +117,8 @@ surfaceLevel     neutral page or content surface depth
 shape            bounded geometry
 size             dimensional scale
 density          spacing density
+padding          component-owned interior spacing
+gap              child spacing
 layout           structural arrangement
 align            inline alignment
 as               semantic root element
@@ -260,6 +265,7 @@ Modifier class format:
 .pu-component--surface-level-section
 .pu-component--size-md
 .pu-component--density-compact
+.pu-component--padding-sm
 .pu-component.is-disabled
 .pu-component.is-active
 ```

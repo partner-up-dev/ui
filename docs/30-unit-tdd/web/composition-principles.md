@@ -34,6 +34,8 @@ Use these principles when building application UI with
 
 - Use tokens for shared semantic roles: color, typography, spacing, radius, and
   repeatable system rhythm.
+- Use component `padding` and `gap` props backed by the shared spacing scale
+  before reaching into component-local spacing variables.
 - Use component-local CSS mechanisms for component-specific behavior.
 - Do not promote one-off values into design tokens before repeated
   cross-component use proves the abstraction.

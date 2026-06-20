@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import PuCell from "../../components/puCell/puCell.vue";
+
+const spacings = ["none", "xs", "sm", "md", "lg"] as const;
 </script>
 
 <template>
@@ -40,6 +42,21 @@ import PuCell from "../../components/puCell/puCell.vue";
           <PuCell
             title="Long description"
             value="A compact information row with a longer value that should stay readable without breaking the cell layout."
+            border
+          />
+        </div>
+      </div>
+    </Variant>
+
+    <Variant title="Padding">
+      <div class="pu-story pu-story--narrow">
+        <div class="pu-story__surface">
+          <PuCell
+            v-for="padding in spacings"
+            :key="padding"
+            :padding="padding"
+            :title="`Padding ${padding}`"
+            value="Spacing"
             border
           />
         </div>

@@ -22,6 +22,31 @@
   border-bottom: 1px solid var(--sys-color-outline-variant);
 }
 
+.pu-cell--padding-none {
+  --pu-cell-padding-block: 0;
+  --pu-cell-padding-inline: 0;
+}
+
+.pu-cell--padding-xs {
+  --pu-cell-padding-block: var(--sys-spacing-xsmall);
+  --pu-cell-padding-inline: var(--sys-spacing-xsmall);
+}
+
+.pu-cell--padding-sm {
+  --pu-cell-padding-block: var(--sys-spacing-xsmall);
+  --pu-cell-padding-inline: var(--sys-spacing-small);
+}
+
+.pu-cell--padding-md {
+  --pu-cell-padding-block: var(--sys-spacing-small);
+  --pu-cell-padding-inline: var(--sys-spacing-medium);
+}
+
+.pu-cell--padding-lg {
+  --pu-cell-padding-block: var(--sys-spacing-medium);
+  --pu-cell-padding-inline: var(--sys-spacing-large);
+}
+
 .pu-cell:is(button) {
   cursor: pointer;
   text-align: left;

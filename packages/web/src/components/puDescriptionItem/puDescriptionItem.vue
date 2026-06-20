@@ -56,9 +56,11 @@ import {
   puAligns,
   puDensities,
   puLayouts,
+  puSpacings,
   type PuAlign,
   type PuDensity,
   type PuLayout,
+  type PuSpacing,
 } from "../../types";
 import {
   createPuModifierClass,
@@ -87,6 +89,11 @@ const density = computed<PuDensity>(() =>
   listContext
     ? listContext.density.value
     : normalizePuVariant(puDensities, "comfortable", "comfortable"),
+);
+const padding = computed<PuSpacing | undefined>(() =>
+  props.padding
+    ? normalizePuVariant(puSpacings, props.padding, "md")
+    : undefined,
 );
 const labelAlign = computed<PuDescriptionLabelAlign>(() =>
   listContext
@@ -138,6 +145,7 @@ const shouldRenderPlainValue = computed(
 const rootClasses = computed(() => [
   createPuModifierClass("pu-description-item", "layout", itemLayout.value),
   createPuModifierClass("pu-description-item", "density", density.value),
+  createPuModifierClass("pu-description-item", "padding", padding.value),
   createPuModifierClass("pu-description-item", "label-align", labelAlign.value),
   createPuModifierClass("pu-description-item", "value-align", valueAlign.value),
   createPuModifierClass("pu-description-item", "span", span.value),

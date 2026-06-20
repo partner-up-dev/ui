@@ -49,10 +49,12 @@
 - PuButton: Disabled link actions use aria-disabled and stop click navigation.
 - PuCard: Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.
 - PuCard: Use tone for semantic emphasis and variant for container treatment such as soft, outline, plain, or solid.
+- PuCard: Use padding with the shared PuSpacing vocabulary when card insets need to differ from the default.
 - PuCard: Use selectable for button-like choice cards without a navigation target.
 - PuCard: Use keepContentMounted only when collapsed content owns local state that must survive collapse.
 - PuCard: Interactive cards must not contain nested interactive controls.
 - PuCard: Disabled link and route cards use aria-disabled and stop click navigation.
+- PuCell: Use padding with the shared PuSpacing vocabulary for row inset control; min-height remains a separate row rhythm decision.
 - PuCellGroup: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuChip: Use tone for semantic/status color, variant for chip treatment such as soft, outline, solid, ghost, or dashed, and shape for rect or pill geometry. The default shape is rect.
 - PuChipGroup: fit mode measures rendered element children and hides overflow items; keep slot content element-based and avoid relying on hidden chip count.
@@ -72,6 +74,7 @@
 - PuDescriptionItem: In stack item layout, suffix and action render in the label row even when no label text is present; in inline item layout, suffix or action is the definition value itself, not content appended after value.
 - PuDescriptionItem: Inline item layout keeps internal label/value columns across viewport changes; only the parent description-list grid may collapse its item columns.
 - PuDescriptionItem: Inline item layout defaults to start-aligned labels and end-aligned values; use valueAlign only when a value needs a different alignment.
+- PuDescriptionItem: Use padding only when an individual item should override the parent list density.
 - PuDescriptionItem: Use suffix for non-interactive value content such as badges or status markers; use the action slot when the value itself is an interactive affordance.
 - PuDescriptionList: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
 - PuDialog: Uses required open plus close, cancel, and confirm events; do not assume v-model:open.
@@ -113,6 +116,7 @@
 - PuPageHeader: Use layout inline when actions must stay in the title row; use layout stack when actions should occupy their own row.
 - PuPageHeader: PuPageHeader does not infer action placement from container width.
 - PuPageHeader: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
+- PuPageScaffold: Use padding with the shared PuSpacing vocabulary for scaffold-owned page inset control; padding none removes design padding and safe-area inset.
 - PuPicker: The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer.
 - PuSegmented: Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed.
 - PuSegmented: Use semantics="tabs" only when the items control associated tab panels.

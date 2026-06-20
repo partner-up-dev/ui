@@ -56,6 +56,23 @@ import PuTag from "../../components/puTag/puTag.vue";
       </PuPageScaffold>
     </Variant>
 
+    <Variant title="No Padding">
+      <div class="pu-page-scaffold-story__edge-frame">
+        <PuPageScaffold width="full" padding="none">
+          <PuCard
+            title="Edge layout"
+            subtitle="The card touches the scaffold boundary."
+            padding="lg"
+          >
+            <p class="pu-story__text">
+              This variant is for products that own their own inset inside the
+              page content.
+            </p>
+          </PuCard>
+        </PuPageScaffold>
+      </div>
+    </Variant>
+
     <Variant title="Aside Layout">
       <PuPageScaffold layout="aside" width="wide" sticky-aside>
         <template #header>
@@ -177,6 +194,12 @@ import PuTag from "../../components/puTag/puTag.vue";
 
 .pu-page-scaffold-story__narrow-frame {
   width: min(100%, 28rem);
+  border: 1px solid var(--sys-color-outline-variant);
+  background: var(--sys-color-surface);
+}
+
+.pu-page-scaffold-story__edge-frame {
+  width: min(100%, 34rem);
   border: 1px solid var(--sys-color-outline-variant);
   background: var(--sys-color-surface);
 }

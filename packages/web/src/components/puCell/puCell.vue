@@ -2,7 +2,7 @@
   <component
     :is="props.as"
     class="pu-cell"
-    :class="{ 'pu-cell--border': props.border }"
+    :class="rootClasses"
     :type="props.as === 'button' ? props.type : undefined"
   >
     <div v-if="hasTitle" class="pu-cell__title">
@@ -43,6 +43,13 @@ import { puCellProps } from "./puCell";
 const props = defineProps(puCellProps);
 const slots = useSlots();
 
+const rootClasses = computed(() => [
+  `pu-cell--padding-${props.padding}`,
+  {
+    "pu-cell--border": props.border,
+  },
+]);
+
 const hasTitle = computed(() => Boolean(slots.title) || Boolean(props.title));
 const hasValue = computed(
   () =>
@@ -58,4 +65,3 @@ const hasRight = computed(() => hasValue.value || hasSuffix.value);
 </script>
 
 <style lang="scss" scoped src="./puCell.scss"></style>
-

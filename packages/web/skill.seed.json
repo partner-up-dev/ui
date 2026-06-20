@@ -99,7 +99,7 @@
       "preferWhen": ["Use for grouped content with optional hero, header, body, footer, collapsible content, or whole-card action targets."],
       "avoidWhen": ["Avoid for dense list rows; use PuCellGroup and PuCell for row-based settings or lists.", "Avoid putting buttons, links, or form controls inside an interactive card root."],
       "composeWith": ["PuButton", "PuTag", "PuInlineNotice"],
-      "apiCaveats": ["Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.", "Use tone for semantic emphasis and variant for container treatment such as soft, outline, plain, or solid.", "Use selectable for button-like choice cards without a navigation target.", "Use keepContentMounted only when collapsed content owns local state that must survive collapse."],
+      "apiCaveats": ["Use the structured action prop with the shared PuAction type for href or route card targets; route actions render the consuming app's globally registered RouterLink.", "Use tone for semantic emphasis and variant for container treatment such as soft, outline, plain, or solid.", "Use padding with the shared PuSpacing vocabulary when card insets need to differ from the default.", "Use selectable for button-like choice cards without a navigation target.", "Use keepContentMounted only when collapsed content owns local state that must survive collapse."],
       "accessibilityNotes": ["Interactive cards must not contain nested interactive controls.", "Disabled link and route cards use aria-disabled and stop click navigation."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuCard.story.vue"
@@ -110,6 +110,7 @@
       "preferWhen": ["Use for a compact row with label, description, meta, icon, action, or navigation affordance."],
       "avoidWhen": ["Avoid for grouped facts that should use PuDescriptionList."],
       "composeWith": ["PuCellGroup", "PuToggleSwitch", "PuTag"],
+      "apiCaveats": ["Use padding with the shared PuSpacing vocabulary for row inset control; min-height remains a separate row rhythm decision."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuCell.story.vue"
     },
@@ -187,7 +188,7 @@
       "preferWhen": ["Use inside PuDescriptionList for one label-value pair."],
       "avoidWhen": ["Avoid as a standalone layout primitive."],
       "composeWith": ["PuDescriptionList", "PuButton", "PuTag"],
-      "apiCaveats": ["PuDescriptionItem normalizes the parent list layout into only two internal layouts: stack for stack lists, and inline for inline or grid lists.", "In stack item layout, suffix and action render in the label row even when no label text is present; in inline item layout, suffix or action is the definition value itself, not content appended after value.", "Inline item layout keeps internal label/value columns across viewport changes; only the parent description-list grid may collapse its item columns.", "Inline item layout defaults to start-aligned labels and end-aligned values; use valueAlign only when a value needs a different alignment.", "Use suffix for non-interactive value content such as badges or status markers; use the action slot when the value itself is an interactive affordance."],
+      "apiCaveats": ["PuDescriptionItem normalizes the parent list layout into only two internal layouts: stack for stack lists, and inline for inline or grid lists.", "In stack item layout, suffix and action render in the label row even when no label text is present; in inline item layout, suffix or action is the definition value itself, not content appended after value.", "Inline item layout keeps internal label/value columns across viewport changes; only the parent description-list grid may collapse its item columns.", "Inline item layout defaults to start-aligned labels and end-aligned values; use valueAlign only when a value needs a different alignment.", "Use padding only when an individual item should override the parent list density.", "Use suffix for non-interactive value content such as badges or status markers; use the action slot when the value itself is an interactive affordance."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuDescriptionList.story.vue"
     },
@@ -398,6 +399,7 @@
       "preferWhen": ["Use for page-level structure across document pages, full-screen flows, centered flows, responsive aside layouts, and reveal-footer pages."],
       "avoidWhen": ["Avoid for small local sections inside a page; use cards, sections, or normal layout utilities instead."],
       "composeWith": ["PuPageHeader", "PuScrollView", "PuForm", "PuCard"],
+      "apiCaveats": ["Use padding with the shared PuSpacing vocabulary for scaffold-owned page inset control; padding none removes design padding and safe-area inset."],
       "storyGroup": "layout",
       "storyFile": "src/stories/layout/PuPageScaffold.story.vue"
     },

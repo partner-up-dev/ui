@@ -18,6 +18,31 @@
   --pu-description-item-padding-block: var(--sys-spacing-small);
 }
 
+.pu-description-item--padding-none {
+  --pu-description-item-padding-block: 0;
+  --pu-description-item-padding-inline: 0;
+}
+
+.pu-description-item--padding-xs {
+  --pu-description-item-padding-block: var(--sys-spacing-xsmall);
+  --pu-description-item-padding-inline: var(--sys-spacing-xsmall);
+}
+
+.pu-description-item--padding-sm {
+  --pu-description-item-padding-block: var(--sys-spacing-xsmall);
+  --pu-description-item-padding-inline: var(--sys-spacing-small);
+}
+
+.pu-description-item--padding-md {
+  --pu-description-item-padding-block: var(--sys-spacing-small);
+  --pu-description-item-padding-inline: var(--sys-spacing-small);
+}
+
+.pu-description-item--padding-lg {
+  --pu-description-item-padding-block: var(--sys-spacing-medium);
+  --pu-description-item-padding-inline: var(--sys-spacing-medium);
+}
+
 .pu-description-item--layout-stack {
   grid-template-columns: 1fr;
 }
