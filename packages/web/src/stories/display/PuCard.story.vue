@@ -1,11 +1,28 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { logEvent } from "histoire/client";
+import { usePuSelect } from "../../composables/usePuSelect";
+import type {
+  PuUseSelectChangeContext,
+  PuUseSelectModelValue,
+} from "../../composables/usePuSelect";
 import PuButton from "../../components/puButton/puButton.vue";
 import PuCard from "../../components/puCard/puCard.vue";
 import PuTag from "../../components/puTag/puTag.vue";
 
+type CardOption = {
+  value: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  disabled?: boolean;
+};
+
 const expanded = ref(true);
 const resetKey = ref(0);
+const directSelection = ref("venue");
+const planSelection = ref("balanced");
+const capabilitySelection = ref<string[]>(["messaging"]);
 const spacings = ["none", "xs", "sm", "md", "lg"] as const;
 
 const tones = [
@@ -40,6 +57,76 @@ const tones = [
     description: "Accent card for special categories.",
   },
 ] as const;
+
+const planOptions: readonly CardOption[] = [
+  {
+    value: "lean",
+    title: "Lean launch",
+    subtitle: "Smallest useful setup",
+    description: "Collect signups, publish schedule details, and keep setup light.",
+  },
+  {
+    value: "balanced",
+    title: "Balanced launch",
+    subtitle: "Most teams start here",
+    description: "Pair event content with member messaging and simple review steps.",
+  },
+  {
+    value: "enterprise",
+    title: "Enterprise launch",
+    subtitle: "Needs approval",
+    description: "Add compliance review, approval routing, and extra onboarding support.",
+    disabled: true,
+  },
+] as const;
+
+const capabilityOptions: readonly CardOption[] = [
+  {
+    value: "messaging",
+    title: "Messaging",
+    subtitle: "Member contact",
+    description: "Send updates before and after each event.",
+  },
+  {
+    value: "analytics",
+    title: "Analytics",
+    subtitle: "Program insight",
+    description: "Track participation and conversion signals.",
+  },
+  {
+    value: "review",
+    title: "Review queue",
+    subtitle: "Moderation",
+    description: "Approve submissions before they become visible.",
+  },
+] as const;
+
+const disabledPlanValues = planOptions
+  .filter((option) => option.disabled)
+  .map((option) => option.value);
+
+const directCardSelect = usePuSelect<string>({
+  modelValue: directSelection,
+});
+
+const planSelect = usePuSelect<string>({
+  modelValue: planSelection,
+  disabledValues: disabledPlanValues,
+  onChange: handleSelectChange,
+});
+
+const capabilitySelect = usePuSelect<string>({
+  modelValue: capabilitySelection,
+  multiple: true,
+  onChange: handleSelectChange,
+});
+
+function handleSelectChange(
+  value: PuUseSelectModelValue<string>,
+  context: PuUseSelectChangeContext<string>,
+): void {
+  logEvent("change", { value, action: context.action, option: context.value });
+}
 </script>
 
 <template>
@@ -198,6 +285,89 @@ const tones = [
               Disabled link and route actions also stop click navigation.
             </p>
           </PuCard>
+        </div>
+      </div>
+    </Variant>
+
+    <Variant title="Selectable State">
+      <div class="pu-story">
+        <div class="pu-story__stack">
+          <div class="pu-card-story__grid">
+            <PuCard
+              selectable
+              :active="directCardSelect.isSelected('venue')"
+              tone="neutral"
+              variant="soft"
+              title="Venue fit"
+              subtitle="Direct PuCard state"
+              @click="directCardSelect.select('venue', $event)"
+            >
+              <p class="pu-story__text">
+                This option shows parent-controlled active state on PuCard.
+              </p>
+            </PuCard>
+
+            <PuCard
+              selectable
+              :active="directCardSelect.isSelected('audience')"
+              tone="neutral"
+              variant="soft"
+              title="Audience fit"
+              subtitle="Direct PuCard state"
+              @click="directCardSelect.select('audience', $event)"
+            >
+              <p class="pu-story__text">
+                Click changes which low-level card receives active styling.
+              </p>
+            </PuCard>
+          </div>
+
+          <p class="pu-story__label">Selected card: {{ directSelection }}</p>
+
+          <div class="pu-card-story__grid" role="group" aria-label="Launch plan">
+            <PuCard
+              v-for="option in planOptions"
+              :key="option.value"
+              selectable
+              :active="planSelect.isSelected(option.value)"
+              :disabled="planSelect.isDisabled(option.value)"
+              tone="neutral"
+              variant="soft"
+              :title="option.title"
+              :subtitle="option.subtitle"
+              @click="planSelect.select(option.value, $event)"
+            >
+              <p class="pu-story__text">{{ option.description }}</p>
+            </PuCard>
+          </div>
+
+          <p class="pu-story__label">Selected plan: {{ planSelection }}</p>
+
+          <div class="pu-card-story__grid" role="group" aria-label="Capabilities">
+            <PuCard
+              v-for="option in capabilityOptions"
+              :key="option.value"
+              selectable
+              :active="capabilitySelect.isSelected(option.value)"
+              tone="neutral"
+              variant="outline"
+              :title="option.title"
+              :subtitle="option.subtitle"
+              @click="capabilitySelect.toggle(option.value, $event)"
+            >
+              <p class="pu-story__text">{{ option.description }}</p>
+              <PuTag
+                v-if="capabilitySelect.isSelected(option.value)"
+                text="Selected"
+                tone="primary"
+                variant="soft"
+              />
+            </PuCard>
+          </div>
+
+          <p class="pu-story__label">
+            Selected capabilities: {{ capabilitySelection.join(", ") }}
+          </p>
         </div>
       </div>
     </Variant>
