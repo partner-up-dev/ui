@@ -48,6 +48,7 @@ packages/web/
 ## Documentation Index
 
 - `README.md`: consumer install and usage.
+- `MIGRATION.md`: consumer migration guide for breaking or compatibility-sensitive releases.
 - `docs/design-style-foundation.md`: package-local visual style base.
 - `docs/shape-audit.md`: current component shape/radius audit.
 - `../../docs/30-unit-tdd/web/component-contract.md`: durable component contract guidance.

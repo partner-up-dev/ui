@@ -38,6 +38,7 @@ packages/uniapp/
 ## Documentation Index
 
 - `README.md`: consumer install, style usage, token architecture, and theme notes.
+- `MIGRATION.md`: consumer migration guide for breaking or compatibility-sensitive releases.
 - `../../docs/30-unit-tdd/uniapp/README.md`: durable UniApp technical constraints.
 - `../../docs/20-product-tdd/cross-package-contracts.md`: web/UniApp alignment policy.
 - `CONTRIBUTING.md`: existing package-local setup and token contribution notes.

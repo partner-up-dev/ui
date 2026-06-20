@@ -47,6 +47,8 @@
     "*.vue"
   ],
   "files": [
+    "CHANGELOG.md",
+    "MIGRATION.md",
     "dist",
     "skills",
     "src/styles",

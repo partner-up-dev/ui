@@ -41,6 +41,11 @@ pnpm --filter @partner-up-dev/design-uniapp run type-check
 pnpm --filter @partner-up-dev/design-uniapp run build
 ```
 
+For package releases with breaking API, export, runtime, or package-content
+changes, verify the affected package `MIGRATION.md` has a matching consumer
+migration entry. If no consumer action is required, the entry should state that
+explicitly.
+
 ## Republishing An Existing Version
 
 1. Do not add a changeset.

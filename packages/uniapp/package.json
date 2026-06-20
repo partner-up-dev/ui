@@ -34,6 +34,8 @@
     "./utils/*": "./src/utils/*"
   },
   "files": [
+    "CHANGELOG.md",
+    "MIGRATION.md",
     "src/components",
     "src/styles",
     "types"

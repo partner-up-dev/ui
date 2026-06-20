@@ -30,6 +30,16 @@ closest edit rules and hazards.
 - Do not add a changeset when the goal is to republish an already-versioned package that was not published to the registry.
 - Do not manually bump package versions except for explicit release automation recovery.
 
+## Migration Policy
+
+- Keep package-local migration guidance in `packages/*/MIGRATION.md`.
+- For breaking package API, export, runtime, or package-content changes, update
+  the affected package migration guide with concrete consumer steps.
+- If a change is technically breaking but requires no consumer action, add a
+  migration entry that says so explicitly.
+- Changeset summaries should mention the migration impact and link or point to
+  the package migration guide when consumer action is required.
+
 ## Release Policy
 
 The repository uses Changesets and GitHub Actions to publish packages to GitHub

@@ -54,6 +54,10 @@ state volatile until it passes the promotion test.
 - Run workspace builds from the root with `pnpm run build`.
 - Use package filters for package-local work, for example `pnpm --filter @partner-up-dev/design-web run verify`.
 - Keep changesets focused on release-worthy package changes. Do not create a changeset to republish an already-versioned package.
+- For breaking package API, export, runtime, or package-content changes, update
+  the affected package's `MIGRATION.md` with consumer migration steps. If the
+  change is technically breaking but requires no consumer action, record that
+  explicitly in the migration entry.
 - Keep `tasks/` as task-local workspace state for investigation notes, migration plans, verification matrices, and implementation records.
 - Generated output such as `dist/`, `.histoire/dist/`, and `node_modules/` is not durable source.
 
@@ -66,8 +70,10 @@ state volatile until it passes the promotion test.
 - `docs/30-unit-tdd/`: package-level durable technical contracts.
 - `docs/40-deployment/`: publish workflow, release runbook, republish, and rollback guidance.
 - `packages/web/README.md`: consumer usage for `@partner-up-dev/design-web`.
+- `packages/web/MIGRATION.md`: consumer migration guide for `@partner-up-dev/design-web`.
 - `packages/web/skills/design-web/`: generated agent skill and component references for web package usage.
 - `packages/uniapp/README.md`: consumer usage for `@partner-up-dev/design-uniapp`.
+- `packages/uniapp/MIGRATION.md`: consumer migration guide for `@partner-up-dev/design-uniapp`.
 - `packages/uniapp/CONTRIBUTING.md`: legacy UniApp package contribution notes.
 - `tasks/*/README.md`: task packet entry points for non-trivial agent work.
 

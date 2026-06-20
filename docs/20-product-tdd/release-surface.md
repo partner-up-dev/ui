@@ -17,6 +17,8 @@ Release identity:
 Published surface:
 
 ```text
+CHANGELOG.md
+MIGRATION.md
 dist
 skills
 src/styles
@@ -46,7 +48,8 @@ Release identity:
 ```
 
 Published package contents are source-oriented. Treat `src/components`,
-`src/styles`, and `types` as the primary public surfaces.
+`src/styles`, `types`, `CHANGELOG.md`, and `MIGRATION.md` as the primary public
+surfaces.
 
 ## Changesets
 
@@ -55,3 +58,10 @@ behavior, or consumer-facing documentation changes.
 
 Do not add a changeset for SVC documentation topology changes unless they alter
 published package contents or consumer-facing package docs.
+
+## Migration Guides
+
+Package-local `MIGRATION.md` files are published consumer documentation. Update
+the affected package guide when a release introduces breaking API, export,
+runtime, or package-content changes. Use the package changelog for release
+history and the migration guide for concrete consumer action.
