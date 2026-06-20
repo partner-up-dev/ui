@@ -115,7 +115,8 @@
 - PuNumberInput: Native input attributes such as id, name, autocomplete, form, and aria-* pass through to the underlying input; class and style apply to the component root.
 - PuPageHeader: Use layout inline when actions must stay in the title row; use layout stack when actions should occupy their own row.
 - PuPageHeader: PuPageHeader does not infer action placement from container width.
-- PuPageHeader: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
+- PuPageHeader: Use the shared PuSize vocabulary for header scale; there is no density prop.
+- PuPageHeader: Use variant for plain, soft, outline, or solid container treatment; use bordered only for a bottom separator.
 - PuPageScaffold: Use padding with the shared PuSpacing vocabulary for scaffold-owned page inset control; padding none removes design padding and safe-area inset.
 - PuPicker: The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer.
 - PuSegmented: Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed.

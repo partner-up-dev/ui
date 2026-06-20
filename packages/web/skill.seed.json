@@ -389,7 +389,7 @@
       "preferWhen": ["Use for page titles with optional subtitle, metadata, and actions."],
       "avoidWhen": ["Avoid custom page header markup when this component covers the structure."],
       "composeWith": ["PuButton", "PuChip", "PuInlineNotice"],
-      "apiCaveats": ["Use layout inline when actions must stay in the title row; use layout stack when actions should occupy their own row.", "PuPageHeader does not infer action placement from container width.", "Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment."],
+      "apiCaveats": ["Use layout inline when actions must stay in the title row; use layout stack when actions should occupy their own row.", "PuPageHeader does not infer action placement from container width.", "Use the shared PuSize vocabulary for header scale; there is no density prop.", "Use variant for plain, soft, outline, or solid container treatment; use bordered only for a bottom separator."],
       "storyGroup": "display",
       "storyFile": "src/stories/display/PuPageHeader.story.vue"
     },

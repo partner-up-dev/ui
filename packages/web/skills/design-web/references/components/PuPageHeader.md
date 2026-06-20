@@ -31,8 +31,7 @@ import { PuPageHeader } from '@partner-up-dev/design-web'
 - `showBack`
 - `backLabel`
 - `layout`
-- `density`
-- `surfaceLevel`
+- `size`
 - `variant`
 - `bordered`
 
@@ -60,16 +59,16 @@ import { PuPageHeader } from '@partner-up-dev/design-web'
 Story: `src/stories/display/PuPageHeader.story.vue`
 
 - Basic
-- Back And Actions
+- Sizes
+- Action Priority
 - Stack Layout
-- Meta
-- Surface Compact
+- Meta And Body
+- Variants
 
 ## Types
 
-- `PuPageHeaderDensity`
 - `PuPageHeaderLayout`
-- `PuPageHeaderSurfaceLevel`
+- `PuPageHeaderSize`
 - `PuPageHeaderTitleAs`
 - `PuPageHeaderVariant`
 
@@ -77,7 +76,8 @@ Story: `src/stories/display/PuPageHeader.story.vue`
 
 - Use layout inline when actions must stay in the title row; use layout stack when actions should occupy their own row.
 - PuPageHeader does not infer action placement from container width.
-- Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
+- Use the shared PuSize vocabulary for header scale; there is no density prop.
+- Use variant for plain, soft, outline, or solid container treatment; use bordered only for a bottom separator.
 
 ## Source Evidence
 

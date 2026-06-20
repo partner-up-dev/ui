@@ -66,11 +66,9 @@ import { computed, useSlots } from "vue";
 import { usePuId } from "../../composables";
 import {
   puContainerVariants,
-  puDensities,
-  puSurfaceLevels,
+  puSizes,
   type PuContainerVariant,
-  type PuDensity,
-  type PuSurfaceLevel,
+  type PuSize,
 } from "../../types";
 import {
   createPuModifierClass,
@@ -96,11 +94,8 @@ const titleId = computed(() => `${baseId.value}-title`);
 const layout = computed<PuPageHeaderLayout>(() =>
   normalizePuVariant(puPageHeaderLayouts, props.layout, "inline"),
 );
-const density = computed<PuDensity>(() =>
-  normalizePuVariant(puDensities, props.density, "comfortable"),
-);
-const surfaceLevel = computed<PuSurfaceLevel>(() =>
-  normalizePuVariant(puSurfaceLevels, props.surfaceLevel, "plain"),
+const size = computed<PuSize>(() =>
+  normalizePuVariant(puSizes, props.size, "md"),
 );
 const variant = computed<PuContainerVariant>(() =>
   normalizePuVariant(puContainerVariants, props.variant, "plain"),
@@ -117,8 +112,7 @@ const hasCopy = computed(() => hasTitle.value || hasSubtitle.value);
 
 const rootClasses = computed(() => [
   createPuModifierClass("pu-page-header", "layout", layout.value),
-  createPuModifierClass("pu-page-header", "density", density.value),
-  createPuModifierClass("pu-page-header", "surface-level", surfaceLevel.value),
+  createPuModifierClass("pu-page-header", "size", size.value),
   createPuModifierClass("pu-page-header", "variant", variant.value),
   createPuStateClass("bordered", props.bordered),
   createPuStateClass("with-back", props.showBack),

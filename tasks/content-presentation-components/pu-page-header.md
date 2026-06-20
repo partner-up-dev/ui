@@ -4,7 +4,7 @@ Status:
 
 ```
 Implemented in packages/web on 2026-05-12.
-Awaiting visual review and API refinement.
+API refinement applied on 2026-06-19.
 ```
 
 ## Implementation Record
@@ -102,9 +102,8 @@ component.pu-page-header
 ## Public API
 
 ```ts
-type PuPageHeaderDensity = "compact" | "comfortable";
 type PuPageHeaderLayout = "inline" | "stack";
-type PuPageHeaderSurfaceLevel = "plain" | "surface" | "section" | "inset-high";
+type PuPageHeaderSize = "sm" | "md" | "lg";
 type PuPageHeaderVariant = "plain" | "soft" | "outline" | "solid";
 type PuPageHeaderTitleAs = "h1" | "h2" | "h3" | "h4";
 
@@ -116,11 +115,19 @@ props = {
   showBack?: boolean;                  // default false
   backLabel?: string;                  // default "Back"
   layout?: PuPageHeaderLayout;         // default "inline"
-  density?: PuPageHeaderDensity;       // default "comfortable"
-  surfaceLevel?: PuPageHeaderSurfaceLevel; // default "plain"
+  size?: PuPageHeaderSize;             // default "md"
   variant?: PuPageHeaderVariant;       // default "plain"
   bordered?: boolean;                  // default false
 }
+```
+
+API notes:
+
+```
+size replaces density and reuses the shared PuSize vocabulary.
+surfaceLevel was removed because a page header should not model page depth.
+variant remains as the shared container treatment vocabulary.
+bordered remains as a page separator affordance independent of variant.
 ```
 
 Slots:
@@ -161,10 +168,11 @@ Story variants:
 
 ```
 Basic
-Back And Actions
+Sizes
+Action Priority
 Stack Layout
-Meta
-Surface Compact
+Meta And Body
+Variants
 ```
 
 ## Layout Contract
@@ -173,6 +181,8 @@ Surface Compact
 inline
   back, title copy, and actions share one main row.
   Actions do not wrap onto a second row based on container width.
+  Actions keep their natural width.
+  Title and subtitle copy shrink first when horizontal space is tight.
 
 stack
   back and title copy share the first row.

@@ -1,21 +1,18 @@
 import type { PropType } from "vue";
 import {
   puContainerVariants,
-  puDensities,
-  puSurfaceLevels,
+  puSizes,
   type PuContainerVariant,
-  type PuDensity,
   type PuLayout,
-  type PuSurfaceLevel,
+  type PuSize,
 } from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
 
 export const puPageHeaderTitleTags = ["h1", "h2", "h3", "h4"] as const;
 export const puPageHeaderLayouts = ["inline", "stack"] as const satisfies readonly PuLayout[];
 
-export type PuPageHeaderDensity = PuDensity;
 export type PuPageHeaderLayout = (typeof puPageHeaderLayouts)[number];
-export type PuPageHeaderSurfaceLevel = PuSurfaceLevel;
+export type PuPageHeaderSize = PuSize;
 export type PuPageHeaderVariant = PuContainerVariant;
 export type PuPageHeaderTitleAs = (typeof puPageHeaderTitleTags)[number];
 
@@ -37,16 +34,10 @@ export const puPageHeaderProps = {
     validator: (value: string) =>
       puPageHeaderLayouts.includes(value as PuPageHeaderLayout),
   },
-  density: {
-    type: String as PropType<PuPageHeaderDensity>,
-    default: "comfortable",
-    validator: (value: string) => puDensities.includes(value as PuDensity),
-  },
-  surfaceLevel: {
-    type: String as PropType<PuPageHeaderSurfaceLevel>,
-    default: "plain",
-    validator: (value: string) =>
-      puSurfaceLevels.includes(value as PuPageHeaderSurfaceLevel),
+  size: {
+    type: String as PropType<PuPageHeaderSize>,
+    default: "md",
+    validator: (value: string) => puSizes.includes(value as PuPageHeaderSize),
   },
   variant: {
     type: String as PropType<PuPageHeaderVariant>,
