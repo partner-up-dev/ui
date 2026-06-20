@@ -75,7 +75,7 @@ function resetSquare(): void {
 </script>
 
 <template>
-  <Story title="PuImgCropper" group="display">
+  <Story title="PuImgCropper" group="forms">
     <Variant title="Square">
       <div class="pu-story">
         <PuCard tone="neutral" variant="outline">

@@ -1,6 +1,54 @@
 import { defineConfig } from "histoire";
 import { HstVue } from "@histoire/plugin-vue";
 
+const storyTreePaths: Record<string, string[]> = {
+  PuButton: ["PuButton"],
+
+  PuInput: ["Fields", "PuInput"],
+  PuTextarea: ["Fields", "PuTextarea"],
+  PuNumberInput: ["Fields", "PuNumberInput"],
+  PuChipInput: ["Fields", "PuChipInput"],
+  PuChipsEditor: ["Fields", "PuChipsEditor"],
+  PuCheckbox: ["Selection", "PuCheckbox"],
+  PuCheckboxGroup: ["Selection", "PuCheckboxGroup"],
+  PuSelect: ["Selection", "PuSelect"],
+  PuPicker: ["Selection", "PuPicker"],
+  PuWheelPicker: ["Selection", "PuWheelPicker"],
+  PuToggleSwitch: ["Selection", "PuToggleSwitch"],
+  PuMultiStopToggle: ["Selection", "PuMultiStopToggle"],
+  PuFileUpload: ["Other", "PuFileUpload"],
+  PuFilesUpload: ["Other", "PuFilesUpload"],
+  PuImgCropper: ["Other", "PuImgCropper"],
+  PuForm: ["Meta", "PuForm"],
+
+  PuCard: ["PuCard"],
+  PuCell: ["Content", "PuCell"],
+  PuDescriptionList: ["Content", "PuDescriptionList"],
+  PuImg: ["Content", "PuImg"],
+  PuAnnouncementBar: ["Status", "PuAnnouncementBar"],
+  PuInlineNotice: ["Status", "PuInlineNotice"],
+  PuEmptyState: ["Status", "PuEmptyState"],
+  PuLoadingState: ["Status", "PuLoadingState"],
+  PuSkeleton: ["Status", "PuSkeleton"],
+  PuSpinner: ["Status", "PuSpinner"],
+  PuTabs: ["Navigation", "PuTabs"],
+  PuSegmented: ["Navigation", "PuSegmented"],
+  PuChip: ["Tags", "PuChip"],
+  PuTag: ["Tags", "PuTag"],
+
+  PuPageHeader: ["PuPageHeader"],
+  PuPageScaffold: ["PuPageScaffold"],
+  PuScrollView: ["PuScrollView"],
+  PuCellGroup: ["Groups", "PuCellGroup"],
+  PuBentoGrid: ["Groups", "PuBentoGrid"],
+  PuAccordion: ["Groups", "PuAccordion"],
+
+  PuDialog: ["Dialogs", "PuDialog"],
+  PuModal: ["Dialogs", "PuModal"],
+  PuDrawer: ["PuDrawer"],
+  PuSnackbar: ["PuSnackbar"],
+};
+
 export default defineConfig({
   plugins: [HstVue()],
   outDir: ".histoire/dist",
@@ -13,6 +61,7 @@ export function setupVanilla() {}
 `,
   ],
   tree: {
+    file: (file) => storyTreePaths[file.title] ?? [file.title],
     groups: [
       {
         id: "actions",

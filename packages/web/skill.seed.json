@@ -51,40 +51,40 @@
   ],
   "components": {
     "PuAccordion": {
-      "category": "display",
+      "category": "layout",
       "intent": ["disclosure group", "accordion panels", "show more content"],
       "preferWhen": ["Use for expandable content sections where users reveal or hide details."],
       "avoidWhen": ["Avoid for navigation tabs or mutually exclusive view switching."],
       "composeWith": ["PuAccordionItem", "PuCard", "PuInlineNotice"],
-      "storyGroup": "display",
+      "storyGroup": "layout",
       "storyFile": "src/stories/display/PuAccordion.story.vue"
     },
     "PuAccordionItem": {
-      "category": "display",
+      "category": "layout",
       "intent": ["accordion item", "disclosure panel"],
       "preferWhen": ["Use inside PuAccordion for each expandable panel."],
       "avoidWhen": ["Do not use outside PuAccordion unless the component explicitly supports standalone usage."],
       "composeWith": ["PuAccordion"],
-      "storyGroup": "display",
+      "storyGroup": "layout",
       "storyFile": "src/stories/display/PuAccordion.story.vue"
     },
     "PuBentoGrid": {
-      "category": "display",
+      "category": "layout",
       "intent": ["bento grid", "asymmetric overview layout", "dashboard summary"],
       "preferWhen": ["Use for overview surfaces where tiles have different emphasis and spans."],
       "avoidWhen": ["Avoid for simple equal-column lists; use normal layout or cards instead."],
       "composeWith": ["PuBentoItem", "PuCard", "PuTag"],
-      "storyGroup": "display",
+      "storyGroup": "layout",
       "storyFile": "src/stories/display/PuBentoGrid.story.vue"
     },
     "PuBentoItem": {
-      "category": "display",
+      "category": "layout",
       "intent": ["bento item", "highlight tile"],
       "preferWhen": ["Use inside PuBentoGrid for an individual overview tile."],
       "avoidWhen": ["Avoid as a general-purpose card outside bento layouts."],
       "composeWith": ["PuBentoGrid"],
       "apiCaveats": ["Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment."],
-      "storyGroup": "display",
+      "storyGroup": "layout",
       "storyFile": "src/stories/display/PuBentoGrid.story.vue"
     },
     "PuButton": {
@@ -120,13 +120,13 @@
       "storyFile": "src/stories/display/PuCell.story.vue"
     },
     "PuCellGroup": {
-      "category": "display",
+      "category": "layout",
       "intent": ["grouped rows", "settings group", "structured list"],
       "preferWhen": ["Use to group PuCell rows into a titled or visually bounded section."],
       "avoidWhen": ["Avoid for free-form card content; use PuCard."],
       "composeWith": ["PuCell", "PuInlineNotice"],
       "apiCaveats": ["Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment."],
-      "storyGroup": "display",
+      "storyGroup": "layout",
       "storyFile": "src/stories/display/PuCellGroup.story.vue"
     },
     "PuCheckbox": {
@@ -293,7 +293,7 @@
       "preferWhen": ["Use when users need to crop or adjust an uploaded image."],
       "avoidWhen": ["Avoid for passive image display; use PuImg."],
       "composeWith": ["PuFileUpload", "PuModal", "PuButton"],
-      "storyGroup": "display",
+      "storyGroup": "forms",
       "storyFile": "src/stories/display/PuImgCropper.story.vue"
     },
     "PuInlineNotice": {

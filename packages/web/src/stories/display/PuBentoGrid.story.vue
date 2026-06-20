@@ -11,7 +11,7 @@ import PuDescriptionList from "../../components/puDescriptionList/puDescriptionL
 </script>
 
 <template>
-  <Story title="PuBentoGrid" group="display">
+  <Story title="PuBentoGrid" group="layout">
     <Variant title="Admin Overview">
       <div class="pu-story pu-bento-story">
         <PuBentoGrid :columns="4" gap="md" auto-rows="112px" collapse-at="md" dense>

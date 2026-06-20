@@ -66,30 +66,15 @@ files only after narrowing the candidate set.
 
 ## Display
 
-- [PuAccordion](references/components/PuAccordion.md)
-  - Intent: disclosure group, accordion panels, show more content
-  - Prefer: Use for expandable content sections where users reveal or hide details.
-- [PuAccordionItem](references/components/PuAccordionItem.md)
-  - Intent: accordion item, disclosure panel
-  - Prefer: Use inside PuAccordion for each expandable panel.
 - [PuAnnouncementBar](references/components/PuAnnouncementBar.md)
   - Intent: announcement bar, announcement strip, rotating announcement
   - Prefer: Use for prominent page-level or banner-style announcements.
-- [PuBentoGrid](references/components/PuBentoGrid.md)
-  - Intent: bento grid, asymmetric overview layout, dashboard summary
-  - Prefer: Use for overview surfaces where tiles have different emphasis and spans.
-- [PuBentoItem](references/components/PuBentoItem.md)
-  - Intent: bento item, highlight tile
-  - Prefer: Use inside PuBentoGrid for an individual overview tile.
 - [PuCard](references/components/PuCard.md)
   - Intent: content card, collapsible card, grouped content surface, selectable card, action card
   - Prefer: Use for grouped content with optional hero, header, body, footer, collapsible content, or whole-card action targets.
 - [PuCell](references/components/PuCell.md)
   - Intent: list row, settings row, navigation row
   - Prefer: Use for a compact row with label, description, meta, icon, action, or navigation affordance.
-- [PuCellGroup](references/components/PuCellGroup.md)
-  - Intent: grouped rows, settings group, structured list
-  - Prefer: Use to group PuCell rows into a titled or visually bounded section.
 - [PuChip](references/components/PuChip.md)
   - Intent: chip, filter token, compact status, removable label
   - Prefer: Use for compact labels, filters, selected values, or removable tokens.
@@ -156,6 +141,21 @@ files only after narrowing the candidate set.
 
 ## Layout
 
+- [PuAccordion](references/components/PuAccordion.md)
+  - Intent: disclosure group, accordion panels, show more content
+  - Prefer: Use for expandable content sections where users reveal or hide details.
+- [PuAccordionItem](references/components/PuAccordionItem.md)
+  - Intent: accordion item, disclosure panel
+  - Prefer: Use inside PuAccordion for each expandable panel.
+- [PuBentoGrid](references/components/PuBentoGrid.md)
+  - Intent: bento grid, asymmetric overview layout, dashboard summary
+  - Prefer: Use for overview surfaces where tiles have different emphasis and spans.
+- [PuBentoItem](references/components/PuBentoItem.md)
+  - Intent: bento item, highlight tile
+  - Prefer: Use inside PuBentoGrid for an individual overview tile.
+- [PuCellGroup](references/components/PuCellGroup.md)
+  - Intent: grouped rows, settings group, structured list
+  - Prefer: Use to group PuCell rows into a titled or visually bounded section.
 - [PuPageHeader](references/components/PuPageHeader.md)
   - Intent: page header, page title, page actions, page metadata
   - Prefer: Use for neutral page titles with optional subtitle, metadata row, and right-aligned actions.

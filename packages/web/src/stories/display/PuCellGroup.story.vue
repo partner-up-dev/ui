@@ -4,7 +4,7 @@ import PuCellGroup from "../../components/puCellGroup/puCellGroup.vue";
 </script>
 
 <template>
-  <Story title="PuCellGroup" group="display">
+  <Story title="PuCellGroup" group="layout">
     <Variant title="Plain">
       <div class="pu-story pu-story--narrow">
         <PuCellGroup surface-level="plain" variant="plain">

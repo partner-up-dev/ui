@@ -15,7 +15,7 @@ const viewMoreOpen = ref(false);
 </script>
 
 <template>
-  <Story title="PuAccordion" group="display">
+  <Story title="PuAccordion" group="layout">
     <Variant title="Multiple">
       <div class="pu-story pu-story--narrow">
         <PuCard tone="neutral" variant="outline" gap="none">
