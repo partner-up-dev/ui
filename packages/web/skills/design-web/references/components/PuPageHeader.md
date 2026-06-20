@@ -10,7 +10,7 @@
 
 ## Prefer When
 
-- Use for page titles with optional subtitle, metadata, and actions.
+- Use for neutral page titles with optional subtitle, metadata row, and right-aligned actions.
 
 ## Avoid When
 
@@ -30,14 +30,11 @@ import { PuPageHeader } from '@partner-up-dev/design-web'
 - `titleAs`
 - `showBack`
 - `backLabel`
-- `layout`
 - `size`
 - `variant`
-- `bordered`
 
 ## Slots
 
-- `default`
 - `actions`
 - `back-icon`
 - `meta`
@@ -52,7 +49,6 @@ import { PuPageHeader } from '@partner-up-dev/design-web'
 
 - PuButton
 - PuChip
-- PuInlineNotice
 
 ## Story Variants
 
@@ -60,24 +56,23 @@ Story: `src/stories/display/PuPageHeader.story.vue`
 
 - Basic
 - Sizes
-- Action Priority
-- Stack Layout
-- Meta And Body
+- Back And Actions
+- Custom Slots
+- Meta Row
 - Variants
 
 ## Types
 
-- `PuPageHeaderLayout`
 - `PuPageHeaderSize`
 - `PuPageHeaderTitleAs`
 - `PuPageHeaderVariant`
 
 ## Caveats
 
-- Use layout inline when actions must stay in the title row; use layout stack when actions should occupy their own row.
-- PuPageHeader does not infer action placement from container width.
+- PuPageHeader is neutral; it has no tone prop.
+- The structure is fixed to a main row and an optional meta row; there is no layout prop and no body/default slot.
 - Use the shared PuSize vocabulary for header scale; there is no density prop.
-- Use variant for plain, soft, outline, or solid container treatment; use bordered only for a bottom separator.
+- Use variant plain for no separator and variant line for a bottom separator.
 
 ## Source Evidence
 

@@ -3,14 +3,13 @@ import { ref } from "vue";
 import PuButton from "../../components/puButton/puButton.vue";
 import PuChip from "../../components/puChip/puChip.vue";
 import PuChipGroup from "../../components/puChipGroup/puChipGroup.vue";
-import PuInlineNotice from "../../components/puInlineNotice/puInlineNotice.vue";
 import PuPageHeader from "../../components/puPageHeader/puPageHeader.vue";
 
 const backCount = ref(0);
 </script>
 
 <template>
-  <Story title="PuPageHeader" group="display">
+  <Story title="PuPageHeader" group="layout">
     <Variant title="Basic">
       <div class="pu-page-header-story">
         <PuPageHeader
@@ -38,7 +37,7 @@ const backCount = ref(0);
           title="Member onboarding"
           subtitle="Medium is the default page-level rhythm."
           title-as="h2"
-          bordered
+          variant="line"
         >
           <template #actions>
             <PuButton tone="neutral" variant="outline">Save</PuButton>
@@ -59,11 +58,11 @@ const backCount = ref(0);
       </div>
     </Variant>
 
-    <Variant title="Action Priority">
+    <Variant title="Back And Actions">
       <div class="pu-page-header-story pu-page-header-story--narrow">
         <PuPageHeader
-          title="West Lake evening walk with an intentionally long operations title"
-          subtitle="Capacity, host assignment, risk checks, and publishing readiness."
+          title="Event review"
+          subtitle="Use an explicit back action when the page has a known return target."
           show-back
           back-label="Back to events"
           @back="backCount += 1"
@@ -74,32 +73,47 @@ const backCount = ref(0);
           </template>
 
           <template #meta>
-            Back events: {{ backCount }}
+            Back clicks: {{ backCount }}
           </template>
         </PuPageHeader>
       </div>
     </Variant>
 
-    <Variant title="Stack Layout">
-      <div class="pu-page-header-story pu-page-header-story--narrow">
+    <Variant title="Custom Slots">
+      <div class="pu-page-header-story pu-page-header-story--medium">
         <PuPageHeader
-          title="Publishing queue"
-          subtitle="Use stacked layout when actions should have their own row."
-          layout="stack"
+          title-as="h2"
           show-back
-          back-label="Back to review"
+          back-label="Back to queue"
           @back="backCount += 1"
         >
+          <template #back-icon>
+            <span class="i-mdi-chevron-left" aria-hidden="true" />
+          </template>
+
+          <template #title>
+            <span class="pu-page-header-story__title-line">
+              Host review
+              <PuChip size="sm" tone="warning" label="Pending" />
+            </span>
+          </template>
+
+          <template #subtitle>
+            <span>
+              Custom copy slots support rich title and subtitle composition
+              without changing the two-row header structure.
+            </span>
+          </template>
+
           <template #actions>
-            <PuButton tone="neutral" variant="outline">Preview</PuButton>
-            <PuButton tone="neutral" variant="ghost">Save draft</PuButton>
-            <PuButton>Publish</PuButton>
+            <PuButton size="sm" tone="neutral" variant="outline">Reassign</PuButton>
+            <PuButton size="sm">Approve</PuButton>
           </template>
         </PuPageHeader>
       </div>
     </Variant>
 
-    <Variant title="Meta And Body">
+    <Variant title="Meta Row">
       <div class="pu-page-header-story">
         <PuPageHeader title="Member profile" subtitle="Identity and trust signals.">
           <template #meta>
@@ -109,12 +123,6 @@ const backCount = ref(0);
               <PuChip tone="neutral" variant="outline" label="Hangzhou" />
             </PuChipGroup>
           </template>
-
-          <PuInlineNotice
-            tone="info"
-            title="Review window"
-            message="Profile changes are visible to hosts after approval."
-          />
         </PuPageHeader>
       </div>
     </Variant>
@@ -128,25 +136,10 @@ const backCount = ref(0);
         />
 
         <PuPageHeader
-          variant="soft"
-          title="Soft"
-          subtitle="Subtle container treatment for embedded sections."
+          variant="line"
+          title="Line"
+          subtitle="Bottom separator for page sections that need a visible boundary."
           title-as="h2"
-        />
-
-        <PuPageHeader
-          variant="outline"
-          title="Outline"
-          subtitle="Framed header for bounded content regions."
-          title-as="h2"
-        />
-
-        <PuPageHeader
-          variant="solid"
-          title="Solid"
-          subtitle="Strongest neutral surface treatment."
-          title-as="h2"
-          bordered
         />
       </div>
     </Variant>
@@ -171,10 +164,22 @@ const backCount = ref(0);
   border: 1px solid var(--sys-color-outline-variant);
 }
 
+.pu-page-header-story--medium {
+  width: min(100%, 38rem);
+  border: 1px solid var(--sys-color-outline-variant);
+}
+
 .pu-page-header-story--grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+}
+
+.pu-page-header-story__title-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
 @media (max-width: 640px) {

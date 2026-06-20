@@ -113,10 +113,10 @@
 - PuNumberInput: Invalid intermediate text is held locally and does not emit a misleading number.
 - PuNumberInput: Use min, max, and step for native numeric constraints.
 - PuNumberInput: Native input attributes such as id, name, autocomplete, form, and aria-* pass through to the underlying input; class and style apply to the component root.
-- PuPageHeader: Use layout inline when actions must stay in the title row; use layout stack when actions should occupy their own row.
-- PuPageHeader: PuPageHeader does not infer action placement from container width.
+- PuPageHeader: PuPageHeader is neutral; it has no tone prop.
+- PuPageHeader: The structure is fixed to a main row and an optional meta row; there is no layout prop and no body/default slot.
 - PuPageHeader: Use the shared PuSize vocabulary for header scale; there is no density prop.
-- PuPageHeader: Use variant for plain, soft, outline, or solid container treatment; use bordered only for a bottom separator.
+- PuPageHeader: Use variant plain for no separator and variant line for a bottom separator.
 - PuPageScaffold: Use padding with the shared PuSpacing vocabulary for scaffold-owned page inset control; padding none removes design padding and safe-area inset.
 - PuPicker: The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer.
 - PuSegmented: Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed.

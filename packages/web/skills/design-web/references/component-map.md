@@ -114,9 +114,6 @@ files only after narrowing the candidate set.
 - [PuLoadingState](references/components/PuLoadingState.md)
   - Intent: loading state, region loading, page loading, visible loading message
   - Prefer: Use for page or region loading states that need a visible spinner with optional title and message.
-- [PuPageHeader](references/components/PuPageHeader.md)
-  - Intent: page header, page title, page actions, page metadata
-  - Prefer: Use for page titles with optional subtitle, metadata, and actions.
 - [PuSegmented](references/components/PuSegmented.md)
   - Intent: segmented control, single-choice switch, view mode switch, compact tabs
   - Prefer: Use for compact single-choice mode, filter, or page-view switching with keyboard behavior.
@@ -159,6 +156,9 @@ files only after narrowing the candidate set.
 
 ## Layout
 
+- [PuPageHeader](references/components/PuPageHeader.md)
+  - Intent: page header, page title, page actions, page metadata
+  - Prefer: Use for neutral page titles with optional subtitle, metadata row, and right-aligned actions.
 - [PuPageScaffold](references/components/PuPageScaffold.md)
   - Intent: page scaffold, responsive page shell, full-screen page, aside page layout, footer reveal layout
   - Prefer: Use for page-level structure across document pages, full-screen flows, centered flows, responsive aside layouts, and reveal-footer pages.

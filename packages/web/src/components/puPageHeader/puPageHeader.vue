@@ -6,35 +6,37 @@
     :aria-labelledby="hasTitle ? titleId : undefined"
   >
     <div class="pu-page-header__main">
-      <button
-        v-if="props.showBack"
-        class="pu-page-header__back"
-        type="button"
-        :aria-label="props.backLabel"
-        @click="onBack"
-      >
-        <slot name="back-icon">
-          <span class="i-mdi-arrow-left" aria-hidden="true" />
-        </slot>
-      </button>
-
-      <div v-if="hasCopy" class="pu-page-header__content">
-        <component
-          :is="titleAs"
-          v-if="hasTitle"
-          :id="titleId"
-          class="pu-page-header__title"
+      <div v-if="hasLeft" class="pu-page-header__left">
+        <button
+          v-if="props.showBack"
+          class="pu-page-header__back"
+          type="button"
+          :aria-label="props.backLabel"
+          @click="onBack"
         >
-          <slot name="title">
-            {{ props.title }}
+          <slot name="back-icon">
+            <span class="i-mdi-arrow-left" aria-hidden="true" />
           </slot>
-        </component>
+        </button>
 
-        <p v-if="hasSubtitle" class="pu-page-header__subtitle">
-          <slot name="subtitle">
-            {{ props.subtitle }}
-          </slot>
-        </p>
+        <div v-if="hasCopy" class="pu-page-header__content">
+          <component
+            :is="titleAs"
+            v-if="hasTitle"
+            :id="titleId"
+            class="pu-page-header__title"
+          >
+            <slot name="title">
+              {{ props.title }}
+            </slot>
+          </component>
+
+          <p v-if="hasSubtitle" class="pu-page-header__subtitle">
+            <slot name="subtitle">
+              {{ props.subtitle }}
+            </slot>
+          </p>
+        </div>
       </div>
 
       <div v-if="$slots.actions" class="pu-page-header__actions">
@@ -44,10 +46,6 @@
 
     <div v-if="$slots.meta" class="pu-page-header__meta">
       <slot name="meta" />
-    </div>
-
-    <div v-if="$slots.default" class="pu-page-header__body">
-      <slot />
     </div>
   </component>
 </template>
@@ -64,12 +62,7 @@ export default {
 <script setup lang="ts">
 import { computed, useSlots } from "vue";
 import { usePuId } from "../../composables";
-import {
-  puContainerVariants,
-  puSizes,
-  type PuContainerVariant,
-  type PuSize,
-} from "../../types";
+import { puSizes, type PuSize } from "../../types";
 import {
   createPuModifierClass,
   createPuStateClass,
@@ -77,11 +70,11 @@ import {
 } from "../../utils";
 import {
   puPageHeaderEmits,
-  puPageHeaderLayouts,
   puPageHeaderProps,
   puPageHeaderTitleTags,
-  type PuPageHeaderLayout,
+  puPageHeaderVariants,
   type PuPageHeaderTitleAs,
+  type PuPageHeaderVariant,
 } from "./puPageHeader";
 
 const props = defineProps(puPageHeaderProps);
@@ -91,14 +84,11 @@ const slots = useSlots();
 const baseId = usePuId("pu-page-header");
 const titleId = computed(() => `${baseId.value}-title`);
 
-const layout = computed<PuPageHeaderLayout>(() =>
-  normalizePuVariant(puPageHeaderLayouts, props.layout, "inline"),
-);
 const size = computed<PuSize>(() =>
   normalizePuVariant(puSizes, props.size, "md"),
 );
-const variant = computed<PuContainerVariant>(() =>
-  normalizePuVariant(puContainerVariants, props.variant, "plain"),
+const variant = computed<PuPageHeaderVariant>(() =>
+  normalizePuVariant(puPageHeaderVariants, props.variant, "plain"),
 );
 const titleAs = computed<PuPageHeaderTitleAs>(() =>
   normalizePuVariant(puPageHeaderTitleTags, props.titleAs, "h1"),
@@ -109,12 +99,11 @@ const hasSubtitle = computed(
   () => Boolean(slots.subtitle) || Boolean(props.subtitle),
 );
 const hasCopy = computed(() => hasTitle.value || hasSubtitle.value);
+const hasLeft = computed(() => props.showBack || hasCopy.value);
 
 const rootClasses = computed(() => [
-  createPuModifierClass("pu-page-header", "layout", layout.value),
   createPuModifierClass("pu-page-header", "size", size.value),
   createPuModifierClass("pu-page-header", "variant", variant.value),
-  createPuStateClass("bordered", props.bordered),
   createPuStateClass("with-back", props.showBack),
   createPuStateClass("with-actions", Boolean(slots.actions)),
   createPuStateClass("with-meta", Boolean(slots.meta)),

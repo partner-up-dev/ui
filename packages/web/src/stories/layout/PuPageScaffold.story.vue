@@ -115,8 +115,7 @@ import PuTag from "../../components/puTag/puTag.vue";
           <template #header>
             <PuPageHeader
               title="Container-aware review"
-              subtitle="The scaffold aside responds to container width; header action placement is explicit."
-              layout="stack"
+              subtitle="The scaffold aside responds to container width while the header keeps its fixed two-row structure."
               show-back
             >
               <template #actions>
