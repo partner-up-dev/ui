@@ -20,7 +20,7 @@
       <span
         v-if="innerShape !== 'button'"
         :class="`pu-checkbox__shape ${
-          innerShape === 'square' ? 'is-square' : ''
+          innerShape === 'rect' || innerShape === 'square' ? 'is-square' : ''
         } ${customShapeClass}`"
         :style="
           isChecked && !isDisabled && checkedColor ? 'color:' + checkedColor : ''
@@ -118,7 +118,7 @@ const isDisabled = computed(() => {
 });
 
 const innerShape = computed(
-  () => props.shape || (checkboxGroup && checkboxGroup.props.shape) || "circle"
+  () => props.shape || (checkboxGroup && checkboxGroup.props.shape) || "rect"
 );
 const isInline = computed(() =>
   checkboxGroup ? !!checkboxGroup.props.inline : !!props.inline

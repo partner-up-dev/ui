@@ -6,7 +6,7 @@ import type { PropType } from "vue";
 /**
  * 裁剪框形状类型
  */
-export type PuImgCropperShape = "square" | "round";
+export type PuImgCropperShape = "rect" | "square" | "round";
 
 /**
  * 输出图片格式
@@ -69,7 +69,7 @@ export const puImgCropperProps = {
    */
   shape: {
     type: String as PropType<PuImgCropperShape>,
-    default: "square"
+    default: "rect"
   },
 
   /**

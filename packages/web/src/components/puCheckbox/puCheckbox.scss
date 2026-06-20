@@ -41,7 +41,7 @@
   box-sizing: border-box;
 
   &.is-square {
-    border-radius: fn.sys-var(radius, xsmall);
+    border-radius: fn.sys-var(radius, none);
   }
 }
 

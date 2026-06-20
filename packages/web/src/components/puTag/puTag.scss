@@ -23,7 +23,7 @@
   }
 
   &--shape-rect {
-    border-radius: fn.sys-var(radius, small);
+    border-radius: fn.sys-var(radius, none);
   }
 
   &--shape-pill {

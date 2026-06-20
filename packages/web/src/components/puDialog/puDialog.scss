@@ -25,7 +25,7 @@
   );
   overflow: hidden;
   border: 1px solid var(--sys-color-outline-variant);
-  border-radius: var(--sys-radius-large);
+  border-radius: var(--sys-radius-none);
   background: var(--sys-color-surface);
   color: var(--sys-color-on-surface);
   box-shadow: var(--sys-shadow-3);
@@ -185,7 +185,7 @@
       var(--pu-vh) -
         var(--sys-spacing-small) - var(--pu-safe-bottom)
     );
-    border-radius: var(--sys-radius-large);
+    border-radius: var(--sys-radius-none);
   }
 
   .pu-dialog__header {

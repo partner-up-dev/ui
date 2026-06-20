@@ -1,7 +1,7 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import { makeBooleanProp, makeNumberProp } from '../../utils/props'
 
-export type PuCheckGroupShape = 'circle' | 'square' | 'button'
+export type PuCheckGroupShape = 'rect' | 'circle' | 'square' | 'button'
 
 export const puCheckboxGroupProps = {
   /** 绑定值：选中的值列表 */
@@ -9,7 +9,7 @@ export const puCheckboxGroupProps = {
     type: Array as PropType<Array<string | number | boolean>>,
     default: () => []
   },
-  /** 单选框形状，可选值：circle / square / button */
+  /** 单选框形状，可选值：rect / circle / square / button */
   shape: String as PropType<PuCheckGroupShape>,
   /** 选中的颜色（作为 currentColor 应用） */
   checkedColor: String,

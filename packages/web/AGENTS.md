@@ -36,12 +36,20 @@ packages/web/
 - Keep the `Pu*` public API aligned with UniApp when the platform model allows it.
 - Prefer web-native DOM behavior for accessibility, focus, overlays, keyboard interaction, and forms.
 - Components should use package tokens and shared utilities before introducing local styling vocabulary.
+- Follow `docs/design-style-foundation.md` for package-local visual direction:
+  semantic color, calm typography, and square-corner rectangular defaults.
+- Components with shape options should default to `rect`; components without
+  shape options should use `--sys-radius-none` for default shells.
+- Treat default component shells that use non-`none` radius as shape-audit
+  candidates unless they are explicit shape affordances.
 - Histoire stories are the primary local inspection surface for component variants and states.
 - Generated skill references should reflect stable package behavior, not task-local implementation notes.
 
 ## Documentation Index
 
 - `README.md`: consumer install and usage.
+- `docs/design-style-foundation.md`: package-local visual style base.
+- `docs/shape-audit.md`: current component shape/radius audit.
 - `../../docs/30-unit-tdd/web/component-contract.md`: durable component contract guidance.
 - `../../docs/30-unit-tdd/web/composition-principles.md`: durable composition guidance.
 - `skills/design-web/SKILL.md`: generated agent-facing web design-system skill.

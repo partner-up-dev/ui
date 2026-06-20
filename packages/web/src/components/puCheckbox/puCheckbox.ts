@@ -1,7 +1,7 @@
 import type { ComponentPublicInstance, ExtractPropTypes, PropType } from 'vue'
 import { makeStringProp } from '../../utils/props'
 
-export type PuCheckShape = 'circle' | 'square' | 'button'
+export type PuCheckShape = 'rect' | 'circle' | 'square' | 'button'
 export type PuCheckboxType = 'Default' | 'Bar'
 
 export const puCheckboxProps = {
@@ -19,7 +19,7 @@ export const puCheckboxProps = {
     type: [String, Number, Boolean] as PropType<string | number | boolean>,
     default: false
   },
-  /** 形状：圆、方、按钮 */
+  /** 形状：矩形、圆、方、按钮 */
   shape: String as PropType<PuCheckShape>,
   /** 选中时的颜色（作为 currentColor 应用） */
   checkedColor: String,

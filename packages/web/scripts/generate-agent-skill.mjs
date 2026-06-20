@@ -634,6 +634,9 @@ const renderSkill = (model) => {
   const variantReference = model.skillReferences.find(
     (reference) => reference.target === "references/variant-vocabulary.md",
   );
+  const styleReference = model.skillReferences.find(
+    (reference) => reference.target === "references/design-style-foundation.md",
+  );
   const firstSteps = [
     "Identify the UI intent.",
     "Read `references/component-map.md` for candidate components.",
@@ -641,9 +644,12 @@ const renderSkill = (model) => {
   ];
 
   if (compositionReference) {
-    firstSteps.push(`For structure, styling, or responsive decisions, read \`${compositionReference.target}\`.`);
+    firstSteps.push(`For structure or responsive decisions, read \`${compositionReference.target}\`.`);
   } else {
     firstSteps.push("Apply the package usage rules before writing custom UI.");
+  }
+  if (styleReference) {
+    firstSteps.push(`For visual style, token, or shape-default decisions, read \`${styleReference.target}\`.`);
   }
   if (typeReference) {
     firstSteps.push(`For imports, TypeScript helper types, or global component declarations, read \`${typeReference.target}\`.`);

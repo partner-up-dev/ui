@@ -42,6 +42,11 @@
       "source": "../../docs/30-unit-tdd/web/variant-vocabulary.md",
       "target": "references/variant-vocabulary.md",
       "description": "durable package vocabulary for tone, status tone, control variants, container variants, field variants, surface levels, and shapes."
+    },
+    {
+      "source": "docs/design-style-foundation.md",
+      "target": "references/design-style-foundation.md",
+      "description": "package-local visual direction for semantic color, quiet typography, and square-corner rectangular defaults."
     }
   ],
   "components": {

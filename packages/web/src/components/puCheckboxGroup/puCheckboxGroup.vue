@@ -46,7 +46,7 @@ watch(
 watch(
   () => props.shape,
   (newValue) => {
-    const types = ["circle", "square", "button"];
+    const types = ["rect", "circle", "square", "button"];
     if (newValue && types.indexOf(newValue) === -1) {
       console.error(`shape must be one of ${types.toString()}`);
     }

@@ -12,7 +12,7 @@
 }
 
 .pu-img--shape-rect {
-  border-radius: fn.sys-var(radius, small);
+  border-radius: fn.sys-var(radius, none);
 }
 
 .pu-img--shape-pill {

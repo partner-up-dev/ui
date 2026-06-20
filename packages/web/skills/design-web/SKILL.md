@@ -17,11 +17,12 @@ when a task asks which PartnerUp design component to use.
 1. Identify the UI intent.
 2. Read `references/component-map.md` for candidate components.
 3. For page-level UI, read `references/composition-recipes.md`.
-4. For structure, styling, or responsive decisions, read `references/composition-principles.md`.
-5. For imports, TypeScript helper types, or global component declarations, read `references/type-support.md`.
-6. For tone, status, variant, surface, or shape choices, read `references/variant-vocabulary.md`.
-7. Read only the selected files under `references/components/`.
-8. Implement with public package APIs from the selected component references.
+4. For structure or responsive decisions, read `references/composition-principles.md`.
+5. For visual style, token, or shape-default decisions, read `references/design-style-foundation.md`.
+6. For imports, TypeScript helper types, or global component declarations, read `references/type-support.md`.
+7. For tone, status, variant, surface, or shape choices, read `references/variant-vocabulary.md`.
+8. Read only the selected files under `references/components/`.
+9. Implement with public package APIs from the selected component references.
 
 ## Component Selection
 
@@ -79,6 +80,7 @@ support.
 - `references/composition-principles.md`: durable package principles for component ownership, composition, tokens, and local CSS.
 - `references/type-support.md`: durable package rules for public imports, TypeScript helper types, and Vue global component declarations.
 - `references/variant-vocabulary.md`: durable package vocabulary for tone, status tone, control variants, container variants, field variants, surface levels, and shapes.
+- `references/design-style-foundation.md`: package-local visual direction for semantic color, quiet typography, and square-corner rectangular defaults.
 - `references/usage-rules.md`: cross-component consumer rules and caveats.
 
 ## Avoid
