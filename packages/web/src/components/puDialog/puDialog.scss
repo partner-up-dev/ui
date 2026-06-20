@@ -166,6 +166,10 @@
   gap: var(--sys-spacing-small);
 }
 
+.pu-dialog__header + .pu-dialog__footer {
+  padding-top: var(--sys-spacing-medium);
+}
+
 .pu-dialog__body + .pu-dialog__footer {
   padding-top: var(--sys-spacing-small);
 }
