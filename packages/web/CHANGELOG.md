@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.4.6
+
+### Patch Changes
+
+- f61cb31: Reset the web PuCheckbox implementation and remove PuCheckboxGroup.
+- b400f7c: Simplify `PuPageHeader` into a neutral two-row page header with a fixed main row
+  and optional meta row. The component now uses `variant="line"` for bottom
+  separation and no longer exposes layout, bordered, body slot, or soft/outline/solid
+  container variants.
+- 419ef58: Add usePuSelect for UI-agnostic single and multiple selection state.
+- debf9c7: Add PuFloatPanel for height-driven draggable bottom panels with snap stops.
+
 ## 0.4.5
 
 ### Patch Changes
