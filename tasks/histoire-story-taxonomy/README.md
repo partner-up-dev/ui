@@ -38,3 +38,4 @@ component APIs or moving story files.
 - Overlay:
   - root: `PuDrawer`, `PuSnackbar`
   - Dialogs: `PuDialog`, `PuModal`
+  - Panels: `PuFloatPanel`

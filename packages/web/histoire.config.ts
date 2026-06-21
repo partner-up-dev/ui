@@ -44,6 +44,7 @@ const storyTreePaths: Record<string, string[]> = {
 
   PuDialog: ["Dialogs", "PuDialog"],
   PuModal: ["Dialogs", "PuModal"],
+  PuFloatPanel: ["Panels", "PuFloatPanel"],
   PuDrawer: ["PuDrawer"],
   PuSnackbar: ["PuSnackbar"],
 };
