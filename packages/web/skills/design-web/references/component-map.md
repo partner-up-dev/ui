@@ -13,11 +13,8 @@ files only after narrowing the candidate set.
 ## Forms
 
 - [PuCheckbox](references/components/PuCheckbox.md)
-  - Intent: checkbox, boolean selection, multi-select option
-  - Prefer: Use for an individual boolean or multi-select choice.
-- [PuCheckboxGroup](references/components/PuCheckboxGroup.md)
-  - Intent: checkbox group, multi-select field
-  - Prefer: Use when multiple checkbox options share one value array or field label.
+  - Intent: checkbox, boolean selection, single option confirmation
+  - Prefer: Use for an individual boolean choice or confirmation field.
 - [PuChipInput](references/components/PuChipInput.md)
   - Intent: editable chip, single chip input, inline token editing
   - Prefer: Use for editing one chip value with chip geometry, commit/cancel, and optional remove.

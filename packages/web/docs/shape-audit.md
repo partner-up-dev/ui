@@ -26,8 +26,8 @@ These components either map their default rectangular shape to
 | `PuChip` | `shape` defaults to `rect`; rect radius maps to `--sys-radius-none`; remove affordance uses `pill`. | Aligned. |
 | `PuImg` | `shape` defaults to `rect`; rect radius maps to `--sys-radius-none`; circular image masks are explicit. | Aligned. |
 | `PuImgCropper` | `shape` defaults to `rect`; legacy `square` remains a square-crop alias and `round` is explicit. | Aligned. |
-| `PuCheckbox` / `PuCheckboxGroup` | Runtime shape default is `rect`; legacy `square` remains an alias and `circle`/`button` are explicit. | Aligned. |
-| `PuSpinner`, checkbox marks, skeleton circle/pill variants | Use `full` or `pill` for intrinsic circular geometry. | Intentional rounded primitives. |
+| `PuCheckbox` | Visual box uses `--sys-radius-none`; size and tone use shared package vocabulary. | Aligned. |
+| `PuSpinner`, skeleton circle/pill variants | Use `full` or `pill` for intrinsic circular geometry. | Intentional rounded primitives. |
 | `PuCard` | No shape option; root shell uses `--sys-radius-none`; toggle affordance uses explicit circular geometry. | Aligned. |
 | `PuInlineNotice` | No shape option; layout shell uses `--sys-radius-none`; close affordance uses `pill`. | Aligned. |
 | `PuDialog` | No shape option; dialog shell uses `--sys-radius-none`; icon and close controls use `full`. | Aligned with explicit circular affordances. |

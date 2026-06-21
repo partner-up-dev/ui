@@ -10,7 +10,6 @@ const storyTreePaths: Record<string, string[]> = {
   PuChipInput: ["Fields", "PuChipInput"],
   PuChipsEditor: ["Fields", "PuChipsEditor"],
   PuCheckbox: ["Selection", "PuCheckbox"],
-  PuCheckboxGroup: ["Selection", "PuCheckboxGroup"],
   PuSelect: ["Selection", "PuSelect"],
   PuPicker: ["Selection", "PuPicker"],
   PuWheelPicker: ["Selection", "PuWheelPicker"],

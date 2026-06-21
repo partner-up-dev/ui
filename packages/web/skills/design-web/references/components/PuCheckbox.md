@@ -5,11 +5,11 @@
 
 - checkbox
 - boolean selection
-- multi-select option
+- single option confirmation
 
 ## Prefer When
 
-- Use for an individual boolean or multi-select choice.
+- Use for an individual boolean choice or confirmation field.
 
 ## Avoid When
 
@@ -23,18 +23,13 @@ import { PuCheckbox } from '@partner-up-dev/design-web'
 
 ## Props
 
-- `customLabelClass`
-- `customShapeClass`
-- `type`
 - `modelValue`
-- `shape`
-- `checkedColor`
-- `disabled`
-- `trueValue`
-- `falseValue`
+- `tone`
 - `size`
-- `maxWidth`
-- `inline`
+- `disabled`
+- `id`
+- `name`
+- `ariaLabel`
 
 ## Slots
 
@@ -47,7 +42,6 @@ import { PuCheckbox } from '@partner-up-dev/design-web'
 
 ## Composition
 
-- PuCheckboxGroup
 - PuFormItem
 
 ## Story Variants
@@ -55,21 +49,24 @@ import { PuCheckbox } from '@partner-up-dev/design-web'
 Story: `src/stories/forms/PuCheckbox.story.vue`
 
 - Controlled
-- Shapes
-- Bar
-- States
+- Sizes
+- Tones
+- Disabled
+- Standalone Icon
 
 ## Types
 
-- `PuCheckShape`
-- `PuCheckboxExpose`
-- `PuCheckboxInstance`
+- `PuCheckboxEmits`
 - `PuCheckboxProps`
-- `PuCheckboxType`
+- `PuCheckboxSize`
+- `PuCheckboxTone`
 
 ## Caveats
 
-- No package-specific caveats recorded.
+- Use boolean modelValue as the value contract.
+- Use size sm, md, or lg from PuSize.
+- Use tone neutral, primary, secondary, tertiary, or danger from PuTone.
+- The component renders native checkbox input semantics and a square token-driven visual box.
 
 ## Source Evidence
 

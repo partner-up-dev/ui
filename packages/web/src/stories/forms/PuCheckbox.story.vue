@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { logEvent } from "histoire/client";
+import type { PuSize, PuTone } from "../../types";
 import PuCheckbox from "../../components/puCheckbox/puCheckbox.vue";
-import PuCard from "../../components/puCard/puCard.vue";
 
 const accepted = ref(false);
-const square = ref(true);
-const button = ref("yes");
+const reminders = ref(true);
 
-function handleChange(payload: unknown): void {
-  logEvent("change", payload);
+const sizes: PuSize[] = ["sm", "md", "lg"];
+const tones: PuTone[] = ["neutral", "primary", "secondary", "tertiary", "danger"];
+
+function handleChange(value: boolean): void {
+  logEvent("change", value);
 }
 </script>
 
@@ -19,74 +21,76 @@ function handleChange(payload: unknown): void {
       <div class="pu-story pu-story--narrow">
         <div class="pu-story__stack">
           <PuCheckbox v-model="accepted" @change="handleChange">
-            Accept reservation terms
+            Accept service updates
           </PuCheckbox>
           <p class="pu-story__text">Value: {{ accepted }}</p>
         </div>
       </div>
     </Variant>
 
-    <Variant title="Shapes">
-      <div class="pu-story">
-        <PuCard tone="neutral" variant="outline">
-          <div class="pu-checkbox-story__row">
-            <PuCheckbox v-model="accepted" shape="circle">Circle</PuCheckbox>
-            <PuCheckbox v-model="square" shape="square">Square</PuCheckbox>
-            <PuCheckbox
-              v-model="button"
-              shape="button"
-              true-value="yes"
-              false-value="no"
-            >
-              Button
-            </PuCheckbox>
-          </div>
-        </PuCard>
-      </div>
-    </Variant>
-
-    <Variant title="Bar">
+    <Variant title="Sizes">
       <div class="pu-story pu-story--narrow">
-        <PuCard tone="neutral" variant="soft" gap="none">
+        <div class="pu-story__stack">
           <PuCheckbox
-            :model-value="true"
-            type="Bar"
-            true-value="checked"
-            false-value="unchecked"
+            v-for="size in sizes"
+            :key="size"
+            :model-value="size === 'md'"
+            :size="size"
           >
-            Host will verify attendee list
+            {{ size }} checkbox
           </PuCheckbox>
-          <PuCheckbox
-            :model-value="false"
-            type="Bar"
-            true-value="checked"
-            false-value="unchecked"
-          >
-            Send reminder before start
-          </PuCheckbox>
-        </PuCard>
+        </div>
       </div>
     </Variant>
 
-    <Variant title="States">
+    <Variant title="Tones">
       <div class="pu-story">
-        <PuCard tone="neutral" variant="soft" padding="sm">
-          <div class="pu-checkbox-story__row">
-            <PuCheckbox :model-value="true" disabled>Disabled checked</PuCheckbox>
-            <PuCheckbox :model-value="false" disabled>Disabled off</PuCheckbox>
-            <PuCheckbox :model-value="true" size="large">Large</PuCheckbox>
-          </div>
-        </PuCard>
+        <div class="pu-checkbox-story__grid">
+          <PuCheckbox
+            v-for="tone in tones"
+            :key="tone"
+            :model-value="true"
+            :tone="tone"
+          >
+            {{ tone }}
+          </PuCheckbox>
+        </div>
+      </div>
+    </Variant>
+
+    <Variant title="Disabled">
+      <div class="pu-story pu-story--narrow">
+        <div class="pu-story__stack">
+          <PuCheckbox :model-value="false" disabled>
+            Disabled off
+          </PuCheckbox>
+          <PuCheckbox :model-value="true" disabled>
+            Disabled on
+          </PuCheckbox>
+        </div>
+      </div>
+    </Variant>
+
+    <Variant title="Standalone Icon">
+      <div class="pu-story pu-story--narrow">
+        <div class="pu-story__stack">
+          <PuCheckbox
+            v-model="reminders"
+            aria-label="Receive reminders"
+            tone="secondary"
+            @change="handleChange"
+          />
+          <p class="pu-story__text">Value: {{ reminders }}</p>
+        </div>
       </div>
     </Variant>
   </Story>
 </template>
 
 <style scoped>
-.pu-checkbox-story__row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
+.pu-checkbox-story__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
+  gap: var(--sys-spacing-medium);
 }
 </style>

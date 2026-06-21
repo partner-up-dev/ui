@@ -13,7 +13,7 @@
 
 ## Avoid When
 
-- Avoid for multi-select choices; use PuCheckboxGroup.
+- Avoid for deferred confirmation fields; use PuCheckbox.
 
 ## Import
 

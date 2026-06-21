@@ -12,7 +12,6 @@ import PuCard from './components/puCard/puCard.vue'
 import PuCell from './components/puCell/puCell.vue'
 import PuCellGroup from './components/puCellGroup/puCellGroup.vue'
 import PuCheckbox from './components/puCheckbox/puCheckbox.vue'
-import PuCheckboxGroup from './components/puCheckboxGroup/puCheckboxGroup.vue'
 import PuChip from './components/puChip/puChip.vue'
 import PuChipGroup from './components/puChipGroup/puChipGroup.vue'
 import PuChipInput from './components/puChipInput/puChipInput.vue'
@@ -64,7 +63,6 @@ export {
   PuCell,
   PuCellGroup,
   PuCheckbox,
-  PuCheckboxGroup,
   PuChip,
   PuChipGroup,
   PuChipInput,
@@ -116,7 +114,6 @@ export type * from './components/puCard/puCard'
 export type * from './components/puCell/puCell'
 export type * from './components/puCellGroup/puCellGroup'
 export type * from './components/puCheckbox/puCheckbox'
-export type * from './components/puCheckboxGroup/puCheckboxGroup'
 export type * from './components/puChip/puChip'
 export type * from './components/puChipGroup/puChipGroup'
 export type * from './components/puChipInput/puChipInput'
@@ -169,7 +166,6 @@ declare module 'vue' {
     PuCell: typeof PuCell
     PuCellGroup: typeof PuCellGroup
     PuCheckbox: typeof PuCheckbox
-    PuCheckboxGroup: typeof PuCheckboxGroup
     PuChip: typeof PuChip
     PuChipGroup: typeof PuChipGroup
     PuChipInput: typeof PuChipInput
@@ -225,7 +221,6 @@ const components: readonly ComponentEntry[] = [
   ['PuCell', PuCell],
   ['PuCellGroup', PuCellGroup],
   ['PuCheckbox', PuCheckbox],
-  ['PuCheckboxGroup', PuCheckboxGroup],
   ['PuChip', PuChip],
   ['PuChipGroup', PuChipGroup],
   ['PuChipInput', PuChipInput],

@@ -56,6 +56,10 @@
 - PuCard: Disabled link and route cards use aria-disabled and stop click navigation.
 - PuCell: Use padding with the shared PuSpacing vocabulary for row inset control; min-height remains a separate row rhythm decision.
 - PuCellGroup: Use surfaceLevel for neutral page/content depth and variant for plain, soft, outline, or solid treatment.
+- PuCheckbox: Use boolean modelValue as the value contract.
+- PuCheckbox: Use size sm, md, or lg from PuSize.
+- PuCheckbox: Use tone neutral, primary, secondary, tertiary, or danger from PuTone.
+- PuCheckbox: The component renders native checkbox input semantics and a square token-driven visual box.
 - PuChip: Use tone for semantic/status color, variant for chip treatment such as soft, outline, solid, ghost, or dashed, and shape for rect or pill geometry. The default shape is rect.
 - PuChipGroup: fit mode measures rendered element children and hides overflow items; keep slot content element-based and avoid relying on hidden chip count.
 - PuChipInput: Values are strings.

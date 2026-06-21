@@ -131,21 +131,13 @@
     },
     "PuCheckbox": {
       "category": "forms",
-      "intent": ["checkbox", "boolean selection", "multi-select option"],
-      "preferWhen": ["Use for an individual boolean or multi-select choice."],
+      "intent": ["checkbox", "boolean selection", "single option confirmation"],
+      "preferWhen": ["Use for an individual boolean choice or confirmation field."],
       "avoidWhen": ["Avoid for exclusive choices; use PuTabs or PuPicker depending on context."],
-      "composeWith": ["PuCheckboxGroup", "PuFormItem"],
+      "composeWith": ["PuFormItem"],
+      "apiCaveats": ["Use boolean modelValue as the value contract.", "Use size sm, md, or lg from PuSize.", "Use tone neutral, primary, secondary, tertiary, or danger from PuTone.", "The component renders native checkbox input semantics and a square token-driven visual box."],
       "storyGroup": "forms",
       "storyFile": "src/stories/forms/PuCheckbox.story.vue"
-    },
-    "PuCheckboxGroup": {
-      "category": "forms",
-      "intent": ["checkbox group", "multi-select field"],
-      "preferWhen": ["Use when multiple checkbox options share one value array or field label."],
-      "avoidWhen": ["Avoid for a single boolean toggle; use PuCheckbox or PuToggleSwitch."],
-      "composeWith": ["PuCheckbox", "PuFormItem"],
-      "storyGroup": "forms",
-      "storyFile": "src/stories/forms/PuCheckboxGroup.story.vue"
     },
     "PuChip": {
       "category": "display",
@@ -532,7 +524,7 @@
       "category": "forms",
       "intent": ["toggle switch", "boolean setting", "on off control"],
       "preferWhen": ["Use for immediate boolean settings or preferences."],
-      "avoidWhen": ["Avoid for multi-select choices; use PuCheckboxGroup."],
+      "avoidWhen": ["Avoid for deferred confirmation fields; use PuCheckbox."],
       "composeWith": ["PuCell", "PuFormItem"],
       "apiCaveats": ["Use size sm, md, or lg to map the switch label to caption, control, or body typography."],
       "storyGroup": "forms",
