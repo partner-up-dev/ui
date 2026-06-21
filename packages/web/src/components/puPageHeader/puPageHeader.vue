@@ -107,6 +107,7 @@ const rootClasses = computed(() => [
   createPuStateClass("with-back", props.showBack),
   createPuStateClass("with-actions", Boolean(slots.actions)),
   createPuStateClass("with-meta", Boolean(slots.meta)),
+  createPuStateClass("without-subtitle", !hasSubtitle.value),
 ]);
 
 function onBack(event: MouseEvent): void {

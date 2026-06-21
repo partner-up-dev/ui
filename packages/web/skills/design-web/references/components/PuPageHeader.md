@@ -57,6 +57,7 @@ Story: `src/stories/display/PuPageHeader.story.vue`
 - Basic
 - Sizes
 - Back And Actions
+- No Subtitle
 - Custom Slots
 - Meta Row
 - Variants

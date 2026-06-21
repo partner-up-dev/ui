@@ -79,6 +79,22 @@ const backCount = ref(0);
       </div>
     </Variant>
 
+    <Variant title="No Subtitle">
+      <div class="pu-page-header-story pu-page-header-story--medium">
+        <PuPageHeader
+          title="Event review"
+          show-back
+          back-label="Back to events"
+          @back="backCount += 1"
+        >
+          <template #actions>
+            <PuButton size="sm" tone="neutral" variant="outline">Edit</PuButton>
+            <PuButton size="sm">Publish</PuButton>
+          </template>
+        </PuPageHeader>
+      </div>
+    </Variant>
+
     <Variant title="Custom Slots">
       <div class="pu-page-header-story pu-page-header-story--medium">
         <PuPageHeader
