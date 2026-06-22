@@ -30,7 +30,6 @@
   cursor: pointer;
   transition:
     border-color 180ms ease,
-    box-shadow 180ms ease,
     filter 180ms ease,
     opacity 180ms ease,
     transform 180ms ease;
@@ -51,13 +50,11 @@
 
 .pu-card.is-active {
   border-color: var(--sys-color-primary);
-  box-shadow: 0 0 0 1px var(--sys-color-primary);
 }
 
 .pu-card.is-disabled {
   cursor: not-allowed;
   opacity: var(--sys-opacity-disabled);
-  box-shadow: none;
 }
 
 .pu-card--tone-neutral {

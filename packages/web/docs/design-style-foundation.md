@@ -34,6 +34,11 @@ semantic color depth and quiet typography.
   documented component affordances.
 - Content surfaces should separate levels through color, border, spacing, and
   layout before relying on radius or shadow.
+- Shadow is reserved for necessary elevation: use it only when a surface needs
+  visible z-axis separation, protection from a competing background, or extra
+  focus as an elevated element. Do not use shadow for ordinary active,
+  selected, hover, or in-track control states; prefer semantic color, border,
+  surface level, spacing, and layout.
 - Text should stay calm: low to moderate weights, direct labels, no decorative
   letter spacing, and hierarchy from existing typography tokens.
 - Motion should be brief and functional. Prefer subtle state transitions over
@@ -59,6 +64,20 @@ Do not mass-change the token values as a first repair step. Changing
 `medium`/`large` globally would alter published CSS variables and overlay
 surfaces at once. Prefer component-level alignment first, then revisit token
 semantics after the component surface is consistent.
+
+## Elevation And Shadow
+
+PartnerUp Web follows the Material Design 3 elevation principle that shadow is a
+depth cue, not a default surface decoration. Use shadow when it clarifies a real
+vertical relationship between surfaces, such as dialogs, drawers, floating
+panels, snackbars, menus, or elements that must remain visually protected from a
+busy background.
+
+Avoid shadow when the UI is only expressing component state. Active cards,
+selected items, thumb positions inside a track, hover affordances, and
+validation states should use the local component vocabulary first: color,
+border, outline, surface role, typography, spacing, or motion. A shadow in those
+cases falsely implies elevation where the interaction is only state.
 
 ## Component Rules
 

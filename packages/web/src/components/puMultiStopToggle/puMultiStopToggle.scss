@@ -81,7 +81,6 @@
   height: var(--pu-multi-stop-toggle-thumb-size);
   border-radius: var(--sys-radius-full);
   background: var(--sys-color-primary);
-  box-shadow: var(--sys-shadow-1);
   transform: translateX(
     calc(var(--pu-multi-stop-toggle-index) * var(--pu-multi-stop-toggle-step))
   );
@@ -96,4 +95,3 @@
     transition: none !important;
   }
 }
-
