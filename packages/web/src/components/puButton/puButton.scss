@@ -20,7 +20,7 @@
   border: 1px solid transparent;
   border-radius: var(--pu-button-radius);
   color: inherit;
-  font: inherit;
+  font-family: inherit;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
@@ -75,7 +75,16 @@
   --pu-button-radius: #{fn.sys-var(radius, full)};
 }
 
+.pu-button--size-xs {
+  --pu-button-min-height: 1.75rem;
+
+  min-height: var(--pu-button-min-height);
+  padding: fn.sys-var(spacing, xsmall) fn.sys-var(spacing, small);
+  font-size: 0.6875rem;
+}
+
 .pu-button--size-sm {
+  @include pu-font-size("caption");
   --pu-button-min-height: #{fn.sys-var(spacing, large)};
 
   min-height: var(--pu-button-min-height);
@@ -92,7 +101,7 @@
 }
 
 .pu-button--size-lg {
-  @include pu-font("section");
+  @include pu-font-size("body");
   --pu-button-min-height: calc(
     #{fn.sys-var(spacing, large)} + (2 * #{fn.sys-var(spacing, small)}) + #{fn.sys-var(spacing, xsmall)}
   );

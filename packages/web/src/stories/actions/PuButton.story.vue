@@ -17,7 +17,7 @@ const tones: PuButtonTone[] = [
 ];
 
 const variants: PuButtonVariant[] = ["solid", "soft", "outline", "ghost", "dashed"];
-const sizes: PuButtonSize[] = ["sm", "md", "lg"];
+const sizes: PuButtonSize[] = ["xs", "sm", "md", "lg"];
 const feedbackStates: PuButtonFeedback[] = ["idle", "pending", "success", "error"];
 
 function handleClick(event: MouseEvent): void {
@@ -69,45 +69,69 @@ function handleClick(event: MouseEvent): void {
     </Variant>
 
     <Variant title="Shapes And Sizes">
-      <div class="pu-story">
-        <div class="pu-story__row">
-          <PuButton
-            v-for="size in sizes"
-            :key="`rect-${size}`"
-            :size="size"
-            @click="handleClick"
-          >
-            Rect {{ size }}
-          </PuButton>
+      <div class="pu-story pu-story__stack">
+        <div class="pu-story__surface pu-button-story__size-group">
+          <p class="pu-story__label">Rect</p>
+          <div class="pu-button-story__sample-grid">
+            <div
+              v-for="size in sizes"
+              :key="`rect-${size}`"
+              class="pu-button-story__sample"
+            >
+              <p class="pu-button-story__size-note">{{ size }}</p>
+              <PuButton
+                :size="size"
+                @click="handleClick"
+              >
+                Action
+              </PuButton>
+            </div>
+          </div>
         </div>
 
-        <div class="pu-story__row">
-          <PuButton
-            v-for="size in sizes"
-            :key="`pill-${size}`"
-            shape="pill"
-            variant="outline"
-            :size="size"
-            @click="handleClick"
-          >
-            Pill {{ size }}
-          </PuButton>
+        <div class="pu-story__surface pu-button-story__size-group">
+          <p class="pu-story__label">Pill</p>
+          <div class="pu-button-story__sample-grid">
+            <div
+              v-for="size in sizes"
+              :key="`pill-${size}`"
+              class="pu-button-story__sample"
+            >
+              <p class="pu-button-story__size-note">{{ size }}</p>
+              <PuButton
+                shape="pill"
+                variant="outline"
+                :size="size"
+                @click="handleClick"
+              >
+                Action
+              </PuButton>
+            </div>
+          </div>
         </div>
 
-        <div class="pu-story__row">
-          <PuButton
-            v-for="size in sizes"
-            :key="`circle-${size}`"
-            :size="size"
-            shape="circle"
-            variant="ghost"
-            :aria-label="`Circle icon ${size}`"
-            @click="handleClick"
-          >
-            <template #leading>
-              <span class="i-mdi-star-outline"></span>
-            </template>
-          </PuButton>
+        <div class="pu-story__surface pu-button-story__size-group">
+          <p class="pu-story__label">Circle</p>
+          <div class="pu-button-story__sample-grid">
+            <div
+              v-for="size in sizes"
+              :key="`circle-${size}`"
+              class="pu-button-story__sample pu-button-story__sample--center"
+            >
+              <p class="pu-button-story__size-note">{{ size }}</p>
+              <PuButton
+                :size="size"
+                shape="circle"
+                variant="ghost"
+                :aria-label="`Circle icon ${size}`"
+                @click="handleClick"
+              >
+                <template #leading>
+                  <span class="i-mdi-star-outline"></span>
+                </template>
+              </PuButton>
+            </div>
+          </div>
         </div>
       </div>
     </Variant>
@@ -214,3 +238,34 @@ function handleClick(event: MouseEvent): void {
     </Variant>
   </Story>
 </template>
+
+<style scoped>
+.pu-button-story__size-group {
+  align-items: start;
+}
+
+.pu-button-story__sample-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.pu-button-story__sample {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+}
+
+.pu-button-story__sample--center {
+  justify-items: center;
+}
+
+.pu-button-story__size-note {
+  margin: 0;
+  color: var(--sys-color-on-surface-variant);
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: lowercase;
+}
+</style>

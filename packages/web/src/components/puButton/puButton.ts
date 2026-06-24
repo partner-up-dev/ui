@@ -2,8 +2,8 @@ import type { PropType } from "vue";
 import type {
   PuAction,
   PuControlVariant,
+  PuExtendedSize,
   PuShape,
-  PuSize,
   PuTone,
 } from "../../types";
 import { makeBooleanProp, makeStringProp } from "../../utils/props";
@@ -12,7 +12,7 @@ export type PuButtonTone = PuTone;
 
 export type PuButtonVariant = PuControlVariant;
 
-export type PuButtonSize = PuSize;
+export type PuButtonSize = Extract<PuExtendedSize, "xs" | "sm" | "md" | "lg">;
 
 export type PuButtonFeedback = "idle" | "pending" | "success" | "error";
 
