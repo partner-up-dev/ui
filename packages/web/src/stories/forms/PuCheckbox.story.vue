@@ -62,7 +62,7 @@ function handleChange(value: boolean): void {
       <div class="pu-story pu-story--narrow">
         <div class="pu-story__stack">
           <PuCheckbox :model-value="false" disabled>
-            Disabled off
+            Disabled off (minus)
           </PuCheckbox>
           <PuCheckbox :model-value="true" disabled>
             Disabled on

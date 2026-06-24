@@ -136,6 +136,7 @@ export const partnerUpDesignSafelist = [
   "i-mdi-information-outline",
   "i-mdi-link-variant",
   "i-mdi-loading",
+  "i-mdi-minus",
   "i-mdi-tray-arrow-up",
 ] as const;
 

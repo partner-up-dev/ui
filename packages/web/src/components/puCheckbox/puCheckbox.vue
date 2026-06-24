@@ -12,6 +12,7 @@
     />
     <span class="pu-checkbox__box" aria-hidden="true">
       <span class="pu-checkbox__mark" />
+      <span class="i-mdi-minus pu-checkbox__minus" />
     </span>
     <span v-if="hasLabel" class="pu-checkbox__label">
       <slot />
