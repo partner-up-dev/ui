@@ -1,0 +1,137 @@
+@use "../../styles/mixins" as *;
+
+.pu-radio {
+  --pu-radio-box-size: 1.125rem;
+  --pu-radio-indicator-inset: 0.25rem;
+  --pu-radio-accent: var(--sys-color-primary);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-width: 0;
+  color: var(--sys-color-on-surface);
+  cursor: pointer;
+  gap: var(--sys-spacing-small);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.pu-radio--size-sm {
+  @include pu-font(caption);
+
+  --pu-radio-box-size: 1rem;
+  --pu-radio-indicator-inset: 0.25rem;
+}
+
+.pu-radio--size-md {
+  @include pu-font(control);
+
+  --pu-radio-box-size: 1.125rem;
+  --pu-radio-indicator-inset: 0.25rem;
+}
+
+.pu-radio--size-lg {
+  @include pu-font(body);
+
+  --pu-radio-box-size: 1.25rem;
+  --pu-radio-indicator-inset: 0.25rem;
+}
+
+.pu-radio--tone-neutral {
+  --pu-radio-accent: var(--sys-color-on-surface);
+}
+
+.pu-radio--tone-primary {
+  --pu-radio-accent: var(--sys-color-primary);
+}
+
+.pu-radio--tone-secondary {
+  --pu-radio-accent: var(--sys-color-secondary);
+}
+
+.pu-radio--tone-tertiary {
+  --pu-radio-accent: var(--sys-color-tertiary);
+}
+
+.pu-radio--tone-danger {
+  --pu-radio-accent: var(--sys-color-error);
+}
+
+.pu-radio__input {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 0;
+  width: var(--pu-radio-box-size);
+  height: var(--pu-radio-box-size);
+  margin: 0;
+  opacity: 0;
+  transform: translateY(-50%);
+  cursor: inherit;
+}
+
+.pu-radio__box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--pu-radio-box-size);
+  height: var(--pu-radio-box-size);
+  border: 0.0625rem solid var(--sys-color-outline-variant);
+  border-radius: var(--sys-radius-none);
+  background: transparent;
+  flex: 0 0 auto;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.pu-radio__indicator {
+  position: absolute;
+  inset: var(--pu-radio-indicator-inset);
+  background: var(--pu-radio-accent);
+  opacity: 0;
+  transform: scale(0.72);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.pu-radio__label {
+  min-width: 0;
+}
+
+.pu-radio.is-checked .pu-radio__box {
+  border-color: var(--pu-radio-accent);
+  background: var(--sys-color-surface);
+}
+
+.pu-radio.is-checked .pu-radio__indicator {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.pu-radio__input:focus-visible + .pu-radio__box {
+  outline: 0.125rem solid var(--pu-radio-accent);
+  outline-offset: 0.125rem;
+}
+
+@media (hover: hover) {
+  .pu-radio:hover:not(.is-disabled) .pu-radio__box {
+    border-color: var(--pu-radio-accent);
+  }
+}
+
+.pu-radio.is-disabled {
+  cursor: not-allowed;
+  opacity: var(--sys-opacity-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pu-radio__box,
+  .pu-radio__indicator {
+    transition: none;
+  }
+}

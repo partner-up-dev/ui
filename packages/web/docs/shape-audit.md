@@ -27,6 +27,7 @@ These components either map their default rectangular shape to
 | `PuImg` | `shape` defaults to `rect`; rect radius maps to `--sys-radius-none`; circular image masks are explicit. | Aligned. |
 | `PuImgCropper` | `shape` defaults to `rect`; legacy `square` remains a square-crop alias and `round` is explicit. | Aligned. |
 | `PuCheckbox` | Visual box uses `--sys-radius-none`; size and tone use shared package vocabulary. | Aligned. |
+| `PuRadio` | Visual box uses `--sys-radius-none`; selected indicator stays square within the shell. | Aligned. |
 | `PuSpinner`, skeleton circle/pill variants | Use `full` or `pill` for intrinsic circular geometry. | Intentional rounded primitives. |
 | `PuCard` | No shape option; root shell uses `--sys-radius-none`; toggle affordance uses explicit circular geometry. | Aligned. |
 | `PuInlineNotice` | No shape option; layout shell uses `--sys-radius-none`; close affordance uses `pill`. | Aligned. |

@@ -30,6 +30,7 @@ Use:
 - PuInput
 - PuTextarea
 - PuCheckbox
+- PuRadio
 - PuPicker
 - PuButton
 

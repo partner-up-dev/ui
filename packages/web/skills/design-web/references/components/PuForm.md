@@ -39,6 +39,7 @@ import { PuForm } from '@partner-up-dev/design-web'
 - PuInput
 - PuTextarea
 - PuCheckbox
+- PuRadio
 - PuFileUpload
 - PuFilesUpload
 

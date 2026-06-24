@@ -12,6 +12,7 @@
 
 ## Selection
 
+- Use `PuHeader` for section, surface, panel, and card title/action structure.
 - Use `PuPageHeader` for page title/action structure.
 - Use `PuPageScaffold` for page-level geometry, viewport mode, content width, aside layout, sticky aside, and footer placement.
 - Use `PuCellGroup` and `PuCell` for dense row groups.
@@ -99,6 +100,10 @@
 - PuForm: External submit buttons can target a PuForm by passing the native form attribute with the form id.
 - PuFormItem: Explicit error text takes precedence over errors injected by PuForm prop matching.
 - PuFormItem: Use the labelTrailing slot for field-level secondary affordances and the control slot when the default slot is not specific enough.
+- PuHeader: The structure is fixed to a main row and an optional meta row; actions stay inline and right-aligned.
+- PuHeader: Use the shared PuSize vocabulary for title scale and PuSpacing via padding for host-owned inset control.
+- PuHeader: Use variant plain for no separator and variant line for a bottom separator.
+- PuHeader: Use padding none when the host surface already owns the surrounding inset.
 - PuImg: Use shape from the shared PuShape vocabulary instead of local radius values.
 - PuImg: Use the fallback slot for custom fallback rendering; fallbackInitial and name cover simple initial fallback.
 - PuImg: Provide alt text for meaningful images; fallback content derives an accessible label from alt or name when available.
@@ -128,6 +133,11 @@
 - PuPageHeader: Use variant plain for no separator and variant line for a bottom separator.
 - PuPageScaffold: Use padding with the shared PuSpacing vocabulary for scaffold-owned page inset control; padding none removes design padding and safe-area inset.
 - PuPicker: The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer.
+- PuRadio: Use a shared modelValue plus each option's value and name to compose a native radio group in application code.
+- PuRadio: Use string, number, or boolean values for exclusive choice state.
+- PuRadio: Use size sm, md, or lg from PuSize.
+- PuRadio: Use tone neutral, primary, secondary, tertiary, or danger from PuTone.
+- PuRadio: The component renders native radio input semantics with a square token-driven outer box and square indicator.
 - PuSegmented: Use tone for semantic selected-item color and variant for rail treatment such as soft, outline, solid, ghost, or dashed.
 - PuSegmented: Use semantics="tabs" only when the items control associated tab panels.
 - PuSelect: Values are string | number | null.

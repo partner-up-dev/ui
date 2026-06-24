@@ -37,6 +37,7 @@ import PuNumberInput from './components/puNumberInput/puNumberInput.vue'
 import PuPageHeader from './components/puPageHeader/puPageHeader.vue'
 import PuPageScaffold from './components/puPageScaffold/puPageScaffold.vue'
 import PuPicker from './components/puPicker/puPicker.vue'
+import PuRadio from './components/puRadio/puRadio.vue'
 import PuScrollView from './components/puScrollView/puScrollView.vue'
 import PuSegmented from './components/puSegmented/puSegmented.vue'
 import PuSegmentedItem from './components/puSegmentedItem/puSegmentedItem.vue'
@@ -88,6 +89,7 @@ export {
   PuPageHeader,
   PuPageScaffold,
   PuPicker,
+  PuRadio,
   PuScrollView,
   PuSegmented,
   PuSegmentedItem,
@@ -139,6 +141,7 @@ export type * from './components/puNumberInput/puNumberInput'
 export type * from './components/puPageHeader/puPageHeader'
 export type * from './components/puPageScaffold/puPageScaffold'
 export type * from './components/puPicker/puPicker'
+export type * from './components/puRadio/puRadio'
 export type * from './components/puScrollView/puScrollView'
 export type * from './components/puSegmented/puSegmented'
 export type * from './components/puSegmentedItem/puSegmentedItem'
@@ -191,6 +194,7 @@ declare module 'vue' {
     PuPageHeader: typeof PuPageHeader
     PuPageScaffold: typeof PuPageScaffold
     PuPicker: typeof PuPicker
+    PuRadio: typeof PuRadio
     PuScrollView: typeof PuScrollView
     PuSegmented: typeof PuSegmented
     PuSegmentedItem: typeof PuSegmentedItem
@@ -246,6 +250,7 @@ const components: readonly ComponentEntry[] = [
   ['PuPageHeader', PuPageHeader],
   ['PuPageScaffold', PuPageScaffold],
   ['PuPicker', PuPicker],
+  ['PuRadio', PuRadio],
   ['PuScrollView', PuScrollView],
   ['PuSegmented', PuSegmented],
   ['PuSegmentedItem', PuSegmentedItem],

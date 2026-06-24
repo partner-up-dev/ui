@@ -787,7 +787,7 @@ const renderCompositionRecipes = (model) => {
     {
       title: "Form Page",
       when: "A page collects user input and shows validation or helper text.",
-      use: ["PuForm", "PuFormItem", "PuInput", "PuTextarea", "PuCheckbox", "PuPicker", "PuButton"].filter(has),
+      use: ["PuForm", "PuFormItem", "PuInput", "PuTextarea", "PuCheckbox", "PuRadio", "PuPicker", "PuButton"].filter(has),
     },
     {
       title: "File Submission",

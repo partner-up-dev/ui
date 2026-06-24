@@ -37,6 +37,7 @@ declare module 'vue' {
     PuPageHeader: typeof import('@partner-up-dev/design-web')['PuPageHeader']
     PuPageScaffold: typeof import('@partner-up-dev/design-web')['PuPageScaffold']
     PuPicker: typeof import('@partner-up-dev/design-web')['PuPicker']
+    PuRadio: typeof import('@partner-up-dev/design-web')['PuRadio']
     PuScrollView: typeof import('@partner-up-dev/design-web')['PuScrollView']
     PuSegmented: typeof import('@partner-up-dev/design-web')['PuSegmented']
     PuSegmentedItem: typeof import('@partner-up-dev/design-web')['PuSegmentedItem']

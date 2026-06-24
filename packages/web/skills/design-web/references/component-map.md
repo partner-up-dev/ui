@@ -48,6 +48,9 @@ files only after narrowing the candidate set.
 - [PuPicker](references/components/PuPicker.md)
   - Intent: picker, select field, option selection
   - Prefer: Use for selecting from option lists when a picker interaction is desired.
+- [PuRadio](references/components/PuRadio.md)
+  - Intent: radio, exclusive selection, single choice option
+  - Prefer: Use for one option inside an application-owned mutually exclusive choice set.
 - [PuSelect](references/components/PuSelect.md)
   - Intent: select field, single selection, native option selection
   - Prefer: Use for web-native one-of-many selection in product forms, settings, filters, or admin editors.
@@ -156,6 +159,9 @@ files only after narrowing the candidate set.
 - [PuCellGroup](references/components/PuCellGroup.md)
   - Intent: grouped rows, settings group, structured list
   - Prefer: Use to group PuCell rows into a titled or visually bounded section.
+- [PuHeader](references/components/PuHeader.md)
+  - Intent: content header, section header, panel header, surface header, card header
+  - Prefer: Use for neutral section, surface, panel, or card titles with optional subtitle, leading content, metadata row, and inline actions.
 - [PuPageHeader](references/components/PuPageHeader.md)
   - Intent: page header, page title, page actions, page metadata
   - Prefer: Use for neutral page titles with optional subtitle, metadata row, and right-aligned actions.

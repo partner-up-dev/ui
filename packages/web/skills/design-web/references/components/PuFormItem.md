@@ -52,6 +52,7 @@ import { PuFormItem } from '@partner-up-dev/design-web'
 - PuInput
 - PuTextarea
 - PuCheckbox
+- PuRadio
 - PuPicker
 
 ## Story Variants
