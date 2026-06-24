@@ -4,6 +4,7 @@
     var(--dcs-layout-page-max-width)
   );
   --pu-page-scaffold-gap: var(--sys-spacing-xlarge, 2rem);
+  --pu-page-scaffold-region-gap: var(--sys-spacing-medium);
   --pu-page-scaffold-aside-min-width: 280px;
   --pu-page-scaffold-aside-max-width: 340px;
   --pu-page-scaffold-padding: var(--sys-spacing-medium);
@@ -42,6 +43,7 @@
     --pu-page-padding-left,
     var(--pu-page-scaffold-safe-padding-left)
   );
+  gap: var(--pu-page-scaffold-region-gap);
   flex-direction: column;
   container: pu-page / inline-size;
 }
@@ -67,6 +69,7 @@
   --pu-page-padding-left: 0;
 
   height: auto;
+  gap: 0;
 }
 
 .pu-page-scaffold--footer-reveal.pu-page-scaffold--width-page {
@@ -120,6 +123,7 @@
   padding-top: var(--pu-page-scaffold-safe-padding-top);
   padding-right: var(--pu-page-scaffold-safe-padding-right);
   padding-left: var(--pu-page-scaffold-safe-padding-left);
+  gap: var(--pu-page-scaffold-region-gap);
   flex-direction: column;
 }
 

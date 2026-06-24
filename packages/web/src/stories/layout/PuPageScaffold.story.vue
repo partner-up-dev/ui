@@ -36,6 +36,13 @@ import PuTag from "../../components/puTag/puTag.vue";
             </p>
           </PuCard>
         </div>
+
+        <template #footer>
+          <div class="pu-page-scaffold-story__footer">
+            <PuButton tone="neutral" variant="outline">Archive</PuButton>
+            <PuButton>Continue</PuButton>
+          </div>
+        </template>
       </PuPageScaffold>
     </Variant>
 
