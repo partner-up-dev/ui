@@ -18,49 +18,41 @@
         tabindex="-1"
       >
         <slot name="header">
-          <header
+          <PuHeader
             v-if="hasDefaultHeader"
+            as="header"
             class="pu-dialog__header"
+            :title="props.title"
+            :subtitle="props.description"
+            title-as="h2"
+            :title-id="titleId"
+            :subtitle-id="descriptionId"
           >
-            <div
-              v-if="$slots.icon"
-              class="pu-dialog__icon"
-              aria-hidden="true"
-            >
-              <slot name="icon" />
-            </div>
+            <template v-if="$slots.icon" #leading>
+              <div class="pu-dialog__icon" aria-hidden="true">
+                <slot name="icon" />
+              </div>
+            </template>
 
-            <div class="pu-dialog__heading">
-              <h2
-                v-if="hasTitle"
-                :id="titleId"
-                class="pu-dialog__title"
-              >
-                <slot name="title">
-                  {{ props.title }}
-                </slot>
-              </h2>
-              <p
-                v-if="hasDescription"
-                :id="descriptionId"
-                class="pu-dialog__description"
-              >
-                <slot name="description">
-                  {{ props.description }}
-                </slot>
-              </p>
-            </div>
+            <template v-if="$slots.title" #title>
+              <slot name="title" />
+            </template>
 
-            <button
-              v-if="props.showClose"
-              type="button"
-              class="pu-dialog__close"
-              :aria-label="props.closeLabel"
-              @click="requestClose('close')"
-            >
-              <span class="i-mdi-close" aria-hidden="true"></span>
-            </button>
-          </header>
+            <template v-if="$slots.description" #subtitle>
+              <slot name="description" />
+            </template>
+
+            <template v-if="props.showClose" #actions>
+              <button
+                type="button"
+                class="pu-dialog__close"
+                :aria-label="props.closeLabel"
+                @click="requestClose('close')"
+              >
+                <span class="i-mdi-close" aria-hidden="true"></span>
+              </button>
+            </template>
+          </PuHeader>
         </slot>
 
         <div
@@ -120,6 +112,7 @@ import {
   usePuId,
 } from "../../composables";
 import PuButton from "../puButton/puButton.vue";
+import PuHeader from "../puHeader/puHeader.vue";
 import {
   puDialogEmits,
   puDialogProps,
@@ -156,9 +149,6 @@ const hasDefaultFooter = computed(() =>
 const dialogClasses = computed(() => [
   "pu-dialog",
   `pu-dialog--tone-${props.tone}`,
-  {
-    "pu-dialog--with-icon": Boolean(slots.icon),
-  },
 ]);
 
 const dialogLabelledBy = computed(() =>

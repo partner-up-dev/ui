@@ -11,7 +11,8 @@ A page needs title/actions, grouped settings, local notices, and save/cancel com
 
 Use:
 
-- PuPageHeader
+- PuPageScaffold
+- PuHeader
 - PuCellGroup
 - PuCell
 - PuInlineNotice
@@ -57,7 +58,8 @@ A page presents facts, metadata, status, and secondary actions.
 
 Use:
 
-- PuPageHeader
+- PuPageScaffold
+- PuHeader
 - PuCard
 - PuDescriptionList
 - PuDescriptionItem

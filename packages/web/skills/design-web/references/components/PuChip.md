@@ -54,7 +54,7 @@ import { PuChip } from '@partner-up-dev/design-web'
 
 - PuChipGroup
 - PuCard
-- PuPageHeader
+- PuHeader
 
 ## Story Variants
 

@@ -41,15 +41,12 @@
 }
 
 .pu-dialog__header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: flex-start;
   padding: var(--sys-spacing-large) var(--sys-spacing-large) 0;
-  gap: var(--sys-spacing-medium);
 }
 
-.pu-dialog--with-icon .pu-dialog__header {
-  grid-template-columns: auto minmax(0, 1fr) auto;
+.pu-dialog__header :deep(.pu-header__main),
+.pu-dialog__header :deep(.pu-header__left) {
+  gap: var(--sys-spacing-medium);
 }
 
 .pu-dialog__icon,
@@ -87,26 +84,6 @@
 .pu-dialog--tone-error .pu-dialog__icon {
   background: var(--sys-color-error-container);
   color: var(--sys-color-on-error-container);
-}
-
-.pu-dialog__heading {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  gap: var(--sys-spacing-xsmall);
-}
-
-.pu-dialog__title {
-  margin: 0;
-  overflow-wrap: anywhere;
-  @include pu-font(title);
-}
-
-.pu-dialog__description {
-  margin: 0;
-  color: var(--sys-color-on-surface-variant);
-  overflow-wrap: anywhere;
-  @include pu-font(body);
 }
 
 .pu-dialog__close {

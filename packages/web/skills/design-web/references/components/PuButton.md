@@ -47,7 +47,7 @@ import { PuButton } from '@partner-up-dev/design-web'
 
 ## Composition
 
-- PuPageHeader
+- PuHeader
 - PuFormItem
 - PuDialog
 - PuModal

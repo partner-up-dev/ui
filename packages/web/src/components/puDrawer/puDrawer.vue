@@ -22,24 +22,33 @@
       <slot v-if="props.fullCustom" name="full" />
       <div v-else class="pu-drawer__shell">
         <slot name="header" :close="handleCloseButton">
-          <div v-if="hasHeader" class="drawer-header">
-            <slot name="title">
-              <span v-if="props.title" :id="titleId" class="drawer-title">
-                {{ props.title }}
-              </span>
-            </slot>
-            <slot name="close" :close="handleCloseButton">
-              <button
-                v-if="props.showClose"
-                type="button"
-                class="drawer-close"
-                :aria-label="props.closeLabel"
-                @click="handleCloseButton"
-              >
-                <span class="i-mdi-close" aria-hidden="true"></span>
-              </button>
-            </slot>
-          </div>
+          <PuHeader
+            v-if="hasHeader"
+            as="header"
+            class="pu-drawer__header"
+            :title="props.title || undefined"
+            title-as="h2"
+            variant="line"
+            :title-id="titleId"
+          >
+            <template v-if="$slots.title" #title>
+              <slot name="title" />
+            </template>
+
+            <template v-if="props.showClose || $slots.close" #actions>
+              <slot name="close" :close="handleCloseButton">
+                <button
+                  v-if="props.showClose"
+                  type="button"
+                  class="pu-drawer__close"
+                  :aria-label="props.closeLabel"
+                  @click="handleCloseButton"
+                >
+                  <span class="i-mdi-close" aria-hidden="true"></span>
+                </button>
+              </slot>
+            </template>
+          </PuHeader>
         </slot>
         <div
           class="drawer-content"
@@ -73,6 +82,7 @@ import {
   useFocusTrap,
   usePuId,
 } from "../../composables";
+import PuHeader from "../puHeader/puHeader.vue";
 import { puDrawerProps, puDrawerEmits, type PuDrawerCloseReason } from "./puDrawer";
 
 const props = defineProps(puDrawerProps);
@@ -89,6 +99,8 @@ watch(() => props.visible, (newVal) => {
   visible.value = newVal;
 });
 
+const hasTitle = computed(() => Boolean(props.title || slots.title));
+
 const scrimZIndex = computed(() => Number(props.zIndex));
 
 const drawerStyle = computed<CSSProperties>(() => ({
@@ -102,11 +114,11 @@ const drawerStyle = computed<CSSProperties>(() => ({
 }));
 
 const hasHeader = computed(() =>
-  Boolean(props.title || props.showClose || slots.title || slots.close),
+  Boolean(hasTitle.value || props.showClose || slots.close),
 );
 
 const drawerLabelledBy = computed(() =>
-  props.title && !props.fullCustom && !slots.header && !slots.title
+  !props.fullCustom && !slots.header && hasTitle.value
     ? titleId.value
     : undefined,
 );

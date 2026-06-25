@@ -32,34 +32,39 @@
     box-sizing: border-box;
   }
 
-  .drawer-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: fn.sys-var(spacing, medium);
+  .pu-drawer__header {
     padding: fn.sys-var(spacing, medium);
-    border-bottom: 1px solid fn.sys-var(color, outline-variant);
+  }
 
-    .drawer-title {
-      @include pu-font("title");
-      min-width: 0;
-      flex: 1;
-      color: fn.sys-var(color, on-surface);
-    }
+  .pu-drawer__close {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin: -0.25rem -0.25rem 0 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: fn.sys-var(color, on-surface-variant);
+    cursor: pointer;
+    font: inherit;
+  }
 
-    .drawer-close {
-      appearance: none;
-      border: 0;
-      background: transparent;
-      margin: 0;
-      padding: 0;
-      cursor: pointer;
-      @include pu-icon("medium");
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: fn.sys-var(color, on-surface-variant);
-    }
+  .pu-drawer__close:hover {
+    background: fn.sys-var(color, surface-container-high);
+    color: fn.sys-var(color, on-surface);
+  }
+
+  .pu-drawer__close:focus-visible {
+    outline: 2px solid fn.sys-var(color, primary);
+    outline-offset: 2px;
+  }
+
+  .pu-drawer__close span {
+    @include pu-icon("medium");
   }
 
   .drawer-content {

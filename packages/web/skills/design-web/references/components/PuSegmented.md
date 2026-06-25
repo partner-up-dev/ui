@@ -50,7 +50,7 @@ import { PuSegmented } from '@partner-up-dev/design-web'
 ## Composition
 
 - PuSegmentedItem
-- PuPageHeader
+- PuHeader
 - PuCard
 
 ## Story Variants

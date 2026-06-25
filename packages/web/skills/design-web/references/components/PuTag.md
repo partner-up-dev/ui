@@ -40,7 +40,7 @@ import { PuTag } from '@partner-up-dev/design-web'
 ## Composition
 
 - PuCard
-- PuPageHeader
+- PuHeader
 - PuCell
 
 ## Story Variants

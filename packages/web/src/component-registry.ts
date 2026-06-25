@@ -26,6 +26,7 @@ import PuFileUpload from './components/puFileUpload/puFileUpload.vue'
 import PuFloatPanel from './components/puFloatPanel/puFloatPanel.vue'
 import PuForm from './components/puForm/puForm.vue'
 import PuFormItem from './components/puFormItem/puFormItem.vue'
+import PuHeader from './components/puHeader/puHeader.vue'
 import PuImg from './components/puImg/puImg.vue'
 import PuImgCropper from './components/puImgCropper/puImgCropper.vue'
 import PuInlineNotice from './components/puInlineNotice/puInlineNotice.vue'
@@ -34,7 +35,6 @@ import PuLoadingState from './components/puLoadingState/puLoadingState.vue'
 import PuModal from './components/puModal/puModal.vue'
 import PuMultiStopToggle from './components/puMultiStopToggle/puMultiStopToggle.vue'
 import PuNumberInput from './components/puNumberInput/puNumberInput.vue'
-import PuPageHeader from './components/puPageHeader/puPageHeader.vue'
 import PuPageScaffold from './components/puPageScaffold/puPageScaffold.vue'
 import PuPicker from './components/puPicker/puPicker.vue'
 import PuRadio from './components/puRadio/puRadio.vue'
@@ -78,6 +78,7 @@ export {
   PuFloatPanel,
   PuForm,
   PuFormItem,
+  PuHeader,
   PuImg,
   PuImgCropper,
   PuInlineNotice,
@@ -86,7 +87,6 @@ export {
   PuModal,
   PuMultiStopToggle,
   PuNumberInput,
-  PuPageHeader,
   PuPageScaffold,
   PuPicker,
   PuRadio,
@@ -130,6 +130,7 @@ export type * from './components/puFileUpload/puFileUpload'
 export type * from './components/puFloatPanel/puFloatPanel'
 export type * from './components/puForm/puForm'
 export type * from './components/puFormItem/puFormItem'
+export type * from './components/puHeader/puHeader'
 export type * from './components/puImg/puImg'
 export type * from './components/puImgCropper/puImgCropper'
 export type * from './components/puInlineNotice/puInlineNotice'
@@ -138,7 +139,6 @@ export type * from './components/puLoadingState/puLoadingState'
 export type * from './components/puModal/puModal'
 export type * from './components/puMultiStopToggle/puMultiStopToggle'
 export type * from './components/puNumberInput/puNumberInput'
-export type * from './components/puPageHeader/puPageHeader'
 export type * from './components/puPageScaffold/puPageScaffold'
 export type * from './components/puPicker/puPicker'
 export type * from './components/puRadio/puRadio'
@@ -183,6 +183,7 @@ declare module 'vue' {
     PuFloatPanel: typeof PuFloatPanel
     PuForm: typeof PuForm
     PuFormItem: typeof PuFormItem
+    PuHeader: typeof PuHeader
     PuImg: typeof PuImg
     PuImgCropper: typeof PuImgCropper
     PuInlineNotice: typeof PuInlineNotice
@@ -191,7 +192,6 @@ declare module 'vue' {
     PuModal: typeof PuModal
     PuMultiStopToggle: typeof PuMultiStopToggle
     PuNumberInput: typeof PuNumberInput
-    PuPageHeader: typeof PuPageHeader
     PuPageScaffold: typeof PuPageScaffold
     PuPicker: typeof PuPicker
     PuRadio: typeof PuRadio
@@ -239,6 +239,7 @@ const components: readonly ComponentEntry[] = [
   ['PuFloatPanel', PuFloatPanel],
   ['PuForm', PuForm],
   ['PuFormItem', PuFormItem],
+  ['PuHeader', PuHeader],
   ['PuImg', PuImg],
   ['PuImgCropper', PuImgCropper],
   ['PuInlineNotice', PuInlineNotice],
@@ -247,7 +248,6 @@ const components: readonly ComponentEntry[] = [
   ['PuModal', PuModal],
   ['PuMultiStopToggle', PuMultiStopToggle],
   ['PuNumberInput', PuNumberInput],
-  ['PuPageHeader', PuPageHeader],
   ['PuPageScaffold', PuPageScaffold],
   ['PuPicker', PuPicker],
   ['PuRadio', PuRadio],

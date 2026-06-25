@@ -39,6 +39,7 @@ import { PuPageScaffold } from '@partner-up-dev/design-web'
 - `aside`
 - `footer`
 - `header`
+- `pageHeader`
 
 ## Events
 
@@ -46,7 +47,7 @@ import { PuPageScaffold } from '@partner-up-dev/design-web'
 
 ## Composition
 
-- PuPageHeader
+- PuHeader
 - PuScrollView
 - PuForm
 - PuCard
@@ -58,6 +59,7 @@ Story: `src/stories/layout/PuPageScaffold.story.vue`
 - Document
 - Centered Screen
 - No Padding
+- Custom Header Slot
 - Aside Layout
 - Narrow Container
 - Footer Reveal
@@ -73,7 +75,8 @@ Story: `src/stories/layout/PuPageScaffold.story.vue`
 
 ## Caveats
 
-- Use padding with the shared PuSpacing vocabulary for scaffold-owned page inset control; padding none removes design padding and safe-area inset.
+- Use padding with the shared PuSpacing vocabulary for scaffold-owned content inset control. When padding is none, main content becomes edge to edge while the standard pageHeader slot keeps the default page-header inset.
+- Use the pageHeader slot for the standard scaffold-owned page header. Use the header slot only for raw custom header content that should keep fully consumer-owned spacing. When both are provided, header takes precedence.
 
 ## Source Evidence
 

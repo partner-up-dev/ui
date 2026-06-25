@@ -63,6 +63,7 @@ import { PuDialog } from '@partner-up-dev/design-web'
 
 ## Composition
 
+- PuHeader
 - PuButton
 - PuForm
 - PuInlineNotice

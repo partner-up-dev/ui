@@ -661,7 +661,8 @@ const renderSkill = (model) => {
   firstSteps.push("Implement with public package APIs from the selected component references.");
 
   const featured = [
-    ["Page title with actions", "PuPageHeader"],
+    ["Page title with actions", "PuPageScaffold + PuHeader"],
+    ["Section, surface, or panel header", "PuHeader"],
     ["Command or icon command", "PuButton"],
     ["Form field", "PuForm, PuFormItem, PuInput, PuTextarea"],
     ["File collection", "PuFileUpload for one file, PuFilesUpload for multiple files"],
@@ -782,7 +783,7 @@ const renderCompositionRecipes = (model) => {
     {
       title: "Settings Page",
       when: "A page needs title/actions, grouped settings, local notices, and save/cancel commands.",
-      use: ["PuPageHeader", "PuCellGroup", "PuCell", "PuInlineNotice", "PuButton"].filter(has),
+      use: ["PuPageScaffold", "PuHeader", "PuCellGroup", "PuCell", "PuInlineNotice", "PuButton"].filter(has),
     },
     {
       title: "Form Page",
@@ -797,7 +798,7 @@ const renderCompositionRecipes = (model) => {
     {
       title: "Read-only Details",
       when: "A page presents facts, metadata, status, and secondary actions.",
-      use: ["PuPageHeader", "PuCard", "PuDescriptionList", "PuDescriptionItem", "PuTag", "PuButton"].filter(has),
+      use: ["PuPageScaffold", "PuHeader", "PuCard", "PuDescriptionList", "PuDescriptionItem", "PuTag", "PuButton"].filter(has),
     },
     {
       title: "Empty Or Loading Region",
@@ -857,8 +858,8 @@ const renderUsageRules = (model) => {
 
 ## Selection
 
-- Use \`PuPageHeader\` for page title/action structure.
-- Use \`PuPageScaffold\` for page-level geometry, viewport mode, content width, aside layout, sticky aside, and footer placement.
+- Use \`PuHeader\` for page, section, surface, panel, and card title/action structure.
+- Use \`PuPageScaffold\` for page-level geometry, viewport mode, content width, aside layout, sticky aside, footer placement, and outer page padding.
 - Use \`PuCellGroup\` and \`PuCell\` for dense row groups.
 - Use \`PuDescriptionList\` and \`PuDescriptionItem\` for read-only facts.
 - Use \`PuCard\` for grouped content surfaces with optional header, hero, footer, or collapse behavior.

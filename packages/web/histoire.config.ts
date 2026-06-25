@@ -36,7 +36,7 @@ const storyTreePaths: Record<string, string[]> = {
   PuChip: ["Tags", "PuChip"],
   PuTag: ["Tags", "PuTag"],
 
-  PuPageHeader: ["PuPageHeader"],
+  PuHeader: ["PuHeader"],
   PuPageScaffold: ["PuPageScaffold"],
   PuScrollView: ["PuScrollView"],
   PuCellGroup: ["Groups", "PuCellGroup"],

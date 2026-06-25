@@ -43,7 +43,7 @@ import { PuAnnouncementBar } from '@partner-up-dev/design-web'
 
 ## Composition
 
-- PuPageHeader
+- PuHeader
 - PuCard
 
 ## Story Variants

@@ -1,0 +1,113 @@
+@use "../../styles/mixins" as *;
+
+.pu-header {
+  --pu-header-gap: var(--sys-spacing-small);
+
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  min-width: 0;
+  gap: var(--pu-header-gap);
+  color: var(--sys-color-on-surface);
+}
+
+.pu-header--size-sm {
+  --pu-header-gap: var(--sys-spacing-xsmall);
+}
+
+.pu-header--size-md {
+  --pu-header-gap: var(--sys-spacing-small);
+}
+
+.pu-header--size-lg {
+  --pu-header-gap: var(--sys-spacing-medium);
+}
+
+.pu-header--variant-line {
+  border-bottom: 1px solid var(--sys-color-outline-variant);
+}
+
+.pu-header__main {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  min-width: 0;
+  gap: var(--sys-spacing-small);
+}
+
+.pu-header.is-without-subtitle .pu-header__main,
+.pu-header.is-without-subtitle .pu-header__left {
+  align-items: center;
+}
+
+.pu-header__left {
+  display: flex;
+  flex: 1 1 0;
+  align-items: flex-start;
+  min-width: 0;
+  gap: var(--sys-spacing-small);
+}
+
+.pu-header__leading {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pu-header__content {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-width: 0;
+  gap: var(--sys-spacing-xsmall);
+}
+
+.pu-header__title {
+  margin: 0;
+  color: var(--sys-color-on-surface);
+  overflow-wrap: anywhere;
+  @include pu-font(title);
+}
+
+.pu-header__subtitle {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--sys-color-on-surface-variant);
+  overflow-wrap: anywhere;
+  @include pu-font(body);
+}
+
+.pu-header__actions {
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: max-content;
+  margin-left: auto;
+  gap: var(--sys-spacing-small);
+}
+
+.pu-header__meta {
+  min-width: 0;
+  color: var(--sys-color-on-surface-variant);
+  @include pu-font(control);
+}
+
+.pu-header--size-sm .pu-header__title {
+  @include pu-font(section);
+}
+
+.pu-header--size-sm .pu-header__subtitle,
+.pu-header--size-sm .pu-header__meta {
+  @include pu-font(support);
+}
+
+.pu-header--size-lg .pu-header__title {
+  @include pu-font(hero);
+}
+
+.pu-header--size-lg .pu-header__subtitle {
+  @include pu-font(body);
+}

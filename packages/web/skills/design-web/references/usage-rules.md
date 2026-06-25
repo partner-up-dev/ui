@@ -12,9 +12,8 @@
 
 ## Selection
 
-- Use `PuHeader` for section, surface, panel, and card title/action structure.
-- Use `PuPageHeader` for page title/action structure.
-- Use `PuPageScaffold` for page-level geometry, viewport mode, content width, aside layout, sticky aside, and footer placement.
+- Use `PuHeader` for page, section, surface, panel, and card title/action structure.
+- Use `PuPageScaffold` for page-level geometry, viewport mode, content width, aside layout, sticky aside, footer placement, and outer page padding.
 - Use `PuCellGroup` and `PuCell` for dense row groups.
 - Use `PuDescriptionList` and `PuDescriptionItem` for read-only facts.
 - Use `PuCard` for grouped content surfaces with optional header, hero, footer, or collapse behavior.
@@ -101,9 +100,10 @@
 - PuFormItem: Explicit error text takes precedence over errors injected by PuForm prop matching.
 - PuFormItem: Use the labelTrailing slot for field-level secondary affordances and the control slot when the default slot is not specific enough.
 - PuHeader: The structure is fixed to a main row and an optional meta row; actions stay inline and right-aligned.
-- PuHeader: Use the shared PuSize vocabulary for title scale and PuSpacing via padding for host-owned inset control.
+- PuHeader: Use the shared PuSize vocabulary for title scale.
 - PuHeader: Use variant plain for no separator and variant line for a bottom separator.
-- PuHeader: Use padding none when the host surface already owns the surrounding inset.
+- PuHeader: Outer padding is host-owned; apply inset on the page, surface, panel, card, or slot wrapper that contains the header.
+- PuHeader: For scaffold-owned page-header inset, place PuHeader inside PuPageScaffold's pageHeader slot and set titleAs to h1 when the page title should remain the primary heading.
 - PuImg: Use shape from the shared PuShape vocabulary instead of local radius values.
 - PuImg: Use the fallback slot for custom fallback rendering; fallbackInitial and name cover simple initial fallback.
 - PuImg: Provide alt text for meaningful images; fallback content derives an accessible label from alt or name when available.
@@ -127,11 +127,8 @@
 - PuNumberInput: Invalid intermediate text is held locally and does not emit a misleading number.
 - PuNumberInput: Use min, max, and step for native numeric constraints.
 - PuNumberInput: Native input attributes such as id, name, autocomplete, form, and aria-* pass through to the underlying input; class and style apply to the component root.
-- PuPageHeader: PuPageHeader is neutral; it has no tone prop.
-- PuPageHeader: The structure is fixed to a main row and an optional meta row; there is no layout prop and no body/default slot.
-- PuPageHeader: Use the shared PuSize vocabulary for header scale; there is no density prop.
-- PuPageHeader: Use variant plain for no separator and variant line for a bottom separator.
-- PuPageScaffold: Use padding with the shared PuSpacing vocabulary for scaffold-owned page inset control; padding none removes design padding and safe-area inset.
+- PuPageScaffold: Use padding with the shared PuSpacing vocabulary for scaffold-owned content inset control. When padding is none, main content becomes edge to edge while the standard pageHeader slot keeps the default page-header inset.
+- PuPageScaffold: Use the pageHeader slot for the standard scaffold-owned page header. Use the header slot only for raw custom header content that should keep fully consumer-owned spacing. When both are provided, header takes precedence.
 - PuPicker: The web picker composes PuDrawer for its bottom overlay shell; keep picker-specific behavior in PuPicker and generic overlay behavior in PuDrawer.
 - PuRadio: Use a shared modelValue plus each option's value and name to compose a native radio group in application code.
 - PuRadio: Use string, number, or boolean values for exclusive choice state.

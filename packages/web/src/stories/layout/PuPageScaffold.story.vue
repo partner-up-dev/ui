@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import PuButton from "../../components/puButton/puButton.vue";
 import PuCard from "../../components/puCard/puCard.vue";
-import PuPageHeader from "../../components/puPageHeader/puPageHeader.vue";
+import PuHeader from "../../components/puHeader/puHeader.vue";
 import PuPageScaffold from "../../components/puPageScaffold/puPageScaffold.vue";
 import PuTag from "../../components/puTag/puTag.vue";
 </script>
@@ -10,15 +10,16 @@ import PuTag from "../../components/puTag/puTag.vue";
   <Story title="PuPageScaffold" group="layout">
     <Variant title="Document">
       <PuPageScaffold>
-        <template #header>
-          <PuPageHeader
+        <template #pageHeader>
+          <PuHeader
             title="Events"
             subtitle="Document pages keep content in normal page flow."
+            title-as="h1"
           >
             <template #actions>
               <PuButton>New event</PuButton>
             </template>
-          </PuPageHeader>
+          </PuHeader>
         </template>
 
         <div class="pu-page-scaffold-story__stack">
@@ -66,26 +67,66 @@ import PuTag from "../../components/puTag/puTag.vue";
     <Variant title="No Padding">
       <div class="pu-page-scaffold-story__edge-frame">
         <PuPageScaffold width="full" padding="none">
-          <PuCard
-            title="Edge layout"
-            subtitle="The card touches the scaffold boundary."
-            padding="lg"
-          >
+          <template #pageHeader>
+            <PuHeader
+              title="Activity stream"
+              subtitle="The standard page header keeps its default inset while main content can bleed edge to edge."
+              title-as="h1"
+            >
+              <template #actions>
+                <PuButton tone="neutral" variant="outline">Refresh</PuButton>
+              </template>
+            </PuHeader>
+          </template>
+
+          <section class="pu-page-scaffold-story__bleed">
+            <div class="pu-page-scaffold-story__bleed-hero" aria-hidden="true"></div>
+            <div class="pu-page-scaffold-story__bleed-copy">
+              <p class="pu-story__text">
+                The color band touches the frame edge because scaffold content
+                padding is gone. The text block below owns its own local inset.
+              </p>
+            </div>
+          </section>
+        </PuPageScaffold>
+      </div>
+    </Variant>
+
+    <Variant title="Custom Header Slot">
+      <div class="pu-page-scaffold-story__edge-frame">
+        <PuPageScaffold width="full" padding="none">
+          <template #header>
+            <div class="pu-page-scaffold-story__custom-header">
+              <div class="pu-page-scaffold-story__custom-header-copy">
+                <p class="pu-story__label">Raw header slot</p>
+                <h2 class="pu-page-scaffold-story__custom-header-title">
+                  Consumer-owned page chrome
+                </h2>
+              </div>
+
+              <PuButton tone="neutral" variant="ghost" size="sm">
+                Help
+              </PuButton>
+            </div>
+          </template>
+
+          <div class="pu-page-scaffold-story__bleed-copy">
             <p class="pu-story__text">
-              This variant is for products that own their own inset inside the
-              page content.
+              Custom header content does not receive scaffold-owned page-header
+              inset. Any spacing around it belongs to the consumer.
             </p>
-          </PuCard>
+          </div>
         </PuPageScaffold>
       </div>
     </Variant>
 
     <Variant title="Aside Layout">
       <PuPageScaffold layout="aside" width="wide" sticky-aside>
-        <template #header>
-          <PuPageHeader
+        <template #pageHeader>
+          <PuHeader
             title="Member profile"
             subtitle="Wide pages can expose a responsive aside region."
+            title-as="h1"
           />
         </template>
 
@@ -119,17 +160,21 @@ import PuTag from "../../components/puTag/puTag.vue";
     <Variant title="Narrow Container">
       <div class="pu-page-scaffold-story__narrow-frame">
         <PuPageScaffold layout="aside" width="wide" sticky-aside>
-          <template #header>
-            <PuPageHeader
+          <template #pageHeader>
+            <PuHeader
               title="Container-aware review"
-              subtitle="The scaffold aside responds to container width while the header keeps its fixed two-row structure."
-              show-back
+              subtitle="The scaffold aside responds to container width while the header keeps its fixed inline action structure."
+              title-as="h1"
             >
+              <template #leading>
+                <PuButton tone="neutral" variant="ghost" size="sm">Back</PuButton>
+              </template>
+
               <template #actions>
                 <PuButton tone="neutral" variant="outline">Preview</PuButton>
                 <PuButton>Publish</PuButton>
               </template>
-            </PuPageHeader>
+            </PuHeader>
           </template>
 
           <template #aside>
@@ -161,8 +206,12 @@ import PuTag from "../../components/puTag/puTag.vue";
         footer-placement="reveal"
         content-placement="center"
       >
-        <template #header>
-          <PuPageHeader title="Launch checklist" subtitle="First screen content." />
+        <template #pageHeader>
+          <PuHeader
+            title="Launch checklist"
+            subtitle="First screen content."
+            title-as="h1"
+          />
         </template>
 
         <div class="pu-page-scaffold-story__centered">
@@ -208,6 +257,44 @@ import PuTag from "../../components/puTag/puTag.vue";
   width: min(100%, 34rem);
   border: 1px solid var(--sys-color-outline-variant);
   background: var(--sys-color-surface);
+}
+
+.pu-page-scaffold-story__bleed {
+  overflow: hidden;
+  background: var(--sys-color-surface-container);
+}
+
+.pu-page-scaffold-story__bleed-hero {
+  min-height: 8rem;
+  background:
+    linear-gradient(135deg, rgb(209 230 255 / 100%), rgb(176 214 255 / 100%)),
+    var(--sys-color-surface-container-high);
+}
+
+.pu-page-scaffold-story__bleed-copy {
+  padding: 24px;
+}
+
+.pu-page-scaffold-story__custom-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--sys-color-outline-variant);
+  background: var(--sys-color-surface-container);
+}
+
+.pu-page-scaffold-story__custom-header-copy {
+  min-width: 0;
+}
+
+.pu-page-scaffold-story__custom-header-title {
+  margin: 0;
+  color: var(--sys-color-on-surface);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
 }
 
 .pu-page-scaffold-story__title {

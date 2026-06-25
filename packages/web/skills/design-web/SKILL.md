@@ -26,7 +26,8 @@ when a task asks which PartnerUp design component to use.
 
 ## Component Selection
 
-- Page title with actions: PuPageHeader
+- Page title with actions: PuPageScaffold + PuHeader
+- Section, surface, or panel header: PuHeader
 - Command or icon command: PuButton
 - Form field: PuForm, PuFormItem, PuInput, PuTextarea
 - File collection: PuFileUpload for one file, PuFilesUpload for multiple files

@@ -5,6 +5,7 @@ import PuButton from "../../components/puButton/puButton.vue";
 import PuCell from "../../components/puCell/puCell.vue";
 import PuDrawer from "../../components/puDrawer/puDrawer.vue";
 import PuCard from "../../components/puCard/puCard.vue";
+import PuHeader from "../../components/puHeader/puHeader.vue";
 
 const controlledVisible = ref(false);
 const compactVisible = ref(true);
@@ -108,22 +109,27 @@ function handleClose(name: string): void {
           @close="handleClose('custom-slots')"
         >
           <template #header>
-            <div class="pu-drawer-story__custom-header">
-              <div>
-                <p class="pu-story__label">Event summary</p>
-                <h3 class="pu-drawer-story__title">
-                  West Lake evening walk
-                </h3>
-              </div>
-              <button
-                type="button"
-                class="pu-drawer-story__icon-button"
-                aria-label="Close custom drawer"
-                @click="customSlotsVisible = false"
-              >
-                <span class="i-mdi-close" aria-hidden="true" />
-              </button>
-            </div>
+            <PuHeader
+              class="pu-drawer-story__custom-header"
+              title="West Lake evening walk"
+              title-as="h3"
+              variant="line"
+            >
+              <template #subtitle>
+                Event summary
+              </template>
+
+              <template #actions>
+                <button
+                  type="button"
+                  class="pu-drawer-story__icon-button"
+                  aria-label="Close custom drawer"
+                  @click="customSlotsVisible = false"
+                >
+                  <span class="i-mdi-close" aria-hidden="true" />
+                </button>
+              </template>
+            </PuHeader>
           </template>
 
           <p class="pu-story__text">
@@ -168,26 +174,7 @@ function handleClose(name: string): void {
 }
 
 .pu-drawer-story__custom-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
   padding: 16px;
-  border-bottom: 1px solid var(--sys-color-outline-variant);
-}
-
-.pu-drawer-story__footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-}
-
-.pu-drawer-story__title {
-  margin: 0;
-  color: var(--sys-color-on-surface);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 26px;
 }
 
 .pu-drawer-story__icon-button {
@@ -202,5 +189,11 @@ function handleClose(name: string): void {
   background: var(--sys-color-surface-container-high);
   color: var(--sys-color-on-surface-variant);
   cursor: pointer;
+}
+
+.pu-drawer-story__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
 }
 </style>

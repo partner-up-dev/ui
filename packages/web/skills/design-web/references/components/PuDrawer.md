@@ -55,6 +55,7 @@ import { PuDrawer } from '@partner-up-dev/design-web'
 
 ## Composition
 
+- PuHeader
 - PuButton
 - PuForm
 - PuCellGroup

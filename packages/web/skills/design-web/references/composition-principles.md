@@ -8,9 +8,13 @@ Use these principles when building application UI with
 
 - Use the package component that owns the semantic or layout responsibility.
 - Use `PuPageScaffold` for page-level geometry, viewport mode, content width,
-  aside layout, sticky aside, and footer placement.
-- Use `PuPageHeader` for page title, subtitle, metadata, back affordance, and
-  actions.
+  aside layout, sticky aside, footer placement, and outer page-region padding.
+- Use `PuHeader` for page, section, surface, panel, or card title, subtitle,
+  metadata, leading content, and inline action structure. Let the owning page
+  or surface provide outer padding around the header.
+- For standard page titles inside `PuPageScaffold`, prefer the scaffold-owned
+  `pageHeader` slot. Reserve the raw `header` slot for custom header chrome
+  whose spacing should remain fully consumer-owned.
 - Do not recreate package-owned structure with custom wrapper markup or
   app-level CSS.
 
@@ -45,9 +49,9 @@ Use these principles when building application UI with
   continuous scaling, not for discrete layout ownership.
 - Prefer discrete container query states for parent-owned geometry such as
   scaffold aside collapse or list grid collapse.
-- Prefer explicit component layout props for product-owned structure such as
-  page-header action placement. Do not infer header action wrapping from
-  container width.
+- Do not infer header action wrapping from container width. When a component
+  such as `PuHeader` fixes its action row to inline, keep that choice stable and
+  compose around it instead of adding width-driven exceptions.
 
 ## Consumer Boundary
 

@@ -161,10 +161,7 @@ files only after narrowing the candidate set.
   - Prefer: Use to group PuCell rows into a titled or visually bounded section.
 - [PuHeader](references/components/PuHeader.md)
   - Intent: content header, section header, panel header, surface header, card header
-  - Prefer: Use for neutral section, surface, panel, or card titles with optional subtitle, leading content, metadata row, and inline actions.
-- [PuPageHeader](references/components/PuPageHeader.md)
-  - Intent: page header, page title, page actions, page metadata
-  - Prefer: Use for neutral page titles with optional subtitle, metadata row, and right-aligned actions.
+  - Prefer: Use for neutral page, section, surface, panel, or card titles with optional subtitle, leading content, metadata row, and inline actions.
 - [PuPageScaffold](references/components/PuPageScaffold.md)
   - Intent: page scaffold, responsive page shell, full-screen page, aside page layout, footer reveal layout
   - Prefer: Use for page-level structure across document pages, full-screen flows, centered flows, responsive aside layouts, and reveal-footer pages.

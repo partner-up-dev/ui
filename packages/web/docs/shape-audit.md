@@ -49,7 +49,6 @@ They are the next candidates for a square-corner correction pass.
 | Medium | Field controls (`PuInput`, `PuSelect`, `PuTextarea`, `PuNumberInput`, `PuChipsEditor`) | Bounded shells use `xsmall`; line variants remove frame radius. | Use `--sys-radius-none` for bounded rect shells, preserving line and borderless behavior. |
 | Medium | `PuSegmented` / `PuSegmentedItem` | Default rectangular track/item surfaces use `small`; pill treatment is explicit. | Use `--sys-radius-none` for default rectangular surfaces; keep pill variants explicit. |
 | Medium | `PuTabs` / `PuTab` | Line/default tab surfaces still include square-corner aliases while pill is explicit. | Use `--sys-radius-none` for line/default rectangular surfaces; keep pill variants explicit. |
-| Medium | `PuPageHeader` | Several header/action/metric surfaces use non-`none` radius aliases. | Re-check after the current local `PuPageHeader` edits settle; avoid overlapping active work. |
 | Medium | `PuFilesUpload` | Dropzone, icons, URL entry, item shells, and previews use `--sys-radius-medium`; small controls also use `pill`. | Split into square container shells and explicit action affordances. |
 
 ## Overlay And Picker Decision
@@ -69,9 +68,8 @@ affordances are allowed to be softer than in-page content. `PuDialog` and
 1. Align remaining content containers: `PuBentoItem`, `PuCellGroup`,
    `PuDescriptionList`, `PuEmptyState`, and `PuLoadingState`.
 2. Audit complex nested surfaces: `PuFilesUpload`.
-3. Revisit `PuPageHeader` after the existing local edits are resolved.
-4. Make the remaining overlay-shell decision, then update `PuDrawer` and
+3. Make the remaining overlay-shell decision, then update `PuDrawer` and
    `PuWheelPicker` consistently.
-5. After component defaults are consistent, decide whether `medium` and `large`
+4. After component defaults are consistent, decide whether `medium` and `large`
    token names still fit the style base or should be reframed as compatibility
    tokens.
