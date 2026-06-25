@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.4.7
+
+### Patch Changes
+
+- 917dae7: Add an `xs` size to `PuButton`, align button label sizing across button sizes, and fix the Shapes And Sizes story layout.
+- fef0b30: Show a visible minus state for disabled unchecked `PuCheckbox`.
+- 864ccee: Add size-aware padding to PuPageHeader and center the main row when no subtitle is present.
+- f2855d7: Make `PuPageScaffold` own the default vertical spacing between header, body,
+  and footer regions, while keeping reveal-footer layout behavior intact.
+- 09ee83e: Add public `PuHeader` as the shared page and surface header primitive, remove
+  `PuPageHeader`, move header outer padding ownership to page and surface hosts,
+  split `PuPageScaffold` into a scaffold-owned `pageHeader` path plus a raw
+  custom `header` path, and align the default `PuDialog` and `PuDrawer` headers
+  with the shared header structure.
+- 70846d8: Remove non-elevation shadows from PuCard active state and PuMultiStopToggle thumb, and document restrained shadow usage for web design style.
+- 081d360: Add `PuRadio` as a square-cornered native radio primitive for exclusive
+  selection.
+
 ## 0.4.6
 
 ### Patch Changes
