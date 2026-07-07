@@ -1,6 +1,6 @@
 # Unit Topology
 
-PartnerUp Design is a pnpm workspace for shared PartnerUp design-system
+PartnerUp UI is a pnpm workspace for shared PartnerUp design-system
 packages.
 
 ## Units

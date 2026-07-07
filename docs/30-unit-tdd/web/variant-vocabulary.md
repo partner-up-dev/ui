@@ -1,7 +1,7 @@
 # Web Variant Vocabulary
 
 This document is the durable vocabulary source for public visual API names in
-`@partner-up-dev/design-web`.
+`@partner-up-dev/ui-web`.
 
 <!-- agent-skill:start -->
 ## Canonical Vocabulary

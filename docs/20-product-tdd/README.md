@@ -1,6 +1,6 @@
 # Product TDD
 
-This layer owns durable technical truth that spans PartnerUp Design packages or
+This layer owns durable technical truth that spans PartnerUp UI packages or
 workspace-level workflows.
 
 It does not own consumer usage snippets, generated output, or package-internal

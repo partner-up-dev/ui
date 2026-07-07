@@ -1,6 +1,6 @@
-# AGENTS.md of PartnerUp Design
+# AGENTS.md of PartnerUp UI
 
-PartnerUp Design is a pnpm workspace for shared PartnerUp design-system packages.
+PartnerUp UI is a pnpm workspace for shared PartnerUp UI and design-system packages.
 This file is the root SVC front door for agents. Package-local rules are
 additive and closest-to-target rules win for tactical execution.
 
@@ -52,7 +52,7 @@ state volatile until it passes the promotion test.
 
 - Install from the root with `pnpm install`.
 - Run workspace builds from the root with `pnpm run build`.
-- Use package filters for package-local work, for example `pnpm --filter @partner-up-dev/design-web run verify`.
+- Use package filters for package-local work, for example `pnpm --filter @partner-up-dev/ui-web run verify`.
 - Keep changesets focused on release-worthy package changes. Do not create a changeset to republish an already-versioned package.
 - For breaking package API, export, runtime, or package-content changes, update
   the affected package's `MIGRATION.md` with consumer migration steps. If the
@@ -69,11 +69,11 @@ state volatile until it passes the promotion test.
 - `docs/20-product-tdd/`: workspace topology, cross-package contracts, generated docs/skills, and release surface.
 - `docs/30-unit-tdd/`: package-level durable technical contracts.
 - `docs/40-deployment/`: publish workflow, release runbook, republish, and rollback guidance.
-- `packages/web/README.md`: consumer usage for `@partner-up-dev/design-web`.
-- `packages/web/MIGRATION.md`: consumer migration guide for `@partner-up-dev/design-web`.
-- `packages/web/skills/design-web/`: generated agent skill and component references for web package usage.
-- `packages/uniapp/README.md`: consumer usage for `@partner-up-dev/design-uniapp`.
-- `packages/uniapp/MIGRATION.md`: consumer migration guide for `@partner-up-dev/design-uniapp`.
+- `packages/web/README.md`: consumer usage for `@partner-up-dev/ui-web`.
+- `packages/web/MIGRATION.md`: consumer migration guide for `@partner-up-dev/ui-web`.
+- `packages/web/skills/ui-web/`: generated agent skill and component references for web package usage.
+- `packages/uniapp/README.md`: consumer usage for `@partner-up-dev/ui-uniapp`.
+- `packages/uniapp/MIGRATION.md`: consumer migration guide for `@partner-up-dev/ui-uniapp`.
 - `packages/uniapp/CONTRIBUTING.md`: legacy UniApp package contribution notes.
 - `tasks/*/README.md`: task packet entry points for non-trivial agent work.
 

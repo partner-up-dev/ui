@@ -16,7 +16,7 @@ Use the closest durable owner for the truth.
 | Publish workflow and release runbook | `docs/40-deployment/release-runbook.md` |
 | Local hazards and package-specific edit rules | nearest `AGENTS.md` |
 | Task-local state, exploration, evidence | `tasks/` |
-| Generated agent skill references | `packages/web/skills/design-web/` |
+| Generated agent skill references | `packages/web/skills/ui-web/` |
 
 ## Placement Checks
 

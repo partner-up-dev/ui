@@ -1,7 +1,7 @@
 # Web Unit TDD
 
 This directory owns durable technical contracts for
-`@partner-up-dev/design-web`.
+`@partner-up-dev/ui-web`.
 
 ## Files
 
@@ -16,6 +16,6 @@ This directory owns durable technical contracts for
 
 - Package source: `packages/web/src/`
 - Package AGENTS: `packages/web/AGENTS.md`
-- Generated skill: `packages/web/skills/design-web/`
+- Generated skill: `packages/web/skills/ui-web/`
 
 This Unit TDD directory is the durable routing owner for web technical docs.

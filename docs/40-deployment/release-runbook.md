@@ -1,6 +1,6 @@
 # Release Runbook
 
-PartnerUp Design publishes packages to GitHub Package Registry through
+PartnerUp UI publishes packages to GitHub Package Registry through
 Changesets and GitHub Actions.
 
 ## Registry
@@ -36,9 +36,9 @@ pnpm changeset status --verbose
 For package changes, run package-local verification:
 
 ```powershell
-pnpm --filter @partner-up-dev/design-web run verify
-pnpm --filter @partner-up-dev/design-uniapp run type-check
-pnpm --filter @partner-up-dev/design-uniapp run build
+pnpm --filter @partner-up-dev/ui-web run verify
+pnpm --filter @partner-up-dev/ui-uniapp run type-check
+pnpm --filter @partner-up-dev/ui-uniapp run build
 ```
 
 For package releases with breaking API, export, runtime, or package-content

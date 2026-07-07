@@ -1,9 +1,9 @@
 {
-  "package": "@partner-up-dev/design-web",
+  "package": "@partner-up-dev/ui-web",
   "skill": {
-    "name": "design-web",
-    "displayName": "PartnerUp Design Web",
-    "description": "Use @partner-up-dev/design-web Vue components correctly in application UI."
+    "name": "ui-web",
+    "displayName": "PartnerUp UI Web",
+    "description": "Use @partner-up-dev/ui-web Vue components correctly in application UI."
   },
   "storyGroups": {
     "actions": {

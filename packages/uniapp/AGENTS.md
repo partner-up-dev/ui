@@ -1,4 +1,4 @@
-# AGENTS.md of PartnerUp Design UniApp
+# AGENTS.md of PartnerUp UI UniApp
 
 This package owns the UniApp-compatible implementation of the PartnerUp design
 system. Root workflow and release policy are owned by `../../AGENTS.md` and
@@ -22,9 +22,9 @@ packages/uniapp/
 
 ## Development Workflow
 
-- Use `pnpm --filter @partner-up-dev/design-uniapp run type-check` for type verification.
-- Use `pnpm --filter @partner-up-dev/design-uniapp run build` for package output verification.
-- Use `pnpm --filter @partner-up-dev/design-uniapp run dev` for local demo work.
+- Use `pnpm --filter @partner-up-dev/ui-uniapp run type-check` for type verification.
+- Use `pnpm --filter @partner-up-dev/ui-uniapp run build` for package output verification.
+- Use `pnpm --filter @partner-up-dev/ui-uniapp run dev` for local demo work.
 - Published package contents are source-oriented. Do not assume the package is bundled like the web package.
 
 ## Local Rules
@@ -42,7 +42,7 @@ packages/uniapp/
 - `../../docs/30-unit-tdd/uniapp/README.md`: durable UniApp technical constraints.
 - `../../docs/20-product-tdd/cross-package-contracts.md`: web/UniApp alignment policy.
 - `CONTRIBUTING.md`: existing package-local setup and token contribution notes.
-- `CHANGELOG.md`: release history for `@partner-up-dev/design-uniapp`.
+- `CHANGELOG.md`: release history for `@partner-up-dev/ui-uniapp`.
 - `../../README.md`: workspace package and publishing overview.
 - `../../CONTRIBUTING.md`: root contribution entry.
 - `../../docs/40-deployment/release-runbook.md`: release, publish, republish, and rollback guidance.

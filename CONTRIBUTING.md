@@ -1,4 +1,4 @@
-# Contributing to PartnerUp Design
+# Contributing to PartnerUp UI
 
 This repository is mostly changed through small, reviewable package work. Release
 metadata should describe package behavior, not CI mechanics.
@@ -70,6 +70,6 @@ Republishing an existing version:
 ## Verification Policy
 
 - Run package-local verification for the package you changed.
-- For web package changes, prefer `pnpm --filter @partner-up-dev/design-web run verify`.
-- For UniApp package changes, run at least `pnpm --filter @partner-up-dev/design-uniapp run type-check` and `pnpm --filter @partner-up-dev/design-uniapp run build`.
+- For web package changes, prefer `pnpm --filter @partner-up-dev/ui-web run verify`.
+- For UniApp package changes, run at least `pnpm --filter @partner-up-dev/ui-uniapp run type-check` and `pnpm --filter @partner-up-dev/ui-uniapp run build`.
 - For release workflow changes, run `pnpm changeset status --verbose` and inspect the workflow diff.

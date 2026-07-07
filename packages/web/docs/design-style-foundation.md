@@ -1,6 +1,6 @@
 # PartnerUp Web Design Style Foundation
 
-This is the current style base for `@partner-up-dev/design-web`. It is a
+This is the current style base for `@partner-up-dev/ui-web`. It is a
 working description, not a finished brand manifesto. Use it to make local
 component decisions until the package has a more formal visual language.
 

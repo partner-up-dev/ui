@@ -1,7 +1,7 @@
 # UniApp Unit TDD
 
 This directory owns durable technical contracts for
-`@partner-up-dev/design-uniapp`.
+`@partner-up-dev/ui-uniapp`.
 
 ## Package Role
 
@@ -33,6 +33,6 @@ types
 Use at least:
 
 ```powershell
-pnpm --filter @partner-up-dev/design-uniapp run type-check
-pnpm --filter @partner-up-dev/design-uniapp run build
+pnpm --filter @partner-up-dev/ui-uniapp run type-check
+pnpm --filter @partner-up-dev/ui-uniapp run build
 ```

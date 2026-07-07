@@ -7,8 +7,8 @@ and package-local constraints that should survive directory refactors.
 
 ## Units
 
-- `web/`: `@partner-up-dev/design-web`
-- `uniapp/`: `@partner-up-dev/design-uniapp`
+- `web/`: `@partner-up-dev/ui-web`
+- `uniapp/`: `@partner-up-dev/ui-uniapp`
 
 Local package `AGENTS.md` files remain the closest edit rules and tactical
 hazard memory. Unit TDD owns slower-moving structure.

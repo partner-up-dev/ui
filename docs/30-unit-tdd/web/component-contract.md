@@ -1,7 +1,7 @@
 # Web Component Contract
 
 This Unit TDD document defines the default contract for public components in
-`@partner-up-dev/design-web`.
+`@partner-up-dev/ui-web`.
 
 ## Naming
 
@@ -328,8 +328,8 @@ index.ts optional local re-export
 Minimum check before merging component changes:
 
 ```powershell
-pnpm --filter @partner-up-dev/design-web type-check
-pnpm --filter @partner-up-dev/design-web build
+pnpm --filter @partner-up-dev/ui-web type-check
+pnpm --filter @partner-up-dev/ui-web build
 ```
 
 For interactive or semantic components, add targeted tests when the test harness

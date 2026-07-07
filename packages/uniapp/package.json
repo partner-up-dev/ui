@@ -1,7 +1,7 @@
 {
-  "name": "@partner-up-dev/design-uniapp",
+  "name": "@partner-up-dev/ui-uniapp",
   "version": "0.2.0",
-  "description": "PartnerUp Design System for UniApp",
+  "description": "PartnerUp UI System for UniApp",
   "type": "module",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/partner-up-dev/design.git",
+    "url": "https://github.com/partner-up-dev/ui.git",
     "directory": "packages/uniapp"
   },
   "exports": {

@@ -1,4 +1,4 @@
-# AGENTS.md of PartnerUp Design Web
+# AGENTS.md of PartnerUp UI Web
 
 This package owns the Vue web implementation of the PartnerUp design system.
 Root workflow and release policy are owned by `../../AGENTS.md` and
@@ -9,7 +9,7 @@ Root workflow and release policy are owned by `../../AGENTS.md` and
 ```text
 packages/web/
 |-- scripts/              # Registry, story coverage, and skill generation tools
-|-- skills/design-web/    # Generated agent-facing usage skill
+|-- skills/ui-web/    # Generated agent-facing usage skill
 |-- src/
 |   |-- components/       # Pu* web components
 |   |-- composables/      # Web-only Vue composables
@@ -25,10 +25,10 @@ packages/web/
 
 ## Development Workflow
 
-- Use `pnpm --filter @partner-up-dev/design-web run story:dev` for local component exploration.
-- Use `pnpm --filter @partner-up-dev/design-web run generate` after component registry-affecting changes.
-- Use `pnpm --filter @partner-up-dev/design-web run skill:generate` after public component docs or seed changes.
-- Use `pnpm --filter @partner-up-dev/design-web run verify` before considering broad web package changes complete.
+- Use `pnpm --filter @partner-up-dev/ui-web run story:dev` for local component exploration.
+- Use `pnpm --filter @partner-up-dev/ui-web run generate` after component registry-affecting changes.
+- Use `pnpm --filter @partner-up-dev/ui-web run skill:generate` after public component docs or seed changes.
+- Use `pnpm --filter @partner-up-dev/ui-web run verify` before considering broad web package changes complete.
 - Build output is `dist/`; it is package output, not source.
 
 ## Local Rules
@@ -53,8 +53,8 @@ packages/web/
 - `docs/shape-audit.md`: current component shape/radius audit.
 - `../../docs/30-unit-tdd/web/component-contract.md`: durable component contract guidance.
 - `../../docs/30-unit-tdd/web/composition-principles.md`: durable composition guidance.
-- `skills/design-web/SKILL.md`: generated agent-facing web design-system skill.
-- `skills/design-web/references/component-map.md`: generated component reference index.
+- `skills/ui-web/SKILL.md`: generated agent-facing web design-system skill.
+- `skills/ui-web/references/component-map.md`: generated component reference index.
 - `../../docs/20-product-tdd/generated-docs-and-skills.md`: generated skill ownership and regeneration policy.
 - `../../tasks/agent-skill-generation-for-design-package/`: background and records for skill generation work.
 - `../../tasks/web-token-rem-rework/`: token and rem migration records.

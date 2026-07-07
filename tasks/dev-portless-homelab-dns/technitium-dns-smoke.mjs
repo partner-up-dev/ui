@@ -147,7 +147,7 @@ const main = async () => {
   const zone = ensureTrailingDotless(requireConfig(env, "DEV_DNS_ZONE"));
   const ipAddress = requireConfig(env, "DEV_DNS_TARGET_IP");
   const ttl = normalizeEnvValue(env.DEV_DNS_TTL) ?? "60";
-  const records = normalizeEnvValue(env.DEV_DNS_RECORDS) ?? "design-web";
+  const records = normalizeEnvValue(env.DEV_DNS_RECORDS) ?? "ui-web";
   const domains = resolveRecordDomains(zone, records);
 
   if (!isValidIpv4Address(ipAddress)) {

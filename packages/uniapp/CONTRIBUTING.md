@@ -1,6 +1,6 @@
-# Contributing to PartnerUp Design System
+# Contributing to PartnerUp UI System
 
-Thank you for your interest in contributing to the PartnerUp Design System!
+Thank you for your interest in contributing to the PartnerUp UI System!
 
 ## Development Setup
 

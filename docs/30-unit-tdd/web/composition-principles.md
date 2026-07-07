@@ -1,7 +1,7 @@
 # Web Composition Principles
 
 This Unit TDD document is the durable source for how
-`@partner-up-dev/design-web` components should be composed in both the design
+`@partner-up-dev/ui-web` components should be composed in both the design
 package and downstream application UI.
 
 The generated Agent Skill excerpts this file directly through
@@ -11,7 +11,7 @@ The generated Agent Skill excerpts this file directly through
 # Composition Principles
 
 Use these principles when building application UI with
-`@partner-up-dev/design-web`.
+`@partner-up-dev/ui-web`.
 
 ## Ownership
 
@@ -69,7 +69,7 @@ Use these principles when building application UI with
 - Do not depend on `src/components/*`, generated registry internals, or story
   implementation details.
 - When using UnoCSS, use the package `./uno` preset or safelist export for
-  package-owned built-in icons instead of duplicating design package internal
+  package-owned built-in icons instead of duplicating UI package internal
   `i-mdi-*` class names in app code.
 <!-- agent-skill:end -->
 

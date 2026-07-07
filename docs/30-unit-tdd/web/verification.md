@@ -1,7 +1,7 @@
 # Web Verification
 
 This document owns durable verification constraints for
-`@partner-up-dev/design-web`.
+`@partner-up-dev/ui-web`.
 
 ## Histoire
 
@@ -12,14 +12,14 @@ runtime source.
 Run Histoire checks from the repository root:
 
 ```powershell
-pnpm --filter @partner-up-dev/design-web run story:coverage
-pnpm --filter @partner-up-dev/design-web run story:build
+pnpm --filter @partner-up-dev/ui-web run story:coverage
+pnpm --filter @partner-up-dev/ui-web run story:build
 ```
 
 Use `story:dev` for local visual and interaction inspection:
 
 ```powershell
-pnpm --filter @partner-up-dev/design-web run story:dev
+pnpm --filter @partner-up-dev/ui-web run story:dev
 ```
 
 ## Color Scheme In Stories

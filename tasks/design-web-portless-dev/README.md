@@ -1,4 +1,4 @@
-# Design Web Portless Dev
+# UI Web Portless Dev
 
 ## Goal
 
@@ -7,12 +7,12 @@ portless naming scheme.
 
 ## Decisions
 
-- The design-system web story server uses the app name `design-web`.
-- The normal local URL is `https://design-web.localhost`.
-- LAN mode uses portless LAN routing and expects `https://design-web.local`
+- The design-system web story server uses the app name `ui-web`.
+- The normal local URL is `https://ui-web.localhost`.
+- LAN mode uses portless LAN routing and expects `https://ui-web.local`
   unless an explicit TLD is provided.
 - Homelab mode uses `PORTLESS_TLD=partner-up.d.home.arpa`, producing
-  `https://design-web.partner-up.d.home.arpa`.
+  `https://ui-web.partner-up.d.home.arpa`.
 - Technitium DNS registration and WSL hosts sync are opt-in through
   `DEV_DNS_PROVIDER=technitium` and `DEV_HOSTS_SYNC=1`.
 - Non-LAN scripts set `PORTLESS_LAN=0` so a previously-started LAN proxy does
@@ -30,11 +30,11 @@ Historical verification before the homelab TLD update:
 
 - Passed: syntax-check new Node scripts.
 - Passed: `pnpm dev:ensure:lan` reports
-  `https://design-web.partner-up.local` ready.
-- Passed: `curl -k -I https://design-web.partner-up.local/` returns HTTP 200.
+  `https://ui-web.partner-up.local` ready.
+- Passed: `curl -k -I https://ui-web.partner-up.local/` returns HTTP 200.
 - Passed: `pnpm dev:ensure --lan --ip 172.29.144.156 --foreground` keeps
   Histoire output attached, prints `DEV_ENSURE_FOREGROUND_READY`, and serves
-  `https://design-web.partner-up.local/`.
+  `https://ui-web.partner-up.local/`.
 - Passed: default headless
   `pnpm dev:ensure --lan --ip 172.29.144.156 --timeout-seconds=120 --poll-interval-seconds=2`
   exits after readiness.

@@ -1,5 +1,5 @@
 /**
- * Component type declarations for PartnerUp Design System (UniApp)
+ * Component type declarations for PartnerUp UI System (UniApp)
  * Provides Vue global component types for IDE support and type checking
  */
 declare module 'vue' {

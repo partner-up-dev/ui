@@ -3,14 +3,14 @@ import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import presetIcons from 'unocss/preset-icons'
 import { resolve } from 'node:path'
-import partnerUpDesignPreset from './src/styles/unocss-preset'
+import partnerUpUiPreset from './src/styles/unocss-preset'
 
 export default defineConfig({
   plugins: [
     vue(),
     UnoCSS({
       presets: [
-        partnerUpDesignPreset(),
+        partnerUpUiPreset(),
         presetIcons({
           warn: true
         })
@@ -27,7 +27,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'PartnerUpDesignWeb',
+      name: 'PartnerUpUiWeb',
       fileName: 'index',
       cssFileName: 'style',
       formats: ['es']

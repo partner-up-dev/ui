@@ -1,5 +1,5 @@
 /*
- * Main Entry Point for PartnerUp Design System (UniApp)
+ * Main Entry Point for PartnerUp UI System (UniApp)
  * Exports all components, styles, and utilities
  */
 

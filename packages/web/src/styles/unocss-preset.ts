@@ -119,7 +119,7 @@ const marginPropertyMap: Record<string, string[]> = {
   lb: ["margin-left", "margin-bottom"],
 };
 
-export const partnerUpDesignSafelist = [
+export const partnerUpUiSafelist = [
   "i-mdi-alert-circle-outline",
   "i-mdi-alert-outline",
   "i-mdi-arrow-left",
@@ -140,11 +140,11 @@ export const partnerUpDesignSafelist = [
   "i-mdi-tray-arrow-up",
 ] as const;
 
-export const partnerUpDesignIconSafelist = partnerUpDesignSafelist;
+export const partnerUpUiIconSafelist = partnerUpUiSafelist;
 
-export default definePreset(() => ({
-  name: "partner-up-design",
-  safelist: [...partnerUpDesignSafelist],
+export const partnerUpUiPreset = definePreset(() => ({
+  name: "partner-up-ui",
+  safelist: [...partnerUpUiSafelist],
   theme: {
     colors,
     spacing,
@@ -262,3 +262,5 @@ export default definePreset(() => ({
     ],
   ],
 }));
+
+export default partnerUpUiPreset;

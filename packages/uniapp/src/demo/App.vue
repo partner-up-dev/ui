@@ -1,7 +1,7 @@
 <template>
   <div class="demo-app">
     <header class="demo-header">
-      <h1>PartnerUp Design System Demo</h1>
+      <h1>PartnerUp UI System Demo</h1>
       <div class="theme-toggle">
         <label>
           <input type="checkbox" @change="toggleTheme" :checked="theme === 'dark'" />

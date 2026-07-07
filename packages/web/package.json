@@ -1,7 +1,7 @@
 {
-  "name": "@partner-up-dev/design-web",
+  "name": "@partner-up-dev/ui-web",
   "version": "0.4.7",
-  "description": "PartnerUp Design System for Web",
+  "description": "PartnerUp UI System for Web",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/partner-up-dev/design.git",
+    "url": "https://github.com/partner-up-dev/ui.git",
     "directory": "packages/web"
   },
   "exports": {
@@ -66,7 +66,7 @@
     "skill:stale": "intent stale",
     "check:packed-types": "node scripts/check-packed-consumer-types.mjs",
     "story:dev": "histoire dev",
-    "story:dev:portless": "node ../../scripts/portless.mjs --name design-web -- node scripts/histoire-dev-portless.mjs",
+    "story:dev:portless": "node ../../scripts/portless.mjs --name ui-web -- node scripts/histoire-dev-portless.mjs",
     "story:build": "histoire build",
     "story:coverage": "node scripts/check-story-coverage.mjs",
     "type-check": "pnpm run generate:check && pnpm run skill:generate:check && vue-tsc --noEmit",

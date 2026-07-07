@@ -1,7 +1,7 @@
 # SVC Meta Layer
 
 This directory owns repository-level operating rules for the SVC workflow in
-PartnerUp Design.
+PartnerUp UI.
 
 Use it for agent and contributor routing, not package behavior.
 
@@ -15,6 +15,6 @@ Use it for agent and contributor routing, not package behavior.
 
 ## Local Adaptation
 
-PartnerUp Design does not currently need a PRD layer. Product-facing package
+PartnerUp UI does not currently need a PRD layer. Product-facing package
 usage stays in README files, while durable technical truth lives in Product TDD,
 Unit TDD, Deployment, local AGENTS files, and task packets.

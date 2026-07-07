@@ -1,12 +1,38 @@
 # Migration Guide
 
 This guide documents consumer action required by breaking or
-compatibility-sensitive releases of `@partner-up-dev/design-web`.
+compatibility-sensitive releases of `@partner-up-dev/ui-web`.
 
 Use `CHANGELOG.md` for the release history. Use this guide when a changelog
 entry says a release requires migration work.
 
 ## Entries
+
+### Package rename to @partner-up-dev/ui-web
+
+The web package was renamed from `@partner-up-dev/design-web` to
+`@partner-up-dev/ui-web`.
+
+Consumer action:
+
+- Replace the package dependency:
+
+```bash
+pnpm remove @partner-up-dev/design-web
+pnpm add @partner-up-dev/ui-web
+```
+
+- Replace imports:
+
+```ts
+import PartnerUpUiWeb from '@partner-up-dev/ui-web'
+import '@partner-up-dev/ui-web/styles'
+import { PuButton } from '@partner-up-dev/ui-web'
+```
+
+- For UnoCSS, replace `partnerUpDesignPreset()` with `partnerUpUiPreset()`.
+  Replace `partnerUpDesignSafelist` and `partnerUpDesignIconSafelist` with
+  `partnerUpUiSafelist` and `partnerUpUiIconSafelist`.
 
 ### PuPageHeader removal
 

@@ -7,20 +7,20 @@ import { fileURLToPath } from "node:url";
 
 const isWindows = process.platform === "win32";
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const designWebPortlessName = "design-web";
+const uiWebPortlessName = "ui-web";
 
 const routeDefinitions = [
   {
-    name: "design-web",
-    portlessName: designWebPortlessName,
+    name: "ui-web",
+    portlessName: uiWebPortlessName,
     portlessArgs: [
       "--name",
-      designWebPortlessName,
+      uiWebPortlessName,
       "--force",
       "--",
       "pnpm",
       "--filter",
-      "@partner-up-dev/design-web",
+      "@partner-up-dev/ui-web",
       "exec",
       "node",
       "scripts/histoire-dev-portless.mjs",
@@ -344,7 +344,7 @@ const upsertTechnitiumARecord = async (domain) => {
   const zone = normalizeEnvValue(runtimeEnv.DEV_DNS_ZONE) ?? portlessTld;
 
   await callTechnitium("api/zones/records/add", {
-    comments: "PartnerUp design web dev route registered by pnpm dev:ensure",
+    comments: "PartnerUp UI web dev route registered by pnpm dev:ensure",
     domain,
     ipAddress: dnsTargetIp,
     overwrite: "true",
@@ -363,7 +363,7 @@ const syncTechnitiumDns = async () => {
     throw new Error(`Unsupported DEV_DNS_PROVIDER "${dnsProvider}". Expected "technitium".`);
   }
 
-  console.log(`Registering design web dev DNS records through Technitium -> ${dnsTargetIp}:`);
+  console.log(`Registering UI web dev DNS records through Technitium -> ${dnsTargetIp}:`);
 
   for (const route of routes) {
     const hostname = new URL(route.url).hostname;
@@ -384,20 +384,20 @@ const syncHostsFile = () => {
 
   const hostnames = [...new Set(getKnownDevHostnames())];
   const block = [
-    "# BEGIN PartnerUp design web dev hosts",
+    "# BEGIN PartnerUp UI web dev hosts",
     ...hostnames.map((hostname) => `${hostsTargetIp} ${hostname}`),
-    "# END PartnerUp design web dev hosts",
+    "# END PartnerUp UI web dev hosts",
   ].join("\n");
 
   const existingHosts = readFileSync(hostsPath, "utf8");
   const blockPattern =
-    /(?:^|\n)# BEGIN PartnerUp design web dev hosts\n[\s\S]*?\n# END PartnerUp design web dev hosts/g;
+    /(?:^|\n)# BEGIN PartnerUp (?:design|UI) web dev hosts\n[\s\S]*?\n# END PartnerUp (?:design|UI) web dev hosts/g;
   const nextHosts = blockPattern.test(existingHosts)
     ? existingHosts.replace(blockPattern, `\n${block}`)
     : `${existingHosts.trimEnd()}\n\n${block}\n`;
 
   writeFileSync(hostsPath, nextHosts.endsWith("\n") ? nextHosts : `${nextHosts}\n`);
-  console.log(`Synced ${hostnames.length} PartnerUp design web dev host entries to ${hostsPath}.`);
+  console.log(`Synced ${hostnames.length} PartnerUp UI web dev host entries to ${hostsPath}.`);
 };
 
 const runPostReadinessHooks = async () => {
@@ -409,7 +409,7 @@ const runPostReadinessHooks = async () => {
       throw error;
     }
 
-    console.warn(`Design web dev route post-readiness hook failed: ${error.message}`);
+    console.warn(`UI web dev route post-readiness hook failed: ${error.message}`);
   }
 };
 
@@ -602,10 +602,10 @@ const main = async () => {
 
   if (shouldRunForeground) {
     if (unavailableRoutes.length === 0) {
-      console.log("Design web story dev server is already ready.");
+      console.log("UI web story dev server is already ready.");
       console.log("Foreground mode will take over the route so this terminal owns the logs.");
     } else {
-      console.log("Foreground mode will start or take over the design web story route.");
+      console.log("Foreground mode will start or take over the UI web story route.");
     }
 
     for (const route of routes) {
@@ -617,7 +617,7 @@ const main = async () => {
 
     try {
       firstForegroundResult = await Promise.race([
-        waitForRoutesReady("Design web story dev server is ready:").then(() => ({
+        waitForRoutesReady("UI web story dev server is ready:").then(() => ({
           type: "ready",
         })),
         foreground.exitPromise.then((exitCode) => ({
@@ -642,7 +642,7 @@ const main = async () => {
   }
 
   if (unavailableRoutes.length === 0) {
-    console.log("Design web story dev server is already ready:");
+    console.log("UI web story dev server is already ready:");
     for (const route of routes) {
       console.log(`  ${route.url}`);
     }
@@ -654,7 +654,7 @@ const main = async () => {
     startDetachedDevServer(route);
   }
 
-  await waitForRoutesReady("Design web story dev server is ready:");
+  await waitForRoutesReady("UI web story dev server is ready:");
   await runPostReadinessHooks();
 };
 

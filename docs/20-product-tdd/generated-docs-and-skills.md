@@ -7,7 +7,7 @@ Generated output is not durable source.
 The generated web skill lives under:
 
 ```text
-packages/web/skills/design-web/
+packages/web/skills/ui-web/
 ```
 
 Source inputs:
@@ -22,13 +22,13 @@ docs/30-unit-tdd/web/composition-principles.md
 Regeneration command:
 
 ```powershell
-pnpm --filter @partner-up-dev/design-web run skill:generate
+pnpm --filter @partner-up-dev/ui-web run skill:generate
 ```
 
 Check command:
 
 ```powershell
-pnpm --filter @partner-up-dev/design-web run skill:generate:check
+pnpm --filter @partner-up-dev/ui-web run skill:generate:check
 ```
 
 ## Source Ownership

@@ -1,11 +1,13 @@
-# PartnerUp Design
+# PartnerUp UI
 
-This is a monorepo of partner-up's design (design system in code, common components) for multiple platform (includes web, uniapp, clutter and more).
+This is a monorepo of PartnerUp UI packages: design-system code, shared
+components, and platform-specific UI foundations for web, UniApp, Clutter, and
+future targets.
 
 ## Packages
 
-- `@partner-up-dev/design-web` - Design system for Vue web applications
-- `@partner-up-dev/design-uniapp` - Design system for UniApp
+- `@partner-up-dev/ui-web` - UI system for Vue web applications
+- `@partner-up-dev/ui-uniapp` - UI system for UniApp
 
 ## Publishing
 
@@ -57,6 +59,6 @@ To install a published package from GitHub Package Registry, configure your `.np
 Then install the package:
 
 ```bash
-npm install @partner-up-dev/design-web
-npm install @partner-up-dev/design-uniapp
+npm install @partner-up-dev/ui-web
+npm install @partner-up-dev/ui-uniapp
 ```

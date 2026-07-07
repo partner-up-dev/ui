@@ -1,11 +1,11 @@
-# Design Web Portless Homelab DNS
+# UI Web Portless Homelab DNS
 
 ## Objective & Hypothesis
 
-Objective: align the design web Histoire dev-server workflow with the PartnerUp
+Objective: align the UI web Histoire dev-server workflow with the PartnerUp
 homelab portless model so the story UI can run as:
 
-- `design-web.partner-up.d.home.arpa`
+- `ui-web.partner-up.d.home.arpa`
 
 Hypothesis:
 
@@ -42,10 +42,10 @@ pnpm dev:ensure --lan --ip <reachable-lan-ip>
 
 ## Implementation Notes
 
-- App identity stays `design-web`; the TLD `partner-up.d.home.arpa` produces
-  `design-web.partner-up.d.home.arpa`.
+- App identity stays `ui-web`; the TLD `partner-up.d.home.arpa` produces
+  `ui-web.partner-up.d.home.arpa`.
 - DNS registration is opt-in and writes only selected ready routes.
-- Hosts sync is opt-in and writes the base suffix plus known design dev route
+- Hosts sync is opt-in and writes the base suffix plus known UI dev route
   hosts to the configured hosts file.
 
 ## Verification
@@ -55,7 +55,7 @@ pnpm dev:ensure --lan --ip <reachable-lan-ip>
 - `node --check tasks/dev-portless-homelab-dns/technitium-dns-smoke.mjs`
 - JSON parse checks for `.vscode/tasks.json`, `.vscode/launch.json`, and
   `package.json`
-- `pnpm --filter @partner-up-dev/design-web run type-check`
+- `pnpm --filter @partner-up-dev/ui-web run type-check`
 - Task-local Technitium dry-run/apply smoke after `.env` is configured.
 
 ## Verification Results
@@ -67,12 +67,12 @@ pnpm dev:ensure --lan --ip <reachable-lan-ip>
 - `package.json`, `packages/web/package.json`, `.vscode/tasks.json`, and
   `.vscode/launch.json` parse as valid JSON.
 - Task-local DNS dry-run computed:
-  `design-web.partner-up.d.home.arpa -> 172.16.249.14`.
+  `ui-web.partner-up.d.home.arpa -> 172.16.249.14`.
 - VS Code DNS env was synchronized from the `mvp-HA` workspace-local VS Code
   config; no task-local `.env` is kept.
 - Task-local Technitium apply passed and verified:
-  `design-web.partner-up.d.home.arpa -> 172.16.249.14`.
-- `pnpm --filter @partner-up-dev/design-web exec vue-tsc --noEmit` passed.
-- `pnpm --filter @partner-up-dev/design-web run type-check` is currently
+  `ui-web.partner-up.d.home.arpa -> 172.16.249.14`.
+- `pnpm --filter @partner-up-dev/ui-web exec vue-tsc --noEmit` passed.
+- `pnpm --filter @partner-up-dev/ui-web run type-check` is currently
   blocked by an existing generated-file check:
   `Generated file is stale: src/version.ts`.

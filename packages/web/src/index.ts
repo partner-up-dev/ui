@@ -1,5 +1,5 @@
 /*
- * Main Entry Point for PartnerUp Design System (Web)
+ * Main Entry Point for PartnerUp UI System (Web)
  * Exports all components, styles, and utilities.
  */
 

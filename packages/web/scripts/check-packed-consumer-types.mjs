@@ -11,7 +11,7 @@ const workRoot = path.join(packageRoot, ".tmp", "packed-consumer-types");
 const packRoot = path.join(workRoot, "pack");
 const extractRoot = path.join(workRoot, "extract");
 const consumerRoot = path.join(workRoot, "consumer");
-const packedPackageRoot = path.join(consumerRoot, "node_modules", "@partner-up-dev", "design-web");
+const packedPackageRoot = path.join(consumerRoot, "node_modules", "@partner-up-dev", "ui-web");
 
 const run = (command, args, options = {}) =>
   new Promise((resolve, reject) => {
@@ -134,14 +134,14 @@ const writeConsumerProject = async () => {
 
   await writeFile(
     path.join(consumerRoot, "index.ts"),
-    `import PartnerUpDesignWeb, {
+    `import PartnerUpUiWeb, {
   PuButton,
   version,
   usePuId,
   type PuAction,
   type PuButtonFeedback,
   type PuCardVariant,
-} from '@partner-up-dev/design-web'
+} from '@partner-up-dev/ui-web'
 import type { GlobalComponents } from 'vue'
 
 const feedback: PuButtonFeedback = 'success'
@@ -152,11 +152,11 @@ const action: PuAction = { href: '/billing' }
 const cardVariant: PuCardVariant = 'soft'
 const button: GlobalComponents['PuButton'] = PuButton
 const id = usePuId('consumer')
-const installer = PartnerUpDesignWeb.install
+const installer = PartnerUpUiWeb.install
 const releaseVersion: string = version
 
 // @ts-expect-error raw component source subpaths are not public package API
-type RawButtonModule = typeof import('@partner-up-dev/design-web/components/puButton/puButton')
+type RawButtonModule = typeof import('@partner-up-dev/ui-web/components/puButton/puButton')
 
 void [feedback, invalidFeedback, action, cardVariant, button, id, installer, releaseVersion]
 `,
@@ -171,7 +171,7 @@ void [feedback, invalidFeedback, action, cardVariant, button, id, installer, rel
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { PuButtonFeedback } from '@partner-up-dev/design-web'
+import type { PuButtonFeedback } from '@partner-up-dev/ui-web'
 
 const feedback = ref<PuButtonFeedback>('idle')
 </script>

@@ -4,14 +4,14 @@ This file owns durable technical policy about what package releases expose.
 
 ## Root Package
 
-The root `@partner-up-dev/design` package is private and owns workspace scripts.
+The root `@partner-up-dev/ui` package is private and owns workspace scripts.
 
 ## Web Package
 
 Release identity:
 
 ```text
-@partner-up-dev/design-web
+@partner-up-dev/ui-web
 ```
 
 Published surface:
@@ -34,9 +34,9 @@ imported from the package root. The web package does not expose
 
 The `./uno` export exposes the default PartnerUp UnoCSS preset plus named
 package-owned safelist constants. The default preset includes the package-owned
-icon safelist so downstream apps that use `partnerUpDesignPreset()` generate
+icon safelist so downstream apps that use `partnerUpUiPreset()` generate
 CSS for built-in component `i-mdi-*` icons even when the icon class only appears
-inside the published design package. Consumers that do not use the preset may
+inside the published UI package. Consumers that do not use the preset may
 merge the exported safelist manually.
 
 ## UniApp Package
@@ -44,7 +44,7 @@ merge the exported safelist manually.
 Release identity:
 
 ```text
-@partner-up-dev/design-uniapp
+@partner-up-dev/ui-uniapp
 ```
 
 Published package contents are source-oriented. Treat `src/components`,

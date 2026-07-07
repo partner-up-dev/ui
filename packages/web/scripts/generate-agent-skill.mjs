@@ -13,7 +13,7 @@ const seedPath = path.join(packageRoot, "skill.seed.json");
 const packageJsonPath = path.join(packageRoot, "package.json");
 const registryPath = path.join(packageRoot, "src", "component-registry.ts");
 const storiesRoot = path.join(packageRoot, "src", "stories");
-const outputRoot = path.join(packageRoot, "skills", "design-web");
+const outputRoot = path.join(packageRoot, "skills", "ui-web");
 const checkMode = process.argv.includes("--check");
 
 const toPosixPath = (value) => value.split(path.sep).join("/");
@@ -684,7 +684,7 @@ ${GENERATED_HEADER}
 ## Use When
 
 Use this skill when building Vue application UI with \`${model.packageName}\` or
-when a task asks which PartnerUp design component to use.
+when a task asks which PartnerUp UI component to use.
 
 ## First Steps
 
@@ -705,9 +705,9 @@ import { PuButton } from '${model.packageName}'
 Use the plugin when the app should register all package components globally:
 
 \`\`\`ts
-import PartnerUpDesignWeb from '${model.packageName}'
+import PartnerUpUiWeb from '${model.packageName}'
 
-app.use(PartnerUpDesignWeb)
+app.use(PartnerUpUiWeb)
 \`\`\`
 
 Load the package stylesheet according to the consuming app's build setup. The
@@ -741,7 +741,7 @@ ${model.skillReferences.map((reference) => `- \`${reference.target}\`: ${referen
 
 ## Avoid
 
-- Do not edit the design package unless the user explicitly asks to maintain it.
+- Do not edit the UI package unless the user explicitly asks to maintain it.
 - Do not invent new PartnerUp components in consumer code.
 - Do not replace package components with local cards, rows, alerts, or upload controls when a matching component exists.
 - Do not load every component reference by default; load only the files relevant to the task.

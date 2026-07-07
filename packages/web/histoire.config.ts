@@ -87,7 +87,7 @@ export function setupVanilla() {}
     ],
   },
   theme: {
-    title: "PartnerUp Design Web",
+    title: "PartnerUp UI Web",
     defaultColorScheme: "light",
   },
   backgroundPresets: [

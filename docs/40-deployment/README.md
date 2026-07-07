@@ -1,7 +1,7 @@
 # Deployment
 
 This layer owns release, publish, rollback, and operational truth for the
-PartnerUp Design packages.
+PartnerUp UI packages.
 
 ## Files
 

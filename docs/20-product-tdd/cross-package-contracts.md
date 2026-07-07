@@ -1,7 +1,7 @@
 # Cross-Package Contracts
 
-This file owns compatibility policy between `@partner-up-dev/design-web` and
-`@partner-up-dev/design-uniapp`.
+This file owns compatibility policy between `@partner-up-dev/ui-web` and
+`@partner-up-dev/ui-uniapp`.
 
 ## Public Naming
 

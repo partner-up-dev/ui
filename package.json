@@ -1,14 +1,14 @@
 {
-	"name": "@partner-up-dev/design",
+	"name": "@partner-up-dev/ui",
 	"version": "0.0.0",
 	"private": true,
-	"description": "PartnerUp Design System Monorepo",
+	"description": "PartnerUp UI System Monorepo",
 	"scripts": {
 		"dev:ensure": "node ./scripts/ensure-dev-servers.mjs",
 		"dev:ensure:lan": "node ./scripts/ensure-dev-servers.mjs --lan",
 		"dev:portless": "node ./scripts/portless.mjs",
-		"dev:portless:web": "node ./scripts/portless.mjs --name design-web -- pnpm --filter @partner-up-dev/design-web exec node scripts/histoire-dev-portless.mjs",
-		"dev:portless:web:lan": "node ./scripts/portless.mjs --lan --name design-web -- pnpm --filter @partner-up-dev/design-web exec node scripts/histoire-dev-portless.mjs",
+		"dev:portless:web": "node ./scripts/portless.mjs --name ui-web -- pnpm --filter @partner-up-dev/ui-web exec node scripts/histoire-dev-portless.mjs",
+		"dev:portless:web:lan": "node ./scripts/portless.mjs --lan --name ui-web -- pnpm --filter @partner-up-dev/ui-web exec node scripts/histoire-dev-portless.mjs",
 		"build": "pnpm -r run --if-present build",
 		"changeset": "changeset",
 		"version": "changeset version",
