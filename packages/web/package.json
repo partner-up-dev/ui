@@ -1,6 +1,6 @@
 {
   "name": "@partner-up-dev/ui-web",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "PartnerUp UI System for Web",
   "type": "module",
   "main": "./dist/index.js",
