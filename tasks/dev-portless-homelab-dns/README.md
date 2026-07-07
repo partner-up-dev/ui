@@ -19,6 +19,7 @@ Hypothesis:
 ## Configuration Contract
 
 - `--tld <suffix>` / `PORTLESS_TLD`
+- `PORTLESS_DOMAIN_BASE`
 - `--dns-provider technitium` / `DEV_DNS_PROVIDER=technitium`
 - `--dns-ip <ipv4>` / `DEV_DNS_TARGET_IP`
 - `DEV_DNS_ZONE`
@@ -36,17 +37,23 @@ TECHNITIUM_API_URL=http://<technitium-host>:5380 \
 TECHNITIUM_API_TOKEN=<api-token> \
 DEV_DNS_PROVIDER=technitium \
 DEV_DNS_ZONE=partner-up.d.home.arpa \
-PORTLESS_TLD=partner-up.d.home.arpa \
-pnpm dev:ensure --lan --ip <reachable-lan-ip>
+PORTLESS_DOMAIN_BASE=partner-up.d.home \
+PORTLESS_TLD=arpa \
+pnpm dev:ensure --ip <reachable-lan-ip>
 ```
 
 ## Implementation Notes
 
-- App identity stays `ui-web`; the TLD `partner-up.d.home.arpa` produces
-  `ui-web.partner-up.d.home.arpa`.
+- App identity stays `ui-web`; `PORTLESS_DOMAIN_BASE=partner-up.d.home` with
+  `PORTLESS_TLD=arpa` produces `ui-web.partner-up.d.home.arpa`.
+- Custom TLD homelab mode does not pass portless LAN mode through because
+  portless LAN forces `.local`; `--ip` is still accepted as the DNS target IP.
 - DNS registration is opt-in and writes only selected ready routes.
 - Hosts sync is opt-in and writes the base suffix plus known UI dev route
   hosts to the configured hosts file.
+- `/etc/hosts` writes can be run separately through `pnpm dev:hosts:sync` or the
+  VS Code hosts-sync task; the separate path does not carry Technitium secrets
+  or start dev servers.
 
 ## Verification
 

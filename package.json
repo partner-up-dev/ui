@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev:ensure": "node ./scripts/ensure-dev-servers.mjs",
 		"dev:ensure:lan": "node ./scripts/ensure-dev-servers.mjs --lan",
+		"dev:hosts:sync": "node ./scripts/sync-dev-hosts.mjs",
 		"dev:portless": "node ./scripts/portless.mjs",
 		"dev:portless:web": "node ./scripts/portless.mjs --name ui-web -- pnpm --filter @partner-up-dev/ui-web exec node scripts/histoire-dev-portless.mjs",
 		"dev:portless:web:lan": "node ./scripts/portless.mjs --lan --name ui-web -- pnpm --filter @partner-up-dev/ui-web exec node scripts/histoire-dev-portless.mjs",

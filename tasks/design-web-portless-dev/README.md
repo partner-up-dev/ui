@@ -11,10 +11,14 @@ portless naming scheme.
 - The normal local URL is `https://ui-web.localhost`.
 - LAN mode uses portless LAN routing and expects `https://ui-web.local`
   unless an explicit TLD is provided.
-- Homelab mode uses `PORTLESS_TLD=partner-up.d.home.arpa`, producing
-  `https://ui-web.partner-up.d.home.arpa`.
+- Homelab mode uses `PORTLESS_DOMAIN_BASE=partner-up.d.home` with
+  `PORTLESS_TLD=arpa`, producing `https://ui-web.partner-up.d.home.arpa`.
+- Homelab mode uses the reachable IP as DNS target input, but it does not use
+  portless LAN mode because portless LAN mode forces `.local`.
 - Technitium DNS registration and WSL hosts sync are opt-in through
   `DEV_DNS_PROVIDER=technitium` and `DEV_HOSTS_SYNC=1`.
+- `/etc/hosts` updates use the separate `dev:hosts:sync` command or VS Code
+  task, so the full dev server does not need elevated privileges.
 - Non-LAN scripts set `PORTLESS_LAN=0` so a previously-started LAN proxy does
   not silently change the expected `.localhost` route.
 - Root scripts own ensure behavior so agents can start or reuse the dev server
